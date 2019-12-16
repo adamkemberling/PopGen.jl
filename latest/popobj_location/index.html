@@ -641,38 +641,27 @@
                 <h2 id="location-data">Location Data</h2>
 <p>Notice the <code>No location data provided</code> text on the second line of output when you show a <code>PopObj</code>, like demonstrated on the previous page. That text exists as a "heads up" rather than a warning because <strong>location data is optional</strong> for a <code>PopObj</code>. There are functions that use location information (e.g. <code>locations</code>and <code>plot_locations</code>), but most don't, so it's not a dealbreaker. If you add location information, displaying the <code>PopObj</code> again will show you output now including this information:</p>
 <div class="codehilite"><pre><span></span>julia&gt; a = gulfsharks() ; summary(a)
-Object of type PopObj:
+ Object of type PopObj
+ Marker type: SNP
+ Ploidy: 2
 
-Longitude:
-[&quot;26&quot;, &quot;7&quot;, &quot;21&quot;] … [&quot;25&quot;, &quot;26&quot;, &quot;29&quot;]
+ Number of individuals: 212
+ Number of loci: 2213
+ Longitude: present with 0 missing
+ Latitude: present with 0 missing
 
-Latitude:
-[&quot;10&quot;, &quot;10&quot;, &quot;40&quot;] … [&quot;3&quot;, &quot;5&quot;, &quot;46&quot;]
-
-
-Number of individuals: 212
-[&quot;cca_001&quot;, &quot;cca_002&quot;, &quot;cca_003&quot;] … [&quot;seg_029&quot;, &quot;seg_030&quot;, &quot;seg_031&quot;]
-
-Number of loci: 2213
-[&quot;Contig_35208&quot;, &quot;Contig_23109&quot;, &quot;Contig_4493&quot;] … [&quot;Contig_19384&quot;, &quot;Contig_22368&quot;, &quot;Contig_2784&quot;]
-
-Ploidy: 2
-Number of populations: 7
-
-Population names and counts:
-7×2 DataFrames.DataFrame
-│ Row │ population       │ count │
-│     │ Categorical…⍰    │ Int32 │
-├─────┼──────────────────┼───────┤
-│ 1   │ &quot;Cape Canaveral&quot; │ 21    │
-│ 2   │ &quot;Georgia&quot;        │ 30    │
-│ 3   │ &quot;South Carolina&quot; │ 28    │
-│ 4   │ &quot;Florida Keys&quot;   │ 65    │
-│ 5   │ &quot;Mideast Gulf&quot;   │ 28    │
-│ 6   │ &quot;Northeast Gulf&quot; │ 20    │
-│ 7   │ &quot;Southeast Gulf&quot; │ 20    │
-
-Available .samples fields: .name, .population, .ploidy, .longitude, .latitude
+ Population names and counts:
+7×2 DataFrame
+│ Row │ population     │ count │
+│     │ Union…         │ Int64 │
+├─────┼────────────────┼───────┤
+│ 1   │ Cape Canaveral │ 21    │
+│ 2   │ Georgia        │ 30    │
+│ 3   │ South Carolina │ 28    │
+│ 4   │ Florida Keys   │ 65    │
+│ 5   │ Mideast Gulf   │ 28    │
+│ 6   │ Northeast Gulf │ 20    │
+│ 7   │ Southeast Gulf │ 20    │
 </pre></div>
 
 <div class="admonition info">
