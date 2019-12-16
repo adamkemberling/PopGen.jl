@@ -353,8 +353,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../delimited/" title="CSV and delimited" class="md-nav__link">
-      CSV and delimited
+    <a href="../file_import/" title="Reading in Data" class="md-nav__link">
+      Reading in Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../delimited/" title="Delimited" class="md-nav__link">
+      Delimited
     </a>
   </li>
 
@@ -643,42 +655,37 @@
 <p>We include the familiar nancycats microsatellite data, as featured in <code>adegenet</code>, for easy importing into PopGen.jl as a <code>PopObj</code>.  </p>
 <p>To use those data, simply invoke <code>nancycats()</code> without any arguments.</p>
 <div class="codehilite"><pre><span></span>julia&gt; ncats = nancycats() ; summary(ncats)
-Object of type PopObj:
-No location data provided
+ Object of type PopObj
+ Marker type: Microsatellite
+ Ploidy: 2
 
-Number of individuals: 237
-[&quot;N215&quot;, &quot;N216&quot;, &quot;N217&quot;] … [&quot;N281&quot;, &quot;N289&quot;, &quot;N290&quot;]
+ Number of individuals: 237
+ Number of loci: 9
+ Longitude: none provided
+ Latitude: none provided
 
-Number of loci: 9
-[&quot;fca8&quot;, &quot;fca23&quot;, &quot;fca43&quot;] … [&quot;fca90&quot;, &quot;fca96&quot;, &quot;fca37&quot;]
-
-Ploidy: 2
-Number of populations: 17
-
-Population names and counts:
-17×2 DataFrames.DataFrame
-│ Row │ population    │ count │
-│     │ Categorical…⍰ │ Int32 │
-├─────┼───────────────┼───────┤
-│ 1   │ &quot;1&quot;           │ 10    │
-│ 2   │ &quot;2&quot;           │ 22    │
-│ 3   │ &quot;3&quot;           │ 12    │
-│ 4   │ &quot;4&quot;           │ 23    │
-│ 5   │ &quot;5&quot;           │ 15    │
-│ 6   │ &quot;6&quot;           │ 11    │
-│ 7   │ &quot;7&quot;           │ 14    │
-│ 8   │ &quot;8&quot;           │ 10    │
-│ 9   │ &quot;9&quot;           │ 9     │
-│ 10  │ &quot;10&quot;          │ 11    │
-│ 11  │ &quot;11&quot;          │ 20    │
-│ 12  │ &quot;12&quot;          │ 14    │
-│ 13  │ &quot;13&quot;          │ 13    │
-│ 14  │ &quot;14&quot;          │ 17    │
-│ 15  │ &quot;15&quot;          │ 11    │
-│ 16  │ &quot;16&quot;          │ 12    │
-│ 17  │ &quot;17&quot;          │ 13    │
-
-Available .samples fields: .name, .population, .ploidy, .longitude, .latitude
+ Population names and counts:
+17×2 DataFrame
+│ Row │ population │ count │
+│     │ Union…     │ Int64 │
+├─────┼────────────┼───────┤
+│ 1   │ P01        │ 10    │
+│ 2   │ P02        │ 22    │
+│ 3   │ P03        │ 12    │
+│ 4   │ P04        │ 23    │
+│ 5   │ P05        │ 15    │
+│ 6   │ P06        │ 11    │
+│ 7   │ P07        │ 14    │
+│ 8   │ P08        │ 10    │
+│ 9   │ P09        │ 9     │
+│ 10  │ P10        │ 11    │
+│ 11  │ P11        │ 20    │
+│ 12  │ P12        │ 14    │
+│ 13  │ P13        │ 13    │
+│ 14  │ P14        │ 17    │
+│ 15  │ P15        │ 11    │
+│ 16  │ P16        │ 12    │
+│ 17  │ P17        │ 13    │
 </pre></div>
 
 <p>The spatial coordinates provided for the dataset in <code>adegenet</code> are completely unfamiliar to us (and some geospatial folks we spoke to), so they have been omitted.  If you recognize what coordinate system has 485.111 appear in Nancy, France, please let us know!</p>
@@ -686,38 +693,27 @@ Available .samples fields: .name, .population, .ploidy, .longitude, .latitude
 <p>We also include the SNP dataset used in Dimens <em>et al.</em> 2019 "<a href="https://link.springer.com/article/10.1007/s00227-019-3533-1">A <strong>genomic</strong> assessment of movement and gene flow around the South Florida vicariance zone in the migratory coastal <strong>blacknose shark</strong>, <em>Carcharhinus acronotus</em></a>" since it was already on hand. Like <code>nancycats</code>, we provide a convenient function to load these data into PopGen.jl as a <code>PopObj</code>.</p>
 <p>To use those data, simply invoke <code>gulfsharks()</code> without any arguments. </p>
 <div class="codehilite"><pre><span></span>julia&gt; sharks = gulfsharks() ; summary(sharks)
-Object of type PopObj:
+ Object of type PopObj
+ Marker type: SNP
+ Ploidy: 2
 
-Longitude:
-[&quot;-80.59928&quot;, &quot;-80.59954&quot;, &quot;-80.59958&quot;] … [&quot;-87.36617&quot;, &quot;-85.71432&quot;, &quot;-85.71432&quot;]
+ Number of individuals: 212
+ Number of loci: 2213
+ Longitude: present with 0 missing
+ Latitude: present with 0 missing
 
-Latitude:
-[&quot;28.30624&quot;, &quot;28.30787&quot;, &quot;28.30234&quot;] … [&quot;30.05217&quot;, &quot;29.82344&quot;, &quot;29.82344&quot;]
-
-
-Number of individuals: 212
-[&quot;cc_001&quot;, &quot;cc_002&quot;, &quot;cc_003&quot;] … [&quot;seg_029&quot;, &quot;seg_030&quot;, &quot;seg_031&quot;]
-
-Number of loci: 2213
-[&quot;contig_35208&quot;, &quot;contig_23109&quot;, &quot;contig_4493&quot;] … [&quot;contig_19384&quot;, &quot;contig_22368&quot;, &quot;contig_2784&quot;]
-
-Ploidy: 2
-Number of populations: 7
-
-Population names and counts:
-7×2 DataFrames.DataFrame
-│ Row │ population       │ count │
-│     │ Categorical…⍰    │ Int32 │
-├─────┼──────────────────┼───────┤
-│ 1   │ &quot;Cape Canaveral&quot; │ 21    │
-│ 2   │ &quot;Georgia&quot;        │ 30    │
-│ 3   │ &quot;South Carolina&quot; │ 28    │
-│ 4   │ &quot;Florida Keys&quot;   │ 65    │
-│ 5   │ &quot;Mideast Gulf&quot;   │ 28    │
-│ 6   │ &quot;Northeast Gulf&quot; │ 20    │
-│ 7   │ &quot;Southeast Gulf&quot; │ 20    │
-
-Available .samples fields: .name, .population, .ploidy, .longitude, .latitude
+ Population names and counts:
+7×2 DataFrame
+│ Row │ population     │ count │
+│     │ Union…         │ Int64 │
+├─────┼────────────────┼───────┤
+│ 1   │ Cape Canaveral │ 21    │
+│ 2   │ Georgia        │ 30    │
+│ 3   │ South Carolina │ 28    │
+│ 4   │ Florida Keys   │ 65    │
+│ 5   │ Mideast Gulf   │ 28    │
+│ 6   │ Northeast Gulf │ 20    │
+│ 7   │ Southeast Gulf │ 20    │
 </pre></div>
                 
                   

@@ -418,8 +418,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../delimited/" title="CSV and delimited" class="md-nav__link">
-      CSV and delimited
+    <a href="../file_import/" title="Reading in Data" class="md-nav__link">
+      Reading in Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../delimited/" title="Delimited" class="md-nav__link">
+      Delimited
     </a>
   </li>
 
@@ -720,8 +732,7 @@
 <label for="__tab_3_0">R</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="nf">microbenchmark</span><span class="p">(</span><span class="nf">read.genepop</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s">&quot;/home/pdimens/gulfsharks.gen&quot;</span><span class="p">,</span> <span class="n">ncode</span> <span class="o">=</span> <span class="m">3L</span><span class="p">,</span> <span class="n">quiet</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
 <span class="n">Unit</span><span class="o">:</span> <span class="n">seconds</span>
-                                                                                <span class="n">expr</span>
- <span class="nf">read.genepop</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s">&quot;/home/pdimens/gulfsharks.gen&quot;</span><span class="p">,</span> <span class="n">ncode</span> <span class="o">=</span> <span class="m">3L</span><span class="p">,</span>      <span class="n">quiet</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+ <span class="nf">read.genepop</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s">&quot;/home/pdimens/gulfsharks.gen&quot;</span><span class="p">,</span> <span class="n">ncode</span> <span class="o">=</span> <span class="m">3L</span><span class="p">,</span> <span class="n">quiet</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
       <span class="n">min</span>       <span class="n">lq</span>     <span class="n">mean</span>   <span class="n">median</span>       <span class="n">uq</span>      <span class="n">max</span> <span class="n">neval</span>
  <span class="m">5.670637</span> <span class="m">6.218719</span> <span class="m">6.745065</span> <span class="m">6.387936</span> <span class="m">7.019667</span> <span class="m">9.173005</span>   <span class="m">100</span>
 </pre></div></div>
@@ -739,7 +750,7 @@
 <span class="c">#bytes</span>
 </pre></div></div>
 </div>
-<p>vs</p>
+<p>versus</p>
 <div class="superfences-tabs">
 <input name="__tabs_5" type="radio" id="__tab_5_0" checked="checked" />
 <label for="__tab_5_0">R</label>
@@ -748,8 +759,8 @@
 </pre></div></div>
 </div>
 <p><img alt="clutches pearls" src="../img/clutches pearls cactus.png" /></p>
-<p>How is that possible?! Well, it's all in the Typing of the genotypes. Each genotype for each locus is encoded as a <code>Tuple</code> of either <code>Int8</code> (if SNPs) or <code>Int16</code> (if msats) to absolutely minimize their footprint without further going into byte-level encoding (so you can still see human-readable alleles). And the PopObj is also something called an <em>Immutable Struct</em>, which is a special class of performant objects.</p>
-<p>The original file is <code>3.2mb</code>. These data take up ~<code>1.6mb</code> in memory as a <code>PopObj</code> versus the ~<code>5.3mb</code> of a <code>genind</code>, about 3.3x smaller. That's quite a big difference!</p>
+<p><strong>What the eff??</strong> How is that possible?! Well, it's all in the Typing of the genotypes. Each genotype for each locus is encoded as a <code>Tuple</code> of either <code>Int8</code> (if SNPs) or <code>Int16</code> (if msats) to absolutely minimize their footprint without further going into byte-level encoding (so you can still see human-readable alleles). An <code>Int8</code> is a signed integer that occupies 8bits of memory, whereas an <code>Int16</code> occupies 16bits (as compared to a standard <code>Int64</code>).</p>
+<p>The original file is <code>3.2mb</code>, and our <code>PopObj</code>takes up ~<code>1.6mb</code> in memory (half as big as the source file!) versus the ~<code>5.3mb</code> of a <code>genind</code>, which is ~1.5x larger than the source file and ~3.3x larger than our <code>PopObj</code>. That's quite a big difference!</p>
 <p>Julia  <img alt="🏡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3e1.svg" title=":house_with_garden:" /> ​   |    R  <img alt="🏰" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3f0.svg" title=":european_castle:" /></p>
 <h3 id="chi-squared-test-for-hwe">Chi-squared test for HWE</h3>
 <p>This is a classic popgen test and a relatively simple one. </p>
@@ -771,7 +782,7 @@
 </pre></div></div>
 </div>
 <p>Comparing averages, PopGen.jl clocks in at <code>486ms</code> versus adegenet's <code>6.3s</code>, so ~13x faster.</p>
-<p>Julia  <img alt="🚀" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f680.svg" title=":rocket:" /> |  R  <img alt="🐌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f40c.svg" title=":snail:" /></p>
+<p>Julia  <img alt="🚀" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f680.svg" title=":rocket:" />  |   R  <img alt="🐌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f40c.svg" title=":snail:" /></p>
                 
                   
                 

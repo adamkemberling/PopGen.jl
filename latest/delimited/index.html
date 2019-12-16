@@ -40,7 +40,7 @@
     
     
       
-        <title>CSV and delimited - PopGen.jl</title>
+        <title>Delimited - PopGen.jl</title>
       
     
     
@@ -89,7 +89,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#formatting" tabindex="1" class="md-skip">
+      <a href="#import-a-csvdelimited-file-as-a-popobj" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -115,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                CSV and delimited
+                Delimited
               
             </span>
           
@@ -353,6 +353,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../file_import/" title="Reading in Data" class="md-nav__link">
+      Reading in Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -362,11 +374,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        CSV and delimited
+        Delimited
       </label>
     
-    <a href="./" title="CSV and delimited" class="md-nav__link md-nav__link--active">
-      CSV and delimited
+    <a href="./" title="Delimited" class="md-nav__link md-nav__link--active">
+      Delimited
     </a>
     
       
@@ -376,26 +388,6 @@
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#formatting" class="md-nav__link">
-    Formatting
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#formatting-examples" class="md-nav__link">
-    Formatting examples
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#import-a-csvdelimited-file-as-a-popobj" class="md-nav__link">
@@ -415,6 +407,26 @@
           <li class="md-nav__item">
   <a href="#keyword-arguments" class="md-nav__link">
     Keyword Arguments
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formatting" class="md-nav__link">
+    Formatting
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formatting-examples" class="md-nav__link">
+    Formatting examples
   </a>
   
 </li>
@@ -639,26 +651,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#formatting" class="md-nav__link">
-    Formatting
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#formatting-examples" class="md-nav__link">
-    Formatting examples
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#import-a-csvdelimited-file-as-a-popobj" class="md-nav__link">
     Import a CSV/delimited file as a PopObj
   </a>
@@ -676,6 +668,26 @@
           <li class="md-nav__item">
   <a href="#keyword-arguments" class="md-nav__link">
     Keyword Arguments
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formatting" class="md-nav__link">
+    Formatting
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formatting-examples" class="md-nav__link">
+    Formatting examples
   </a>
   
 </li>
@@ -704,45 +716,17 @@
                   <a href="https://github.com/pdimens/PopGen.jl/edit/master/docs/delimited.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>CSV and delimited</h1>
+                  <h1>Delimited</h1>
                 
-                <h2 id="formatting">Formatting</h2>
-<ul>
-<li>Loci names must be first row</li>
-<li>Individuals names must be first value in row</li>
-<li>Population ID's must be second value in row</li>
-<li><strong>Optional:</strong> longitude (x) values third value in row, latitude (y) fourth value in row</li>
-</ul>
-<h3 id="formatting-examples">Formatting examples</h3>
-<div class="superfences-tabs">
-<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
-<label for="__tab_1_0">without locations</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>Locus1,Locus2,Locus3
-sierra_01,1,001001,002002,001001
-sierra_02,1,001001,001001,001002
-snbarb_03,2,001001,001001,001002
-snbarb_02,2,001001,001001,001001
-snbarb_03,2,001002,001001,001001
-</pre></div></div>
-<input name="__tabs_1" type="radio" id="__tab_1_1" />
-<label for="__tab_1_1">with locations</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>Locus1,Locus2,Locus3
-sierra_01,1,14.1,15.2,001001,002002,001001
-sierra_02,1,34.1,26.1,001001,001001,001002
-snbarb_03,2,45.1,-11.2,001001,001001,001002
-snbarb_02,2,-11.5,11.6,001001,001001,001001
-snbarb_03,2,-3.1,43.2,001002,001001,001001
-</pre></div></div>
-</div>
-<h2 id="import-a-csvdelimited-file-as-a-popobj">Import a CSV/delimited file as a <code>PopObj</code></h2>
+                <h2 id="import-a-csvdelimited-file-as-a-popobj">Import a CSV/delimited file as a <code>PopObj</code></h2>
 <div class="admonition warning">
 <p class="admonition-title">Windows users</p>
 <p>make sure to change your backslashes "\" to forward slashes "/" </p>
 </div>
-<div class="codehilite"><pre><span></span><span class="n">csv</span><span class="p">(</span><span class="n">infile</span><span class="p">;</span> <span class="n">delim</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">location</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s">&quot;snp&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">csv</span><span class="p">(</span><span class="n">infile</span><span class="p">;</span> <span class="n">delim</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s">&quot;snp&quot;</span><span class="p">)</span>
 
 <span class="c"># Example</span>
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">csv</span><span class="p">(</span><span class="s">&quot;/data/cali_poppy.csv&quot;</span><span class="p">,</span> <span class="n">delim</span> <span class="o">=</span> <span class="s">&quot;,&quot;</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">csv</span><span class="p">(</span><span class="s">&quot;/data/cali_poppy.csv&quot;</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
 <h3 id="arguments">Arguments</h3>
@@ -751,17 +735,28 @@ snbarb_03,2,-3.1,43.2,001002,001001,001001
 </ul>
 <h3 id="keyword-arguments">Keyword Arguments</h3>
 <ul>
-<li><code class="codehilite"><span class="n">delim</span><span class="o">::</span><span class="kt">Union</span><span class="p">{</span><span class="kt">Char</span><span class="p">,</span><span class="n">String</span><span class="p">,</span><span class="kt">Regex</span><span class="p">}</span></code> : delimiter of the file, can be a string, character, or regex<ul>
-<li>comma: <code>delim = ","</code></li>
-<li>space: <code>delim = " "</code></li>
-<li>tab: <code>delim = "\t"</code></li>
-<li>etc.</li>
+<li><code class="codehilite"><span class="n">delim</span><span class="o">::</span><span class="kt">Union</span><span class="p">{</span><span class="kt">Char</span><span class="p">,</span><span class="n">String</span><span class="p">,</span><span class="kt">Regex</span><span class="p">}</span></code> : delimiter of the file, can be a string, character, or regex</li>
 </ul>
-</li>
+<p><strong>by default, it recognizes any of the basic three (comma, tab, space), so likely no input required</strong></p>
+<ul>
 <li><code class="codehilite"><span class="n">digits</span><span class="o">::</span><span class="kt">Int64</span></code> : the number of digits used to denote an allele (default = 3)</li>
-<li><code class="codehilite"><span class="n">location</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span></code> : true/false of whether location data is present in the file (default = false)</li>
 <li><code class="codehilite">marker::String</code>  : "snp" (default) or "msat" for microsatellites</li>
 </ul>
+<h2 id="formatting">Formatting</h2>
+<ul>
+<li>Loci names must be first row</li>
+<li>Individuals names must be first value in row</li>
+<li>Population ID's must be second value in row</li>
+<li><strong>Optional:</strong> longitude (x) values third value in row, latitude (y) fourth value in row</li>
+</ul>
+<h3 id="formatting-examples">Formatting examples</h3>
+<div class="codehilite"><pre><span></span>name,population,long,lat,Locus1,Locus2,Locus3   <span class="se">\n</span>
+sierra_01,mountain,11.11,-22.22,001001,002002,001001   <span class="se">\n</span>
+sierra_02,mountain,11.12,-22.21,001001,001001,001002   <span class="se">\n</span>
+snbarb_03,coast,0,0,001001,001001,001002 <span class="se">\n</span>
+snbarb_02,coast,11.14,-22.24,001001,001001,001001 <span class="se">\n</span>
+snbarb_03,coast,11.15,0,001002,001001,001001 <span class="se">\n</span>
+</pre></div>
                 
                   
                 
@@ -782,7 +777,7 @@ snbarb_03,2,-3.1,43.2,001002,001001,001001
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../popobj_location/" title="Location data" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../file_import/" title="Reading in Data" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -791,7 +786,7 @@ snbarb_03,2,-3.1,43.2,001002,001001,001001
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Location data
+                Reading in Data
               </span>
             </div>
           </a>

@@ -40,7 +40,7 @@
     
     
       
-        <title>VCF - PopGen.jl</title>
+        <title>Reading in Data - PopGen.jl</title>
       
     
     
@@ -89,7 +89,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#import-a-vcf-file-as-a-popobj" tabindex="1" class="md-skip">
+      <a href="#reading-in-data" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -115,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                VCF
+                Reading in Data
               
             </span>
           
@@ -353,11 +353,63 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../file_import/" title="Reading in Data" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Reading in Data
+      </label>
+    
+    <a href="./" title="Reading in Data" class="md-nav__link md-nav__link--active">
       Reading in Data
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#delimited-files" class="md-nav__link">
+    Delimited files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#genepop-files" class="md-nav__link">
+    Genepop Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variant-call-format" class="md-nav__link">
+    Variant Call Format
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -389,59 +441,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        VCF
-      </label>
-    
-    <a href="./" title="VCF" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../vcf/" title="VCF" class="md-nav__link">
       VCF
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#import-a-vcf-file-as-a-popobj" class="md-nav__link">
-    Import a VCF file as a PopObj
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-vcf-files-lack" class="md-nav__link">
-    What VCF files lack
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#format" class="md-nav__link">
-    Format
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -620,27 +624,29 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#import-a-vcf-file-as-a-popobj" class="md-nav__link">
-    Import a VCF file as a PopObj
+  <a href="#delimited-files" class="md-nav__link">
+    Delimited files
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-vcf-files-lack" class="md-nav__link">
-    What VCF files lack
+  <a href="#genepop-files" class="md-nav__link">
+    Genepop Files
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#format" class="md-nav__link">
-    Format
+  <a href="#variant-call-format" class="md-nav__link">
+    Variant Call Format
   </a>
   
 </li>
@@ -661,36 +667,42 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/pdimens/PopGen.jl/edit/master/docs/vcf.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/pdimens/PopGen.jl/edit/master/docs/file_import.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>VCF</h1>
-                
-                <h2 id="import-a-vcf-file-as-a-popobj">Import a VCF file as a <code>PopObj</code></h2>
-<p>PopGen.jl provides a simple command <code>vcf</code> to import a VCF file as a <code>PopObj</code>, which requires only the name of the file and nothing else.</p>
-<div class="codehilite"><pre><span></span><span class="n">potato</span> <span class="o">=</span> <span class="n">vcf</span><span class="p">(</span><span class="s">&quot;/home/data/russet_potatoes.vcf&quot;</span><span class="p">)</span>
-</pre></div>
-
-<h2 id="what-vcf-files-lack">What VCF files lack</h2>
-<p>Due to the nature of the file format, importing VCF files will provide:</p>
+                <h1 id="reading-in-data">Reading in Data</h1>
+<p>Currently, PopGen.jl provides three different file parsers with which to create a <code>PopObj</code>:</p>
 <ul>
-<li>sample names</li>
-<li>ploidy of each sample</li>
-<li>locus names</li>
-<li>genotypes</li>
+<li>Delimited files</li>
+<li>Genepop files</li>
+<li>VCF files</li>
 </ul>
-<p>but they will <strong>not</strong> provide:</p>
+<p>Each of the filetypes have their own file importer denoted simply by the file type: <code>csv()</code>, <code>genepop()</code>, and <code>vcf()</code>. You're encouraged to use functions, but PopGen.jl also provides you with an all-encompassing wrapper for all three called <code>read()</code>. Since <code>read()</code> already exists in <code>Base</code> Julia, this function should be called formally as <code>PopGen.read()</code> to avoid any unintentional dispatch errors. <code>PopGen.read()</code> uses all the same keyword arguments as do the commands specific to their filetypes, therefore you should have a look at those commands (usually the defaults suffice). </p>
+<p><code>PopGen.read()</code> infers the file type from the file extension, so for it to work properly your file must end with the extensions permitted below. If you're feeling particularly rebellious and your file does not conform to these extensions (such as a genepop file with a <code>.txt.final.final.seriously</code> extension), then feel free to use the specific file importers, since they use the same exact syntax, there is zero difference in performance, and they don't judge your for your file extension decisions. Ultimately, what crazy extensions you give your files is your business, and we love that about you. </p>
+<h2 id="delimited-files"><a href="../delimited/">Delimited files</a></h2>
+<p>Accepted extensions: <code>.csv</code>, <code>.tsv</code>, <code>.txt</code></p>
 <ul>
-<li>population information</li>
-<li>latitude or longitude</li>
+<li>files in which values are separated using a constant delimiter, such as commas, spaces, or tabs</li>
+<li>first rows are usually column names</li>
+<li>each line represents a row</li>
 </ul>
-<p>This means you will need to add that information separately afterwards. Location data (which is optional!) can be added to the <code>PopObj</code> directly with <code>.samples.latitude</code> or <code>.samples.longitude</code> or with the <code>locations!</code> command. Population names (mandatory!) can be added using <code>populations!()</code></p>
-<h2 id="format">Format</h2>
-<p>Variant Call Format (or <em>VCF</em>) files already follow a format standard, and while there is some wiggle-room for optional values, PopGen.jl only requires the core/mandatory components of a VCF, meaning problems should hopefully not arise regardless of which variant caller you are using (although we use <code>Freebayes</code> ourselves). Please open an issue if they do, or reach out to us on the community Slack.</p>
-<div class="admonition failure">
-<p class="admonition-title">filter VCF files beforehand</p>
-<p>Keep in mind, VCF files need to be filtered <strong>before</strong> importing them into PopGen.jl. There is no and will be no VCF-filtering functionality to this package, as it is outside of the purpose of PopGen.jl. Refer to <code>vcftools</code> and <code>vcflib</code> to filter your sequence data. </p>
-</div>
+<h2 id="genepop-files"><a href="../genepop/">Genepop Files</a></h2>
+<p>Accepted extensions: <code>.gen</code>, <code>.genepop</code></p>
+<ul>
+<li>first row is a comment and skipped</li>
+<li>then comes list of all loci, usually 1-per-line</li>
+<li>sometimes horizontally arranged and separated by commas</li>
+<li>populations separated by word "POP"</li>
+<li>sample names followed by comma and space</li>
+<li>genotypes separated by tabs</li>
+<li>genotypes represented as a combination of ploidy x 3-digits </li>
+<li>e.g. for genotype 001002 </li>
+<li>allele 1 = 001</li>
+<li>allele 2 = 002</li>
+</ul>
+<h2 id="variant-call-format"><a href="../vcf/">Variant Call Format</a></h2>
+<p>Accepted extensions: <code>.vcf</code></p>
+<p>This format is much more abstract and can vary somewhat depending on which variant caller produced the file. If you're super duper interested in the specifications of VCF files, have a look at the <a href="http://samtools.github.io/hts-specs/VCFv4.3.pdf">official specification documentation</a>.</p>
                 
                   
                 
@@ -711,7 +723,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../genepop/" title="Genepop" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../popobj_location/" title="Location data" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -720,19 +732,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Genepop
+                Location data
               </span>
             </div>
           </a>
         
         
-          <a href="../commands/" title="View/edit PopObj" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../delimited/" title="Delimited" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                View/edit PopObj
+                Delimited
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
