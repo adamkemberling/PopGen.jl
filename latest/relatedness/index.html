@@ -502,6 +502,19 @@
     Background
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#about-removing-kin" class="md-nav__link">
+    About removing kin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -519,19 +532,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#-" class="md-nav__link">
-    -
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#keyword-arguments" class="md-nav__link">
     keyword arguments
@@ -539,18 +539,12 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#-_1" class="md-nav__link">
-    -
+          <li class="md-nav__item">
+  <a href="#method-methods" class="md-nav__link">
+    method methods
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
@@ -572,8 +566,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#credits" class="md-nav__link">
-    Credits
+  <a href="#acknowledgements" class="md-nav__link">
+    Acknowledgements
   </a>
   
 </li>
@@ -701,6 +695,19 @@
     Background
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#about-removing-kin" class="md-nav__link">
+    About removing kin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -718,19 +725,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#-" class="md-nav__link">
-    -
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#keyword-arguments" class="md-nav__link">
     keyword arguments
@@ -738,18 +732,12 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#-_1" class="md-nav__link">
-    -
+          <li class="md-nav__item">
+  <a href="#method-methods" class="md-nav__link">
+    method methods
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
@@ -771,8 +759,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#credits" class="md-nav__link">
-    Credits
+  <a href="#acknowledgements" class="md-nav__link">
+    Acknowledgements
   </a>
   
 </li>
@@ -799,38 +787,50 @@
                   <h1>Relatedness</h1>
                 
                 <h2 id="background">Background</h2>
-<p>Sometimes you want or need to know the relatedness of individuals in a sample. Relatedness is exactly what its name implies: how related individuals are given some provided genetic information. Relatedness can be used in quantitative genetics to estimate heritability, additive genetic variances, and covariances. It can also be used in population genetics to study isolation-by-distance or population structure. </p>
-<p>Given two diploid individuals, there are 9 "identity by descent" models available between them (<a href="https://www.springer.com/gp/book/9783642884177">Jacquard 1975</a>, paywall), as shown below (from <a href="https://www.genetics.org/content/163/3/1153.full">Milligan 2003</a>): </p>
-<p><a href="https://www.genetics.org/content/163/3/1153.full"><img alt="Jacquard IBD" src="../img/jacquard_identitiies.jpg" /></a> </p>
-<p>This means that for large not-inbred populations, we can reduce this to the probability a pair of individuals share two alleles (by descent), and the probability they share one. There have been a handful of brilliant minds who have come up with methods for estimating relatedness via these relationships, and currently PopGen.jl implements the maximum likelihood approach presented in <a href="https://www.genetics.org/content/163/3/1153.full">Milligan 2003</a>.  You can imagine there's a lot that  happens under the hood to perform this for all loci across all individuals-- all of which dutifully written by <img alt="🌟" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f31f.svg" title=":star2:" /> Jason Selwyn <img alt="🌟" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f31f.svg" title=":star2:" />. </p>
+<p>Sometimes you want or need to know the relatedness of individuals in a sample. Relatedness is exactly what its name implies: how related individuals are given some provided genetic information. Relatedness can be used in quantitative genetics to estimate heritability, additive genetic variances, and covariances. It can also be used in population genetics to study isolation-by-distance or population structure.</p>
+<p>The goal of calculating relatedness from molecular markers is to accurately estimate the proportion of the genome which is identical by descent between two individuals. With a pedigree this is "relatively" straightforward. However, for large, natural, populations pedigrees tend not to exist and so many brilliant minds have developed various equations and algorithms to estimate the relatedness from a set of molecular markers. Given two diploid individuals, there are 9 "identity by descent" models available between them (<a href="https://www.springer.com/gp/book/9783642884177">Jacquard 1975</a>, paywall), as shown below (from <a href="https://www.genetics.org/content/163/3/1153.full">Milligan 2003</a>):</p>
+<p><a href="https://www.genetics.org/content/163/3/1153.full"><img alt="Jacquard IBD" src="../img/jacquard_identitiies.jpg" /></a></p>
+<p>Broadly speaking there are two different ways of estimating genetic relatedness using molecular markers, methods of moments, and likelihood estimators. Generally moments estimators will be faster but aren't constrained to being between the theoretical minimum and maximum values of 0 and 1. The likelihood estimators use likelihood functions derived from the set of Jacquard Identity States (above) to determine the most likely inheritance pattern. One difference between the two classes is [generally] moments estimators require an assumption of no inbreeding, while that assumption isn't necessarily required for likelihood estimators (though it does simplify the math). It is increasingly common to use multiple estimators on pairs, simulated from your molecular marker, with a known relationships to determine the most appropriate estimator to use with your given data.</p>
+<p>PopGen.jl currently implements one of each class of estimator. The moments based estimator developed by <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1558-5646.1989.tb04226.x">Queller &amp; Goodnight 1989</a> using the variant defined by <a href="https://www.genetics.org/content/152/4/1753.full">Lynch &amp; Ritland 1999</a> and the likelihood estimator created by <a href="https://www.genetics.org/content/163/3/1153.full">Milligan 2003</a>. You can imagine there's a lot that  happens under the hood to perform this for all loci across all individuals-- all of which dutifully written by <img alt="🌟" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f31f.svg" title=":star2:" /> Jason Selwyn <img alt="🌟" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f31f.svg" title=":star2:" />.</p>
+<h3 id="about-removing-kin">About removing kin</h3>
+<p>There are reasons for removing kin in population genetics datasets. For one, there are no siblings/kin or mixed-generations in a Hardy-Weinberg Equilibrium population, and the inclusion of siblings/kin in analyses that rely on HWE assumptions [technically] violate those assumptions. However, there are also arguments to keep kin/siblings in your data, those data are important for effective population size, linkage disequilibrium, etc. <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/mec.14022">Waples and Anderson (2017)</a> published a great perspective on the matter. </p>
 <h2 id="calculate-relatedness">Calculate Relatedness</h2>
-<p>The docstring for the function will go here. This is filler text for now. Mentioning of taking ___ and ____ and input and returns a _______. </p>
-<div class="codehilite"><pre><span></span><span class="n">relatedness</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">arg</span><span class="o">::</span><span class="kt">Type</span><span class="p">,</span> <span class="n">arg</span><span class="o">::</span><span class="kt">Type</span><span class="p">,</span> <span class="n">arg</span><span class="o">::</span><span class="kt">Type</span><span class="p">)</span>
+<p>Calculate the relatedness of all pairs of individuals in the dataframe using either Milligan's Dyadic Maximum Likelihood estimator or Queller &amp; Goodnight's estimator.</p>
+<div class="codehilite"><pre><span></span><span class="n">pairwise_relatedness</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">method</span><span class="o">::</span><span class="n">String</span><span class="p">,</span> <span class="n">inbreeding</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="n">verbose</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
 </pre></div>
 
 <h3 id="arguments">arguments</h3>
-<h2 id="-">-</h2>
 <ul>
-<li></li>
+<li><code>data</code> : the input <code>PopObj</code></li>
 </ul>
 <h3 id="keyword-arguments">keyword arguments</h3>
-<h2 id="-_1">-</h2>
+<ul>
+<li><code>method</code> : Method of relatedness estimation (see below)</li>
+<li><code>inbreeding</code> : Include the possibility of inbreeding (true) or not (false) - Only used with <code>method = "dyadml"</code></li>
+<li><code>verbose</code> : If <code>false</code> only progress bar will be shown. If <code>true</code> extra output will be shown depending on the method chosen</li>
+</ul>
+<h3 id="method-methods"><code>method</code> methods</h3>
+<ul>
+<li><code>"dyadml"</code> : Milligan (2003) Dyadic Likelihood Relatedness</li>
+<li><code>"qg"</code> : Queller &amp; Goodnight (1989) Relatedness</li>
+</ul>
 <h3 id="example">example</h3>
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
 <label for="__tab_1_0">relatedness</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">cats</span> <span class="o">=</span> <span class="n">nancycats</span><span class="p">()</span> <span class="p">;</span>
+<span class="n">pairwise_relatedness</span><span class="p">(</span><span class="n">cats</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;qg&quot;</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_1" type="radio" id="__tab_1_1" />
 <label for="__tab_1_1">output</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>
 </pre></div></div>
 </div>
-<p>See <a href="../hidden_api/">Development</a> for all of the APIs associated with <code>relatedness()</code> </p>
+<p>See <a href="../hidden_api/">Development</a> for all of the APIs associated with <code>relatedness()</code></p>
 <h2 id="speed">Speed</h2>
-<p>Depending on the number samples and loci in your data, the maximum-likelihood approach to relatedness can be quite time consuming. We include a progress bar thanks to <a href="https://github.com/timholy/ProgressMeter.jl">ProgressMeter.jl</a> to provide some indication of how long it will take. As a point of reference, it takes approximately 13 hours to perform this relatedness calculation on the <code>gulfsharks</code> data (212 samples x 2213 loci). </p>
+<p>Depending on the number samples and loci in your data, the maximum-likelihood approach to relatedness can be quite time consuming. We include a progress bar thanks to <a href="https://github.com/timholy/ProgressMeter.jl">ProgressMeter.jl</a> to provide some indication of how long it will take. As a point of reference, it takes approximately 13 hours to perform this relatedness calculation on the <code>gulfsharks</code> data (212 samples x 2213 loci).</p>
 <p>Currently, relatedness calculations run single-threaded, and we hope to parallelize it with the stable release of Julia 1.3  to make it even faster. Many hands make light work!</p>
-<h2 id="credits">Credits</h2>
+<h2 id="acknowledgements">Acknowledgements</h2>
 <p>Both <a href="https://github.com/JuliaOpt/Convex.jl">Convex.jl</a> and <a href="https://github.com/JuliaOpt/ECOS.jl">ECOS.jl</a> are pivotal for these calculations, and we thank the authors for their time developing and maintaining them, along with the members of the Julia Slack channel for pointing us towards those packages.</p>
                 
                   

@@ -89,7 +89,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#import-a-csvdelimited-file-as-a-popobj" tabindex="1" class="md-skip">
+      <a href="#import-a-delimited-file-as-a-popobj" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -414,8 +414,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#import-a-csvdelimited-file-as-a-popobj" class="md-nav__link">
-    Import a CSV/delimited file as a PopObj
+  <a href="#import-a-delimited-file-as-a-popobj" class="md-nav__link">
+    Import a delimited file as a PopObj
   </a>
   
     <nav class="md-nav">
@@ -663,8 +663,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#import-a-csvdelimited-file-as-a-popobj" class="md-nav__link">
-    Import a CSV/delimited file as a PopObj
+  <a href="#import-a-delimited-file-as-a-popobj" class="md-nav__link">
+    Import a delimited file as a PopObj
   </a>
   
     <nav class="md-nav">
@@ -730,15 +730,15 @@
                 
                   <h1>Delimited</h1>
                 
-                <h2 id="import-a-csvdelimited-file-as-a-popobj">Import a CSV/delimited file as a <code>PopObj</code></h2>
+                <h2 id="import-a-delimited-file-as-a-popobj">Import a delimited file as a <code>PopObj</code></h2>
 <div class="admonition warning">
 <p class="admonition-title">Windows users</p>
 <p>make sure to change your backslashes "\" to forward slashes "/" </p>
 </div>
-<div class="codehilite"><pre><span></span><span class="n">csv</span><span class="p">(</span><span class="n">infile</span><span class="p">;</span> <span class="n">delim</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s">&quot;snp&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">delimited</span><span class="p">(</span><span class="n">infile</span><span class="p">;</span> <span class="n">delim</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s">&quot;snp&quot;</span><span class="p">)</span>
 
 <span class="c"># Example</span>
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">csv</span><span class="p">(</span><span class="s">&quot;/data/cali_poppy.csv&quot;</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">delimited</span><span class="p">(</span><span class="s">&quot;/data/cali_poppy.csv&quot;</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
 <h3 id="arguments">Arguments</h3>
@@ -769,6 +769,9 @@ snbarb_03,coast,0,0,001001,001001,001002 <span class="se">\n</span>
 snbarb_02,coast,11.14,-22.24,001001,001001,001001 <span class="se">\n</span>
 snbarb_03,coast,11.15,0,001002,001001,001001 <span class="se">\n</span>
 </pre></div>
+
+<p><strong>Fun fact</strong></p>
+<p>You can also use the command <code>csv()</code> synonymously with <code>delimited()</code>. </p>
                 
                   
                 

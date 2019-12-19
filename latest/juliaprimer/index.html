@@ -286,6 +286,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#using-julia" class="md-nav__link">
+    Using Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#first-time-performance" class="md-nav__link">
     First-time Performance
   </a>
@@ -730,6 +737,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#using-julia" class="md-nav__link">
+    Using Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#first-time-performance" class="md-nav__link">
     First-time Performance
   </a>
@@ -858,6 +872,11 @@
                 
                 <h1 id="a-quick-julia-primer-for-getting-the-most-out-of-this-documentation">A quick Julia primer for getting the most out of this documentation</h1>
 <p>There is nothing inherently special about this documentation relative to other documentation, other than we really <em>really</em> want you to get the most out of what's written here. This means that we need to embrace the fact that both novice and experienced Julia users may be reading these docs and using this package. So let's cover some Julia basics that will really help in navigating this package before we even get into the complicated genetics stuff. This primer is by no means "everything you need to get started in Julia", and is a poor substitute for actually learning the language. In general, we recommend <a href="https://benlauwens.github.io/ThinkJulia.jl/latest/book.html">Think Julia: How to Think Like a Data Scientist</a> by Ben Lauwens to establish some solid Julia foundations. It's free online!</p>
+<h2 id="using-julia">Using Julia</h2>
+<p>Everyone has their own particular workflows, and if you're new to Julia, you might not have established one yet. Julia can be used rather comfortably using its built-in interpreter, but you can also use it via Atom (the <a href="https://junolab.org/">officially supported</a> <code>uber-juno</code> add-on) for an RStudio-like experience. If you're already a fan of Jupyter notebooks (or <a href="https://nteract.io/"><strong>nteract</strong></a>), then all you need is to install the <code>IJulia</code> package in Julia and you have full Jupyter support for Julia! Other popular options are VScode (julia add-on), or Emacs. </p>
+<ul>
+<li>If you didn't already know,  the name "Jupyter" is actually a concatenation of Ju (julia) Pyt (python) and R (...R).</li>
+</ul>
 <h2 id="first-time-performance">First-time Performance</h2>
 <p>If you're migrating to Julia from Python or R (or Matlab, etc.), you'll think Julia is slow and laggy because loading packages and running stuff has a noticeable wait time (10-40sec). It's worth mentioning that this lag is "compilation overhead". What this means is, Julia tries to pre-compile as much code as possible (into optimized machine code) when running something or loading a package. This lag exists <strong>only the first time</strong> you run something. Every subsequent run of a function, even with different parameters, will be <strong>substantially</strong> faster, and in most cases instant. If you want to test this yourself, try to run a line of code twice with <code>@time</code> before the function and compare the results. Here's an example:
 <div class="codehilite"><pre><span></span>julia&gt; @time using PopGen
@@ -908,13 +927,13 @@ julia&gt; @time using PopGen
 
 <h2 id="type-information">Type information</h2>
 <p>Julia encourages strong typing of variables, and the functions in <code>PopGen</code> are no exception to this. However, to reduce the barrier of entry required to understand this documentation and the subsequent package, we have chosen to omit some of the <code>type</code> information from functions to reduce visual clutter for newer users. As experienced users already know, if you would like to see the explicit type information, you can look at the code on github, invoke the <code>help</code> system in the REPL (above), or search for a function in the Documentation pane in Juno. </p>
-<p>You'll notice types follow a specific format, which is <code>object::type</code>. This format is a type assignment, so in the function <code>population</code>, which looks like: <code>population(x::PopObj; listall::Bool = false)</code>:</p>
+<p>You'll notice types follow a specific format, which is <code>object::type</code>. This format is a type declaration, so in the function <code>population</code>, which looks like: <code>population(x::PopObj; listall::Bool = false)</code>:</p>
 <ul>
 <li><code>x</code> is a variable of type <code>PopObj</code> </li>
 <li><code>listall</code> is a variable of type <code>Bool</code> (boolean) meaning it only takes <code>true</code> or <code>false</code> without quotes, and the default value is set to <code>false</code>.</li>
 </ul>
 <h3 id="type-unions">Type Unions</h3>
-<p>You might see the type <code>Union</code> appear occasionally throughout this documentation, and you can consider it a list of types. For example, if something was of type <code>::Union{String,Integer}</code>, that means that <strong>either</strong> a <code>String</code> or <code>Integer</code> works. These kinds of <code>Union</code> appear in a few places, like <code>remove_samples!</code> , where the input can be either a <code>String</code> (a single individual) or an <code>Array{String,1}</code> (one-dimensional list of names). For <code>remove_inds!</code>, the second argument type appears as <code>::Union{String, Array{String,1}}</code>. Also, the order in which types appear in <code>Union</code> types don't matter.</p>
+<p>You might see the type <code>Union</code> appear occasionally throughout this documentation, and you can consider it a list of allowable types. For example, if something was of type <code>::Union{String,Integer}</code>, that means that <strong>either</strong> a <code>String</code> or <code>Integer</code> works. </p>
 <h2 id="functions-vs-methods">Functions vs. Methods</h2>
 <p>As part of Julia's type-safe paradigm and multiple dispatch (see "ERROR: MethodError: no method matching" below), type specifications in functions often reduce runtime of functions, but also establish function identity. Multiple dispatch refers to several different functions having the same name, but employing different <em>methods</em> depending on the input. In Julia, it's easier to write a single function with multiple type-safe methods, rather than one mega-function that accepts any type and have a bunch of <code>if</code> statements that determines what the program does depending on the input. </p>
 <p>In practice, this looks like:</p>
@@ -950,10 +969,11 @@ julia&gt; add(&quot;water&quot;, &quot;melon&quot;)
 </pre></div>
 
 <p>This error is telling us "there is no such function called <code>add</code>, who's inputs are an <code>Integer</code> followed by a <code>String</code>". But, it does offer us some alternatives, like the two <code>add</code> functions we created earlier.</p>
-<p>The functions within <code>PopGen</code> are almost always explicitly typed, so if you are getting the <code>MethodError: no method matching</code> error, then you are inputting the incorrect types into the function, or perhaps your inputs for the arguments are in the wrong order (see "Functions with and without keywords" below). </p>
+<p>The functions within <code>PopGen</code> are almost always explicitly typed, so if you are getting the <code>MethodError: no method matching</code> error, then you are inputting the incorrect types into the function, or perhaps your inputs for the arguments are in the wrong order (see "Functions with and without keywords" below).</p>
+<p>Sometimes you might include an argument with a keyword when there isn't one, or include an argument without a keyword when there needs to be one (honestly, we make that mistake too and we <em>wrote</em> this stuff). To help minimize those mistakes, please read below about which arguments have keywords and which don't.</p>
 <div class="admonition note">
 <p class="admonition-title">keep in mind</p>
-<p>MethodError's can definitely get annoying, but they are usually the result of incorrect input from the user and not buggy programming by the developers. Please take that into consideration before assuming something is broken or bugged.</p>
+<p>MethodError's can definitely get annoying, but they are usually the result of incorrect input from the user and not buggy programming by the developers. Please double-check your inputs before assuming something is broken or bugged.</p>
 </div>
 <h2 id="functions-with-and-without-keywords">Functions with and without keywords</h2>
 <p>Let's talk about semicolons some more.</p>
@@ -965,6 +985,8 @@ julia&gt; add(&quot;water&quot;, &quot;melon&quot;)
 <li>arguments after a semicolon have a keyword <code>argument = value</code> and their order doesn't matter</li>
 <li><code>MethodError: no methods matching</code> is more likely an issue on your side and not on our side <img alt="😄" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f604.svg" title=":smile:" /><ul>
 <li>unless we accidentally forgot to export a function! <img alt="🤦" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f926.svg" title=":facepalm:" /></li>
+<li>or we typed a function incorrectly</li>
+<li>really, it's a coin flip who could be at fault</li>
 </ul>
 </li>
 </ul>
