@@ -823,31 +823,31 @@
 <h2 id="samples">samples</h2>
 <p>The <code>samples</code> dataframe has 5 specific categories: name, population, ploidy, latitude, longitude.</p>
 <h3 id="samplesname"><code>samples.name</code></h3>
-<p><code>::Array{String,1}</code></p>
+<p><code>::Vector{String}</code></p>
 <p>The individual/sample names</p>
 <div class="codehilite"><pre><span></span><span class="p">[</span><span class="s">&quot;ind_001&quot;</span><span class="p">,</span> <span class="s">&quot;ind_002&quot;</span><span class="p">,</span> <span class="s">&quot;ind_003&quot;</span><span class="p">]</span>
 </pre></div>
 
 <h3 id="samplespopulation"><code>samples.population</code></h3>
-<p><code>::Array{String,1}</code></p>
+<p><code>::Vector{String}</code></p>
 <p>The individual/sample population ID's</p>
 <div class="codehilite"><pre><span></span><span class="p">[</span><span class="s">&quot;borneo&quot;</span><span class="p">,</span> <span class="s">&quot;borneo&quot;</span><span class="p">,</span> <span class="s">&quot;new jersey&quot;</span><span class="p">]</span>
 </pre></div>
 
 <h3 id="samplesploidy"><code>samples.ploidy</code></h3>
-<p><code>::Array{Int8,1}</code></p>
+<p><code>::Vector{Int8}</code></p>
 <p>The ploidy of the samples</p>
 <div class="codehilite"><pre><span></span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
 <h3 id="sampleslatitude"><code>samples.latitude</code></h3>
-<p><code>::Array{Union{Int64,Float64},1}</code></p>
+<p><code>::Vector{Union{Missing,Float32}}</code></p>
 <p>latitude data of samples (decimal degrees)</p>
 <div class="codehilite"><pre><span></span>[-11.12, 15.32, 11.02, -4]
 </pre></div>
 
 <h3 id="sampleslongitude"><code>samples.longitude</code></h3>
-<p><code>::Array{Union{Int64,Float64},1}</code></p>
+<p><code>::Vector{Union{Missing,Float64}}</code></p>
 <p>longitude data of samples (decimal degrees)</p>
 <div class="codehilite"><pre><span></span>[-11.12, 15.32, 11.02, -4]
 </pre></div>
@@ -856,7 +856,7 @@
 <p>The genotype information is stored in a separate dataframe called <code>loci</code>, where each column is named for the locus it represents. This makes for easy and obvious accessing by calling <code>PopObj.loci.locusname</code>.  To view the loci names, use the convenient <code>loci_names</code> command.</p>
 <h3 id="genotypes">genotypes</h3>
 <p><code>::Vector{Tuple{Int16,...}}</code></p>
-<p>The genotypes of the <code>loci</code> are an array of tuples, with each value corresponding to an allele. The length of the tuple will vary based on the ploidy of the sample, therefor the <code>type</code> shown above is conceptually accurate, but computationally incorrect.</p>
+<p>The genotypes of the <code>loci</code> are an array of tuples, with each value corresponding to an allele. The length of the tuple will vary based on the ploidy of the sample, and the <code>type</code> will vary whether the markers are snps or microsatellites, therefor the <code>type</code> shown above is conceptually accurate, but computationally incorrect.</p>
 <div class="codehilite"><pre><span></span>[(0,1),(0,0),(1,2)]
 </pre></div>
 
