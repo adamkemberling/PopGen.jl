@@ -718,10 +718,10 @@
                 
                   <h1>Hardy-Weinberg Equilibrium</h1>
                 
-                <p>Testing for Hardy-Weinberg Equilibrium (often abbreviated to "HW" or "HWE") is a fairly common practice in population genetics. In a two-allele system (alleles <em>p</em> and <em>q</em>), the HWE equation is defined as <em>p<sup>2</sup> + 2pq + q<sup>2</sup> = 1</em>. </p>
+                <p>Testing for Hardy-Weinberg Equilibrium (often abbreviated to "HW" or "HWE") is a fairly common practice in population genetics. In a two-allele system (alleles <em>p</em> and <em>q</em>), the HWE equation is defined as  <em>p<sup>2</sup> + 2pq + q<sup>2</sup> = 1</em>. </p>
 <p>Testing for deviation from HWE is usually done with a Chi-Squared test, where one compares the observed genotype frequencies to the expected genotype frequencies given the observed allele frequencies at a locus. </p>
 <h2 id="test-for-hardy-weinberg-equilibrium">Test for Hardy-Weinberg equilibrium</h2>
-<div class="codehilite"><pre><span></span><span class="n">hwe_test</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">by_pop</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span> <span class="n">correction</span><span class="o">::</span><span class="p">{</span><span class="n">String</span><span class="p">}</span> <span class="o">=</span> <span class="s">&quot;none&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">hwe_test</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">by_pop</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">correction</span><span class="o">::</span><span class="n">String</span> <span class="o">=</span> <span class="s">&quot;none&quot;</span><span class="p">)</span>
 </pre></div>
 
 <p>Calculate chi-squared test of HWE for each locus and returns observed and expected heterozygosity with chi-squared, degrees of freedom and p-values for each locus. Use <code>by_pop = true</code> to perform this separately for each population (default: by_pop = false) and return a NamedTuple with the names corresponding to the population names. Use <code>correction =</code> to specify a P-value
@@ -745,7 +745,7 @@ correction method for multiple testing.</p>
 <li><code>"forward stop"</code> or <code>"fs"</code> : Forward-Stop adjustment</li>
 <li><code>"bc"</code> or <code>"b-c"</code> : Barber-Candès adjustment</li>
 </ul>
-<p><img alt="🤔" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f914.svg" title=":thinking:" /> For more information on multiple testing adjustments, see <a href="https://juliangehring.github.io/MultipleTesting.jl/stable/">MultipleTesting.jl</a></p>
+<p><img alt="🤔" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f914.svg" title=":thinking:" /> For more information on multiple testing adjustments, see <a href="https://juliangehring.github.io/MultipleTesting.jl/stable/">MultipleTesting.jl</a></p>
 <h3 id="example">example</h3>
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
@@ -925,12 +925,11 @@ correction method for multiple testing.</p>
 </div>
 <h3 id="pro-tip">pro tip</h3>
 <p>If using <code>by_pop = true</code>, there may be a very long output which you may want to suppress by ending the command with a semicolon <code>;</code>.   The function returns a NamedTuple of DataFrames, meaning you can index it with a dot <code>.</code> operator. If you assign the command's output to a variable, such as <code>hardy = hwe_test(gulfsharks(), by_pop = true) ;</code>, then you can index the output with the population names, such as <code>hardy.CapeCanaveral</code> or <code>hardy.Georgia</code>.  And since those objects are DataFrames, you can continue using the dot <code>.</code> operator to index them further by column, such as <code>hardy.Georgia.Pcorr</code> to see only the corrected P values. Convenience!</p>
-<div class="admonition info">
-<p class="admonition-title">indexing the Chiq-sq column</p>
-<p>If you wish to use the dot operator to index the chi-squared values, you will need to use the unicode characters in Julia to do so, b/c the column is literally named <code>χ²</code>. To generate those characters, type in <code>\Chi</code> + press <code>TAB</code> + type in <code>\^2</code> + press <code>TAB</code> without spaces and it will magically appear. Written out in more explicit English (we really want you to get it!), it's a backslash <code>\</code>, the word <code>Chi</code> with a capital C, the TAB key on your keyboard (and you'll notice it's already changed it to the letter χ), another backslash <code>\</code>, a caret <code>^</code>, the number <code>2</code>, then the TAB key again. </p>
+<details class="tip"><summary>indexing the Chiq-sq column</summary><p><strong>The Fast(er) Way</strong>: you can just index the column using the DataFrames numerical index like so: <code>df[!, 4]</code></p>
+<p><strong>The Fun Way:</strong> to index the chi-squared column from the dataframe using the dot operator (i.e. <code>df.χ²</code>), you will need to use the unicode characters in Julia, b/c the column is literally named χ². To generate those characters, type in <code>\Chi</code> + press <code>TAB</code> + type in <code>\^2</code> + press <code>TAB</code> without spaces and it will magically appear (in the REPL and Juno, at least). Written out in more explicit English (we really want you to get it!), it's a backslash <code>\</code>, the word <code>Chi</code> with a capital C, the TAB key on your keyboard (and you'll notice it's already changed it to the letter χ), another backslash <code>\</code>, a caret <code>^</code>, the number <code>2</code>, then the TAB key again. </p>
 <p>All in all, you'll be doing this: </p>
 <p><code>\ChiTAB\^2TAB</code>. It's actually a lot easier than it looks.</p>
-</div>
+</details>
                 
                   
                 
@@ -1007,6 +1006,10 @@ correction method for multiple testing.</p>
       <script src="../assets/javascripts/application.8e03edeb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
       
     
   </body>

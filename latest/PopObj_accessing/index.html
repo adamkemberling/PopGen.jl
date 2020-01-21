@@ -1224,27 +1224,7 @@
  missing
  missing
  missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
  ⋮      
- missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
  missing
  missing
  missing
@@ -1256,10 +1236,7 @@
  missing
 </pre></div></div>
 </div>
-<div class="admonition info">
-<p class="admonition-title">Seeing some location info</p>
-<p>The nancycats data has some weird coordinate system for information, so those data were omitted. If you want a proof of concept for <code>.longitude</code> and <code>.latitude</code>, load in <code>gulfsharks</code> and try it out. We'll use <code>hcat</code> (horizontal concatination) to horizontally bind the individual names, their latitude, and longitude. Later, you'll see that the <code>locations</code> command does this and a bit more.</p>
-</div>
+<details class="example"><summary>actually seeing some location info</summary><p>The nancycats data has some weird coordinate system for information, so those data were omitted. If you want a proof of concept for <code>.longitude</code> and <code>.latitude</code>, load in <code>gulfsharks</code> and try it out. We'll use <code>hcat</code> (horizontal concatination) to horizontally bind the individual names, their latitude, and longitude. Later, you'll see that the <code>locations</code> command does this and a bit more.</p>
 <div class="superfences-tabs">
 <input name="__tabs_8" type="radio" id="__tab_8_0" checked="checked" />
 <label for="__tab_8_0">load gulfsharks</label>
@@ -1280,27 +1257,7 @@
 &quot;cc_010&quot;   27.8711  -80.3482
 &quot;cc_012&quot;   28.4815  -80.4303
 &quot;cc_013&quot;   28.2421  -80.2494
-&quot;cc_014&quot;   28.2428  -80.2496
-&quot;cc_015&quot;   28.2378  -80.2496
-&quot;cc_016&quot;   28.2414  -80.2498
-&quot;cc_017&quot;   28.236   -80.2495
-&quot;cc_018&quot;   28.2364  -80.2494
-&quot;cc_019&quot;   28.3906  -80.4963
-&quot;cc_020&quot;   28.3902  -80.4968
-&quot;cc_021&quot;   28.3861  -80.4967
-&quot;cc_022&quot;   28.3869  -80.4966
-&quot;cc_023&quot;   28.3865  -80.496 
 ⋮                           
-&quot;seg_001&quot;  29.8901  -87.7189
-&quot;seg_003&quot;  30.1943  -88.0007
-&quot;seg_009&quot;  30.0021  -88.0493
-&quot;seg_010&quot;  30.0069  -88.049 
-&quot;seg_011&quot;  29.8362  -88.1675
-&quot;seg_012&quot;  29.5057  -88.0546
-&quot;seg_014&quot;  30.1428  -88.2974
-&quot;seg_015&quot;  30.2074  -88.36  
-&quot;seg_016&quot;  30.1151  -88.3922
-&quot;seg_018&quot;  29.8362  -88.168 
 &quot;seg_021&quot;  29.9466  -86.0399
 &quot;seg_023&quot;  29.9969  -85.6494
 &quot;seg_024&quot;  29.6966  -87.4403
@@ -1313,6 +1270,7 @@
 &quot;seg_031&quot;  29.8234  -85.7143
 </pre></div></div>
 </div>
+</details>
 <h2 id="loci">loci</h2>
 <h3 id="loci_1">.loci</h3>
 <p>This will show you the entire <code>loci</code> dataframe</p>
@@ -1593,10 +1551,8 @@
  &quot;17&quot;
 </pre></div></div>
 </div>
-<div class="admonition info">
-<p class="admonition-title">Pipes</p>
-<p>Julia has native piping (much like BASH) which uses the syntax <code>|&gt;</code> (pipe + greater-than). With a pipe, <code>unique(ncats.samples.population)</code> can also be rewritten as <code>ncats.samples.population |&gt; unique</code> for the same result. It's often a matter of preference for which you consider more readable. Use the <code>Pipe</code> package for even more robust piping where you can specify which argument the pipe relates to!</p>
-</div>
+<details class="tip"><summary>Pipes</summary><p>Julia has native piping (much like BASH) which uses the syntax <code>|&gt;</code> (pipe + greater-than). With a pipe, <code>unique(ncats.samples.population)</code> can also be rewritten as <code>ncats.samples.population |&gt; unique</code> for the same result. It's often a matter of preference for which you consider more readable. Use the <code>Pipe</code> package for even more robust piping where you can specify which argument the pipe relates to!</p>
+</details>
 <h2 id="what-to-avoid">🛑❌ What to avoid! ❌🛑</h2>
 <p>Given the relationships of the ordered list of individuals (<code>.name</code>) and the order of genotypes in <code>.loci</code>, <strong>NEVER USE <code>sort</code>, <code>sort!</code>, or manually arrange/add/delete anything in either dataframes <code>loci</code> or <code>samples</code>!!!</strong> There are included functions <code>remove_loci!</code> and <code>remove_inds!</code> that do that kind of thing. That being said, you can rename individuals and their popid's without issue. Just no manual moving or deleting!</p>
                 
@@ -1675,6 +1631,10 @@
       <script src="../assets/javascripts/application.8e03edeb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
       
     
   </body>

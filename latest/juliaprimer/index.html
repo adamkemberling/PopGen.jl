@@ -971,26 +971,23 @@ julia&gt; add(&quot;water&quot;, &quot;melon&quot;)
 <p>This error is telling us "there is no such function called <code>add</code>, who's inputs are an <code>Integer</code> followed by a <code>String</code>". But, it does offer us some alternatives, like the two <code>add</code> functions we created earlier.</p>
 <p>The functions within <code>PopGen</code> are almost always explicitly typed, so if you are getting the <code>MethodError: no method matching</code> error, then you are inputting the incorrect types into the function, or perhaps your inputs for the arguments are in the wrong order (see "Functions with and without keywords" below).</p>
 <p>Sometimes you might include an argument with a keyword when there isn't one, or include an argument without a keyword when there needs to be one (honestly, we make that mistake too and we <em>wrote</em> this stuff). To help minimize those mistakes, please read below about which arguments have keywords and which don't.</p>
-<div class="admonition note">
-<p class="admonition-title">keep in mind</p>
+<div class="admonition question">
 <p>MethodError's can definitely get annoying, but they are usually the result of incorrect input from the user and not buggy programming by the developers. Please double-check your inputs before assuming something is broken or bugged.</p>
 </div>
 <h2 id="functions-with-and-without-keywords">Functions with and without keywords</h2>
 <p>Let's talk about semicolons some more.</p>
-<div class="admonition info">
-<p class="admonition-title">TL;DR</p>
-<p>Reading these docs, pay attention to semicolons in the function argument lists.</p>
+<details class="info"><summary>TL;DR</summary><p>Reading these docs, pay attention to semicolons in the function argument lists.</p>
 <ul>
 <li>arguments before a semicolon have no keyword and follow an explicit order</li>
 <li>arguments after a semicolon have a keyword <code>argument = value</code> and their order doesn't matter</li>
-<li><code>MethodError: no methods matching</code> is more likely an issue on your side and not on our side <img alt="😄" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f604.svg" title=":smile:" /><ul>
-<li>unless we accidentally forgot to export a function! <img alt="🤦" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f926.svg" title=":facepalm:" /></li>
+<li><code>MethodError: no methods matching</code> is more likely an issue on your side and not on our side <img alt="😄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f604.svg" title=":smile:" /><ul>
+<li>unless we accidentally forgot to export a function! <img alt="🤦" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f926.svg" title=":facepalm:" /></li>
 <li>or we typed a function incorrectly</li>
 <li>really, it's a coin flip who could be at fault</li>
 </ul>
 </li>
 </ul>
-</div>
+</details>
 <p>Broadly speaking, there are two types of function declarations in Julia: ones with keywords and ones without keywords. The term "keywords" refers to an input argument that has the format <code>argument = value</code>. This format is present in many of the functions in this and other packages, however there are some specifics to understand when functions use keywords and when they don't. </p>
 <h3 id="format-1-strict-argument-order-and-no-keywords-no-semicolon-in-argument-list">Format 1: Strict argument order and no keywords - No semicolon in argument list</h3>
 <div class="codehilite"><pre><span></span><span class="k">function</span> <span class="n">function_name</span><span class="p">(</span><span class="n">var1</span><span class="o">::</span><span class="k">type</span><span class="p">,</span> <span class="n">var2</span><span class="o">::</span><span class="k">type</span><span class="p">,</span> <span class="n">var3</span><span class="o">::</span><span class="k">type</span><span class="p">)</span>
@@ -1088,6 +1085,10 @@ julia&gt; add(&quot;water&quot;, &quot;melon&quot;)
       <script src="../assets/javascripts/application.8e03edeb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
       
     
   </body>

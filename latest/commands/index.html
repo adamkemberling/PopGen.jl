@@ -1136,10 +1136,8 @@ View individual/sample names in a <code>PopObj</code>. This is equivalent to <co
 │ 7   │ Southeast Gulf │ 20    │
 </pre></div></div>
 </div>
-<div class="admonition info">
-<p class="admonition-title">sample not found!</p>
-<p>If removing a single sample and it is not found in the PopObj, an error will be returned. However, if removing multiple samples, you will receive a notice above the PopObj summary indicating which individuals were not found, while removing the ones that were.</p>
-</div>
+<details class="question"><summary>sample not found!</summary><p>If removing a single sample and it is not found in the PopObj, an error will be returned. However, if removing multiple samples, you will receive a notice above the PopObj summary indicating which individuals were not found, while removing the ones that were.</p>
+</details>
 <h2 id="population-ids">Population ID's</h2>
 <h3 id="view-population-names">view population names</h3>
 <p><div class="codehilite"><pre><span></span><span class="n">populations</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">listall</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
@@ -1191,10 +1189,8 @@ Just as you can view population ID's with <code>.population</code>, you can also
 │ 209 │ seg_031 │ Southeast Gulf │
 </pre></div></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">synonymous functions</p>
-<p>You can use the command <code>population</code> for the same functionality. We made the commands <code>population</code> and <code>populations</code> synonymous so you wouldn't have to memorize if the name was singular or plural-- it just works! This also applies to <code>populations!</code> and <code>population!</code></p>
-</div>
+<details class="tip"><summary>synonymous functions</summary><p>You can use the command <code>population</code> for the same functionality. We made the commands <code>population</code> and <code>populations</code> synonymous so you wouldn't have to memorize if the name was singular or plural-- it just works! This also applies to <code>populations!</code> and <code>population!</code></p>
+</details>
 <h3 id="rename-populations">rename populations</h3>
 <p><div class="codehilite"><pre><span></span><span class="n">populations!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">rename</span><span class="o">::</span><span class="kt">Dict</span><span class="p">,</span> <span class="n">replace</span><span class="o">::</span><span class="kt">Tuple</span><span class="p">)</span>
 </pre></div>
@@ -1508,10 +1504,8 @@ Use the <code>rename =</code> keyword to rename the population ID's of a <code>P
 │ 7   │ Southeast Gulf │ 20    │
 </pre></div></div>
 </div>
-<div class="admonition info">
-<p class="admonition-title">locus not found!</p>
-<p>If removing a single locus and it is not found in the PopObj, an error will be returned. However, if removing multiple loci, you will receive a notice above the PopObj summary indicating which loci were not found, while removing the ones that were. If none of the loci specified were found, it will return an error.</p>
-</div>
+<details class="question"><summary>locus not found!</summary><p>If removing a single locus and it is not found in the PopObj, an error will be returned. However, if removing multiple loci, you will receive a notice above the PopObj summary indicating which loci were not found, while removing the ones that were. If none of the loci specified were found, it will return an error.</p>
+</details>
 <h2 id="missing-data">Missing Data</h2>
 <h3 id="view-missing-data">view missing data</h3>
 <div class="codehilite"><pre><span></span><span class="n">missing</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">)</span>
@@ -1667,14 +1661,10 @@ Use the <code>rename =</code> keyword to rename the population ID's of a <code>P
 │ 2213 │ contig_2784  │ 7        │
 </pre></div></div>
 </div>
-<div class="admonition info">
-<p class="admonition-title">a simple example</p>
-<p>If this still looks weird to you, here is a simple example to help wrap your mind around it.
+<details class="example"><summary>a simple example</summary><p>If this still looks weird to you, here is a simple example to help wrap your mind around it:
 <div class="codehilite"><pre><span></span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
-</pre></div></p>
-</div>
-<p>​    where 
-​    </p>
+</pre></div>
+where 
 <div class="codehilite"><pre><span></span>a = 1
 
 b = 2
@@ -1682,11 +1672,9 @@ b = 2
 c = 3
 
 d = [4, 5, 6, 7]
-
-embrace the convenience!
 </pre></div>
-
-
+embrace the convenience!</p>
+</details>
 <h3 id="plot-missing-data">plot missing data</h3>
 <p><div class="codehilite"><pre><span></span><span class="n">plot_missing</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">color</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
 </pre></div>
@@ -1694,10 +1682,8 @@ Return an interactive plot of the number of missing loci in individuals of a <co
 <p>Example:</p>
 <p><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">plot_missing</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
 </pre></div>
-<img alt="missing_plot" src="../img/missing_plot.png" /></p>
-<div class="admonition info">
-<p class="admonition-title">saving interactive plots</p>
-<p>To save the interactive plots, you can use the <code>savehtml</code> function from the <code>PlotlyJS.jl</code> package:
+<img alt="" src="../img/missing_plot.png" /></p>
+<details class="info"><summary>saving interactive plots</summary><p>To save the interactive plots, you can use the <code>savehtml</code> function from the <code>PlotlyJS.jl</code> package:
 <div class="codehilite"><pre><span></span><span class="n">PlotlyJS</span><span class="o">.</span><span class="n">savehtml</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="s">&quot;filename.html&quot;</span><span class="p">)</span>
 </pre></div>
 If you don't specify a full path in the filename, it will save it in your current working directory.
@@ -1710,7 +1696,7 @@ If you don't specify a full path in the filename, it will save it in your curren
 <ul>
 <li>use a third argument <code>:embed</code> to make the plots fully viewable offline. The output files are much larger (relatively) because it embeds the Plotly javeascript into the file. For context, the<code>gulfsharks</code> plot file is ~3.5mb when using <code>:embed</code></li>
 </ul>
-</div>
+</details>
 <h2 id="location-data">Location Data</h2>
 <h3 id="view-location-data">view location data</h3>
 <p><div class="codehilite"><pre><span></span><span class="n">locations</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">)</span>
@@ -1854,6 +1840,10 @@ You're encouraged to plot locations how you see fit. For convenience and speed, 
       <script src="../assets/javascripts/application.8e03edeb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
       
     
   </body>

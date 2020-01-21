@@ -731,16 +731,14 @@
                   <h1>Delimited</h1>
                 
                 <h2 id="import-a-delimited-file-as-a-popobj">Import a delimited file as a <code>PopObj</code></h2>
-<div class="admonition warning">
-<p class="admonition-title">Windows users</p>
-<p>make sure to change your backslashes "\" to forward slashes "/" </p>
-</div>
 <div class="codehilite"><pre><span></span><span class="n">delimited</span><span class="p">(</span><span class="n">infile</span><span class="p">;</span> <span class="n">delim</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s">&quot;snp&quot;</span><span class="p">)</span>
 
 <span class="c"># Example</span>
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">delimited</span><span class="p">(</span><span class="s">&quot;/data/cali_poppy.csv&quot;</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
+<details class="warning"><summary>Windows users</summary><p>make sure to change your backslashes "\" to forward slashes "/" </p>
+</details>
 <h3 id="arguments">Arguments</h3>
 <ul>
 <li><code class="codehilite"><span class="n">infile</span><span class="o">::</span><span class="n">String</span></code> : path to the input file, in quotes</li>
@@ -749,7 +747,9 @@
 <ul>
 <li><code class="codehilite"><span class="n">delim</span><span class="o">::</span><span class="kt">Union</span><span class="p">{</span><span class="kt">Char</span><span class="p">,</span><span class="n">String</span><span class="p">,</span><span class="kt">Regex</span><span class="p">}</span></code> : delimiter of the file, can be a string, character, or regex</li>
 </ul>
-<p><strong>by default, it recognizes any of the basic three (comma, tab, space), so likely no input required</strong></p>
+<div class="admonition info">
+<p>by default, it recognizes any of the basic three delimiters (comma, tab, space), so likely no input will be required</p>
+</div>
 <ul>
 <li><code class="codehilite"><span class="n">digits</span><span class="o">::</span><span class="kt">Int64</span></code> : the number of digits used to denote an allele (default = 3)</li>
 <li><code class="codehilite">marker::String</code>  : "snp" (default) or "msat" for microsatellites</li>
@@ -848,6 +848,10 @@ snbarb_03,coast,11.15,0,001002,001001,001001 <span class="se">\n</span>
       <script src="../assets/javascripts/application.8e03edeb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
       
     
   </body>

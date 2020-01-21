@@ -809,12 +809,10 @@
 <span class="k">end</span>
 </pre></div>
 
-<div class="admonition info">
-<p class="admonition-title">pronouncing "PopObj" </p>
-<p>If you haven't already guessed, <code>PopObj</code> is a combination of the words PopGen and Object. PopObj is pronounced "pop ob" with a silent j because it rolls of the tongue better, but writing it as PopOb looks weird. </p>
+<details class="info"><summary>pronouncing "PopObj" </summary><p>If you haven't already guessed, <code>PopObj</code> is a combination of the words PopGen and Object. PopObj is pronounced "pop ob" with a silent j because it rolls of the tongue better, but writing it as PopOb looks weird. </p>
 <p>Yes, I have lost sleep over this detail.  <br />
 - Pavel</p>
-</div>
+</details>
 <p>As you can see, a <code>PopObj</code> is made up of two dataframes, one for sample information, the other for genotype information. This structure allows for easy and convenient access to the fields using dot <code>.</code> accessors.</p>
 <div class="admonition failure">
 <p class="admonition-title">avoid manual creation</p>
@@ -861,7 +859,6 @@
 </pre></div>
 
 <div class="admonition important">
-<p class="admonition-title">Important</p>
 <p>We use the tuple type for genotypes of individuals because they are <strong>immutable</strong> (cannot be changed). By the time you're using <code>PopGen.jl</code>, your data should already be filtered and screened. Hand-editing of genotype values is <strong>strongly</strong> discouraged, so we outlawed it outright.</p>
 </div>
 <h2 id="viewing-a-popobj">viewing a PopObj</h2>
@@ -970,6 +967,10 @@ julia&gt; summary(a)
       <script src="../assets/javascripts/application.8e03edeb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
       
     
   </body>

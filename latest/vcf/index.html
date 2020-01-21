@@ -701,6 +701,8 @@
 <div class="codehilite"><pre><span></span><span class="n">cabbage</span> <span class="o">=</span> <span class="n">bcf</span><span class="p">(</span><span class="s">&quot;/home/data/nappa_cabbage.bcf&quot;</span><span class="p">)</span>
 </pre></div>
 
+<details class="warning"><summary>Windows users</summary><p>make sure to change your backslashes "\" to forward slashes "/" </p>
+</details>
 <h2 id="what-bcfvcf-files-lack">What BCF/VCF files lack</h2>
 <p>Due to the nature of the file format, importing variant call files will provide:</p>
 <ul>
@@ -718,11 +720,10 @@
 <h2 id="format">Format</h2>
 <p>Variant Call Format (or <em>VCF</em>) files already follow a format standard, and while there is some wiggle-room for optional values, PopGen.jl only requires the core/mandatory components of a VCF, meaning problems should hopefully not arise regardless of which variant caller you are using (although we use <code>Freebayes</code> ourselves). Please open an issue if they do, or reach out to us on the community Slack.</p>
 <div class="admonition failure">
-<p class="admonition-title">filter VCF files beforehand</p>
 <p>Keep in mind, BCF/VCF files need to be filtered <strong>before</strong> importing them into PopGen.jl. There is no and will be no VCF-filtering functionality to this package, as it is outside of the purpose of PopGen.jl. Refer to <code>vcftools</code> and <code>vcflib</code> to filter your sequence data. </p>
 </div>
 <h2 id="acknowledgements">Acknowledgements</h2>
-<p>The majority of the BCF/VCF reader is thanks to the tremendous efforts of Ben J. Ward and the BioJulia contributors involved in <a href="https://github.com/BioJulia/GeneticVariation.jl">GeneticVariation.jl</a>, which we use to parse your files into <code>PopObj</code> format. If you love the file importer, then give those folks your thanks. If something is wrong and/or you hate the importer, blame us (and please <a href="https://github.com/pdimens/PopGen.jl/issues">open up an issue</a> <img alt="😅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f605.svg" title=":sweat_smile:" />).</p>
+<p>The majority of the BCF/VCF reader is thanks to the tremendous efforts of Ben J. Ward and the BioJulia contributors involved in <a href="https://github.com/BioJulia/GeneticVariation.jl">GeneticVariation.jl</a>, which we use to parse your files into <code>PopObj</code> format. If you love the file importer, then give those folks your thanks. If something is wrong and/or you hate the importer, blame us (and please <a href="https://github.com/pdimens/PopGen.jl/issues">open up an issue</a> <img alt="😅" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f605.svg" title=":sweat_smile:" />).</p>
                 
                   
                 
@@ -799,6 +800,10 @@
       <script src="../assets/javascripts/application.8e03edeb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
       
     
   </body>
