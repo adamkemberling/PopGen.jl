@@ -1245,7 +1245,7 @@ Use the <code>rename =</code> keyword to rename the population ID's of a <code>P
 <div class="superfences-tabs">
 <input name="__tabs_6" type="radio" id="__tab_6_0" checked="checked" />
 <label for="__tab_6_0">replace populations</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">popnames</span><span class="p">))</span>  <span class="c"># Tuple</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="p">(</span><span class="n">popnames</span><span class="p">,</span> <span class="n">counts</span><span class="p">))</span>  <span class="c"># Tuple</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="p">(</span><span class="n">counts</span> <span class="o">=</span> <span class="n">counts</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">popnames</span><span class="p">))</span>   <span class="c"># NamedTuple</span>
 </pre></div></div>
