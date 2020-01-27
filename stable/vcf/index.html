@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -89,7 +89,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#format" tabindex="1" class="md-skip">
+      <a href="#import-a-bcfvcf-file-as-a-popobj" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -100,7 +100,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href=".." title="PopGen.jl" class="md-header-nav__button md-logo">
           
-            <img src="../img/favicon.ico" width="24" height="24">
+            <img src="../img/logo_icon.png" width="24" height="24">
           
         </a>
       </div>
@@ -181,7 +181,7 @@
         
       
       
-      <main class="md-main">
+      <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -192,7 +192,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href=".." title="PopGen.jl" class="md-nav__button md-logo">
       
-        <img src="../img/favicon.ico" width="48" height="48">
+        <img src="../img/logo_icon.png" width="48" height="48">
       
     </a>
     PopGen.jl
@@ -237,52 +237,71 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../juliaprimer/" title="Getting started" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
       Getting started
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../comparison/" title="Comparison vs R" class="md-nav__link">
-      Comparison vs R
-    </a>
-  </li>
-
-    
-      
-      
-      
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Getting started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../install/" title="Installing" class="md-nav__link">
-      Installing
+    <a href="../juliaprimer/" title="A Julia primer" class="md-nav__link">
+      A Julia primer
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../comparison/" title="Benchmarks" class="md-nav__link">
+      Benchmarks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../install/" title="How to Install" class="md-nav__link">
+      How to Install
+    </a>
+  </li>
+
+        
+          
+          
+          
 
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
     
-    <label class="md-nav__link" for="nav-5">
-      The PopObj type
+    <label class="md-nav__link" for="nav-2-4">
+      The PopGen 'PopObj'
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        The PopObj type
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        The PopGen 'PopObj'
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -305,21 +324,14 @@
 
 
   <li class="md-nav__item">
-    <a href="../PopObj_accessing/" title="Accessing" class="md-nav__link">
-      Accessing
+    <a href="../PopObj_accessing/" title="Accessing parts of a PopObj" class="md-nav__link">
+      Accessing parts of a PopObj
     </a>
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../popobj_location/" title="Location data" class="md-nav__link">
-      Location data
-    </a>
+      </ul>
+    </nav>
   </li>
 
         
@@ -337,13 +349,13 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-3">
       Importing Data
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-3">
         Importing Data
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -355,8 +367,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../delimited/" title="CSV and delimited" class="md-nav__link">
-      CSV and delimited
+    <a href="../example_data/" title="Example Data" class="md-nav__link">
+      Example Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file_import/" title="Reading in Data" class="md-nav__link">
+      Reading in Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../delimited/" title="Delimited" class="md-nav__link">
+      Delimited
     </a>
   </li>
 
@@ -402,22 +438,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#format" title="Format" class="md-nav__link">
+  <a href="#import-a-bcfvcf-file-as-a-popobj" class="md-nav__link">
+    Import a BCF/VCF file as a PopObj
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-bcfvcf-files-lack" class="md-nav__link">
+    What BCF/VCF files lack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
     Format
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#import-a-vcf-file-as-a-popobj" title="Import a VCF file as a PopObj" class="md-nav__link">
-    Import a VCF file as a PopObj
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-vcf-files-lack" title="What VCF files lack" class="md-nav__link">
-    What VCF files lack
+  <a href="#acknowledgements" class="md-nav__link">
+    Acknowledgements
   </a>
   
 </li>
@@ -444,20 +487,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../commands/" title="View/edit PopObj" class="md-nav__link">
-      View/edit PopObj
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../examples/" title="Example data" class="md-nav__link">
-      Example data
+    <a href="../commands/" title="Manipulating a PopObj" class="md-nav__link">
+      Manipulating a PopObj
     </a>
   </li>
 
@@ -469,14 +500,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-9">
-      Population Genetics Tests
+    <label class="md-nav__link" for="nav-5">
+      Types of Analyses
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        Population Genetics Tests
+      <label class="md-nav__title" for="nav-5">
+        Types of Analyses
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -489,6 +520,18 @@
   <li class="md-nav__item">
     <a href="../hardyweinberg/" title="Hardy-Weinberg Equilibrium" class="md-nav__link">
       Hardy-Weinberg Equilibrium
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../relatedness/" title="Relatedness" class="md-nav__link">
+      Relatedness
     </a>
   </li>
 
@@ -517,14 +560,33 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
-    <label class="md-nav__link" for="nav-11">
-      Development
+    <label class="md-nav__link" for="nav-7">
+      Other
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-11">
-        Development
+      <label class="md-nav__title" for="nav-7">
+        Other
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+    
+    <label class="md-nav__link" for="nav-7-1">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-1">
+        API
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -545,16 +607,57 @@
     </nav>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../faq/" title="Frequently Asked Questions" class="md-nav__link">
-      Frequently Asked Questions
+    <a href="../logo_graveyard/" title="Logo Graveyard" class="md-nav__link">
+      Logo Graveyard
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Misc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Misc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../genepopIBD/" title="Genepop IBD Conversion" class="md-nav__link">
+      Genepop IBD Conversion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -577,22 +680,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#format" title="Format" class="md-nav__link">
+  <a href="#import-a-bcfvcf-file-as-a-popobj" class="md-nav__link">
+    Import a BCF/VCF file as a PopObj
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-bcfvcf-files-lack" class="md-nav__link">
+    What BCF/VCF files lack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
     Format
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#import-a-vcf-file-as-a-popobj" title="Import a VCF file as a PopObj" class="md-nav__link">
-    Import a VCF file as a PopObj
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-vcf-files-lack" title="What VCF files lack" class="md-nav__link">
-    What VCF files lack
+  <a href="#acknowledgements" class="md-nav__link">
+    Acknowledgements
   </a>
   
 </li>
@@ -618,19 +728,19 @@
                 
                   <h1>VCF</h1>
                 
-                <h2 id="format">Format</h2>
-<p>Variant Call Format (or <em>VCF</em>) files already follow a format standard, and while there is some wiggle-room for optional values, PopGen.jl only requires the core/mandatory components of a VCF, meaning problems should hopefully not arise regardless of which variant caller you are using (although we use <code>Freebayes</code> ourselves). Please open an issue if they do, or reach out to us on the community Slack.</p>
-<div class="admonition failure">
-<p class="admonition-title">filter VCF files beforehand</p>
-<p>Keep in mind, VCF files need to be filtered <strong>before</strong> importing them into PopGen.jl. There is no and will be no VCF-filtering functionality to this package, as it is outside of the purpose of PopGen.jl. Refer to <code>vcftools</code> and <code>vcflib</code> to filter your sequence data. </p>
-</div>
-<h2 id="import-a-vcf-file-as-a-popobj">Import a VCF file as a <code>PopObj</code></h2>
+                <h2 id="import-a-bcfvcf-file-as-a-popobj">Import a BCF/VCF file as a <code>PopObj</code></h2>
 <p>PopGen.jl provides a simple command <code>vcf</code> to import a VCF file as a <code>PopObj</code>, which requires only the name of the file and nothing else.</p>
 <div class="codehilite"><pre><span></span><span class="n">potato</span> <span class="o">=</span> <span class="n">vcf</span><span class="p">(</span><span class="s">&quot;/home/data/russet_potatoes.vcf&quot;</span><span class="p">)</span>
 </pre></div>
 
-<h2 id="what-vcf-files-lack">What VCF files lack</h2>
-<p>Due to the nature of the file format, importing VCF files will provide:</p>
+<p>and similar for <code>bcf</code> formatted files:</p>
+<div class="codehilite"><pre><span></span><span class="n">cabbage</span> <span class="o">=</span> <span class="n">bcf</span><span class="p">(</span><span class="s">&quot;/home/data/nappa_cabbage.bcf&quot;</span><span class="p">)</span>
+</pre></div>
+
+<details class="warning"><summary>Windows users</summary><p>make sure to change your backslashes "\" to forward slashes "/" </p>
+</details>
+<h2 id="what-bcfvcf-files-lack">What BCF/VCF files lack</h2>
+<p>Due to the nature of the file format, importing variant call files will provide:</p>
 <ul>
 <li>sample names</li>
 <li>ploidy of each sample</li>
@@ -642,7 +752,14 @@
 <li>population information</li>
 <li>latitude or longitude</li>
 </ul>
-<p>This means you will need to add that information separately afterwards. Location data (which is optional!) can be added to the <code>PopObj</code> directly with <code>.samples.latitude</code> or <code>.samples.longitude</code> or with the <code>locations!</code> command. Population names (mandatory!) can be added by overwriting <code>.samples.population</code> with an array of population names. </p>
+<p>This means you will need to add that information separately afterwards. Location data (which is optional!) can be added to the <code>PopObj</code> directly to <code>.samples.latitude</code> or <code>.samples.longitude</code> or with the <code>locations!</code> command. Population names (mandatory!) can be added using <code>populations!()</code></p>
+<h2 id="format">Format</h2>
+<p>Variant Call Format (or <em>VCF</em>) files already follow a format standard, and while there is some wiggle-room for optional values, PopGen.jl only requires the core/mandatory components of a VCF, meaning problems should hopefully not arise regardless of which variant caller you are using (although we use <code>Freebayes</code> ourselves). Please open an issue if they do, or reach out to us on the community Slack.</p>
+<div class="admonition failure">
+<p>Keep in mind, BCF/VCF files need to be filtered <strong>before</strong> importing them into PopGen.jl. There is no and will be no VCF-filtering functionality to this package, as it is outside of the purpose of PopGen.jl. Refer to <code>vcftools</code> and <code>vcflib</code> to filter your sequence data. </p>
+</div>
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>The majority of the BCF/VCF reader is thanks to the tremendous efforts of Ben J. Ward and the BioJulia contributors involved in <a href="https://github.com/BioJulia/GeneticVariation.jl">GeneticVariation.jl</a>, which we use to parse your files into <code>PopObj</code> format. If you love the file importer, then give those folks your thanks. If something is wrong and/or you hate the importer, blame us (and please <a href="https://github.com/pdimens/PopGen.jl/issues">open up an issue</a> <img alt="😅" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f605.svg" title=":sweat_smile:" />).</p>
                 
                   
                 
@@ -678,13 +795,13 @@
           </a>
         
         
-          <a href="../commands/" title="View/edit PopObj" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../commands/" title="Manipulating a PopObj" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                View/edit PopObj
+                Manipulating a PopObj
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -716,9 +833,13 @@
       
     </div>
     
-      <script src="../assets/javascripts/application.c648116f.js"></script>
+      <script src="../assets/javascripts/application.8e03edeb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
       
     
   </body>

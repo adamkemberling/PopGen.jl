@@ -36,15 +36,15 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
     
     
       
-        <title>Getting started - PopGen.jl</title>
+        <title>A Julia primer - PopGen.jl</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -100,7 +100,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href=".." title="PopGen.jl" class="md-header-nav__button md-logo">
           
-            <img src="../img/favicon.ico" width="24" height="24">
+            <img src="../img/logo_icon.png" width="24" height="24">
           
         </a>
       </div>
@@ -115,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Getting started
+                A Julia primer
               
             </span>
           
@@ -181,7 +181,7 @@
         
       
       
-      <main class="md-main">
+      <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -192,7 +192,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href=".." title="PopGen.jl" class="md-nav__button md-logo">
       
-        <img src="../img/favicon.ico" width="48" height="48">
+        <img src="../img/logo_icon.png" width="48" height="48">
       
     </a>
     PopGen.jl
@@ -239,6 +239,27 @@
   
 
 
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Getting started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Getting started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
   <li class="md-nav__item md-nav__item--active">
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
@@ -247,11 +268,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Getting started
+        A Julia primer
       </label>
     
-    <a href="./" title="Getting started" class="md-nav__link md-nav__link--active">
-      Getting started
+    <a href="./" title="A Julia primer" class="md-nav__link md-nav__link--active">
+      A Julia primer
     </a>
     
       
@@ -265,14 +286,21 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#first-time-performance" title="First-time Performance" class="md-nav__link">
+  <a href="#using-julia" class="md-nav__link">
+    Using Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-time-performance" class="md-nav__link">
     First-time Performance
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#semicolons" title="Semicolons" class="md-nav__link">
+  <a href="#semicolons" class="md-nav__link">
     Semicolons
   </a>
   
@@ -280,14 +308,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#at-the-end-of-a-command" title="At the end of a command" class="md-nav__link">
+  <a href="#at-the-end-of-a-command" class="md-nav__link">
     At the end of a command
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#in-between-assignment-commands" title="In between assignment commands" class="md-nav__link">
+  <a href="#in-between-assignment-commands" class="md-nav__link">
     In between assignment commands
   </a>
   
@@ -299,14 +327,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#help-mode" title="Help mode" class="md-nav__link">
+  <a href="#help-mode" class="md-nav__link">
     Help mode
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#type-information" title="Type information" class="md-nav__link">
+  <a href="#type-information" class="md-nav__link">
     Type information
   </a>
   
@@ -314,7 +342,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#type-unions" title="Type Unions" class="md-nav__link">
+  <a href="#type-unions" class="md-nav__link">
     Type Unions
   </a>
   
@@ -326,7 +354,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#functions-vs-methods" title="Functions vs. Methods" class="md-nav__link">
+  <a href="#functions-vs-methods" class="md-nav__link">
     Functions vs. Methods
   </a>
   
@@ -334,7 +362,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#error-methoderror-no-method-matching" title="ERROR: MethodError: no method matching" class="md-nav__link">
+  <a href="#error-methoderror-no-method-matching" class="md-nav__link">
     ERROR: MethodError: no method matching
   </a>
   
@@ -346,7 +374,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#functions-with-and-without-keywords" title="Functions with and without keywords" class="md-nav__link">
+  <a href="#functions-with-and-without-keywords" class="md-nav__link">
     Functions with and without keywords
   </a>
   
@@ -354,14 +382,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#format-1-strict-argument-order-and-no-keywords-no-semicolon-in-argument-list" title="Format 1: Strict argument order and no keywords - No semicolon in argument list" class="md-nav__link">
+  <a href="#format-1-strict-argument-order-and-no-keywords-no-semicolon-in-argument-list" class="md-nav__link">
     Format 1: Strict argument order and no keywords - No semicolon in argument list
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#format-2-semicolon-in-argument-list" title="Format 2 - semicolon in argument list" class="md-nav__link">
+  <a href="#format-2-semicolon-in-argument-list" class="md-nav__link">
     Format 2 - semicolon in argument list
   </a>
   
@@ -382,46 +410,46 @@
     
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../comparison/" title="Comparison vs R" class="md-nav__link">
-      Comparison vs R
+    <a href="../comparison/" title="Benchmarks" class="md-nav__link">
+      Benchmarks
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../install/" title="Installing" class="md-nav__link">
-      Installing
+    <a href="../install/" title="How to Install" class="md-nav__link">
+      How to Install
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
     
-    <label class="md-nav__link" for="nav-5">
-      The PopObj type
+    <label class="md-nav__link" for="nav-2-4">
+      The PopGen 'PopObj'
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        The PopObj type
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        The PopGen 'PopObj'
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -444,21 +472,14 @@
 
 
   <li class="md-nav__item">
-    <a href="../PopObj_accessing/" title="Accessing" class="md-nav__link">
-      Accessing
+    <a href="../PopObj_accessing/" title="Accessing parts of a PopObj" class="md-nav__link">
+      Accessing parts of a PopObj
     </a>
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../popobj_location/" title="Location data" class="md-nav__link">
-      Location data
-    </a>
+      </ul>
+    </nav>
   </li>
 
         
@@ -474,13 +495,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-3">
       Importing Data
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-3">
         Importing Data
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -492,8 +513,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../delimited/" title="CSV and delimited" class="md-nav__link">
-      CSV and delimited
+    <a href="../example_data/" title="Example Data" class="md-nav__link">
+      Example Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file_import/" title="Reading in Data" class="md-nav__link">
+      Reading in Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../delimited/" title="Delimited" class="md-nav__link">
+      Delimited
     </a>
   </li>
 
@@ -533,20 +578,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../commands/" title="View/edit PopObj" class="md-nav__link">
-      View/edit PopObj
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../examples/" title="Example data" class="md-nav__link">
-      Example data
+    <a href="../commands/" title="Manipulating a PopObj" class="md-nav__link">
+      Manipulating a PopObj
     </a>
   </li>
 
@@ -558,14 +591,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-9">
-      Population Genetics Tests
+    <label class="md-nav__link" for="nav-5">
+      Types of Analyses
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        Population Genetics Tests
+      <label class="md-nav__title" for="nav-5">
+        Types of Analyses
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -578,6 +611,18 @@
   <li class="md-nav__item">
     <a href="../hardyweinberg/" title="Hardy-Weinberg Equilibrium" class="md-nav__link">
       Hardy-Weinberg Equilibrium
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../relatedness/" title="Relatedness" class="md-nav__link">
+      Relatedness
     </a>
   </li>
 
@@ -606,14 +651,33 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
-    <label class="md-nav__link" for="nav-11">
-      Development
+    <label class="md-nav__link" for="nav-7">
+      Other
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-11">
-        Development
+      <label class="md-nav__title" for="nav-7">
+        Other
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+    
+    <label class="md-nav__link" for="nav-7-1">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-1">
+        API
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -634,16 +698,57 @@
     </nav>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../faq/" title="Frequently Asked Questions" class="md-nav__link">
-      Frequently Asked Questions
+    <a href="../logo_graveyard/" title="Logo Graveyard" class="md-nav__link">
+      Logo Graveyard
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Misc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Misc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../genepopIBD/" title="Genepop IBD Conversion" class="md-nav__link">
+      Genepop IBD Conversion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -668,14 +773,21 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#first-time-performance" title="First-time Performance" class="md-nav__link">
+  <a href="#using-julia" class="md-nav__link">
+    Using Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-time-performance" class="md-nav__link">
     First-time Performance
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#semicolons" title="Semicolons" class="md-nav__link">
+  <a href="#semicolons" class="md-nav__link">
     Semicolons
   </a>
   
@@ -683,14 +795,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#at-the-end-of-a-command" title="At the end of a command" class="md-nav__link">
+  <a href="#at-the-end-of-a-command" class="md-nav__link">
     At the end of a command
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#in-between-assignment-commands" title="In between assignment commands" class="md-nav__link">
+  <a href="#in-between-assignment-commands" class="md-nav__link">
     In between assignment commands
   </a>
   
@@ -702,14 +814,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#help-mode" title="Help mode" class="md-nav__link">
+  <a href="#help-mode" class="md-nav__link">
     Help mode
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#type-information" title="Type information" class="md-nav__link">
+  <a href="#type-information" class="md-nav__link">
     Type information
   </a>
   
@@ -717,7 +829,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#type-unions" title="Type Unions" class="md-nav__link">
+  <a href="#type-unions" class="md-nav__link">
     Type Unions
   </a>
   
@@ -729,7 +841,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#functions-vs-methods" title="Functions vs. Methods" class="md-nav__link">
+  <a href="#functions-vs-methods" class="md-nav__link">
     Functions vs. Methods
   </a>
   
@@ -737,7 +849,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#error-methoderror-no-method-matching" title="ERROR: MethodError: no method matching" class="md-nav__link">
+  <a href="#error-methoderror-no-method-matching" class="md-nav__link">
     ERROR: MethodError: no method matching
   </a>
   
@@ -749,7 +861,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#functions-with-and-without-keywords" title="Functions with and without keywords" class="md-nav__link">
+  <a href="#functions-with-and-without-keywords" class="md-nav__link">
     Functions with and without keywords
   </a>
   
@@ -757,14 +869,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#format-1-strict-argument-order-and-no-keywords-no-semicolon-in-argument-list" title="Format 1: Strict argument order and no keywords - No semicolon in argument list" class="md-nav__link">
+  <a href="#format-1-strict-argument-order-and-no-keywords-no-semicolon-in-argument-list" class="md-nav__link">
     Format 1: Strict argument order and no keywords - No semicolon in argument list
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#format-2-semicolon-in-argument-list" title="Format 2 - semicolon in argument list" class="md-nav__link">
+  <a href="#format-2-semicolon-in-argument-list" class="md-nav__link">
     Format 2 - semicolon in argument list
   </a>
   
@@ -796,6 +908,11 @@
                 
                 <h1 id="a-quick-julia-primer-for-getting-the-most-out-of-this-documentation">A quick Julia primer for getting the most out of this documentation</h1>
 <p>There is nothing inherently special about this documentation relative to other documentation, other than we really <em>really</em> want you to get the most out of what's written here. This means that we need to embrace the fact that both novice and experienced Julia users may be reading these docs and using this package. So let's cover some Julia basics that will really help in navigating this package before we even get into the complicated genetics stuff. This primer is by no means "everything you need to get started in Julia", and is a poor substitute for actually learning the language. In general, we recommend <a href="https://benlauwens.github.io/ThinkJulia.jl/latest/book.html">Think Julia: How to Think Like a Data Scientist</a> by Ben Lauwens to establish some solid Julia foundations. It's free online!</p>
+<h2 id="using-julia">Using Julia</h2>
+<p>Everyone has their own particular workflows, and if you're new to Julia, you might not have established one yet. Julia can be used rather comfortably using its built-in interpreter, but you can also use it via Atom (the <a href="https://junolab.org/">officially supported</a> <code>uber-juno</code> add-on) for an RStudio-like experience. If you're already a fan of Jupyter notebooks (or <a href="https://nteract.io/"><strong>nteract</strong></a>), then all you need is to install the <code>IJulia</code> package in Julia and you have full Jupyter support for Julia! Other popular options are VScode (julia add-on), or Emacs. </p>
+<ul>
+<li>If you didn't already know,  the name "Jupyter" is actually a concatenation of Ju (julia) Pyt (python) and R (...R).</li>
+</ul>
 <h2 id="first-time-performance">First-time Performance</h2>
 <p>If you're migrating to Julia from Python or R (or Matlab, etc.), you'll think Julia is slow and laggy because loading packages and running stuff has a noticeable wait time (10-40sec). It's worth mentioning that this lag is "compilation overhead". What this means is, Julia tries to pre-compile as much code as possible (into optimized machine code) when running something or loading a package. This lag exists <strong>only the first time</strong> you run something. Every subsequent run of a function, even with different parameters, will be <strong>substantially</strong> faster, and in most cases instant. If you want to test this yourself, try to run a line of code twice with <code>@time</code> before the function and compare the results. Here's an example:
 <div class="codehilite"><pre><span></span>julia&gt; @time using PopGen
@@ -805,7 +922,7 @@ julia&gt; @time using PopGen
 0.100233 seconds (64.07 k allocations: 3.123 MiB, 6.02% gc time)
 </pre></div></p>
 <h2 id="semicolons">Semicolons</h2>
-<p>Semicolons will come up a lot in Julia, probably more than you would expect if you are migrating from another language.  They mean different thing depending on where they are.</p>
+<p>Semicolons will come up a lot in Julia, probably more than you would expect if you are migrating from another language.  They mean different things depending on where they are.</p>
 <h3 id="at-the-end-of-a-command">At the end of a command</h3>
 <p>When you see a semicolon after invoking a function, what that means is "don't show me the output in the terminal window".</p>
 <p>Example: </p>
@@ -846,13 +963,13 @@ julia&gt; @time using PopGen
 
 <h2 id="type-information">Type information</h2>
 <p>Julia encourages strong typing of variables, and the functions in <code>PopGen</code> are no exception to this. However, to reduce the barrier of entry required to understand this documentation and the subsequent package, we have chosen to omit some of the <code>type</code> information from functions to reduce visual clutter for newer users. As experienced users already know, if you would like to see the explicit type information, you can look at the code on github, invoke the <code>help</code> system in the REPL (above), or search for a function in the Documentation pane in Juno. </p>
-<p>You'll notice types follow a specific format, which is <code>object::type</code>. This format is a type assignment, so in the function <code>population</code>, which looks like: <code>population(x::PopObj; listall::Bool = false)</code>:</p>
+<p>You'll notice types follow a specific format, which is <code>object::type</code>. This format is a type declaration, so in the function <code>population</code>, which looks like: <code>population(x::PopObj; listall::Bool = false)</code>:</p>
 <ul>
 <li><code>x</code> is a variable of type <code>PopObj</code> </li>
-<li><code>listall</code> is a variable of type <code>Bool</code> (boolean) meaning it only takes <code>true</code> or <code>false</code> without quotes</li>
+<li><code>listall</code> is a variable of type <code>Bool</code> (boolean) meaning it only takes <code>true</code> or <code>false</code> without quotes, and the default value is set to <code>false</code>.</li>
 </ul>
 <h3 id="type-unions">Type Unions</h3>
-<p>You might see the type <code>Union</code> appear occasionally throughout this documentation, and you can consider it a list of types. For example, if something was of type <code>::Union{String,Integer}</code>, that means that <strong>either</strong> a <code>String</code> or <code>Integer</code> works. These kinds of <code>Union</code> appear in a few places, like <code>remove_samples!</code> , where the input can be either a <code>String</code> (a single individual) or an <code>Array{String,1}</code> (one-dimensional list of names). For <code>remove_inds!</code>, the second argument type appears as <code>::Union{String, Array{String,1}}</code>. Also, the order in which types appear in <code>Union</code> types don't matter.</p>
+<p>You might see the type <code>Union</code> appear occasionally throughout this documentation, and you can consider it a list of allowable types. For example, if something was of type <code>::Union{String,Integer}</code>, that means that <strong>either</strong> a <code>String</code> or <code>Integer</code> works. </p>
 <h2 id="functions-vs-methods">Functions vs. Methods</h2>
 <p>As part of Julia's type-safe paradigm and multiple dispatch (see "ERROR: MethodError: no method matching" below), type specifications in functions often reduce runtime of functions, but also establish function identity. Multiple dispatch refers to several different functions having the same name, but employing different <em>methods</em> depending on the input. In Julia, it's easier to write a single function with multiple type-safe methods, rather than one mega-function that accepts any type and have a bunch of <code>if</code> statements that determines what the program does depending on the input. </p>
 <p>In practice, this looks like:</p>
@@ -888,24 +1005,25 @@ julia&gt; add(&quot;water&quot;, &quot;melon&quot;)
 </pre></div>
 
 <p>This error is telling us "there is no such function called <code>add</code>, who's inputs are an <code>Integer</code> followed by a <code>String</code>". But, it does offer us some alternatives, like the two <code>add</code> functions we created earlier.</p>
-<p>The functions within <code>PopGen</code> are almost always explicitly typed, so if you are getting the <code>MethodError: no method matching</code> error, then you are inputting the incorrect types into the function, or perhaps your inputs for the arguments are in the wrong order (see "Functions with and without keywords" below). </p>
-<div class="admonition note">
-<p class="admonition-title">keep in mind</p>
-<p>MethodError's can definitely get annoying, but they are usually the result of incorrect input from the user and not buggy programming by the developers. Please take that into consideration before assuming something is broken or bugged.</p>
+<p>The functions within <code>PopGen</code> are almost always explicitly typed, so if you are getting the <code>MethodError: no method matching</code> error, then you are inputting the incorrect types into the function, or perhaps your inputs for the arguments are in the wrong order (see "Functions with and without keywords" below).</p>
+<p>Sometimes you might include an argument with a keyword when there isn't one, or include an argument without a keyword when there needs to be one (honestly, we make that mistake too and we <em>wrote</em> this stuff). To help minimize those mistakes, please read below about which arguments have keywords and which don't.</p>
+<div class="admonition question">
+<p>MethodError's can definitely get annoying, but they are usually the result of incorrect input from the user and not buggy programming by the developers. Please double-check your inputs before assuming something is broken or bugged.</p>
 </div>
 <h2 id="functions-with-and-without-keywords">Functions with and without keywords</h2>
-<div class="admonition info">
-<p class="admonition-title">TL;DR</p>
-<p>Reading these docs, pay attention to semicolons in the function argument lists.</p>
+<p>Let's talk about semicolons some more.</p>
+<details class="info"><summary>TL;DR</summary><p>Reading these docs, pay attention to semicolons in the function argument lists.</p>
 <ul>
 <li>arguments before a semicolon have no keyword and follow an explicit order</li>
 <li>arguments after a semicolon have a keyword <code>argument = value</code> and their order doesn't matter</li>
-<li><code>MethodError: no methods matching</code> is more likely an issue on your side and not on our side <img alt="😄" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f604.svg" title=":smile:" /><ul>
-<li>unless we accidentally forgot to export a function! <img alt="🤦" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f926.svg" title=":facepalm:" /></li>
+<li><code>MethodError: no methods matching</code> is more likely an issue on your side and not on our side <img alt="😄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f604.svg" title=":smile:" /><ul>
+<li>unless we accidentally forgot to export a function! <img alt="🤦" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f926.svg" title=":facepalm:" /></li>
+<li>or we typed a function incorrectly</li>
+<li>really, it's a coin flip who could be at fault</li>
 </ul>
 </li>
 </ul>
-</div>
+</details>
 <p>Broadly speaking, there are two types of function declarations in Julia: ones with keywords and ones without keywords. The term "keywords" refers to an input argument that has the format <code>argument = value</code>. This format is present in many of the functions in this and other packages, however there are some specifics to understand when functions use keywords and when they don't. </p>
 <h3 id="format-1-strict-argument-order-and-no-keywords-no-semicolon-in-argument-list">Format 1: Strict argument order and no keywords - No semicolon in argument list</h3>
 <div class="codehilite"><pre><span></span><span class="k">function</span> <span class="n">function_name</span><span class="p">(</span><span class="n">var1</span><span class="o">::</span><span class="k">type</span><span class="p">,</span> <span class="n">var2</span><span class="o">::</span><span class="k">type</span><span class="p">,</span> <span class="n">var3</span><span class="o">::</span><span class="k">type</span><span class="p">)</span>
@@ -962,13 +1080,13 @@ julia&gt; add(&quot;water&quot;, &quot;melon&quot;)
           </a>
         
         
-          <a href="../comparison/" title="Comparison vs R" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../comparison/" title="Benchmarks" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Comparison vs R
+                Benchmarks
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1000,9 +1118,13 @@ julia&gt; add(&quot;water&quot;, &quot;melon&quot;)
       
     </div>
     
-      <script src="../assets/javascripts/application.c648116f.js"></script>
+      <script src="../assets/javascripts/application.8e03edeb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
       
     
   </body>

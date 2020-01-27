@@ -36,15 +36,15 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
     
     
       
-        <title>View/edit PopObj - PopGen.jl</title>
+        <title>Manipulating a PopObj - PopGen.jl</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -89,7 +89,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#individuals" tabindex="1" class="md-skip">
+      <a href="#individuals-samples" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -100,7 +100,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href=".." title="PopGen.jl" class="md-header-nav__button md-logo">
           
-            <img src="../img/favicon.ico" width="24" height="24">
+            <img src="../img/logo_icon.png" width="24" height="24">
           
         </a>
       </div>
@@ -115,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                View/edit PopObj
+                Manipulating a PopObj
               
             </span>
           
@@ -181,7 +181,7 @@
         
       
       
-      <main class="md-main">
+      <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -192,7 +192,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href=".." title="PopGen.jl" class="md-nav__button md-logo">
       
-        <img src="../img/favicon.ico" width="48" height="48">
+        <img src="../img/logo_icon.png" width="48" height="48">
       
     </a>
     PopGen.jl
@@ -237,52 +237,71 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../juliaprimer/" title="Getting started" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
       Getting started
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../comparison/" title="Comparison vs R" class="md-nav__link">
-      Comparison vs R
-    </a>
-  </li>
-
-    
-      
-      
-      
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Getting started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../install/" title="Installing" class="md-nav__link">
-      Installing
+    <a href="../juliaprimer/" title="A Julia primer" class="md-nav__link">
+      A Julia primer
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../comparison/" title="Benchmarks" class="md-nav__link">
+      Benchmarks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../install/" title="How to Install" class="md-nav__link">
+      How to Install
+    </a>
+  </li>
+
+        
+          
+          
+          
 
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
     
-    <label class="md-nav__link" for="nav-5">
-      The PopObj type
+    <label class="md-nav__link" for="nav-2-4">
+      The PopGen 'PopObj'
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        The PopObj type
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        The PopGen 'PopObj'
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -305,21 +324,14 @@
 
 
   <li class="md-nav__item">
-    <a href="../PopObj_accessing/" title="Accessing" class="md-nav__link">
-      Accessing
+    <a href="../PopObj_accessing/" title="Accessing parts of a PopObj" class="md-nav__link">
+      Accessing parts of a PopObj
     </a>
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../popobj_location/" title="Location data" class="md-nav__link">
-      Location data
-    </a>
+      </ul>
+    </nav>
   </li>
 
         
@@ -335,13 +347,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-3">
       Importing Data
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-3">
         Importing Data
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -353,8 +365,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../delimited/" title="CSV and delimited" class="md-nav__link">
-      CSV and delimited
+    <a href="../example_data/" title="Example Data" class="md-nav__link">
+      Example Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file_import/" title="Reading in Data" class="md-nav__link">
+      Reading in Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../delimited/" title="Delimited" class="md-nav__link">
+      Delimited
     </a>
   </li>
 
@@ -401,11 +437,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        View/edit PopObj
+        Manipulating a PopObj
       </label>
     
-    <a href="./" title="View/edit PopObj" class="md-nav__link md-nav__link--active">
-      View/edit PopObj
+    <a href="./" title="Manipulating a PopObj" class="md-nav__link md-nav__link--active">
+      Manipulating a PopObj
     </a>
     
       
@@ -417,22 +453,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#individuals" title="Individuals" class="md-nav__link">
-    Individuals
+  <a href="#individuals-samples" class="md-nav__link">
+    Individuals / Samples
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#view-individuals-names" title="view individuals' names" class="md-nav__link">
+  <a href="#view-individuals-names" class="md-nav__link">
     view individuals' names
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#remove-individuals" title="remove individuals" class="md-nav__link">
+  <a href="#remove-individuals" class="md-nav__link">
     remove individuals
   </a>
   
@@ -444,7 +480,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#population-ids" title="Population ID's" class="md-nav__link">
+  <a href="#population-ids" class="md-nav__link">
     Population ID's
   </a>
   
@@ -452,15 +488,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#view-population-names" title="view population names" class="md-nav__link">
+  <a href="#view-population-names" class="md-nav__link">
     view population names
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rename-populations" title="rename populations" class="md-nav__link">
+  <a href="#rename-populations" class="md-nav__link">
     rename populations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replace-population-names" class="md-nav__link">
+    replace population names
   </a>
   
 </li>
@@ -471,7 +514,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#display-specific-loci-andor-samples" title="Display Specific Loci and/or Samples" class="md-nav__link">
+  <a href="#display-specific-loci-andor-samples" class="md-nav__link">
     Display Specific Loci and/or Samples
   </a>
   
@@ -479,14 +522,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#view-loci" title="view loci" class="md-nav__link">
+  <a href="#get-loci-names" class="md-nav__link">
+    get loci names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-loci" class="md-nav__link">
     view loci
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#view-samples" title="view samples" class="md-nav__link">
+  <a href="#view-samples" class="md-nav__link">
     view samples
   </a>
   
@@ -498,14 +548,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#remove-loci" title="Remove Loci" class="md-nav__link">
+  <a href="#remove-loci" class="md-nav__link">
     Remove Loci
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#missing-data" title="Missing Data" class="md-nav__link">
+  <a href="#missing-data" class="md-nav__link">
     Missing Data
   </a>
   
@@ -513,7 +563,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#view-missing-data" title="view missing data" class="md-nav__link">
+  <a href="#view-missing-data" class="md-nav__link">
     view missing data
   </a>
   
@@ -521,14 +571,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#single-assignment" title="single assignment" class="md-nav__link">
+  <a href="#single-assignment" class="md-nav__link">
     single assignment
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#multiple-assignment" title="multiple assignment" class="md-nav__link">
+  <a href="#multiple-assignment" class="md-nav__link">
     multiple assignment
   </a>
   
@@ -540,7 +590,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#plot-missing-data" title="plot missing data" class="md-nav__link">
+  <a href="#plot-missing-data" class="md-nav__link">
     plot missing data
   </a>
   
@@ -552,7 +602,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#location-data" title="Location Data" class="md-nav__link">
+  <a href="#location-data" class="md-nav__link">
     Location Data
   </a>
   
@@ -560,14 +610,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#view-location-data" title="view location data" class="md-nav__link">
+  <a href="#view-location-data" class="md-nav__link">
     view location data
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#add-location-data" title="add location data" class="md-nav__link">
+  <a href="#add-location-data" class="md-nav__link">
     add location data
   </a>
   
@@ -575,7 +625,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#decimal-minutes-data" title="decimal minutes data" class="md-nav__link">
+  <a href="#decimal-minutes-data" class="md-nav__link">
     decimal minutes data
   </a>
   
@@ -587,7 +637,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#plot-location-data" title="plot location data" class="md-nav__link">
+  <a href="#plot-location-data" class="md-nav__link">
     plot location data
   </a>
   
@@ -614,28 +664,16 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../examples/" title="Example data" class="md-nav__link">
-      Example data
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-9">
-      Population Genetics Tests
+    <label class="md-nav__link" for="nav-5">
+      Types of Analyses
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        Population Genetics Tests
+      <label class="md-nav__title" for="nav-5">
+        Types of Analyses
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -648,6 +686,18 @@
   <li class="md-nav__item">
     <a href="../hardyweinberg/" title="Hardy-Weinberg Equilibrium" class="md-nav__link">
       Hardy-Weinberg Equilibrium
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../relatedness/" title="Relatedness" class="md-nav__link">
+      Relatedness
     </a>
   </li>
 
@@ -676,14 +726,33 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
-    <label class="md-nav__link" for="nav-11">
-      Development
+    <label class="md-nav__link" for="nav-7">
+      Other
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-11">
-        Development
+      <label class="md-nav__title" for="nav-7">
+        Other
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+    
+    <label class="md-nav__link" for="nav-7-1">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-1">
+        API
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -704,16 +773,57 @@
     </nav>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../faq/" title="Frequently Asked Questions" class="md-nav__link">
-      Frequently Asked Questions
+    <a href="../logo_graveyard/" title="Logo Graveyard" class="md-nav__link">
+      Logo Graveyard
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Misc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Misc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../genepopIBD/" title="Genepop IBD Conversion" class="md-nav__link">
+      Genepop IBD Conversion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -736,22 +846,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#individuals" title="Individuals" class="md-nav__link">
-    Individuals
+  <a href="#individuals-samples" class="md-nav__link">
+    Individuals / Samples
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#view-individuals-names" title="view individuals' names" class="md-nav__link">
+  <a href="#view-individuals-names" class="md-nav__link">
     view individuals' names
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#remove-individuals" title="remove individuals" class="md-nav__link">
+  <a href="#remove-individuals" class="md-nav__link">
     remove individuals
   </a>
   
@@ -763,7 +873,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#population-ids" title="Population ID's" class="md-nav__link">
+  <a href="#population-ids" class="md-nav__link">
     Population ID's
   </a>
   
@@ -771,15 +881,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#view-population-names" title="view population names" class="md-nav__link">
+  <a href="#view-population-names" class="md-nav__link">
     view population names
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rename-populations" title="rename populations" class="md-nav__link">
+  <a href="#rename-populations" class="md-nav__link">
     rename populations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replace-population-names" class="md-nav__link">
+    replace population names
   </a>
   
 </li>
@@ -790,7 +907,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#display-specific-loci-andor-samples" title="Display Specific Loci and/or Samples" class="md-nav__link">
+  <a href="#display-specific-loci-andor-samples" class="md-nav__link">
     Display Specific Loci and/or Samples
   </a>
   
@@ -798,14 +915,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#view-loci" title="view loci" class="md-nav__link">
+  <a href="#get-loci-names" class="md-nav__link">
+    get loci names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-loci" class="md-nav__link">
     view loci
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#view-samples" title="view samples" class="md-nav__link">
+  <a href="#view-samples" class="md-nav__link">
     view samples
   </a>
   
@@ -817,14 +941,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#remove-loci" title="Remove Loci" class="md-nav__link">
+  <a href="#remove-loci" class="md-nav__link">
     Remove Loci
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#missing-data" title="Missing Data" class="md-nav__link">
+  <a href="#missing-data" class="md-nav__link">
     Missing Data
   </a>
   
@@ -832,7 +956,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#view-missing-data" title="view missing data" class="md-nav__link">
+  <a href="#view-missing-data" class="md-nav__link">
     view missing data
   </a>
   
@@ -840,14 +964,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#single-assignment" title="single assignment" class="md-nav__link">
+  <a href="#single-assignment" class="md-nav__link">
     single assignment
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#multiple-assignment" title="multiple assignment" class="md-nav__link">
+  <a href="#multiple-assignment" class="md-nav__link">
     multiple assignment
   </a>
   
@@ -859,7 +983,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#plot-missing-data" title="plot missing data" class="md-nav__link">
+  <a href="#plot-missing-data" class="md-nav__link">
     plot missing data
   </a>
   
@@ -871,7 +995,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#location-data" title="Location Data" class="md-nav__link">
+  <a href="#location-data" class="md-nav__link">
     Location Data
   </a>
   
@@ -879,14 +1003,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#view-location-data" title="view location data" class="md-nav__link">
+  <a href="#view-location-data" class="md-nav__link">
     view location data
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#add-location-data" title="add location data" class="md-nav__link">
+  <a href="#add-location-data" class="md-nav__link">
     add location data
   </a>
   
@@ -894,7 +1018,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#decimal-minutes-data" title="decimal minutes data" class="md-nav__link">
+  <a href="#decimal-minutes-data" class="md-nav__link">
     decimal minutes data
   </a>
   
@@ -906,7 +1030,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#plot-location-data" title="plot location data" class="md-nav__link">
+  <a href="#plot-location-data" class="md-nav__link">
     plot location data
   </a>
   
@@ -936,24 +1060,24 @@
                   <a href="https://github.com/pdimens/PopGen.jl/edit/master/docs/commands.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>View/edit PopObj</h1>
+                  <h1>Manipulating a PopObj</h1>
                 
-                <p>These are the included PopObj viewing and manipulating commands. Using standard Julia conventions, only commands ending with a bang <code>!</code> are mutable, meaning they alter the input data. So, commands like <code>popid</code> will show you population ID's, whereas <code>popid!</code> will change them in your <code>PopObj</code>. The mutable commands here alter the data in your <code>PopObj</code>, but not the source data (i.e. the files used to create the <code>PopObj</code>).</p>
+                <p>These are the included PopObj viewing and manipulating commands. Using standard Julia conventions, only commands ending with a bang <code>!</code> are mutable, meaning they alter the input data. So, commands like <code>populations</code> will show you population ID's, whereas <code>populations!</code> will change them in your <code>PopObj</code>. The mutable commands here alter the data in your <code>PopObj</code>, but not the source data (i.e. the files used to create the <code>PopObj</code>). Read over <a href="../PopObj_accessing/">Accessing parts of a PopObj</a> to become familiar with the components of a <code>PopObj</code>. </p>
 <p>To follow along like a tutorial,  use the <code>gulfsharks</code> data. Load the data in if you haven't already:</p>
 <div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">PopGen</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">sharks</span> <span class="o">=</span> <span class="n">gulfsharks</span><span class="p">()</span> <span class="p">;</span>
 </pre></div>
 
-<h2 id="individuals">Individuals</h2>
+<h2 id="individuals-samples">Individuals / Samples</h2>
 <h3 id="view-individuals-names">view individuals' names</h3>
-<p><div class="codehilite"><pre><span></span><span class="n">sample_names</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><span class="n">samples</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">)</span>
 </pre></div>
 View individual/sample names in a <code>PopObj</code>. This is equivalent to <code>PopObj.samples.name</code></p>
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
 <label for="__tab_1_0">indnames</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">sample_names</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">samples</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_1" type="radio" id="__tab_1_1" />
 <label for="__tab_1_1">output</label>
@@ -981,7 +1105,7 @@ View individual/sample names in a <code>PopObj</code>. This is equivalent to <co
 </pre></div></div>
 </div>
 <h3 id="remove-individuals">remove individuals</h3>
-<div class="codehilite"><pre><span></span><span class="n">remove_samples!</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">samp_id</span><span class="o">::</span><span class="kt">Union</span><span class="p">{</span><span class="n">String</span><span class="p">,</span> <span class="kt">Array</span><span class="p">{</span><span class="n">String</span><span class="p">,</span><span class="mi">1</span><span class="p">}})</span>
+<div class="codehilite"><pre><span></span><span class="n">remove_samples!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">samp_id</span><span class="o">::</span><span class="kt">Union</span><span class="p">{</span><span class="n">String</span><span class="p">,</span> <span class="kt">Array</span><span class="p">{</span><span class="n">String</span><span class="p">,</span><span class="mi">1</span><span class="p">}})</span>
 </pre></div>
 
 <p>Removes selected individuals from a <code>PopObj</code>. Input can be a single sample, or an array of samples. Will output entire <code>PopObj</code>, so it's better to use a semicolon to suppress the output. Use <code>summary</code> or <code>.name</code>  if you want to confirm that the samples were removed. This command will inform you if samples were not found in the data.</p>
@@ -995,35 +1119,27 @@ View individual/sample names in a <code>PopObj</code>. This is equivalent to <co
 </pre></div></div>
 <input name="__tabs_2" type="radio" id="__tab_2_1" />
 <label for="__tab_2_1">single output</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>Object of type PopObj:
+<div class="superfences-content"><div class="codehilite"><pre><span></span> Object of type PopObj
+ Marker type: SNP
+ Ploidy: 2
 
-Longitude:
-[&quot;-80.59958&quot;, &quot;-80.42248&quot;, &quot;-80.35779&quot;] … [&quot;-87.36617&quot;, &quot;-85.71432&quot;, &quot;-85.71432&quot;]
+ Number of individuals: 211
+ Number of loci: 2213
+ Longitude: present with 0 missing
+ Latitude: present with 0 missing
 
-Latitude:
-[&quot;28.30624&quot;, &quot;28.30787&quot;, &quot;28.30234&quot;] … [&quot;30.05217&quot;, &quot;29.82344&quot;, &quot;29.82344&quot;]
-
-
-Number of individuals: 211
-[&quot;cc_002&quot;, &quot;cc_003&quot;, &quot;cc_005&quot;] … [&quot;seg_029&quot;, &quot;seg_030&quot;, &quot;seg_031&quot;]
-
-Number of loci: 2213
-[&quot;contig_35208&quot;, &quot;contig_23109&quot;, &quot;contig_4493&quot;] … [&quot;contig_19384&quot;, &quot;contig_22368&quot;, &quot;contig_2784&quot;]
-
-Ploidy: 2
-Number of populations: 7
-
-   #Inds | Pop
-   --------------
-     20  |  1
-     30  |  2
-     28  |  3
-     65  |  4
-     28  |  5
-     20  |  6
-     20  |  7
-
-Available .samples fields: .name, .population, .ploidy, .longitude, .latitude
+ Population names and counts:
+7×2 DataFrame
+│ Row │ population     │ count │
+│     │ Union…         │ Int64 │
+├─────┼────────────────┼───────┤
+│ 1   │ Cape Canaveral │ 20    │
+│ 2   │ Georgia        │ 30    │
+│ 3   │ South Carolina │ 28    │
+│ 4   │ Florida Keys   │ 65    │
+│ 5   │ Mideast Gulf   │ 28    │
+│ 6   │ Northeast Gulf │ 20    │
+│ 7   │ Southeast Gulf │ 20    │
 </pre></div></div>
 <input name="__tabs_2" type="radio" id="__tab_2_2" />
 <label for="__tab_2_2">multiple individuals</label>
@@ -1033,65 +1149,53 @@ Available .samples fields: .name, .population, .ploidy, .longitude, .latitude
 </pre></div></div>
 <input name="__tabs_2" type="radio" id="__tab_2_3" />
 <label for="__tab_2_3">multiple output</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>NOTICE: ind &quot;cc_001&quot; not found!
+<div class="superfences-content"><div class="codehilite"><pre><span></span> Object of type PopObj
+ Marker type: SNP
+ Ploidy: 2
 
-Object of type PopObj:
+ Number of individuals: 209
+ Number of loci: 2213
+ Longitude: present with 0 missing
+ Latitude: present with 0 missing
 
-Longitude:
-[&quot;-80.34815&quot;, &quot;-80.34822&quot;, &quot;-80.43027&quot;] … [&quot;-87.36617&quot;, &quot;-85.71432&quot;, &quot;-85.71432&quot;]
-
-Latitude:
-[&quot;28.30624&quot;, &quot;28.30787&quot;, &quot;28.30234&quot;] … [&quot;30.05217&quot;, &quot;29.82344&quot;, &quot;29.82344&quot;]
-
-
-Number of individuals: 209
-[&quot;cc_005&quot;, &quot;cc_007&quot;, &quot;cc_008&quot;] … [&quot;seg_029&quot;, &quot;seg_030&quot;, &quot;seg_031&quot;]
-
-Number of loci: 2213
-[&quot;contig_35208&quot;, &quot;contig_23109&quot;, &quot;contig_4493&quot;] … [&quot;contig_19384&quot;, &quot;contig_22368&quot;, &quot;contig_2784&quot;]
-
-Ploidy: 2
-Number of populations: 7
-
-   #Inds | Pop
-   --------------
-     18  |  1
-     30  |  2
-     28  |  3
-     65  |  4
-     28  |  5
-     20  |  6
-     20  |  7
-
-Available .samples fields: .name, .population, .ploidy, .longitude, .latitude
+ Population names and counts:
+7×2 DataFrame
+│ Row │ population     │ count │
+│     │ Union…         │ Int64 │
+├─────┼────────────────┼───────┤
+│ 1   │ Cape Canaveral │ 18    │
+│ 2   │ Georgia        │ 30    │
+│ 3   │ South Carolina │ 28    │
+│ 4   │ Florida Keys   │ 65    │
+│ 5   │ Mideast Gulf   │ 28    │
+│ 6   │ Northeast Gulf │ 20    │
+│ 7   │ Southeast Gulf │ 20    │
 </pre></div></div>
 </div>
-<div class="admonition info">
-<p class="admonition-title">sample not found!</p>
-<p>If removing a single sample and it is not found in the PopObj, an error will be returned. However, if removing multiple samples, you will receive a notice above the PopObj summary indicating which individuals were not found, while removing the ones that were.</p>
-</div>
+<details class="question"><summary>sample not found!</summary><p>If removing a single sample and it is not found in the PopObj, an error will be returned. However, if removing multiple samples, you will receive a notice above the PopObj summary indicating which individuals were not found, while removing the ones that were.</p>
+</details>
 <h2 id="population-ids">Population ID's</h2>
 <h3 id="view-population-names">view population names</h3>
-<p><div class="codehilite"><pre><span></span><span class="n">populations</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">listall</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><span class="n">populations</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">listall</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
 </pre></div>
 Just as you can view population ID's with <code>.population</code>, you can also view them with the <code>populations</code> command, which by default shows you a summary of the number of individuals in each population, much like you see when using <code>summary</code>.  </p>
 <div class="superfences-tabs">
 <input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
-<label for="__tab_3_0">popid</label>
+<label for="__tab_3_0">populations</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_3" type="radio" id="__tab_3_1" />
 <label for="__tab_3_1">output</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>│ Row │ population    │ count │
-│     │ Categorical…⍰ │ Int32 │
-├─────┼───────────────┼───────┤
-│ 1   │ 1             │ 21    │
-│ 2   │ 2             │ 30    │
-│ 3   │ 3             │ 28    │
-│ 4   │ 4             │ 65    │
-│ 5   │ 5             │ 28    │
-│ 6   │ 6             │ 20    │
-│ 7   │ 7             │ 20    │
+<div class="superfences-content"><div class="codehilite"><pre><span></span>│ Row │ population     │ count │
+│     │ Union…         │ Int64 │
+├─────┼────────────────┼───────┤
+│ 1   │ Cape Canaveral │ 18    │
+│ 2   │ Georgia        │ 30    │
+│ 3   │ South Carolina │ 28    │
+│ 4   │ Florida Keys   │ 65    │
+│ 5   │ Mideast Gulf   │ 28    │
+│ 6   │ Northeast Gulf │ 20    │
+│ 7   │ Southeast Gulf │ 20    │
 </pre></div></div>
 </div>
 <p>You can use the keyword <code>listall=true</code> to display each individual and their associated population as a DataFrame. You'll notice the DataFrame looks remarkably like the first two columns of the one from <code>locations</code>, and it sort of is. Unlike <code>locations</code>, this will not give you an error when location data is missing. </p>
@@ -1102,112 +1206,154 @@ Just as you can view population ID's with <code>.population</code>, you can also
 </pre></div></div>
 <input name="__tabs_4" type="radio" id="__tab_4_1" />
 <label for="__tab_4_1">output</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>212×2 DataFrames.DataFrame
-│ Row │ ind     │ population │
-│     │ String  │ Union…     │
-├─────┼─────────┼────────────┤
-│ 1   │ cc_001  │ 1          │
-│ 2   │ cc_002  │ 1          │
-│ 3   │ cc_003  │ 1          │
-│ 4   │ cc_005  │ 1          │
-│ 5   │ cc_007  │ 1          │
-│ 6   │ cc_008  │ 1          │
-│ 7   │ cc_009  │ 1          │
+<div class="superfences-content"><div class="codehilite"><pre><span></span>│ Row │ name    │ population     │
+│     │ String  │ Union…         │
+├─────┼─────────┼────────────────┤
+│ 1   │ cc_005  │ Cape Canaveral │
+│ 2   │ cc_007  │ Cape Canaveral │
+│ 3   │ cc_008  │ Cape Canaveral │
+│ 4   │ cc_009  │ Cape Canaveral │
+│ 5   │ cc_010  │ Cape Canaveral │
+│ 6   │ cc_012  │ Cape Canaveral │
 ⋮
-│ 205 │ seg_024 │ 7          │
-│ 206 │ seg_025 │ 7          │
-│ 207 │ seg_026 │ 7          │
-│ 208 │ seg_027 │ 7          │
-│ 209 │ seg_028 │ 7          │
-│ 210 │ seg_029 │ 7          │
-│ 211 │ seg_030 │ 7          │
-│ 212 │ seg_031 │ 7          │
+│ 203 │ seg_025 │ Southeast Gulf │
+│ 204 │ seg_026 │ Southeast Gulf │
+│ 205 │ seg_027 │ Southeast Gulf │
+│ 206 │ seg_028 │ Southeast Gulf │
+│ 207 │ seg_029 │ Southeast Gulf │
+│ 208 │ seg_030 │ Southeast Gulf │
+│ 209 │ seg_031 │ Southeast Gulf │
 </pre></div></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">synonymous functions</p>
-<p>You can use the command <code>population</code> for the same functionality. We made the commands <code>population</code> and <code>populations</code> synonymous so you wouldn't have to memorize if the name was singular or plural-- it just works! This also applies to <code>populations!</code> and <code>population!</code></p>
-</div>
+<details class="tip"><summary>synonymous functions</summary><p>You can use the command <code>population</code> for the same functionality. We made the commands <code>population</code> and <code>populations</code> synonymous so you wouldn't have to memorize if the name was singular or plural-- it just works! This also applies to <code>populations!</code> and <code>population!</code></p>
+</details>
 <h3 id="rename-populations">rename populations</h3>
-<p><div class="codehilite"><pre><span></span><span class="n">popid!</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">rename</span><span class="o">::</span><span class="kt">Dict</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><span class="n">populations!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">rename</span><span class="o">::</span><span class="kt">Dict</span><span class="p">,</span> <span class="n">replace</span><span class="o">::</span><span class="kt">Tuple</span><span class="p">)</span>
 </pre></div>
-Rename the population ID's of a <code>PopObj</code> (the <code>.popid</code>). Uses a <code>Dict</code> of <code>[popid] =&gt; replacement</code> to rename. It returns <code>popid(::PopObj,listall=true)</code> of your renamed PopObj.</p>
+Use the <code>rename =</code> keyword to rename the population ID's of a <code>PopObj</code> (the <code>.population</code>). Uses a <code>Dict</code> of <code>[population_name] =&gt; replacement</code> to rename. It returns <code>population(::PopObj,listall=true)</code> of your renamed PopObj.</p>
 <div class="superfences-tabs">
 <input name="__tabs_5" type="radio" id="__tab_5_0" checked="checked" />
 <label for="__tab_5_0">rename populations</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c"># create a dictionary of name conversions</span>
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">new_popnames</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">(</span><span class="mi">1</span> <span class="o">=&gt;</span> <span class="s">&quot;Cape Canaveral&quot;</span><span class="p">,</span>
-                           <span class="mi">2</span> <span class="o">=&gt;</span> <span class="s">&quot;Georgia&quot;</span><span class="p">,</span>
-                           <span class="mi">3</span> <span class="o">=&gt;</span> <span class="s">&quot;S Carolina&quot;</span><span class="p">,</span>
-                           <span class="mi">4</span> <span class="o">=&gt;</span> <span class="s">&quot;FL Keys&quot;</span><span class="p">,</span>
-                           <span class="mi">5</span> <span class="o">=&gt;</span> <span class="s">&quot;Mideast Gulf&quot;</span><span class="p">,</span>
-                           <span class="mi">6</span> <span class="o">=&gt;</span> <span class="s">&quot;Northeast Gulf&quot;</span><span class="p">,</span>
-                           <span class="mi">7</span> <span class="o">=&gt;</span> <span class="s">&quot;Southeast Gulf&quot;</span><span class="p">)</span>
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">new_popnames</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">(</span>
+            <span class="s">&quot;Cape Canaveral&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span>
+            <span class="s">&quot;Georgia&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span>
+            <span class="s">&quot;S Carolina&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span>
+            <span class="s">&quot;FL Keys&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span>
+            <span class="s">&quot;Mideast Gulf&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span>
+            <span class="s">&quot;Northeast Gulf&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span>
+            <span class="s">&quot;Southeast Gulf&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Gulf&quot;</span>
+        <span class="p">)</span>
 
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">popid!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">rename</span> <span class="o">=</span> <span class="n">new_popnames</span><span class="p">)</span>
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">rename</span> <span class="o">=</span> <span class="n">new_popnames</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_5" type="radio" id="__tab_5_1" />
 <label for="__tab_5_1">output</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>212×2 DataFrame
-│ Row │ ind     │ population     │
-│     │ String  │ Union…         │
-├─────┼─────────┼────────────────┤
-│ 1   │ cc_001  │ Cape Canaveral │
-│ 2   │ cc_002  │ Cape Canaveral │
-│ 3   │ cc_003  │ Cape Canaveral │
-│ 4   │ cc_005  │ Cape Canaveral │
-│ 5   │ cc_007  │ Cape Canaveral │
-│ 6   │ cc_008  │ Cape Canaveral │
-│ 7   │ cc_009  │ Cape Canaveral │
-│ 8   │ cc_010  │ Cape Canaveral │
-│ 9   │ cc_012  │ Cape Canaveral │
-│ 10  │ cc_013  │ Cape Canaveral │
-│ 11  │ cc_014  │ Cape Canaveral │
-│ 12  │ cc_015  │ Cape Canaveral │
-│ 13  │ cc_016  │ Cape Canaveral │
-│ 14  │ cc_017  │ Cape Canaveral │
-│ 15  │ cc_018  │ Cape Canaveral │
-│ 16  │ cc_019  │ Cape Canaveral │
-│ 17  │ cc_020  │ Cape Canaveral │
-│ 18  │ cc_021  │ Cape Canaveral │
+<div class="superfences-content"><div class="codehilite"><pre><span></span>│ Row │ name    │ population │
+│     │ String  │ Union…     │
+├─────┼─────────┼────────────┤
+│ 1   │ cc_005  │ Atlantic   │
+│ 2   │ cc_007  │ Atlantic   │
+│ 3   │ cc_008  │ Atlantic   │
+│ 4   │ cc_009  │ Atlantic   │
+│ 5   │ cc_010  │ Atlantic   │
+│ 6   │ cc_012  │ Atlantic   │
 ⋮
-│ 194 │ seg_003 │ Southeast Gulf │
-│ 195 │ seg_009 │ Southeast Gulf │
-│ 196 │ seg_010 │ Southeast Gulf │
-│ 197 │ seg_011 │ Southeast Gulf │
-│ 198 │ seg_012 │ Southeast Gulf │
-│ 199 │ seg_014 │ Southeast Gulf │
-│ 200 │ seg_015 │ Southeast Gulf │
-│ 201 │ seg_016 │ Southeast Gulf │
-│ 202 │ seg_018 │ Southeast Gulf │
-│ 203 │ seg_021 │ Southeast Gulf │
-│ 204 │ seg_023 │ Southeast Gulf │
-│ 205 │ seg_024 │ Southeast Gulf │
-│ 206 │ seg_025 │ Southeast Gulf │
-│ 207 │ seg_026 │ Southeast Gulf │
-│ 208 │ seg_027 │ Southeast Gulf │
-│ 209 │ seg_028 │ Southeast Gulf │
-│ 210 │ seg_029 │ Southeast Gulf │
-│ 211 │ seg_030 │ Southeast Gulf │
-│ 212 │ seg_031 │ Southeast Gulf │
+│ 203 │ seg_025 │ Gulf       │
+│ 204 │ seg_026 │ Gulf       │
+│ 205 │ seg_027 │ Gulf       │
+│ 206 │ seg_028 │ Gulf       │
+│ 207 │ seg_029 │ Gulf       │
+│ 208 │ seg_030 │ Gulf       │
+│ 209 │ seg_031 │ Gulf       │
+</pre></div></div>
+</div>
+<h3 id="replace-population-names">replace population names</h3>
+<p>You may also use the <code>replace</code> keyword in <code>populations!</code> to outright replace all the population names or fill in new ones. This is particularly useful when importing from VCF format when population information is not provided. This method will completely replace the population names of a <code>PopObj</code> regardless of what they currently are. Internally, it will generate an vector of population names from a tuple of (counts, names) where <code>counts</code> is a vector of the number of samples per population and <code>names</code> is a vector of the names of the populations. You can also use a named tuple <code>(counts = , names = )</code> if you prefer. Since we know our number of samples per population from earlier, we can create a vector of those counts as so:</p>
+<div class="codehilite"><pre><span></span>counts = [18, 30, 28, 65, 28, 20, 20]
+</pre></div>
+
+<p>and we can also create the vector of the names in the order in which they appeared:</p>
+<div class="codehilite"><pre><span></span>popnames = [&quot;Cape Canaveral&quot;, &quot;Georgia&quot;, &quot;S Carolina&quot;, &quot;FL Keys&quot;, &quot;Mideast Gulf&quot;, &quot;Northeast Gulf&quot;, &quot;Southeast Gulf&quot;]
+</pre></div>
+
+<p>And now we can combine them with <code>populations!</code> to restore the population names to how they were originally:</p>
+<div class="superfences-tabs">
+<input name="__tabs_6" type="radio" id="__tab_6_0" checked="checked" />
+<label for="__tab_6_0">replace populations</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="p">(</span><span class="n">popnames</span><span class="p">,</span> <span class="n">counts</span><span class="p">))</span>  <span class="c"># Tuple</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="p">(</span><span class="n">counts</span> <span class="o">=</span> <span class="n">counts</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">popnames</span><span class="p">))</span>   <span class="c"># NamedTuple</span>
+</pre></div></div>
+<input name="__tabs_6" type="radio" id="__tab_6_1" />
+<label for="__tab_6_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>│ Row │ name    │ population     │
+│     │ String  │ String         │
+├─────┼─────────┼────────────────┤
+│ 1   │ cc_005  │ Cape Canaveral │
+│ 2   │ cc_007  │ Cape Canaveral │
+│ 3   │ cc_008  │ Cape Canaveral │
+│ 4   │ cc_009  │ Cape Canaveral │
+│ 5   │ cc_010  │ Cape Canaveral │
+│ 6   │ cc_012  │ Cape Canaveral │
+⋮
+│ 203 │ seg_025 │ Southeast Gulf │
+│ 204 │ seg_026 │ Southeast Gulf │
+│ 205 │ seg_027 │ Southeast Gulf │
+│ 206 │ seg_028 │ Southeast Gulf │
+│ 207 │ seg_029 │ Southeast Gulf │
 </pre></div></div>
 </div>
 <h2 id="display-specific-loci-andor-samples">Display Specific Loci and/or Samples</h2>
+<p>These are the "public" functions to retrieve sample genotype information in an easy-on-the-eyes format, whereas calculations in other parts of PopGen.jl use much more barebones functions <a href="../hidden_api/">under the hood</a> suitable for high-throughput programming.</p>
+<h3 id="get-loci-names">get loci names</h3>
+<div class="codehilite"><pre><span></span>loci(data::PopObj)
+</pre></div>
+
+<p>Returns a vector of strings of the loci names in a <code>PopObj</code></p>
+<div class="superfences-tabs">
+<input name="__tabs_7" type="radio" id="__tab_7_0" checked="checked" />
+<label for="__tab_7_0">example</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">loci</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_7" type="radio" id="__tab_7_1" />
+<label for="__tab_7_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>2213-element Array{String,1}:
+ &quot;contig_35208&quot;
+ &quot;contig_23109&quot;
+ &quot;contig_4493&quot; 
+ &quot;contig_10742&quot;
+ &quot;contig_14898&quot;
+ &quot;contig_8483&quot; 
+ &quot;contig_8065&quot; 
+ &quot;contig_14708&quot;
+ &quot;contig_2307&quot; 
+ ⋮             
+ &quot;contig_24711&quot;
+ &quot;contig_18959&quot;
+ &quot;contig_43517&quot;
+ &quot;contig_27356&quot;
+ &quot;contig_475&quot;  
+ &quot;contig_19384&quot;
+ &quot;contig_22368&quot;
+ &quot;contig_2784&quot; 
+</pre></div></div>
+</div>
 <h3 id="view-loci">view loci</h3>
-<div class="codehilite"><pre><span></span><span class="n">isolate_genotypes</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">samples</span><span class="o">=</span> <span class="nb">nothing</span><span class="p">,</span> <span class="n">loci</span><span class="o">=</span> <span class="nb">nothing</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">view_genotypes</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">samples</span><span class="o">=</span> <span class="nb">nothing</span><span class="p">,</span> <span class="n">loci</span><span class="o">=</span> <span class="nb">nothing</span><span class="p">)</span>
 </pre></div>
 
 <p>Default shows all genotypes for all individuals. Returns a DataFrame.</p>
 <div class="superfences-tabs">
-<input name="__tabs_6" type="radio" id="__tab_6_0" checked="checked" />
-<label for="__tab_6_0">all loci</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">isolate_genotypes</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
+<input name="__tabs_8" type="radio" id="__tab_8_0" checked="checked" />
+<label for="__tab_8_0">all loci</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">view_genotypes</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_6" type="radio" id="__tab_6_1" />
-<label for="__tab_6_1">output</label>
+<input name="__tabs_8" type="radio" id="__tab_8_1" />
+<label for="__tab_8_1">output</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>212×2215 DataFrames.DataFrame. Omitted printing of 2209 columns
 │ Row │ ind     │ population   │ contig_10001 │ contig_10013 │ contig_10028 │ contig_10035 │
-│     │ String  │ Categorical… │ Any          │ Any          │ Any          │ Any          │
+│     │ String  │ String       │ Any          │ Any          │ Any          │ Any          │
 ├─────┼─────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
 │ 1   │ cc_001  │ 1            │ (1, 1)       │ (1, 1)       │ (1, 1)       │ (1, 1)       │
 │ 2   │ cc_002  │ 1            │ (1, 1)       │ (1, 1)       │ (1, 1)       │ (1, 1)       │
@@ -1229,15 +1375,15 @@ Rename the population ID's of a <code>PopObj</code> (the <code>.popid</code>). U
 </div>
 <p>Add the argument  <code>loci=</code> specify a single locus (string) or multiple loci (array of strings) to display</p>
 <div class="superfences-tabs">
-<input name="__tabs_7" type="radio" id="__tab_7_0" checked="checked" />
-<label for="__tab_7_0">single locus</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">isolate_genotypes</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">loci</span> <span class="o">=</span> <span class="s">&quot;contig_10001&quot;</span><span class="p">)</span>
+<input name="__tabs_9" type="radio" id="__tab_9_0" checked="checked" />
+<label for="__tab_9_0">single locus</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">view_genotypes</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">loci</span> <span class="o">=</span> <span class="s">&quot;contig_10001&quot;</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_7" type="radio" id="__tab_7_1" />
-<label for="__tab_7_1">single output</label>
+<input name="__tabs_9" type="radio" id="__tab_9_1" />
+<label for="__tab_9_1">single output</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>212×3 DataFrames.DataFrame
 │ Row │ ind     │ population   │ contig_10001 │
-│     │ String  │ Categorical… │ Any          │
+│     │ String  │ String       │ Any          │
 ├─────┼─────────┼──────────────┼──────────────┤
 │ 1   │ cc_001  │ 1            │ (1, 1)       │
 │ 2   │ cc_002  │ 1            │ (1, 1)       │
@@ -1256,15 +1402,15 @@ Rename the population ID's of a <code>PopObj</code> (the <code>.popid</code>). U
 │ 211 │ seg_030 │ 7            │ (1, 1)       │
 │ 212 │ seg_031 │ 7            │ (1, 1)       │
 </pre></div></div>
-<input name="__tabs_7" type="radio" id="__tab_7_2" />
-<label for="__tab_7_2">multiple loci</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">isolate_genotypes</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">loci</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;contig_10001&quot;</span><span class="p">,</span> <span class="s">&quot;contig_10028&quot;</span><span class="p">])</span>
+<input name="__tabs_9" type="radio" id="__tab_9_2" />
+<label for="__tab_9_2">multiple loci</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">view_genotypes</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">loci</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;contig_10001&quot;</span><span class="p">,</span> <span class="s">&quot;contig_10028&quot;</span><span class="p">])</span>
 </pre></div></div>
-<input name="__tabs_7" type="radio" id="__tab_7_3" />
-<label for="__tab_7_3">multiple output</label>
+<input name="__tabs_9" type="radio" id="__tab_9_3" />
+<label for="__tab_9_3">multiple output</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>212×4 DataFrames.DataFrame
 │ Row │ ind     │ population   │ contig_10001 │ contig_10028 │
-│     │ String  │ Categorical… │ Any          │ Any          │
+│     │ String  │ String       │ Any          │ Any          │
 ├─────┼─────────┼──────────────┼──────────────┼──────────────┤
 │ 1   │ cc_001  │ 1            │ (1, 1)       │ (1, 1)       │
 │ 2   │ cc_002  │ 1            │ (1, 1)       │ (1, 1)       │
@@ -1287,23 +1433,23 @@ Rename the population ID's of a <code>PopObj</code> (the <code>.popid</code>). U
 <h3 id="view-samples">view samples</h3>
 <p>Add the argument  <code>samples=</code> specify a single sample (string) or multiple samples (array of strings) to display</p>
 <div class="superfences-tabs">
-<input name="__tabs_8" type="radio" id="__tab_8_0" checked="checked" />
-<label for="__tab_8_0">single sample</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">isolate_genotypes</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">samples</span> <span class="o">=</span> <span class="s">&quot;cc_001&quot;</span><span class="p">)</span>
+<input name="__tabs_10" type="radio" id="__tab_10_0" checked="checked" />
+<label for="__tab_10_0">single sample</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">view_genotypes</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">samples</span> <span class="o">=</span> <span class="s">&quot;cc_001&quot;</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_8" type="radio" id="__tab_8_1" />
-<label for="__tab_8_1">single output</label>
+<input name="__tabs_10" type="radio" id="__tab_10_1" />
+<label for="__tab_10_1">single output</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>1×2215 DataFrames.DataFrame. Omitted printing of 2209 columns
 │ Row │ name   │ population    │ contig_10001 │ contig_10013 │ contig_10028 │ contig_10035 │
-│     │ String │ Categorical…⍰ │ Any          │ Any          │ Any          │ Any          │
+│     │ String │ String        │ Any          │ Any          │ Any          │ Any          │
 ├─────┼────────┼───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
 │ 1   │ cc_001 │ 1             │ (1, 1)       │ (1, 1)       │ (1, 1)       │ (1, 1)       │
 </pre></div></div>
-<input name="__tabs_8" type="radio" id="__tab_8_2" />
-<label for="__tab_8_2">multiple samples</label>
+<input name="__tabs_10" type="radio" id="__tab_10_2" />
+<label for="__tab_10_2">multiple samples</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="mi">2</span><span class="n">×2215</span> <span class="n">DataFrames</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span> <span class="n">Omitted</span> <span class="n">printing</span> <span class="n">of</span> <span class="mi">2209</span> <span class="n">columns</span>
 <span class="n">│</span> <span class="n">Row</span> <span class="n">│</span> <span class="n">name</span>    <span class="n">│</span> <span class="n">population</span>    <span class="n">│</span> <span class="n">contig_10001</span> <span class="n">│</span> <span class="n">contig_10013</span> <span class="n">│</span> <span class="n">contig_10028</span> <span class="n">│</span> <span class="n">contig_10035</span> <span class="n">│</span>
-<span class="n">│</span>     <span class="n">│</span> <span class="n">String</span>  <span class="n">│</span> <span class="n">Categorical…⍰</span> <span class="n">│</span> <span class="kt">Any</span>          <span class="n">│</span> <span class="kt">Any</span>          <span class="n">│</span> <span class="kt">Any</span>          <span class="n">│</span> <span class="kt">Any</span>          <span class="n">│</span>
+<span class="n">│</span>     <span class="n">│</span> <span class="n">String</span>  <span class="n">│</span> <span class="n">String</span>        <span class="n">│</span> <span class="kt">Any</span>          <span class="n">│</span> <span class="kt">Any</span>          <span class="n">│</span> <span class="kt">Any</span>          <span class="n">│</span> <span class="kt">Any</span>          <span class="n">│</span>
 <span class="n">├─────┼─────────┼───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤</span>
 <span class="n">│</span> <span class="mi">1</span>   <span class="n">│</span> <span class="n">cc_001</span>  <span class="n">│</span> <span class="mi">1</span>             <span class="n">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>       <span class="n">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>       <span class="n">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>       <span class="n">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>       <span class="n">│</span>
 <span class="n">│</span> <span class="mi">2</span>   <span class="n">│</span> <span class="n">seg_028</span> <span class="n">│</span> <span class="mi">7</span>             <span class="n">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>       <span class="n">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>       <span class="n">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>       <span class="n">│</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>       <span class="n">│</span>
@@ -1311,125 +1457,106 @@ Rename the population ID's of a <code>PopObj</code> (the <code>.popid</code>). U
 </div>
 <p>It also means that you can combine the keywords <code>samples=</code> and <code>loci=</code> to further specify your output:</p>
 <div class="superfences-tabs">
-<input name="__tabs_9" type="radio" id="__tab_9_0" checked="checked" />
-<label for="__tab_9_0">both keywords</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">isolate_genotypes</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">samples</span><span class="o">=</span> <span class="p">[</span><span class="s">&quot;cc_001&quot;</span><span class="p">,</span> <span class="s">&quot;seg_028&quot;</span><span class="p">],</span> <span class="n">loci</span> <span class="o">=</span> <span class="s">&quot;contig_10013&quot;</span><span class="p">)</span>
+<input name="__tabs_11" type="radio" id="__tab_11_0" checked="checked" />
+<label for="__tab_11_0">both keywords</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">view_genotypes</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">samples</span><span class="o">=</span> <span class="p">[</span><span class="s">&quot;cc_001&quot;</span><span class="p">,</span> <span class="s">&quot;seg_028&quot;</span><span class="p">],</span> <span class="n">loci</span> <span class="o">=</span> <span class="s">&quot;contig_10013&quot;</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_9" type="radio" id="__tab_9_1" />
-<label for="__tab_9_1">output</label>
+<input name="__tabs_11" type="radio" id="__tab_11_1" />
+<label for="__tab_11_1">output</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>2×3 DataFrames.DataFrame
 │ Row │ name    │ population    │ contig_10013 │
-│     │ String  │ Categorical…⍰ │ Any          │
+│     │ String  │ String        │ Any          │
 ├─────┼─────────┼───────────────┼──────────────┤
 │ 1   │ cc_001  │ 1             │ (1, 1)       │
 │ 2   │ seg_028 │ 7             │ (1, 1)       │
 </pre></div></div>
 </div>
 <h2 id="remove-loci">Remove Loci</h2>
-<div class="codehilite"><pre><span></span><span class="n">remove_loci!</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">loci</span><span class="o">::</span><span class="kt">Union</span><span class="p">{</span><span class="n">String</span><span class="p">,</span> <span class="kt">Array</span><span class="p">{</span><span class="n">String</span><span class="p">,</span><span class="mi">1</span><span class="p">}})</span>
+<div class="codehilite"><pre><span></span><span class="n">remove_loci!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">loci</span><span class="o">::</span><span class="n">String</span><span class="p">)</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="n">remove_loci!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">loci</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">String</span><span class="p">})</span>
 </pre></div>
 
 <p>Removes selected loci from a <code>PopObj</code>. Input can be a single locus, or an array of loci.</p>
 <p>Examples:</p>
 <div class="superfences-tabs">
-<input name="__tabs_10" type="radio" id="__tab_10_0" checked="checked" />
-<label for="__tab_10_0">single locus</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">remove_loci!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="s">&quot;contig_35208&quot;</span><span class="p">)</span> <span class="p">;</span>
-
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">summary</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
+<input name="__tabs_12" type="radio" id="__tab_12_0" checked="checked" />
+<label for="__tab_12_0">single locus</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">remove_loci!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="s">&quot;contig_35208&quot;</span><span class="p">)</span> <span class="p">;</span> <span class="n">summary</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_10" type="radio" id="__tab_10_1" />
-<label for="__tab_10_1">single output</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>Object of type PopObj:
+<input name="__tabs_12" type="radio" id="__tab_12_1" />
+<label for="__tab_12_1">single output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span> Object of type PopObj
+ Marker type: SNP
+ Ploidy: 2
 
-Longitude:
-[&quot;-80.59928&quot;, &quot;-80.59954&quot;, &quot;-80.59958&quot;] … [&quot;-87.36617&quot;, &quot;-85.71432&quot;, &quot;-85.71432&quot;]
+ Number of individuals: 209
+ Number of loci: 2212
+ Longitude: present with 0 missing
+ Latitude: present with 0 missing
 
-Latitude:
-[&quot;28.30624&quot;, &quot;28.30787&quot;, &quot;28.30234&quot;] … [&quot;30.05217&quot;, &quot;29.82344&quot;, &quot;29.82344&quot;]
-
-
-Number of individuals: 212
-[&quot;cc_001&quot;, &quot;cc_002&quot;, &quot;cc_003&quot;] … [&quot;seg_029&quot;, &quot;seg_030&quot;, &quot;seg_031&quot;]
-
-Number of loci: 2212
-[&quot;contig_23109&quot;, &quot;contig_4493&quot;, &quot;contig_10742&quot;] … [&quot;contig_19384&quot;, &quot;contig_22368&quot;, &quot;contig_2784&quot;]
-
-Ploidy: 2
-Number of populations: 7
-
-   #Inds | Pop
-   --------------
-     21  |  1
-     30  |  2
-     28  |  3
-     65  |  4
-     28  |  5
-     20  |  6
-     20  |  7
-
-Available .samples fields: .name, .population, .ploidy, .longitude, .latitude
+ Population names and counts:
+7×2 DataFrame
+│ Row │ population     │ count │
+│     │ String         │ Int64 │
+├─────┼────────────────┼───────┤
+│ 1   │ Cape Canaveral │ 18    │
+│ 2   │ Georgia        │ 30    │
+│ 3   │ S Carolina     │ 28    │
+│ 4   │ FL Keys        │ 65    │
+│ 5   │ Mideast Gulf   │ 28    │
+│ 6   │ Northeast Gulf │ 20    │
+│ 7   │ Southeast Gulf │ 20    │
 </pre></div></div>
-<input name="__tabs_10" type="radio" id="__tab_10_2" />
-<label for="__tab_10_2">multiple loci</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">remove_loci!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;contig_35208&quot;</span><span class="p">,</span> <span class="s">&quot;contig_23109&quot;</span><span class="p">,</span> <span class="s">&quot;contig_4493&quot;</span><span class="p">])</span> <span class="p">;</span>
-
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">summary</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
+<input name="__tabs_12" type="radio" id="__tab_12_2" />
+<label for="__tab_12_2">multiple loci</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">remove_loci!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;contig_35208&quot;</span><span class="p">,</span> <span class="s">&quot;contig_23109&quot;</span><span class="p">,</span> <span class="s">&quot;contig_4493&quot;</span><span class="p">])</span> <span class="p">;</span> <span class="n">summary</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_10" type="radio" id="__tab_10_3" />
-<label for="__tab_10_3">multiple output</label>
+<input name="__tabs_12" type="radio" id="__tab_12_3" />
+<label for="__tab_12_3">multiple output</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>NOTICE: locus &quot;contig_35208&quot; not found
 
-Object of type PopObj:
+ Object of type PopObj
+ Marker type: SNP
+ Ploidy: 2
 
-Longitude:
-[&quot;-80.59928&quot;, &quot;-80.59954&quot;, &quot;-80.59958&quot;] … [&quot;-87.36617&quot;, &quot;-85.71432&quot;, &quot;-85.71432&quot;]
+ Number of individuals: 212
+ Number of loci: 2210
+ Longitude: present with 0 missing
+ Latitude: present with 0 missing
 
-Latitude:
-[&quot;28.30624&quot;, &quot;28.30787&quot;, &quot;28.30234&quot;] … [&quot;30.05217&quot;, &quot;29.82344&quot;, &quot;29.82344&quot;]
-
-
-Number of individuals: 212
-[&quot;cc_001&quot;, &quot;cc_002&quot;, &quot;cc_003&quot;] … [&quot;seg_029&quot;, &quot;seg_030&quot;, &quot;seg_031&quot;]
-
-Number of loci: 2210
-[&quot;contig_10742&quot;, &quot;contig_14898&quot;, &quot;contig_8483&quot;] … [&quot;contig_19384&quot;, &quot;contig_22368&quot;, &quot;contig_2784&quot;]
-
-Ploidy: 2
-Number of populations: 7
-
-   #Inds | Pop
-   --------------
-     21  |  1
-     30  |  2
-     28  |  3
-     65  |  4
-     28  |  5
-     20  |  6
-     20  |  7
-
-Available .samples fields: .name, .population, .ploidy, .longitude, 
+ Population names and counts:
+7×2 DataFrame
+│ Row │ population     │ count │
+│     │ Union…         │ Int64 │
+├─────┼────────────────┼───────┤
+│ 1   │ Cape Canaveral │ 21    │
+│ 2   │ Georgia        │ 30    │
+│ 3   │ South Carolina │ 28    │
+│ 4   │ Florida Keys   │ 65    │
+│ 5   │ Mideast Gulf   │ 28    │
+│ 6   │ Northeast Gulf │ 20    │
+│ 7   │ Southeast Gulf │ 20    │
 </pre></div></div>
 </div>
-<div class="admonition info">
-<p class="admonition-title">locus not found!</p>
-<p>If removing a single locus and it is not found in the PopObj, an error will be returned. However, if removing multiple loci, you will receive a notice above the PopObj summary indicating which loci were not found, while removing the ones that were.</p>
-</div>
+<details class="question"><summary>locus not found!</summary><p>If removing a single locus and it is not found in the PopObj, an error will be returned. However, if removing multiple loci, you will receive a notice above the PopObj summary indicating which loci were not found, while removing the ones that were. If none of the loci specified were found, it will return an error.</p>
+</details>
 <h2 id="missing-data">Missing Data</h2>
 <h3 id="view-missing-data">view missing data</h3>
-<div class="codehilite"><pre><span></span><span class="n">missing</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">missing</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">)</span>
 </pre></div>
 
 <p>Used to show missingness information-- that is, loci missing allele information. This command outputs two DataFrames, the first being a count of number of missing loci per samples, the other being the number of times a locus is missing across samples. </p>
 <div class="superfences-tabs">
-<input name="__tabs_11" type="radio" id="__tab_11_0" checked="checked" />
-<label for="__tab_11_0">missing</label>
+<input name="__tabs_13" type="radio" id="__tab_13_0" checked="checked" />
+<label for="__tab_13_0">missing</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">missing</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_11" type="radio" id="__tab_11_1" />
-<label for="__tab_11_1">output</label>
+<input name="__tabs_13" type="radio" id="__tab_13_1" />
+<label for="__tab_13_1">output</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>by_ind = (212×4 DataFrames.DataFrame. Omitted printing of 1 columns
-│ Row │ name    │ population │ nmissing │
+│ Row │ name    │ population │ missing │
 │     │ String  │ String     │ Any      │
 ├─────┼─────────┼────────────┼──────────┤
 │ 1   │ cc_001  │ 1          │ 124      │
@@ -1448,7 +1575,7 @@ Available .samples fields: .name, .population, .ploidy, .longitude,
 │ 210 │ seg_029 │ 7          │ 0        │
 │ 211 │ seg_030 │ 7          │ 1        │
 │ 212 │ seg_031 │ 7          │ 1        │, by_loci = 2213×2 DataFrames.DataFrame
-│ Row  │ locus        │ nmissing │
+│ Row  │ locus        │ missing │
 │      │ String       │ Any      │
 ├──────┼──────────────┼──────────┤
 │ 1    │ contig_35208 │ 0        │
@@ -1473,15 +1600,15 @@ Available .samples fields: .name, .population, .ploidy, .longitude,
 <h4 id="single-assignment">single assignment</h4>
 <p>The first DataFrame of the named tuple is named <code>by_sample</code> and the second named <code>by_loci</code>. If you assign a single variable to this tuple, it will inherit those names as accessors like so:</p>
 <div class="superfences-tabs">
-<input name="__tabs_12" type="radio" id="__tab_12_0" checked="checked" />
-<label for="__tab_12_0">single assignment</label>
+<input name="__tabs_14" type="radio" id="__tab_14_0" checked="checked" />
+<label for="__tab_14_0">single assignment</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">miss</span> <span class="o">=</span> <span class="n">missing</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span> <span class="p">;</span>
 </pre></div></div>
-<input name="__tabs_12" type="radio" id="__tab_12_1" />
-<label for="__tab_12_1">by_ind</label>
+<input name="__tabs_14" type="radio" id="__tab_14_1" />
+<label for="__tab_14_1">by_ind</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>julia&gt; miss.by_sample
 212×4 DataFrame. Omitted printing of 1 columns
-│ Row │ name    │ population │ nmissing │
+│ Row │ name    │ population │ missing │
 │     │ String  │ String     │ Int64    │
 ├─────┼─────────┼────────────┼──────────┤
 │ 1   │ cc_001  │ 1          │ 124      │
@@ -1495,11 +1622,11 @@ Available .samples fields: .name, .population, .ploidy, .longitude,
 │ 211 │ seg_030 │ 7          │ 1        │
 │ 212 │ seg_031 │ 7          │ 1        │
 </pre></div></div>
-<input name="__tabs_12" type="radio" id="__tab_12_2" />
-<label for="__tab_12_2">by_loci</label>
+<input name="__tabs_14" type="radio" id="__tab_14_2" />
+<label for="__tab_14_2">by_loci</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>julia&gt; miss.by_loci
 2213×2 DataFrame
-│ Row  │ locus        │ nmissing │
+│ Row  │ locus        │ missing │
 │      │ String       │ Int64    │
 ├──────┼──────────────┼──────────┤
 │ 1    │ contig_35208 │ 0        │
@@ -1517,15 +1644,15 @@ Available .samples fields: .name, .population, .ploidy, .longitude,
 <h4 id="multiple-assignment">multiple assignment</h4>
 <p>Python has this feature, however, if you're migrating from R, multiple assignment probably looks weird, or like flat-out sorcery. Whenever a function returns a tuple of values, like <code>missing</code> does, you can assign as many variables to it at once.</p>
 <div class="superfences-tabs">
-<input name="__tabs_13" type="radio" id="__tab_13_0" checked="checked" />
-<label for="__tab_13_0">missing</label>
+<input name="__tabs_15" type="radio" id="__tab_15_0" checked="checked" />
+<label for="__tab_15_0">missing</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">df1</span><span class="p">,</span><span class="n">df2</span> <span class="o">=</span> <span class="n">missing</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span> <span class="p">;</span>
 </pre></div></div>
-<input name="__tabs_13" type="radio" id="__tab_13_1" />
-<label for="__tab_13_1">df1</label>
+<input name="__tabs_15" type="radio" id="__tab_15_1" />
+<label for="__tab_15_1">df1</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>julia&gt; df1
 212×4 DataFrames.DataFrame. Omitted printing of 1 columns
-│ Row │ name    │ population │ nmissing │
+│ Row │ name    │ population │ missing │
 │     │ String  │ String     │ Any      │
 ├─────┼─────────┼────────────┼──────────┤
 │ 1   │ cc_001  │ 1          │ 124      │
@@ -1545,8 +1672,8 @@ Available .samples fields: .name, .population, .ploidy, .longitude,
 │ 211 │ seg_030 │ 7          │ 1        │
 │ 212 │ seg_031 │ 7          │ 1        │
 </pre></div></div>
-<input name="__tabs_13" type="radio" id="__tab_13_2" />
-<label for="__tab_13_2">df2</label>
+<input name="__tabs_15" type="radio" id="__tab_15_2" />
+<label for="__tab_15_2">df2</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>julia&gt; df2
 2213×2 DataFrames.DataFrame
 │ Row  │ locus        │ nmissing │
@@ -1570,53 +1697,54 @@ Available .samples fields: .name, .population, .ploidy, .longitude,
 │ 2213 │ contig_2784  │ 7        │
 </pre></div></div>
 </div>
-<div class="admonition info">
-<p class="admonition-title">a simple example</p>
-<p>If this still looks weird to you, here is a simple example to help wrap your mind around it.
+<details class="example"><summary>a simple example</summary><p>If this still looks weird to you, here is a simple example to help wrap your mind around it:
 <div class="codehilite"><pre><span></span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
 </pre></div>
-where </p>
-<p>a = 1</p>
-<p>b = 2</p>
-<p>c = 3</p>
-<p>d = [4, 5, 6, 7]</p>
-<p>embrace the convenience!</p>
-</div>
+where 
+<div class="codehilite"><pre><span></span>a = 1
+
+b = 2
+
+c = 3
+
+d = [4, 5, 6, 7]
+</pre></div>
+embrace the convenience!</p>
+</details>
 <h3 id="plot-missing-data">plot missing data</h3>
-<p><div class="codehilite"><pre><span></span><span class="n">plot_missing</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">color</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><span class="n">plot_missing</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">color</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
 </pre></div>
 Return an interactive plot of the number of missing loci in individuals of a <code>PopObj</code>, along with the number of missing individuals per locus. Use <code>color = [color1, color2, ...]</code> to set a custom color palette for the boxplots. </p>
 <p>Example:</p>
 <p><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">plot_missing</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
 </pre></div>
-<img alt="missing_plot" src="../img/missing_plot.png" /></p>
-<div class="admonition info">
-<p class="admonition-title">saving interactive plots</p>
-<p>To save the interactive plots, you can use the <code>savehtml</code> function from the <code>PlotlyJS.jl</code> package:
+<img alt="" src="../img/missing_plot.png" /></p>
+<details class="info"><summary>saving interactive plots</summary><p>To save the interactive plots, you can use the <code>savehtml</code> function from the <code>PlotlyJS.jl</code> package:
 <div class="codehilite"><pre><span></span><span class="n">PlotlyJS</span><span class="o">.</span><span class="n">savehtml</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="s">&quot;filename.html&quot;</span><span class="p">)</span>
 </pre></div>
 If you don't specify a full path in the filename, it will save it in your current working directory.
 <div class="codehilite"><pre><span></span><span class="c">#example</span>
 <span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">PlotlyJS</span> <span class="p">;</span>
-
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">PlotlyJS</span><span class="o">.</span><span class="n">savehtml</span><span class="p">(</span><span class="n">plot_missing</span><span class="p">(</span><span class="n">sharks</span><span class="p">),</span> <span class="s">&quot;/home/pdimens/missingness.html&quot;</span><span class="p">)</span>
 </pre></div></p>
+<div class="codehilite"><pre><span></span>julia&gt; PlotlyJS.savehtml(plot_missing(sharks), &quot;/home/pdimens/missingness.html&quot;)
+</pre></div>
+
 <ul>
 <li>use a third argument <code>:embed</code> to make the plots fully viewable offline. The output files are much larger (relatively) because it embeds the Plotly javeascript into the file. For context, the<code>gulfsharks</code> plot file is ~3.5mb when using <code>:embed</code></li>
 </ul>
-</div>
+</details>
 <h2 id="location-data">Location Data</h2>
 <h3 id="view-location-data">view location data</h3>
-<p><div class="codehilite"><pre><span></span><span class="n">locations</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><span class="n">locations</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">)</span>
 </pre></div>
 View location data (<code>.longitude</code> and <code>.latitude</code>) in a <code>PopObj</code>If you want to do your own plotting, or just to look at the spatial data of your PopObj, this function is handy. It takes no additional arguments and outputs a DataFrame of individual names, population ID's, and their latitude/longitude information. </p>
 <div class="superfences-tabs">
-<input name="__tabs_14" type="radio" id="__tab_14_0" checked="checked" />
-<label for="__tab_14_0">locations</label>
+<input name="__tabs_16" type="radio" id="__tab_16_0" checked="checked" />
+<label for="__tab_16_0">locations</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">locations</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_14" type="radio" id="__tab_14_1" />
-<label for="__tab_14_1">output</label>
+<input name="__tabs_16" type="radio" id="__tab_16_1" />
+<label for="__tab_16_1">output</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>212×4 DataFrames.DataFrame
 │ Row │ ind     │ population │ longitude │ latitude │
 │     │ String  │ Union…     │ Union…    │ Union…   │
@@ -1639,10 +1767,6 @@ View location data (<code>.longitude</code> and <code>.latitude</code>) in a <co
 │ 212 │ seg_031 │ 7          │ -85.7143  │ 29.8234  │
 </pre></div></div>
 </div>
-<div class="admonition info">
-<p class="admonition-title"><code>locations</code> secondary feature</p>
-<p>There is a built-in component in <code>locations</code> to test if the location data 1) exists, and 2) is of equal length, or it will spit out an error. It's probably a good idea to do this for your data at least once to be assured everything is ok!</p>
-</div>
 <h3 id="add-location-data">add location data</h3>
 <p>Location data can be added by directly accessing the fields <code>.longitude</code> and <code>.latitude</code> in your <code>PopObj</code>, such as this example:</p>
 <div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">sharks</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">longitude</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">212</span><span class="p">)</span> <span class="p">;</span>   <span class="c"># creates 212 unique random numbers between 1 and 50</span>
@@ -1652,7 +1776,7 @@ View location data (<code>.longitude</code> and <code>.latitude</code>) in a <co
 
 <p>However, if your data is in decimal minutes rather than decimal degrees, use the <code>locations!</code> function to add it to the fields. This function will do a conversion from decimal minutes to decimal degrees for you. To import those data into Julia, you'll likely want to use the wonderful <code>CSV.jl</code> package first.  </p>
 <h4 id="decimal-minutes-data">decimal minutes data</h4>
-<div class="codehilite"><pre><span></span><span class="n">locations!</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">xloc</span><span class="o">::</span><span class="kt">Array</span><span class="p">,</span> <span class="n">yloc</span><span class="o">::</span><span class="kt">Array</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">locations!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">xloc</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">String</span><span class="p">},</span> <span class="n">yloc</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">String</span><span class="p">})</span>
 </pre></div>
 
 <p>Adds location data (longitude, latitude) to <code>PopObj</code>. Takes decimal degrees or decimal minutes format. <strong>Must</strong> use minus-sign instead of cardinal directions (i.e. 14 32.11W is <strong>not</strong> vaild). Location data must be in order of  individuals (<code>ind</code>). Replaces existing <code>PopObj</code> location data.</p>
@@ -1669,7 +1793,7 @@ View location data (<code>.longitude</code> and <code>.latitude</code>) in a <co
 </pre></div>
 
 <h3 id="plot-location-data">plot location data</h3>
-<p><div class="codehilite"><pre><span></span><span class="n">plot_locations</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">region</span> <span class="o">=</span> <span class="s">&quot;world&quot;</span><span class="p">,</span> <span class="n">projection</span> <span class="o">=</span> <span class="s">&quot;orthogonal&quot;</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><span class="n">plot_locations</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">region</span> <span class="o">=</span> <span class="s">&quot;world&quot;</span><span class="p">,</span> <span class="n">projection</span> <span class="o">=</span> <span class="s">&quot;orthogonal&quot;</span><span class="p">)</span>
 </pre></div>
 You're encouraged to plot locations how you see fit. For convenience and speed, we provide this command to make a decent, albeit simple interactive plot (Plotly) and save some time. There is a sizeable list of available map projections and regions if you look this function up in the <code>help?&gt;</code> REPL prompt. </p>
 <div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">plot_locations</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
@@ -1711,13 +1835,13 @@ You're encouraged to plot locations how you see fit. For convenience and speed, 
           </a>
         
         
-          <a href="../examples/" title="Example data" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../hardyweinberg/" title="Hardy-Weinberg Equilibrium" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Example data
+                Hardy-Weinberg Equilibrium
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1749,9 +1873,13 @@ You're encouraged to plot locations how you see fit. For convenience and speed, 
       
     </div>
     
-      <script src="../assets/javascripts/application.c648116f.js"></script>
+      <script src="../assets/javascripts/application.8e03edeb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
       
     
   </body>

@@ -40,7 +40,7 @@
     
     
       
-        <title>Under the hood functions - PopGen.jl</title>
+        <title>Relatedness - PopGen.jl</title>
       
     
     
@@ -89,7 +89,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#genotype-value" tabindex="1" class="md-skip">
+      <a href="#background" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -115,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Under the hood functions
+                Relatedness
               
             </span>
           
@@ -440,10 +440,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       Types of Analyses
@@ -471,11 +473,113 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../relatedness/" title="Relatedness" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Relatedness
+      </label>
+    
+    <a href="./" title="Relatedness" class="md-nav__link md-nav__link--active">
       Relatedness
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#about-removing-kin" class="md-nav__link">
+    About removing kin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculate-relatedness" class="md-nav__link">
+    Calculate Relatedness
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyword-arguments" class="md-nav__link">
+    keyword arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-methods" class="md-nav__link">
+    method methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#speed" class="md-nav__link">
+    Speed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acknowledgements" class="md-nav__link">
+    Acknowledgements
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -500,12 +604,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       Other
@@ -521,12 +623,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
     
     <label class="md-nav__link" for="nav-7-1">
       API
@@ -542,186 +642,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Under the hood functions
-      </label>
-    
-    <a href="./" title="Under the hood functions" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../hidden_api/" title="Under the hood functions" class="md-nav__link">
       Under the hood functions
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#genotype-value" class="md-nav__link">
-    Genotype Value
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#allele-frequencies" class="md-nav__link">
-    Allele Frequencies
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#allele_freq" class="md-nav__link">
-    allele_freq
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#genotype-frequencies" class="md-nav__link">
-    Genotype Frequencies
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#geno_freq" class="md-nav__link">
-    geno_freq
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#observed-heterozygosity" class="md-nav__link">
-    Observed Heterozygosity
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#het_observed" class="md-nav__link">
-    het_observed
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#het_population_obs" class="md-nav__link">
-    het_population_obs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#het_sample" class="md-nav__link">
-    het_sample
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#expected-heterozygosity" class="md-nav__link">
-    Expected Heterozygosity
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#het_expected" class="md-nav__link">
-    het_expected
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#het_population_exp" class="md-nav__link">
-    het_population_exp
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#chi-squared" class="md-nav__link">
-    Chi Squared
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#locus_chi_sq" class="md-nav__link">
-    locus_chi_sq
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#multiple-testing" class="md-nav__link">
-    Multiple Testing
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#multitest_missing" class="md-nav__link">
-    multitest_missing
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -802,23 +727,16 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#genotype-value" class="md-nav__link">
-    Genotype Value
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#allele-frequencies" class="md-nav__link">
-    Allele Frequencies
+  <a href="#background" class="md-nav__link">
+    Background
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#allele_freq" class="md-nav__link">
-    allele_freq
+  <a href="#about-removing-kin" class="md-nav__link">
+    About removing kin
   </a>
   
 </li>
@@ -829,16 +747,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#genotype-frequencies" class="md-nav__link">
-    Genotype Frequencies
+  <a href="#calculate-relatedness" class="md-nav__link">
+    Calculate Relatedness
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#geno_freq" class="md-nav__link">
-    geno_freq
+  <a href="#arguments" class="md-nav__link">
+    arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyword-arguments" class="md-nav__link">
+    keyword arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-methods" class="md-nav__link">
+    method methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    example
   </a>
   
 </li>
@@ -849,103 +788,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#observed-heterozygosity" class="md-nav__link">
-    Observed Heterozygosity
+  <a href="#speed" class="md-nav__link">
+    Speed
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#het_observed" class="md-nav__link">
-    het_observed
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#het_population_obs" class="md-nav__link">
-    het_population_obs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#het_sample" class="md-nav__link">
-    het_sample
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#expected-heterozygosity" class="md-nav__link">
-    Expected Heterozygosity
+  <a href="#acknowledgements" class="md-nav__link">
+    Acknowledgements
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#het_expected" class="md-nav__link">
-    het_expected
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#het_population_exp" class="md-nav__link">
-    het_population_exp
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#chi-squared" class="md-nav__link">
-    Chi Squared
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#locus_chi_sq" class="md-nav__link">
-    locus_chi_sq
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#multiple-testing" class="md-nav__link">
-    Multiple Testing
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#multitest_missing" class="md-nav__link">
-    multitest_missing
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -965,102 +817,57 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/pdimens/PopGen.jl/edit/master/docs/hidden_api.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/pdimens/PopGen.jl/edit/master/docs/relatedness.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Under the hood functions</h1>
+                  <h1>Relatedness</h1>
                 
-                <p>Like most Julia packages, there are a lot of functions in PopGen.jl, but only a number of them are <code>exported</code>, which are the ones you the user can casually use after calling <code>using PopGen</code>. You'll often see other Julia packages refer to these as API's, or "Application Programming Interface". If you want to contribute to PopGen.jl, then it will be super useful to know what API's are already available and save you the trouble of reinventing the wheel. If you would like to use any of these functions by themselves (outside the scope of development), then you will need to use the <code>Package.function()</code> syntax, which looks like <code>PopGen.het_sample</code> in practice. </p>
-<h2 id="genotype-value">Genotype Value</h2>
-<p>Found in <code>Manipulate.jl</code></p>
-<div class="codehilite"><pre><span></span><span class="n">get_genotype</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">sample</span><span class="o">::</span><span class="n">String</span><span class="p">,</span> <span class="n">locus</span><span class="o">::</span><span class="n">String</span><span class="p">)</span>
+                <h2 id="background">Background</h2>
+<p>Sometimes you want or need to know the relatedness of individuals in a sample. Relatedness is exactly what its name implies: how related individuals are given some provided genetic information. Relatedness can be used in quantitative genetics to estimate heritability, additive genetic variances, and covariances. It can also be used in population genetics to study isolation-by-distance or population structure.</p>
+<p>The goal of calculating relatedness from molecular markers is to accurately estimate the proportion of the genome which is identical by descent between two individuals. With a pedigree this is "relatively" straightforward. However, for large, natural, populations pedigrees tend not to exist and so many brilliant minds have developed various equations and algorithms to estimate the relatedness from a set of molecular markers. Given two diploid individuals, there are 9 "identity by descent" models available between them (<a href="https://www.springer.com/gp/book/9783642884177">Jacquard 1975</a>, paywall), as shown below (from <a href="https://www.genetics.org/content/163/3/1153.full">Milligan 2003</a>):</p>
+<p><a href="https://www.genetics.org/content/163/3/1153.full"><img alt="Jacquard IBD" src="../img/jacquard_identitiies.jpg" /></a></p>
+<p>Broadly speaking there are two different ways of estimating genetic relatedness using molecular markers, methods of moments, and likelihood estimators. Generally moments estimators will be faster but aren't constrained to being between the theoretical minimum and maximum values of 0 and 1. The likelihood estimators use likelihood functions derived from the set of Jacquard Identity States (above) to determine the most likely inheritance pattern. One difference between the two classes is [generally] moments estimators require an assumption of no inbreeding, while that assumption isn't necessarily required for likelihood estimators (though it does simplify the math). It is increasingly common to use multiple estimators on pairs, simulated from your molecular marker, with a known relationships to determine the most appropriate estimator to use with your given data.</p>
+<p>PopGen.jl currently implements one of each class of estimator. The moments based estimator developed by <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1558-5646.1989.tb04226.x">Queller &amp; Goodnight 1989</a> using the variant defined by <a href="https://www.genetics.org/content/152/4/1753.full">Lynch &amp; Ritland 1999</a> and the likelihood estimator created by <a href="https://www.genetics.org/content/163/3/1153.full">Milligan 2003</a>. You can imagine there's a lot that  happens under the hood to perform this for all loci across all individuals-- all of which dutifully written by <img alt="🌟" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f31f.svg" title=":star2:" /> Jason Selwyn <img alt="🌟" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f31f.svg" title=":star2:" />.</p>
+<h3 id="about-removing-kin">About removing kin</h3>
+<p>There are reasons for removing kin in population genetics datasets. For one, there are no siblings/kin or mixed-generations in a Hardy-Weinberg Equilibrium population, and the inclusion of siblings/kin in analyses that rely on HWE assumptions [technically] violate those assumptions. However, there are also arguments to keep kin/siblings in your data, those data are important for effective population size, linkage disequilibrium, etc. <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/mec.14022">Waples and Anderson (2017)</a> published a great perspective on the matter. </p>
+<h2 id="calculate-relatedness">Calculate Relatedness</h2>
+<p>Calculate the relatedness of all pairs of individuals in the dataframe using either Milligan's Dyadic Maximum Likelihood estimator or Queller &amp; Goodnight's estimator.</p>
+<div class="codehilite"><pre><span></span><span class="n">pairwise_relatedness</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">method</span><span class="o">::</span><span class="n">String</span><span class="p">,</span> <span class="n">inbreeding</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="n">verbose</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
 </pre></div>
 
-<p>Return the genotype of a specific sample for specific locus in a <code>PopObj</code>. This is a barebones variant to <code>isolate_genotypes</code> that is ~ 1,000 - 10,000x faster depending on the size of the data.</p>
-<p>Example</p>
-<div class="codehilite"><pre><span></span><span class="n">get_genotype</span><span class="p">(</span><span class="n">nancycats</span><span class="p">,</span> <span class="n">sample</span> <span class="o">=</span> <span class="s">&quot;N115&quot;</span> <span class="p">,</span> <span class="n">locus</span> <span class="o">=</span> <span class="s">&quot;fca8&quot;</span><span class="p">)</span><span class="sb">`</span>
-</pre></div>
-
-<h2 id="allele-frequencies">Allele Frequencies</h2>
-<p>These are found in <code>AlleleFreq.jl</code></p>
-<h3 id="allele_freq">allele_freq</h3>
-<div class="codehilite"><pre><span></span><span class="n">allele_freq</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Union</span><span class="p">{</span><span class="n">Missing</span><span class="p">,</span> <span class="kt">Tuple</span><span class="p">},</span><span class="mi">1</span><span class="p">})</span>
-</pre></div>
-
-<p>Calculate allele counts for a single locus of a <code>PopObj</code>. Returns a <code>Dict</code> of allele's and their frequencies.</p>
-<div class="codehilite"><pre><span></span><span class="n">allele_freq</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">SubArray</span><span class="p">{</span><span class="kt">Union</span><span class="p">{</span><span class="n">Missing</span><span class="p">,</span> <span class="kt">Tuple</span><span class="p">},</span><span class="mi">1</span><span class="p">})</span>
-</pre></div>
-
-<p>Calculate allele counts for a single locus of a <code>PopObj</code> split by population using <code>group()</code>. Returns a <code>Dict</code> of allele's and their frequencies.</p>
-<h2 id="genotype-frequencies">Genotype Frequencies</h2>
-<p>These are found in <code>AlleleFreq.jl</code></p>
-<h3 id="geno_freq">geno_freq</h3>
-<div class="codehilite"><pre><span></span><span class="n">geno_freq</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Union</span><span class="p">{</span><span class="n">Missing</span><span class="p">,</span> <span class="kt">Tuple</span><span class="p">},</span><span class="mi">1</span><span class="p">})</span>
-</pre></div>
-
-<p>Calculate genotype frequencies of all loci in a <code>PopObj</code>. Returns a <code>Dict</code> of genotypes and their frequencies. </p>
-<div class="codehilite"><pre><span></span><span class="n">geno_freq</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">SubArray</span><span class="p">{</span><span class="kt">Union</span><span class="p">{</span><span class="n">Missing</span><span class="p">,</span> <span class="kt">Tuple</span><span class="p">},</span><span class="mi">1</span><span class="p">})</span>
-</pre></div>
-
-<p>Calculate genotype frequencies of all loci in <code>PopObj</code> split by population using <code>group()</code>. Returns a <code>Dict</code> of genotypes and their frequencies.</p>
-<h2 id="observed-heterozygosity">Observed Heterozygosity</h2>
-<p>These are found in <code>HardyWeinberg.jl</code></p>
-<h3 id="het_observed">het_observed</h3>
-<div class="codehilite"><pre><span></span><span class="n">het_observed</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">)</span>
-</pre></div>
-
-<p>Calculate the observed heterozygosity for each locus in a <code>PopObj</code>. Returns an array of heterozygosity values.</p>
-<h3 id="het_population_obs">het_population_obs</h3>
-<div class="codehilite"><pre><span></span><span class="n">het_population_obs</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">)</span>
-</pre></div>
-
-<p>Return a <code>Dict</code> of the observed heterozygosity per population for each locus in a <code>PopObj</code></p>
-<h3 id="het_sample">het_sample</h3>
-<div class="codehilite"><pre><span></span><span class="n">het_sample</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">)</span>
-</pre></div>
-
-<p>Calculate the observed heterozygosity for each individual in a <code>PopObj</code>. Returns an array of heterozygosity values.</p>
-<h2 id="expected-heterozygosity">Expected Heterozygosity</h2>
-<p>These are found in <code>HardyWeinberg.jl</code></p>
-<h3 id="het_expected">het_expected</h3>
-<div class="codehilite"><pre><span></span><span class="n">het_expected</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">)</span>
-</pre></div>
-
-<p>Calculate the expected heterozygosity for each locus in a <code>PopObj</code>. Returns an array of heterozygosity values.</p>
-<h3 id="het_population_exp">het_population_exp</h3>
-<div class="codehilite"><pre><span></span><span class="n">het_population_exp</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">)</span>
-</pre></div>
-
-<p>Return a <code>Dict</code> of the expected heterozygosity per population for each locus in a <code>PopObj</code>.</p>
-<h2 id="chi-squared">Chi Squared</h2>
-<p>Found in <code>HardyWeinberg.jl</code></p>
-<h3 id="locus_chi_sq">locus_chi_sq</h3>
-<div class="codehilite"><pre><span></span><span class="n">locus_chi_sq</span><span class="p">(</span><span class="n">locus</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Union</span><span class="p">{</span><span class="n">Missing</span><span class="p">,</span> <span class="kt">Tuple</span><span class="p">},</span><span class="mi">1</span><span class="p">})</span>
-</pre></div>
-
-<p>Calculate the chi square statistic and p-value for a locus. Returns a tuple with chi-square statistic, degrees of freedom, and p-value.</p>
-<h2 id="multiple-testing">Multiple Testing</h2>
-<p>Found in <code>HardyWeinberg.jl</code></p>
-<h3 id="multitest_missing">multitest_missing</h3>
-<div class="codehilite"><pre><span></span><span class="n">multitest_missing</span><span class="p">(</span><span class="n">pvals</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">1</span><span class="p">},</span> <span class="n">correction</span><span class="o">::</span><span class="n">String</span><span class="p">)</span>
-</pre></div>
-
-<p>Modification to <code>MultipleTesting.adjust</code> to include <code>missing</code> values. Missing values are first removed from the array, the appropriate correction made, then missing values are re-added to the array at their original positions. See MultipleTesting.jl docs for full more detailed information.</p>
-<p>Example:</p>
-<p><code>multitest_missing([0.1, 0.01, 0.005, 0.3], "bh")</code></p>
-<p><code>correction</code> methods (case insensitive):</p>
+<h3 id="arguments">arguments</h3>
 <ul>
-<li><code>"bonferroni"</code> : Bonferroni adjustment</li>
-<li><code>"holm"</code> : Holm adjustment</li>
-<li><code>"hochberg"</code> : Hochberg adjustment</li>
-<li><code>"bh"</code> or <code>"b-h"</code> : Benjamini-Hochberg adjustment</li>
-<li><code>"by"</code> or <code>"b-y"</code>: Benjamini-Yekutieli adjustment</li>
-<li><code>"bl"</code> or <code>"b-l"</code> : Benjamini-Liu adjustment</li>
-<li><code>"hommel"</code> : Hommel adjustment</li>
-<li><code>"sidak"</code> : Šidák adjustment</li>
-<li><code>"forward stop"</code> or <code>"fs"</code> : Forward-Stop adjustment</li>
-<li><code>"bc"</code> or <code>"b-c"</code> : Barber-Candès adjustment</li>
+<li><code>data</code> : the input <code>PopObj</code></li>
 </ul>
+<h3 id="keyword-arguments">keyword arguments</h3>
+<ul>
+<li><code>method</code> : Method of relatedness estimation (see below)</li>
+<li><code>inbreeding</code> : Include the possibility of inbreeding (true) or not (false) - Only used with <code>method = "dyadml"</code></li>
+<li><code>verbose</code> : If <code>false</code> only progress bar will be shown. If <code>true</code> extra output will be shown depending on the method chosen</li>
+</ul>
+<h3 id="method-methods"><code>method</code> methods</h3>
+<ul>
+<li><code>"dyadml"</code> : Milligan (2003) Dyadic Likelihood Relatedness</li>
+<li><code>"qg"</code> : Queller &amp; Goodnight (1989) Relatedness</li>
+</ul>
+<h3 id="example">example</h3>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">relatedness</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">cats</span> <span class="o">=</span> <span class="n">nancycats</span><span class="p">()</span> <span class="p">;</span>
+<span class="n">pairwise_relatedness</span><span class="p">(</span><span class="n">cats</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;qg&quot;</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>
+</pre></div></div>
+</div>
+<p>See <a href="../hidden_api/">Development</a> for all of the APIs associated with <code>relatedness()</code></p>
+<h2 id="speed">Speed</h2>
+<p>Depending on the number samples and loci in your data, the maximum-likelihood approach to relatedness can be quite time consuming. We include a progress bar thanks to <a href="https://github.com/timholy/ProgressMeter.jl">ProgressMeter.jl</a> to provide some indication of how long it will take. As a point of reference, it takes approximately 13 hours to perform this relatedness calculation on the <code>gulfsharks</code> data (212 samples x 2213 loci).</p>
+<p>Currently, relatedness calculations run single-threaded, and we hope to parallelize it with the stable release of Julia 1.3  to make it even faster. Many hands make light work!</p>
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>Both <a href="https://github.com/JuliaOpt/Convex.jl">Convex.jl</a> and <a href="https://github.com/JuliaOpt/ECOS.jl">ECOS.jl</a> are pivotal for these calculations, and we thank the authors for their time developing and maintaining them, along with the members of the Julia Slack channel for pointing us towards those packages.</p>
                 
                   
                 
@@ -1081,7 +888,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../community/" title="Community" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../hardyweinberg/" title="Hardy-Weinberg Equilibrium" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1090,19 +897,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Community
+                Hardy-Weinberg Equilibrium
               </span>
             </div>
           </a>
         
         
-          <a href="../logo_graveyard/" title="Logo Graveyard" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../community/" title="Community" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Logo Graveyard
+                Community
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

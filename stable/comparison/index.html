@@ -36,15 +36,15 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
     
     
       
-        <title>Comparison vs R - PopGen.jl</title>
+        <title>Benchmarks - PopGen.jl</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -100,7 +100,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href=".." title="PopGen.jl" class="md-header-nav__button md-logo">
           
-            <img src="../img/favicon.ico" width="24" height="24">
+            <img src="../img/logo_icon.png" width="24" height="24">
           
         </a>
       </div>
@@ -115,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Comparison vs R
+                Benchmarks
               
             </span>
           
@@ -181,7 +181,7 @@
         
       
       
-      <main class="md-main">
+      <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -192,7 +192,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href=".." title="PopGen.jl" class="md-nav__button md-logo">
       
-        <img src="../img/favicon.ico" width="48" height="48">
+        <img src="../img/logo_icon.png" width="48" height="48">
       
     </a>
     PopGen.jl
@@ -236,17 +236,38 @@
       
       
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Getting started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Getting started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
 
   <li class="md-nav__item">
-    <a href="../juliaprimer/" title="Getting started" class="md-nav__link">
-      Getting started
+    <a href="../juliaprimer/" title="A Julia primer" class="md-nav__link">
+      A Julia primer
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
   
 
@@ -259,11 +280,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Comparison vs R
+        Benchmarks
       </label>
     
-    <a href="./" title="Comparison vs R" class="md-nav__link md-nav__link--active">
-      Comparison vs R
+    <a href="./" title="Benchmarks" class="md-nav__link md-nav__link--active">
+      Benchmarks
     </a>
     
       
@@ -277,7 +298,7 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#benchmarks" title="Benchmarks" class="md-nav__link">
+  <a href="#benchmarks" class="md-nav__link">
     Benchmarks
   </a>
   
@@ -285,21 +306,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#loading-in-data" title="Loading in data" class="md-nav__link">
+  <a href="#loading-in-data" class="md-nav__link">
     Loading in data
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#popobj-vs-genind-size" title="PopObj vs genind size" class="md-nav__link">
+  <a href="#popobj-vs-genind-size" class="md-nav__link">
     PopObj vs genind size
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#chi-squared-test-for-hwe" title="Chi-squared test for HWE" class="md-nav__link">
+  <a href="#chi-squared-test-for-hwe" class="md-nav__link">
     Chi-squared test for HWE
   </a>
   
@@ -320,34 +341,34 @@
     
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../install/" title="Installing" class="md-nav__link">
-      Installing
+    <a href="../install/" title="How to Install" class="md-nav__link">
+      How to Install
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
     
-    <label class="md-nav__link" for="nav-5">
-      The PopObj type
+    <label class="md-nav__link" for="nav-2-4">
+      The PopGen 'PopObj'
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        The PopObj type
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        The PopGen 'PopObj'
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -370,21 +391,14 @@
 
 
   <li class="md-nav__item">
-    <a href="../PopObj_accessing/" title="Accessing" class="md-nav__link">
-      Accessing
+    <a href="../PopObj_accessing/" title="Accessing parts of a PopObj" class="md-nav__link">
+      Accessing parts of a PopObj
     </a>
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../popobj_location/" title="Location data" class="md-nav__link">
-      Location data
-    </a>
+      </ul>
+    </nav>
   </li>
 
         
@@ -400,13 +414,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-3">
       Importing Data
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-3">
         Importing Data
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -418,8 +432,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../delimited/" title="CSV and delimited" class="md-nav__link">
-      CSV and delimited
+    <a href="../example_data/" title="Example Data" class="md-nav__link">
+      Example Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file_import/" title="Reading in Data" class="md-nav__link">
+      Reading in Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../delimited/" title="Delimited" class="md-nav__link">
+      Delimited
     </a>
   </li>
 
@@ -459,20 +497,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../commands/" title="View/edit PopObj" class="md-nav__link">
-      View/edit PopObj
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../examples/" title="Example data" class="md-nav__link">
-      Example data
+    <a href="../commands/" title="Manipulating a PopObj" class="md-nav__link">
+      Manipulating a PopObj
     </a>
   </li>
 
@@ -484,14 +510,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-9">
-      Population Genetics Tests
+    <label class="md-nav__link" for="nav-5">
+      Types of Analyses
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        Population Genetics Tests
+      <label class="md-nav__title" for="nav-5">
+        Types of Analyses
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -504,6 +530,18 @@
   <li class="md-nav__item">
     <a href="../hardyweinberg/" title="Hardy-Weinberg Equilibrium" class="md-nav__link">
       Hardy-Weinberg Equilibrium
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../relatedness/" title="Relatedness" class="md-nav__link">
+      Relatedness
     </a>
   </li>
 
@@ -532,14 +570,33 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
-    <label class="md-nav__link" for="nav-11">
-      Development
+    <label class="md-nav__link" for="nav-7">
+      Other
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-11">
-        Development
+      <label class="md-nav__title" for="nav-7">
+        Other
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+    
+    <label class="md-nav__link" for="nav-7-1">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-1">
+        API
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -560,16 +617,57 @@
     </nav>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../faq/" title="Frequently Asked Questions" class="md-nav__link">
-      Frequently Asked Questions
+    <a href="../logo_graveyard/" title="Logo Graveyard" class="md-nav__link">
+      Logo Graveyard
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Misc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Misc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../genepopIBD/" title="Genepop IBD Conversion" class="md-nav__link">
+      Genepop IBD Conversion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -594,7 +692,7 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#benchmarks" title="Benchmarks" class="md-nav__link">
+  <a href="#benchmarks" class="md-nav__link">
     Benchmarks
   </a>
   
@@ -602,21 +700,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#loading-in-data" title="Loading in data" class="md-nav__link">
+  <a href="#loading-in-data" class="md-nav__link">
     Loading in data
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#popobj-vs-genind-size" title="PopObj vs genind size" class="md-nav__link">
+  <a href="#popobj-vs-genind-size" class="md-nav__link">
     PopObj vs genind size
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#chi-squared-test-for-hwe" title="Chi-squared test for HWE" class="md-nav__link">
+  <a href="#chi-squared-test-for-hwe" class="md-nav__link">
     Chi-squared test for HWE
   </a>
   
@@ -653,7 +751,7 @@
 <li>written in a single language</li>
 <li>easy to use</li>
 </ol>
-<p>So, we'd like to prove that Julia and PopGen.jl actually achieves that by showing a few benchmarks comparing PopGen.jl to <code>adegenet</code> and <code>pegas</code>, which along with <code>ape</code> are arguably the most commonly used and robust population genetic packages available. It's worth mentioning that we ourselves use and have published with these packages, and are tremendously grateful for the work invested in those packages. We love you guys and respect the hell out of you! Here are links to <a href="https://github.com/thibautjombart/adegenet">adegenet</a>, <a href="https://academic.oup.com/bioinformatics/article/26/3/419/215731/">pegas</a>, and <a href="https://cran.r-project.org/package=ape">ape</a>.  </p>
+<p>So, we'd like to prove that Julia and PopGen.jl actually achieves that by showing a few benchmarks comparing PopGen.jl to <code>adegenet</code> and <code>pegas</code>, which along with <code>ape</code> are arguably the most commonly used and robust population genetic packages available. It's worth mentioning that we ourselves use and have published with these packages, and are tremendously grateful for the work invested in those packages. We love those folks and have tremendous respect and envy for the work they continue to do! Here are links to <a href="https://github.com/thibautjombart/adegenet">adegenet</a>, <a href="https://academic.oup.com/bioinformatics/article/26/3/419/215731/">pegas</a>, and <a href="https://cran.r-project.org/package=ape">ape</a>.  </p>
 <h2 id="benchmarks">Benchmarks</h2>
 <p>To make this a practical comparison, we're going to use the <code>gulfsharks</code> data because it is considerably larger (212 samples x 2213 loci) than <code>nancycats</code> (237 x 9) and a bit more of a "stress test".  All benchmarks in R are performed using the <code>microbenchmark</code> package, and  <code>BenchmarkTools</code> are used for Julia. </p>
 <div class="superfences-tabs">
@@ -668,14 +766,14 @@
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="k">using</span> <span class="n">BenchmarkTools</span><span class="p">,</span> <span class="n">PopGen</span>
 </pre></div></div>
 </div>
-<p>As a note, the reported benchmarks are being performed on a 64-bit Manjaro Linux system on a nothing-special Huawei Matebook D with 8gigs of RAM and a 4-core AMD Ryzen5 mobile processor. <strong>Note:</strong> all of the Julia benchmarks, unless explicitly stated, are performed single-threaded (i.e. not parallel, distributed, or GPU). </p>
+<p>As a note, the reported benchmarks are being performed on a 64-bit Manjaro Linux system on a nothing-special Lenovo Thinkbook 14S  with 8gigs of RAM and a 8<sup>th</sup> gen Intel i5 mobile processor. <strong>Note:</strong> all of the Julia benchmarks, unless explicitly stated, are performed single-threaded (i.e. not parallel, distributed, or GPU). </p>
 <h3 id="loading-in-data">Loading in data</h3>
 <p>Since <code>gulfsharks</code> is shamelessly provided in PopGen.jl, we simply invoke the <code>gulfsharks()</code> command in Julia. If you would like to try this yourself in R, find the <code>gulfsharks.gen</code> file in the package repository under <code>/data/data/gulfsharks.gen</code>. It will print out the input filename several times, which is omitted below for clarity.</p>
 <div class="superfences-tabs">
 <input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
 <label for="__tab_2_0">Julia</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="nd">@btime</span> <span class="n">x</span> <span class="o">=</span> <span class="n">gulfsharks</span><span class="p">()</span> <span class="p">;</span> <span class="c"># hide the output</span>
-  <span class="mf">2.098</span> <span class="n">s</span> <span class="p">(</span><span class="mi">14175767</span> <span class="n">allocations</span><span class="o">:</span> <span class="mf">707.58</span> <span class="n">MiB</span><span class="p">)</span>
+  <span class="mf">1.157</span> <span class="n">s</span> <span class="p">(</span><span class="mi">12697454</span> <span class="n">allocations</span><span class="o">:</span> <span class="mf">673.02</span> <span class="n">MiB</span><span class="p">)</span>
 </pre></div></div>
 </div>
 <p>This R benchmark will take a few minutes. Consider  making some tea while you wait.</p>
@@ -684,24 +782,25 @@
 <label for="__tab_3_0">R</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="nf">microbenchmark</span><span class="p">(</span><span class="nf">read.genepop</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s">&quot;/home/pdimens/gulfsharks.gen&quot;</span><span class="p">,</span> <span class="n">ncode</span> <span class="o">=</span> <span class="m">3L</span><span class="p">,</span> <span class="n">quiet</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
 <span class="n">Unit</span><span class="o">:</span> <span class="n">seconds</span>
-                                                                                <span class="n">expr</span>
- <span class="nf">read.genepop</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s">&quot;/home/pdimens/gulfsharks.gen&quot;</span><span class="p">,</span> <span class="n">ncode</span> <span class="o">=</span> <span class="m">3L</span><span class="p">,</span>      <span class="n">quiet</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+ <span class="nf">read.genepop</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s">&quot;/home/pdimens/gulfsharks.gen&quot;</span><span class="p">,</span> <span class="n">ncode</span> <span class="o">=</span> <span class="m">3L</span><span class="p">,</span> <span class="n">quiet</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
       <span class="n">min</span>       <span class="n">lq</span>     <span class="n">mean</span>   <span class="n">median</span>       <span class="n">uq</span>      <span class="n">max</span> <span class="n">neval</span>
  <span class="m">5.670637</span> <span class="m">6.218719</span> <span class="m">6.745065</span> <span class="m">6.387936</span> <span class="m">7.019667</span> <span class="m">9.173005</span>   <span class="m">100</span>
 </pre></div></div>
 </div>
-<p>Comparing averages, PopGen.jl clocks in at <code>2.098s</code> versus adegenet's <code>6.745s</code> , so ~3x faster.</p>
-<p>Julia  <img alt="🚀" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f680.svg" title=":rocket:" />   |    R  <img alt="🐌" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f40c.svg" title=":snail:" /></p>
+<p>Comparing averages, PopGen.jl clocks in at <code>1.157s</code> versus adegenet's <code>6.745s</code> , so ~5.8x faster.</p>
+<p>Julia  <img alt="🚀" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f680.svg" title=":rocket:" />   |    R  <img alt="🐌" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f40c.svg" title=":snail:" /></p>
 <h3 id="popobj-vs-genind-size"><code>PopObj</code> vs <code>genind</code> size</h3>
-<p>It was pretty tricky to come up with a sensible/efficient/convenient data structure for PopGen.jl, and the original attempt was a Julian variant to a <code>genind</code>, which itself is something known as an <code>S4 class object</code>. While the two-dataframes design might not seem like it took a lot of effort, we ultimately decided that the column-major style and available tools, combined with careful genotype Typing was a decent "middle-ground" of ease-of-use vs performance. Plus, we are suckers for consistent syntax, which <code>genind</code>'s don't have compared to standard R syntax (looking at you too, Tidyverse/ggplot!). <em>Anyway</em>, it's important to understand how much space your data will take up in memory (your RAM) when you load it in, especially since data's only getting bigger! Keep in mind that <code>gulfsharks()</code> in PopGen.jl also provides lat/long data, which <em>should</em> inflate the size of the object somewhat compared to the <code>genind</code>, which we won't add any location data to.</p>
+<p>It was pretty tricky to come up with a sensible/efficient/convenient data structure for PopGen.jl, and the original attempt was a Julian variant to a <code>genind</code>, which itself is something known as an <code>S4 class object</code>. While the two-dataframes design might not seem like it took a lot of effort, we ultimately decided that the column-major style and available tools, combined with careful genotype Typing was a decent "middle-ground" of ease-of-use vs performance. We may one day change this when IndexedTables facilitates so many columns. Plus, we are suckers for consistent syntax, which <code>genind</code>'s don't have compared to standard R syntax (looking at you too, Tidyverse/ggplot!). </p>
+<p><em>Anyway</em>, it's important to understand how much space your data will take up in memory (your RAM) when you load it in, especially since data's only getting bigger! Keep in mind that <code>gulfsharks()</code> in PopGen.jl also provides lat/long data, which <em>should</em> inflate the size of the object somewhat compared to the <code>genind</code>, which we won't add any location data to.</p>
 <div class="superfences-tabs">
 <input name="__tabs_4" type="radio" id="__tab_4_0" checked="checked" />
 <label for="__tab_4_0">Julia</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Base</span><span class="o">.</span><span class="n">summarysize</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="mi">4899793</span>
+<span class="mi">1612428</span>
+<span class="c">#bytes</span>
 </pre></div></div>
 </div>
-<p>vs</p>
+<p>versus</p>
 <div class="superfences-tabs">
 <input name="__tabs_5" type="radio" id="__tab_5_0" checked="checked" />
 <label for="__tab_5_0">R</label>
@@ -710,16 +809,16 @@
 </pre></div></div>
 </div>
 <p><img alt="clutches pearls" src="../img/clutches pearls cactus.png" /></p>
-<p>How is that possible?! Well, it's all in the Typing of the genotypes. Each genotype for each locus is encoded as a <code>Tuple</code> of either <code>Int8</code> (if SNPs) or <code>Int16</code> (if msats) to absolutely minimize their footprint without further going into byte-level encoding (so you can still see human-readable alleles).</p>
-<p>The data takes up ~<code>4.9mb</code> in memory as a <code>PopObj</code> versus the ~<code>5.3mb</code> of a <code>genind</code>, about 7% smaller. It's not a ton of difference, but remember that the <code>PopObj</code> also contains more data.</p>
-<p>Julia  <img alt="🏡" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f3e1.svg" title=":house_with_garden:" /> ​   |    R  <img alt="🏰" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f3f0.svg" title=":european_castle:" /></p>
+<p>What sorcery is this?! Well, it's all in the Typing of the genotypes. Each genotype for each locus is encoded as a <code>Tuple</code> of either <code>Int8</code> (if SNPs) or <code>Int16</code> (if msats) to absolutely minimize their footprint without further going into byte-level encoding (so you can still see human-readable alleles). An <code>Int8</code> is a signed integer that occupies 8bits of memory, whereas an <code>Int16</code> occupies 16bits (as compared to a standard <code>Int64</code>). </p>
+<p>The original file is <code>3.2mb</code>, and our <code>PopObj</code>takes up ~<code>1.6mb</code> in memory (half as big as the source file!) versus the ~<code>5.3mb</code> of a <code>genind</code>, which is ~1.5x larger than the source file and ~3.3x larger than our <code>PopObj</code>. That's quite a big difference!</p>
+<p>Julia  <img alt="🏡" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f3e1.svg" title=":house_with_garden:" /> ​   |    R  <img alt="🏰" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f3f0.svg" title=":european_castle:" /></p>
 <h3 id="chi-squared-test-for-hwe">Chi-squared test for HWE</h3>
-<p>This is a classic popgen test and a relatively simple one. </p>
+<p>This is a classic population genetics test and a relatively simple one. </p>
 <div class="superfences-tabs">
 <input name="__tabs_6" type="radio" id="__tab_6_0" checked="checked" />
 <label for="__tab_6_0">Julia</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="nd">@btime</span> <span class="n">hwe_test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">correction</span> <span class="o">=</span> <span class="s">&quot;bh&quot;</span><span class="p">)</span> <span class="p">;</span>
-  <span class="mf">479.550</span> <span class="n">ms</span> <span class="p">(</span><span class="mi">1954042</span> <span class="n">allocations</span><span class="o">:</span> <span class="mf">74.12</span> <span class="n">MiB</span><span class="p">)</span>
+  <span class="mf">392.527</span> <span class="n">ms</span> <span class="p">(</span><span class="mi">1599668</span> <span class="n">allocations</span><span class="o">:</span> <span class="mf">57.20</span> <span class="n">MiB</span><span class="p">)</span>
 </pre></div></div>
 </div>
 <p>The R benchmark will take a while again, so if you're following along, this would be a good time to reconnect with an old friend.</p>
@@ -732,8 +831,8 @@
  <span class="nf">hw.test</span><span class="p">(</span><span class="n">gen</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="m">0</span><span class="p">)</span> <span class="m">5.100298</span> <span class="m">5.564807</span> <span class="m">6.265948</span> <span class="m">5.878842</span> <span class="m">6.917006</span> <span class="m">8.815179</span>   <span class="m">100</span>
 </pre></div></div>
 </div>
-<p>Comparing averages, PopGen.jl clocks in at <code>480ms</code> versus adegenet's <code>6.3s</code>, so ~13x faster.</p>
-<p>Julia  <img alt="🚀" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f680.svg" title=":rocket:" /> |  R  <img alt="🐌" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f40c.svg" title=":snail:" /></p>
+<p>Comparing averages, PopGen.jl clocks in at ~<code>400ms</code> versus adegenet's <code>6.3s</code>, so ~15x faster.</p>
+<p>Julia  <img alt="🚀" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f680.svg" title=":rocket:" />  |   R  <img alt="🐌" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f40c.svg" title=":snail:" /></p>
                 
                   
                 
@@ -754,7 +853,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../juliaprimer/" title="Getting started" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../juliaprimer/" title="A Julia primer" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -763,19 +862,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Getting started
+                A Julia primer
               </span>
             </div>
           </a>
         
         
-          <a href="../install/" title="Installing" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../install/" title="How to Install" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Installing
+                How to Install
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -807,9 +906,13 @@
       
     </div>
     
-      <script src="../assets/javascripts/application.c648116f.js"></script>
+      <script src="../assets/javascripts/application.8e03edeb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
       
     
   </body>

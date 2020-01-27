@@ -36,15 +36,15 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
     
     
       
-        <title>Accessing - PopGen.jl</title>
+        <title>Accessing parts of a PopObj - PopGen.jl</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -100,7 +100,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href=".." title="PopGen.jl" class="md-header-nav__button md-logo">
           
-            <img src="../img/favicon.ico" width="24" height="24">
+            <img src="../img/logo_icon.png" width="24" height="24">
           
         </a>
       </div>
@@ -115,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Accessing
+                Accessing parts of a PopObj
               
             </span>
           
@@ -181,7 +181,7 @@
         
       
       
-      <main class="md-main">
+      <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -192,7 +192,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href=".." title="PopGen.jl" class="md-nav__button md-logo">
       
-        <img src="../img/favicon.ico" width="48" height="48">
+        <img src="../img/logo_icon.png" width="48" height="48">
       
     </a>
     PopGen.jl
@@ -236,55 +236,76 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../juliaprimer/" title="Getting started" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
       Getting started
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../comparison/" title="Comparison vs R" class="md-nav__link">
-      Comparison vs R
-    </a>
-  </li>
-
-    
-      
-      
-      
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Getting started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../install/" title="Installing" class="md-nav__link">
-      Installing
+    <a href="../juliaprimer/" title="A Julia primer" class="md-nav__link">
+      A Julia primer
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../comparison/" title="Benchmarks" class="md-nav__link">
+      Benchmarks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../install/" title="How to Install" class="md-nav__link">
+      How to Install
+    </a>
+  </li>
+
+        
+          
+          
+          
 
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" checked>
     
-    <label class="md-nav__link" for="nav-5">
-      The PopObj type
+    <label class="md-nav__link" for="nav-2-4">
+      The PopGen 'PopObj'
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        The PopObj type
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        The PopGen 'PopObj'
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -314,11 +335,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Accessing
+        Accessing parts of a PopObj
       </label>
     
-    <a href="./" title="Accessing" class="md-nav__link md-nav__link--active">
-      Accessing
+    <a href="./" title="Accessing parts of a PopObj" class="md-nav__link md-nav__link--active">
+      Accessing parts of a PopObj
     </a>
     
       
@@ -330,14 +351,14 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#loading-in-the-data" title="Loading in the data" class="md-nav__link">
+  <a href="#loading-in-the-data" class="md-nav__link">
     Loading in the data
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#samples" title="samples" class="md-nav__link">
+  <a href="#samples" class="md-nav__link">
     samples
   </a>
   
@@ -345,42 +366,42 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#samples_1" title=".samples" class="md-nav__link">
+  <a href="#samples_1" class="md-nav__link">
     .samples
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#name" title=".name" class="md-nav__link">
+  <a href="#name" class="md-nav__link">
     .name
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#population" title=".population" class="md-nav__link">
+  <a href="#population" class="md-nav__link">
     .population
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ploidy" title=".ploidy" class="md-nav__link">
+  <a href="#ploidy" class="md-nav__link">
     .ploidy
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#latitude" title=".latitude" class="md-nav__link">
+  <a href="#latitude" class="md-nav__link">
     .latitude
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#longitude" title=".longitude" class="md-nav__link">
+  <a href="#longitude" class="md-nav__link">
     .longitude
   </a>
   
@@ -392,7 +413,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#loci" title="loci" class="md-nav__link">
+  <a href="#loci" class="md-nav__link">
     loci
   </a>
   
@@ -400,21 +421,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#loci_1" title=".loci" class="md-nav__link">
+  <a href="#loci_1" class="md-nav__link">
     .loci
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#locus-names" title="locus names" class="md-nav__link">
+  <a href="#locus-names" class="md-nav__link">
     locus names
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#view-genotypes" title="view genotypes" class="md-nav__link">
+  <a href="#view-genotypes" class="md-nav__link">
     view genotypes
   </a>
   
@@ -426,7 +447,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#slices" title="Slices" class="md-nav__link">
+  <a href="#slices" class="md-nav__link">
     Slices
   </a>
   
@@ -434,7 +455,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#general" title="general" class="md-nav__link">
+  <a href="#general" class="md-nav__link">
     general
   </a>
   
@@ -446,14 +467,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#operating-on-accessors" title="Operating on accessors" class="md-nav__link">
+  <a href="#operating-on-accessors" class="md-nav__link">
     Operating on accessors
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-to-avoid" title="🛑❌ What to avoid! ❌🛑" class="md-nav__link">
+  <a href="#what-to-avoid" class="md-nav__link">
     🛑❌ What to avoid! ❌🛑
   </a>
   
@@ -470,15 +491,8 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../popobj_location/" title="Location data" class="md-nav__link">
-      Location data
-    </a>
+      </ul>
+    </nav>
   </li>
 
         
@@ -494,13 +508,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-3">
       Importing Data
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-3">
         Importing Data
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -512,8 +526,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../delimited/" title="CSV and delimited" class="md-nav__link">
-      CSV and delimited
+    <a href="../example_data/" title="Example Data" class="md-nav__link">
+      Example Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file_import/" title="Reading in Data" class="md-nav__link">
+      Reading in Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../delimited/" title="Delimited" class="md-nav__link">
+      Delimited
     </a>
   </li>
 
@@ -553,20 +591,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../commands/" title="View/edit PopObj" class="md-nav__link">
-      View/edit PopObj
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../examples/" title="Example data" class="md-nav__link">
-      Example data
+    <a href="../commands/" title="Manipulating a PopObj" class="md-nav__link">
+      Manipulating a PopObj
     </a>
   </li>
 
@@ -578,14 +604,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-9">
-      Population Genetics Tests
+    <label class="md-nav__link" for="nav-5">
+      Types of Analyses
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        Population Genetics Tests
+      <label class="md-nav__title" for="nav-5">
+        Types of Analyses
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -598,6 +624,18 @@
   <li class="md-nav__item">
     <a href="../hardyweinberg/" title="Hardy-Weinberg Equilibrium" class="md-nav__link">
       Hardy-Weinberg Equilibrium
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../relatedness/" title="Relatedness" class="md-nav__link">
+      Relatedness
     </a>
   </li>
 
@@ -626,14 +664,33 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
-    <label class="md-nav__link" for="nav-11">
-      Development
+    <label class="md-nav__link" for="nav-7">
+      Other
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-11">
-        Development
+      <label class="md-nav__title" for="nav-7">
+        Other
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+    
+    <label class="md-nav__link" for="nav-7-1">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-1">
+        API
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -654,16 +711,57 @@
     </nav>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../faq/" title="Frequently Asked Questions" class="md-nav__link">
-      Frequently Asked Questions
+    <a href="../logo_graveyard/" title="Logo Graveyard" class="md-nav__link">
+      Logo Graveyard
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Misc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Misc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../genepopIBD/" title="Genepop IBD Conversion" class="md-nav__link">
+      Genepop IBD Conversion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -686,14 +784,14 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#loading-in-the-data" title="Loading in the data" class="md-nav__link">
+  <a href="#loading-in-the-data" class="md-nav__link">
     Loading in the data
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#samples" title="samples" class="md-nav__link">
+  <a href="#samples" class="md-nav__link">
     samples
   </a>
   
@@ -701,42 +799,42 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#samples_1" title=".samples" class="md-nav__link">
+  <a href="#samples_1" class="md-nav__link">
     .samples
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#name" title=".name" class="md-nav__link">
+  <a href="#name" class="md-nav__link">
     .name
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#population" title=".population" class="md-nav__link">
+  <a href="#population" class="md-nav__link">
     .population
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ploidy" title=".ploidy" class="md-nav__link">
+  <a href="#ploidy" class="md-nav__link">
     .ploidy
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#latitude" title=".latitude" class="md-nav__link">
+  <a href="#latitude" class="md-nav__link">
     .latitude
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#longitude" title=".longitude" class="md-nav__link">
+  <a href="#longitude" class="md-nav__link">
     .longitude
   </a>
   
@@ -748,7 +846,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#loci" title="loci" class="md-nav__link">
+  <a href="#loci" class="md-nav__link">
     loci
   </a>
   
@@ -756,21 +854,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#loci_1" title=".loci" class="md-nav__link">
+  <a href="#loci_1" class="md-nav__link">
     .loci
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#locus-names" title="locus names" class="md-nav__link">
+  <a href="#locus-names" class="md-nav__link">
     locus names
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#view-genotypes" title="view genotypes" class="md-nav__link">
+  <a href="#view-genotypes" class="md-nav__link">
     view genotypes
   </a>
   
@@ -782,7 +880,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#slices" title="Slices" class="md-nav__link">
+  <a href="#slices" class="md-nav__link">
     Slices
   </a>
   
@@ -790,7 +888,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#general" title="general" class="md-nav__link">
+  <a href="#general" class="md-nav__link">
     general
   </a>
   
@@ -802,14 +900,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#operating-on-accessors" title="Operating on accessors" class="md-nav__link">
+  <a href="#operating-on-accessors" class="md-nav__link">
     Operating on accessors
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-to-avoid" title="🛑❌ What to avoid! ❌🛑" class="md-nav__link">
+  <a href="#what-to-avoid" class="md-nav__link">
     🛑❌ What to avoid! ❌🛑
   </a>
   
@@ -834,7 +932,7 @@
                   <a href="https://github.com/pdimens/PopGen.jl/edit/master/docs/PopObj_accessing.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Accessing</h1>
+                  <h1>Accessing parts of a PopObj</h1>
                 
                 <p>A little hands-on training will probably go a long way, so let's through some of the functions available in PopGen.jl with the included data. This tutorial will include both inputs and outputs so you can be confident what you're seeing in your Julia session is exactly what's supposed to happen. Sometimes the outputs can be a little lengthy, so they will be arranged in code "tabs", where the left-most tab is the input named after what it's accomplishing, and the right tab is the output of running the command. </p>
 <h2 id="loading-in-the-data">Loading in the data</h2>
@@ -846,51 +944,38 @@
 </pre></div></div>
 <input name="__tabs_1" type="radio" id="__tab_1_1" />
 <label for="__tab_1_1">output</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>Object of type PopObj:
+<div class="superfences-content"><div class="codehilite"><pre><span></span> Object of type PopObj:
+ Marker type: Microsatellite
+ Ploidy: 2
+ Number of individuals: 237
+ Number of loci: 9
+ Longitude: none provided
+ Latitude: none provided
 
-Longitude:
-Any[missing, missing, missing, missing, missing, missing] … Any[missing, missing, missing, missing, missing, missing]
-
-Latitude:
-Any[missing, missing, missing, missing, missing, missing] … Any[missing, missing, missing, missing, missing, missing]
-
-Number of individuals: 237
-[&quot;N215&quot;, &quot;N216&quot;, &quot;N217&quot;] … [&quot;N281&quot;, &quot;N289&quot;, &quot;N290&quot;]
-
-Number of loci: 9
-[&quot;fca23&quot;, &quot;fca37&quot;, &quot;fca43&quot;] … [&quot;fca8&quot;, &quot;fca90&quot;, &quot;fca96&quot;]
-
-Ploidy:
-Int8[2, 2, 2] … Int8[2, 2, 2]
-Number of populations: 17
-
-Population names and counts:
-17×2 DataFrames.DataFrame
-│ Row │ population    │ count │
-│     │ Categorical…⍰ │ Int32 │
-├─────┼───────────────┼───────┤
-│ 1   │ &quot;1&quot;           │ 10    │
-│ 2   │ &quot;2&quot;           │ 22    │
-│ 3   │ &quot;3&quot;           │ 12    │
-│ 4   │ &quot;4&quot;           │ 23    │
-│ 5   │ &quot;5&quot;           │ 15    │
-│ 6   │ &quot;6&quot;           │ 11    │
-│ 7   │ &quot;7&quot;           │ 14    │
-│ 8   │ &quot;8&quot;           │ 10    │
-│ 9   │ &quot;9&quot;           │ 9     │
-│ 10  │ &quot;10&quot;          │ 11    │
-│ 11  │ &quot;11&quot;          │ 20    │
-│ 12  │ &quot;12&quot;          │ 14    │
-│ 13  │ &quot;13&quot;          │ 13    │
-│ 14  │ &quot;14&quot;          │ 17    │
-│ 15  │ &quot;15&quot;          │ 11    │
-│ 16  │ &quot;16&quot;          │ 12    │
-│ 17  │ &quot;17&quot;          │ 13    │
-
-Available .samples fields: .name, .population, .ploidy, .longitude, .latitude
+ Population names and counts:
+17×2 DataFrame
+│ Row │ population │ count │
+│     │ Union…     │ Int64 │
+├─────┼────────────┼───────┤
+│ 1   │ P01        │ 10    │
+│ 2   │ P02        │ 22    │
+│ 3   │ P03        │ 12    │
+│ 4   │ P04        │ 23    │
+│ 5   │ P05        │ 15    │
+│ 6   │ P06        │ 11    │
+│ 7   │ P07        │ 14    │
+│ 8   │ P08        │ 10    │
+│ 9   │ P09        │ 9     │
+│ 10  │ P10        │ 11    │
+│ 11  │ P11        │ 20    │
+│ 12  │ P12        │ 14    │
+│ 13  │ P13        │ 13    │
+│ 14  │ P14        │ 17    │
+│ 15  │ P15        │ 11    │
+│ 16  │ P16        │ 12    │
+│ 17  │ P17        │ 13    │
 </pre></div></div>
 </div>
-<p>Note the last line of the output. These <code>samples</code> fields can be accessed by name using the dot <code>.</code> accessor.</p>
 <p>Now that we have nancycats loaded in, we can use standard Julia accessor  conventions to view the elements within our PopObj.</p>
 <h2 id="samples">samples</h2>
 <h3 id="samples_1">.samples</h3>
@@ -1175,27 +1260,7 @@ Available .samples fields: .name, .population, .ploidy, .longitude, .latitude
  missing
  missing
  missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
  ⋮      
- missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
  missing
  missing
  missing
@@ -1207,10 +1272,7 @@ Available .samples fields: .name, .population, .ploidy, .longitude, .latitude
  missing
 </pre></div></div>
 </div>
-<div class="admonition info">
-<p class="admonition-title">Seeing some location info</p>
-<p>The nancycats data has some weird coordinate system for information, so those data were omitted. If you want a proof of concept for <code>.longitude</code> and <code>.latitude</code>, load in <code>gulfsharks</code> and try it out. We'll use <code>hcat</code> (horizontal concatination) to horizontally bind the individual names, their latitude, and longitude. Later, you'll see that the <code>locations</code> command does this and a bit more.</p>
-</div>
+<details class="example"><summary>actually seeing some location info</summary><p>The nancycats data has some weird coordinate system for information, so those data were omitted. If you want a proof of concept for <code>.longitude</code> and <code>.latitude</code>, load in <code>gulfsharks</code> and try it out. We'll use <code>hcat</code> (horizontal concatination) to horizontally bind the individual names, their latitude, and longitude. Later, you'll see that the <code>locations</code> command does this and a bit more.</p>
 <div class="superfences-tabs">
 <input name="__tabs_8" type="radio" id="__tab_8_0" checked="checked" />
 <label for="__tab_8_0">load gulfsharks</label>
@@ -1231,27 +1293,7 @@ Available .samples fields: .name, .population, .ploidy, .longitude, .latitude
 &quot;cc_010&quot;   27.8711  -80.3482
 &quot;cc_012&quot;   28.4815  -80.4303
 &quot;cc_013&quot;   28.2421  -80.2494
-&quot;cc_014&quot;   28.2428  -80.2496
-&quot;cc_015&quot;   28.2378  -80.2496
-&quot;cc_016&quot;   28.2414  -80.2498
-&quot;cc_017&quot;   28.236   -80.2495
-&quot;cc_018&quot;   28.2364  -80.2494
-&quot;cc_019&quot;   28.3906  -80.4963
-&quot;cc_020&quot;   28.3902  -80.4968
-&quot;cc_021&quot;   28.3861  -80.4967
-&quot;cc_022&quot;   28.3869  -80.4966
-&quot;cc_023&quot;   28.3865  -80.496 
 ⋮                           
-&quot;seg_001&quot;  29.8901  -87.7189
-&quot;seg_003&quot;  30.1943  -88.0007
-&quot;seg_009&quot;  30.0021  -88.0493
-&quot;seg_010&quot;  30.0069  -88.049 
-&quot;seg_011&quot;  29.8362  -88.1675
-&quot;seg_012&quot;  29.5057  -88.0546
-&quot;seg_014&quot;  30.1428  -88.2974
-&quot;seg_015&quot;  30.2074  -88.36  
-&quot;seg_016&quot;  30.1151  -88.3922
-&quot;seg_018&quot;  29.8362  -88.168 
 &quot;seg_021&quot;  29.9466  -86.0399
 &quot;seg_023&quot;  29.9969  -85.6494
 &quot;seg_024&quot;  29.6966  -87.4403
@@ -1264,6 +1306,7 @@ Available .samples fields: .name, .population, .ploidy, .longitude, .latitude
 &quot;seg_031&quot;  29.8234  -85.7143
 </pre></div></div>
 </div>
+</details>
 <h2 id="loci">loci</h2>
 <h3 id="loci_1">.loci</h3>
 <p>This will show you the entire <code>loci</code> dataframe</p>
@@ -1544,10 +1587,8 @@ Available .samples fields: .name, .population, .ploidy, .longitude, .latitude
  &quot;17&quot;
 </pre></div></div>
 </div>
-<div class="admonition info">
-<p class="admonition-title">Pipes</p>
-<p>Julia has native piping (much like BASH) which uses the syntax <code>|&gt;</code> (pipe + greater-than). With a pipe, <code>unique(ncats.samples.population)</code> can also be rewritten as <code>ncats.samples.population |&gt; unique</code> for the same result. It's often a matter of preference for which you consider more readable. Use the <code>Pipe</code> package for even more robust piping where you can specify which argument the pipe relates to!</p>
-</div>
+<details class="tip"><summary>Pipes</summary><p>Julia has native piping (much like BASH) which uses the syntax <code>|&gt;</code> (pipe + greater-than). With a pipe, <code>unique(ncats.samples.population)</code> can also be rewritten as <code>ncats.samples.population |&gt; unique</code> for the same result. It's often a matter of preference for which you consider more readable. Use the <code>Pipe</code> package for even more robust piping where you can specify which argument the pipe relates to!</p>
+</details>
 <h2 id="what-to-avoid">🛑❌ What to avoid! ❌🛑</h2>
 <p>Given the relationships of the ordered list of individuals (<code>.name</code>) and the order of genotypes in <code>.loci</code>, <strong>NEVER USE <code>sort</code>, <code>sort!</code>, or manually arrange/add/delete anything in either dataframes <code>loci</code> or <code>samples</code>!!!</strong> There are included functions <code>remove_loci!</code> and <code>remove_inds!</code> that do that kind of thing. That being said, you can rename individuals and their popid's without issue. Just no manual moving or deleting!</p>
                 
@@ -1585,13 +1626,13 @@ Available .samples fields: .name, .population, .ploidy, .longitude, .latitude
           </a>
         
         
-          <a href="../popobj_location/" title="Location data" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../example_data/" title="Example Data" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Location data
+                Example Data
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1623,9 +1664,13 @@ Available .samples fields: .name, .population, .ploidy, .longitude, .latitude
       
     </div>
     
-      <script src="../assets/javascripts/application.c648116f.js"></script>
+      <script src="../assets/javascripts/application.8e03edeb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
       
     
   </body>
