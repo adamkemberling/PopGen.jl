@@ -269,18 +269,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../comparison/" title="Benchmarks" class="md-nav__link">
-      Benchmarks
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../install/" title="How to Install" class="md-nav__link">
       How to Install
     </a>
@@ -294,13 +282,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
     
-    <label class="md-nav__link" for="nav-2-4">
+    <label class="md-nav__link" for="nav-2-3">
       The PopGen 'PopObj'
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-4">
+      <label class="md-nav__title" for="nav-2-3">
         The PopGen 'PopObj'
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -332,6 +320,18 @@
         
       </ul>
     </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../comparison/" title="Benchmarks" class="md-nav__link">
+      Benchmarks
+    </a>
   </li>
 
         
@@ -413,8 +413,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../vcf/" title="VCF" class="md-nav__link">
-      VCF
+    <a href="../vcf/" title="Variant Call Format" class="md-nav__link">
+      Variant Call Format
     </a>
   </li>
 
@@ -754,7 +754,29 @@
                 
                   <h1>Hardy-Weinberg Equilibrium</h1>
                 
-                <p>Testing for Hardy-Weinberg Equilibrium (often abbreviated to "HW" or "HWE") is a fairly common practice in population genetics. In a two-allele system (alleles <em>p</em> and <em>q</em>), the HWE equation is defined as  <em>p<sup>2</sup> + 2pq + q<sup>2</sup> = 1</em>. </p>
+                <p>Testing for Hardy-Weinberg Equilibrium (often abbreviated to "HW" or "HWE") is a fairly common practice in population genetics. In a two-allele system (alleles <em>p</em> and <em>q</em>), the HWE equation is defined as  <em>p<sup>2</sup> + 2pq + q<sup>2</sup> = 1</em> , where <em>p</em> is the frequency of the first allele and <em>q</em> is the frequency of the second allele. The formula describes the frequency of all possible genotypes where</p>
+<table>
+<thead>
+<tr>
+<th align="center">HWE variable</th>
+<th align="center">Genotype</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><em>p<sup>2</sup></em></td>
+<td align="center">"pp"</td>
+</tr>
+<tr>
+<td align="center"><em>q<sup>2</sup></em></td>
+<td align="center">"qq"</td>
+</tr>
+<tr>
+<td align="center"><em>2pq</em></td>
+<td align="center">"pq"</td>
+</tr>
+</tbody>
+</table>
 <p>Testing for deviation from HWE is usually done with a Chi-Squared test, where one compares the observed genotype frequencies to the expected genotype frequencies given the observed allele frequencies at a locus. </p>
 <h2 id="test-for-hardy-weinberg-equilibrium">Test for Hardy-Weinberg equilibrium</h2>
 <div class="codehilite"><pre><span></span><span class="n">hwe_test</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">by_pop</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">correction</span><span class="o">::</span><span class="n">String</span> <span class="o">=</span> <span class="s">&quot;none&quot;</span><span class="p">)</span>

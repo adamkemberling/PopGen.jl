@@ -271,18 +271,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../comparison/" title="Benchmarks" class="md-nav__link">
-      Benchmarks
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../install/" title="How to Install" class="md-nav__link">
       How to Install
     </a>
@@ -298,13 +286,13 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
     
-    <label class="md-nav__link" for="nav-2-4">
+    <label class="md-nav__link" for="nav-2-3">
       The PopGen 'PopObj'
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-4">
+      <label class="md-nav__title" for="nav-2-3">
         The PopGen 'PopObj'
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -496,6 +484,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../comparison/" title="Benchmarks" class="md-nav__link">
+      Benchmarks
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -574,8 +574,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../vcf/" title="VCF" class="md-nav__link">
-      VCF
+    <a href="../vcf/" title="Variant Call Format" class="md-nav__link">
+      Variant Call Format
     </a>
   </li>
 
@@ -953,7 +953,6 @@
  Latitude: none provided
 
  Population names and counts:
-17×2 DataFrame
 │ Row │ population │ count │
 │     │ Union…     │ Int64 │
 ├─────┼────────────┼───────┤
@@ -1208,25 +1207,7 @@
  missing
  missing
  missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
  ⋮      
- missing
- missing
- missing
- missing
- missing
- missing
- missing
- missing
  missing
  missing
  missing
@@ -1423,21 +1404,7 @@
  (137, 141)
  (133, 129)
  (133, 129)
- (133, 133)
- (135, 131)
- (135, 129)
- (133, 129)
- (135, 129)
- (135, 135)
- (135, 131)
  ⋮         
- (139, 139)
- (137, 139)
- (137, 139)
- (143, 137)
- (135, 139)
- (143, 139)
- (135, 139)
  (135, 133)
  (135, 133)
  (133, 141)
@@ -1541,9 +1508,9 @@
 </div>
 <div class="admonition info">
 <p class="admonition-title">:end</p>
-<p>All things start at 1, so there is no need for a special word for it. On the other hand, objects can have unknown lengths or varied lengths as you work with them. In Julia, use the word <code>end</code> in a slice range to indicate you want it to go to the end,, regardless of length or known size. </p>
+<p>All things start at 1, so there is no need for a special word for it. On the other hand, objects can have unknown lengths or varied lengths as you work with them. In Julia, use the word <code>end</code> in a slice range to indicate you want it to go to the end, regardless of length or known size. </p>
 </div>
-<p>One more example withh genotypes:</p>
+<p>One more example with genotypes:</p>
 <div class="superfences-tabs">
 <input name="__tabs_15" type="radio" id="__tab_15_0" checked="checked" />
 <label for="__tab_15_0">slice genotypes</label>
@@ -1587,7 +1554,7 @@
  &quot;17&quot;
 </pre></div></div>
 </div>
-<details class="tip"><summary>Pipes</summary><p>Julia has native piping (much like BASH) which uses the syntax <code>|&gt;</code> (pipe + greater-than). With a pipe, <code>unique(ncats.samples.population)</code> can also be rewritten as <code>ncats.samples.population |&gt; unique</code> for the same result. It's often a matter of preference for which you consider more readable. Use the <code>Pipe</code> package for even more robust piping where you can specify which argument the pipe relates to!</p>
+<details class="tip"><summary>Pipes</summary><p>Julia has native piping (much like Bash) which uses the syntax <code>|&gt;</code> (pipe + greater-than). With a pipe, <code>unique(ncats.samples.population)</code> can also be rewritten as <code>ncats.samples.population |&gt; unique</code> for the same result. It's often a matter of preference for which you consider more readable. Use the <code>Pipe.jl</code> package for even more robust piping where you can specify which argument the pipe relates to!</p>
 </details>
 <h2 id="what-to-avoid">🛑❌ What to avoid! ❌🛑</h2>
 <p>Given the relationships of the ordered list of individuals (<code>.name</code>) and the order of genotypes in <code>.loci</code>, <strong>NEVER USE <code>sort</code>, <code>sort!</code>, or manually arrange/add/delete anything in either dataframes <code>loci</code> or <code>samples</code>!!!</strong> There are included functions <code>remove_loci!</code> and <code>remove_inds!</code> that do that kind of thing. That being said, you can rename individuals and their popid's without issue. Just no manual moving or deleting!</p>
@@ -1626,13 +1593,13 @@
           </a>
         
         
-          <a href="../example_data/" title="Example Data" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../comparison/" title="Benchmarks" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Example Data
+                Benchmarks
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
