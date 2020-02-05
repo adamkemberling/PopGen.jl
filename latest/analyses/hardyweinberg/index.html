@@ -1,0 +1,1074 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Population genetics in Julia">
+      
+      
+      
+        <meta name="author" content="Pavel Dimens and Jason Selwyn">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
+    
+    
+      
+        <title>Hardy-Weinberg Equilibrium - PopGen.jl</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#test-for-hardy-weinberg-equilibrium" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="PopGen.jl" class="md-header-nav__button md-logo">
+          
+            <img src="../../img/logo_icon.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              PopGen.jl
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Hardy-Weinberg Equilibrium
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/pdimens/PopGen.jl/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    PopGen.jl
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="PopGen.jl" class="md-nav__button md-logo">
+      
+        <img src="../../img/logo_icon.png" width="48" height="48">
+      
+    </a>
+    PopGen.jl
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/pdimens/PopGen.jl/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    PopGen.jl
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Getting started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Getting started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/juliaprimer/" title="A Julia primer" class="md-nav__link">
+      A Julia primer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/install/" title="How to Install" class="md-nav__link">
+      How to Install
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      The PopGen 'PopObj'
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        The PopGen 'PopObj'
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/popobj_type/" title="What's a PopObj" class="md-nav__link">
+      What's a PopObj
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/PopObj_accessing/" title="Accessing parts of a PopObj" class="md-nav__link">
+      Accessing parts of a PopObj
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/comparison/" title="Benchmarks" class="md-nav__link">
+      Benchmarks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Importing Data
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Importing Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/example_data/" title="Example Data" class="md-nav__link">
+      Example Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/file_import/" title="Reading in Data" class="md-nav__link">
+      Reading in Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/delimited/" title="Delimited" class="md-nav__link">
+      Delimited
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/genepop/" title="Genepop" class="md-nav__link">
+      Genepop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/variantcall/" title="Variant Call Format" class="md-nav__link">
+      Variant Call Format
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../commands/" title="Manipulating a PopObj" class="md-nav__link">
+      Manipulating a PopObj
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Types of Analyses
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Types of Analyses
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Hardy-Weinberg Equilibrium
+      </label>
+    
+    <a href="./" title="Hardy-Weinberg Equilibrium" class="md-nav__link md-nav__link--active">
+      Hardy-Weinberg Equilibrium
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#test-for-hardy-weinberg-equilibrium" class="md-nav__link">
+    Test for Hardy-Weinberg equilibrium
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correction-methods" class="md-nav__link">
+    correction methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pro-tip" class="md-nav__link">
+    pro tip
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../relatedness/" title="Relatedness" class="md-nav__link">
+      Relatedness
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../community/" title="Community" class="md-nav__link">
+      Community
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Other
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Other
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+    
+    <label class="md-nav__link" for="nav-7-1">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-1">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other/api/hidden_api/" title="Under the hood functions" class="md-nav__link">
+      Under the hood functions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other/logo_graveyard/" title="Logo Graveyard" class="md-nav__link">
+      Logo Graveyard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Misc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Misc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other/misc/genepopIBD/" title="Genepop IBD Conversion" class="md-nav__link">
+      Genepop IBD Conversion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#test-for-hardy-weinberg-equilibrium" class="md-nav__link">
+    Test for Hardy-Weinberg equilibrium
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correction-methods" class="md-nav__link">
+    correction methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pro-tip" class="md-nav__link">
+    pro tip
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/pdimens/PopGen.jl/edit/master/docs/analyses/hardyweinberg.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Hardy-Weinberg Equilibrium</h1>
+                
+                <p>Testing for Hardy-Weinberg Equilibrium (often abbreviated to "HW" or "HWE") is a fairly common practice in population genetics. In a two-allele system (alleles <em>p</em> and <em>q</em>), the HWE equation is defined as  <em>p<sup>2</sup> + 2pq + q<sup>2</sup> = 1</em> , where <em>p</em> is the frequency of the first allele and <em>q</em> is the frequency of the second allele. The formula describes the frequency of all possible genotypes where</p>
+<table>
+<thead>
+<tr>
+<th align="center">HWE variable</th>
+<th align="center">Genotype</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><em>p<sup>2</sup></em></td>
+<td align="center">"pp"</td>
+</tr>
+<tr>
+<td align="center"><em>q<sup>2</sup></em></td>
+<td align="center">"qq"</td>
+</tr>
+<tr>
+<td align="center"><em>2pq</em></td>
+<td align="center">"pq"</td>
+</tr>
+</tbody>
+</table>
+<p>Testing for deviation from HWE is usually done with a Chi-Squared test, where one compares the observed genotype frequencies to the expected genotype frequencies given the observed allele frequencies at a locus. </p>
+<h2 id="test-for-hardy-weinberg-equilibrium">Test for Hardy-Weinberg equilibrium</h2>
+<div class="codehilite"><pre><span></span><span class="n">hwe_test</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">by_pop</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">correction</span><span class="o">::</span><span class="n">String</span> <span class="o">=</span> <span class="s">&quot;none&quot;</span><span class="p">)</span>
+</pre></div>
+
+<p>Calculate chi-squared test of HWE for each locus and returns observed and expected heterozygosity with chi-squared, degrees of freedom and p-values for each locus. Use <code>by_pop = true</code> to perform this separately for each population (default: by_pop = false) and return a NamedTuple with the names corresponding to the population names. Use <code>correction =</code> to specify a P-value
+correction method for multiple testing.</p>
+<h3 id="arguments">arguments</h3>
+<ul>
+<li><code>x</code> : the input <code>PopObj</code></li>
+<li><code>by_pop =</code> : <code>false</code> (default) or <code>true</code> for hwe-by-population</li>
+<li><code>correction =</code>  : a string specifying a P-value adjustment type (default: "none")</li>
+</ul>
+<h3 id="correction-methods"><code>correction</code> methods</h3>
+<ul>
+<li><code>"bonferroni"</code> : Bonferroni adjustment</li>
+<li><code>"holm"</code> : Holm adjustment</li>
+<li><code>"hochberg"</code> : Hochberg adjustment</li>
+<li><code>"bh"</code> or <code>"b-h"</code> : Benjamini-Hochberg adjustment</li>
+<li><code>"by"</code> or <code>"b-y"</code>: Benjamini-Yekutieli adjustment</li>
+<li><code>"bl"</code> or <code>"b-l"</code> : Benjamini-Liu adjustment</li>
+<li><code>"hommel"</code> : Hommel adjustment</li>
+<li><code>"sidak"</code> : Šidák adjustment</li>
+<li><code>"forward stop"</code> or <code>"fs"</code> : Forward-Stop adjustment</li>
+<li><code>"bc"</code> or <code>"b-c"</code> : Barber-Candès adjustment</li>
+</ul>
+<p><img alt="🤔" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f914.svg" title=":thinking:" /> For more information on multiple testing adjustments, see <a href="https://juliangehring.github.io/MultipleTesting.jl/stable/">MultipleTesting.jl</a></p>
+<h3 id="example">example</h3>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">example</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">hwe_test</span><span class="p">(</span><span class="n">gulfsharks</span><span class="p">(),</span> <span class="n">correction</span> <span class="o">=</span> <span class="s">&quot;bh&quot;</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>2213×7 DataFrames.DataFrame
+│ Row  │ locus        │ het_obs   │ het_exp   │ χ²        │ DF       │ P          │ Pcorr      │
+│      │ String       │ Float64   │ Float64   │ Float64⍰  │ Float64⍰ │ Float64⍰   │ Float64⍰   │
+├──────┼──────────────┼───────────┼───────────┼───────────┼──────────┼────────────┼────────────┤
+│ 1    │ contig_35208 │ 0.419811  │ 0.398051  │ 0.690981  │ 3.0      │ 0.875323   │ 0.948912   │
+│ 2    │ contig_23109 │ 0.262136  │ 0.288434  │ 1.71251   │ 1.0      │ 0.19066    │ 0.295543   │
+│ 3    │ contig_4493  │ 0.205742  │ 0.228532  │ 2.0785    │ 1.0      │ 0.149387   │ 0.234857   │
+│ 4    │ contig_10742 │ 0.0666667 │ 0.0644444 │ 0.249703  │ 1.0      │ 0.617284   │ 0.807471   │
+│ 5    │ contig_14898 │ 0.240566  │ 0.21875   │ 2.10859   │ 1.0      │ 0.146475   │ 0.230442   │
+│ 6    │ contig_8483  │ 0.0188679 │ 0.0186899 │ 0.019229  │ 1.0      │ 0.889712   │ 0.948912   │
+│ 7    │ contig_8065  │ 0.0801887 │ 0.0769736 │ 0.369866  │ 1.0      │ 0.543077   │ 0.732045   │
+│ 8    │ contig_14708 │ 0.0616114 │ 0.0597134 │ 0.213168  │ 1.0      │ 0.644295   │ 0.828219   │
+│ 9    │ contig_2307  │ 0.0289855 │ 0.0285654 │ 0.0447664 │ 1.0      │ 0.832434   │ 0.938862   │
+│ 10   │ contig_14564 │ 0.2       │ 0.209751  │ 0.453809  │ 1.0      │ 0.500532   │ 0.6894     │
+│ 11   │ contig_15269 │ 0.15566   │ 0.146505  │ 1.51012   │ 3.0      │ 0.679938   │ 0.857489   │
+│ 12   │ contig_24796 │ 0.161137  │ 0.201613  │ 8.50406   │ 1.0      │ 0.00354355 │ 0.00596524 │
+│ 13   │ contig_14251 │ 0.490566  │ 0.49782   │ 0.0450074 │ 1.0      │ 0.83199    │ 0.938862   │
+│ 14   │ contig_44797 │ 0.0240385 │ 0.0237495 │ 0.0307836 │ 1.0      │ 0.860724   │ 0.944468   │
+│ 15   │ contig_43681 │ 0.42381   │ 0.472778  │ 2.25286   │ 1.0      │ 0.133368   │ 0.211628   │
+│ 16   │ contig_24115 │ 0.0333333 │ 0.0327778 │ 0.0603275 │ 1.0      │ 0.805979   │ 0.931567   │
+│ 17   │ contig_5456  │ 0.0471698 │ 0.0460573 │ 0.12369   │ 1.0      │ 0.725066   │ 0.892017   │
+│ 18   │ contig_21698 │ 0.0758294 │ 0.0729543 │ 0.327695  │ 1.0      │ 0.567019   │ 0.758715   │
+⋮
+│ 2195 │ contig_8479  │ 0.0235849 │ 0.0598856 │ 212.031   │ 3.0      │ 0.0        │ 0.0        │
+│ 2196 │ contig_47462 │ 0.45283   │ 0.502803  │ 213.589   │ 3.0      │ 0.0        │ 0.0        │
+│ 2197 │ contig_4095  │ 0.259434  │ 0.275398  │ 212.0     │ 3.0      │ 0.0        │ 0.0        │
+│ 2198 │ contig_7239  │ 0.0660377 │ 0.0729352 │ 212.25    │ 3.0      │ 0.0        │ 0.0        │
+│ 2199 │ contig_40507 │ 0.0330189 │ 0.0688746 │ 212.062   │ 3.0      │ 0.0        │ 0.0        │
+│ 2200 │ contig_42145 │ 0.358491  │ 0.31754   │ 5.95351   │ 3.0      │ 0.113894   │ 0.182428   │
+│ 2201 │ contig_1033  │ 0.363208  │ 0.352872  │ 0.181856  │ 1.0      │ 0.669783   │ 0.85219    │
+│ 2202 │ contig_2798  │ 0.122642  │ 0.140219  │ 212.952   │ 3.0      │ 0.0        │ 0.0        │
+│ 2203 │ contig_12991 │ 0.0518868 │ 0.112685  │ 212.161   │ 3.0      │ 0.0        │ 0.0        │
+│ 2204 │ contig_22981 │ 0.188679  │ 0.200783  │ 0.770434  │ 1.0      │ 0.380083   │ 0.551307   │
+│ 2205 │ contig_15342 │ 0.268868  │ 0.29084   │ 212.328   │ 3.0      │ 0.0        │ 0.0        │
+│ 2206 │ contig_24711 │ 0.273585  │ 0.288136  │ 0.540694  │ 1.0      │ 0.462145   │ 0.645777   │
+│ 2207 │ contig_18959 │ 0.466981  │ 0.437422  │ 0.968086  │ 1.0      │ 0.325158   │ 0.482394   │
+│ 2208 │ contig_43517 │ 0.103774  │ 0.150454  │ 212.675   │ 3.0      │ 0.0        │ 0.0        │
+│ 2209 │ contig_27356 │ 0.0660377 │ 0.0906016 │ 213.73    │ 3.0      │ 0.0        │ 0.0        │
+│ 2210 │ contig_475   │ 0.367925  │ 0.375     │ 0.0754717 │ 1.0      │ 0.78353    │ 0.926932   │
+│ 2211 │ contig_19384 │ 0.0613208 │ 0.11264   │ 214.152   │ 3.0      │ 0.0        │ 0.0        │
+│ 2212 │ contig_22368 │ 0.0896226 │ 0.11224   │ 212.481   │ 3.0      │ 0.0        │ 0.0        │
+│ 2213 │ contig_2784  │ 0.0283019 │ 0.0908241 │ 212.047   │ 3.0      │ 0.0        │ 0.0        │
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_2" />
+<label for="__tab_1_2">by_pop = true</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>julia&gt; hwe_test(gulfsharks(), by_pop = true, correction = &quot;bh&quot;)
+
+(Cape Canaveral = 2213×7 DataFrame
+│ Row  │ locus        │ het_obs   │ het_exp   │ χ²        │ DF       │ P           │ Pcorr       │
+│      │ String       │ Float64⍰  │ Float64⍰  │ Float64⍰  │ Float64⍰ │ Float64⍰    │ Float64⍰    │
+├──────┼──────────────┼───────────┼───────────┼───────────┼──────────┼─────────────┼─────────────┤
+│ 1    │ contig_35208 │ 0.333333  │ 0.427438  │ 1.01787   │ 1.0      │ 0.313025    │ 0.872143    │
+│ 2    │ contig_23109 │ 0.263158  │ 0.228532  │ 0.43618   │ 1.0      │ 0.508972    │ 0.987085    │
+│ 3    │ contig_4493  │ 0.142857  │ 0.209751  │ 2.13589   │ 1.0      │ 0.143886    │ 0.51061     │
+│ 4    │ contig_10742 │ 0.0       │ 0.0       │ 0.0       │ 0.0      │ missing     │ missing     │
+│ 5    │ contig_14898 │ 0.0952381 │ 0.0907029 │ 0.0525    │ 1.0      │ 0.818769    │ 0.987085    │
+│ 6    │ contig_8483  │ 0.0       │ 0.0       │ 0.0       │ 0.0      │ missing     │ missing     │
+⋮
+│ 2207 │ contig_18959 │ 0.52381   │ 0.427438  │ 1.06752   │ 1.0      │ 0.301507    │ 0.856472    │
+│ 2208 │ contig_43517 │ 0.0952381 │ 0.0907029 │ 0.0525    │ 1.0      │ 0.818769    │ 0.987085    │
+│ 2209 │ contig_27356 │ 0.047619  │ 0.0464853 │ 0.0124926 │ 1.0      │ 0.911006    │ 0.987085    │
+│ 2210 │ contig_475   │ 0.285714  │ 0.30839   │ 0.113538  │ 1.0      │ 0.736152    │ 0.987085    │
+│ 2211 │ contig_19384 │ 0.0952381 │ 0.176871  │ 21.0582   │ 3.0      │ 0.000102388 │ 0.000625326 │
+│ 2212 │ contig_22368 │ 0.047619  │ 0.0464853 │ 0.0124926 │ 1.0      │ 0.911006    │ 0.987085    │
+│ 2213 │ contig_2784  │ 0.0       │ 0.0       │ 0.0       │ 0.0      │ missing     │ missing     │, Georgia = 2213×7 DataFrame
+│ Row  │ locus        │ het_obs   │ het_exp   │ χ²         │ DF       │ P           │ Pcorr       │
+│      │ String       │ Float64⍰  │ Float64⍰  │ Float64⍰   │ Float64⍰ │ Float64⍰    │ Float64⍰    │
+├──────┼──────────────┼───────────┼───────────┼────────────┼──────────┼─────────────┼─────────────┤
+│ 1    │ contig_35208 │ 0.4       │ 0.389467  │ 0.276208   │ 3.0      │ 0.964439    │ 1.0         │
+│ 2    │ contig_23109 │ 0.28125   │ 0.304688  │ 0.378698   │ 1.0      │ 0.538301    │ 0.987085    │
+│ 3    │ contig_4493  │ 0.234375  │ 0.230347  │ 0.0195733  │ 1.0      │ 0.888735    │ 0.987085    │
+│ 4    │ contig_10742 │ 0.046875  │ 0.0457764 │ 0.036864   │ 1.0      │ 0.847742    │ 0.987085    │
+│ 5    │ contig_14898 │ 0.292308  │ 0.249586  │ 1.90447    │ 1.0      │ 0.167579    │ 0.57153     │
+│ 6    │ contig_8483  │ 0.0153846 │ 0.0152663 │ 0.00390602 │ 1.0      │ 0.950166    │ 0.996029    │
+⋮
+│ 2207 │ contig_18959 │ 0.538462  │ 0.461657  │ 1.79908    │ 1.0      │ 0.179824    │ 0.59782     │
+│ 2208 │ contig_43517 │ 0.123077  │ 0.223432  │ 65.3201    │ 3.0      │ 4.28546e-14 │ 1.01329e-12 │
+│ 2209 │ contig_27356 │ 0.0307692 │ 0.0601183 │ 65.0164    │ 3.0      │ 4.9738e-14  │ 1.01329e-12 │
+│ 2210 │ contig_475   │ 0.369231  │ 0.400473  │ 0.395604   │ 1.0      │ 0.529368    │ 0.987085    │
+│ 2211 │ contig_19384 │ 0.0769231 │ 0.130533  │ 68.8823    │ 3.0      │ 7.43849e-15 │ 1.01329e-12 │
+│ 2212 │ contig_22368 │ 0.0923077 │ 0.116923  │ 65.1572    │ 3.0      │ 4.64073e-14 │ 1.01329e-12 │
+│ 2213 │ contig_2784  │ 0.0461538 │ 0.103314  │ 65.0387    │ 3.0      │ 4.91829e-14 │ 1.01329e-12 │, South Carolina = 2213×7 DataFrame
+│ Row  │ locus        │ het_obs   │ het_exp   │ χ²        │ DF       │ P           │ Pcorr      │
+│      │ String       │ Float64⍰  │ Float64⍰  │ Float64⍰  │ Float64⍰ │ Float64⍰    │ Float64⍰   │
+├──────┼──────────────┼───────────┼───────────┼───────────┼──────────┼─────────────┼────────────┤
+│ 1    │ contig_35208 │ 0.4       │ 0.375     │ 0.0888889 │ 1.0      │ 0.765594    │ 0.987085   │
+│ 2    │ contig_23109 │ 0.117647  │ 0.110727  │ 0.0664063 │ 1.0      │ 0.796643    │ 0.987085   │
+│ 3    │ contig_4493  │ 0.277778  │ 0.313272  │ 0.231066  │ 1.0      │ 0.630735    │ 0.987085   │
+│ 4    │ contig_10742 │ 0.0526316 │ 0.0512465 │ 0.0138787 │ 1.0      │ 0.90622     │ 0.987085   │
+│ 5    │ contig_14898 │ 0.1       │ 0.095     │ 0.0554017 │ 1.0      │ 0.813917    │ 0.987085   │
+│ 6    │ contig_8483  │ 0.0       │ 0.0       │ 0.0       │ 0.0      │ missing     │ missing    │
+⋮
+│ 2207 │ contig_18959 │ 0.35      │ 0.43875   │ 0.818338  │ 1.0      │ 0.365667    │ 0.948296   │
+│ 2208 │ contig_43517 │ 0.0       │ 0.18      │ 20.0      │ 1.0      │ 7.74422e-6  │ 5.90346e-5 │
+│ 2209 │ contig_27356 │ 0.1       │ 0.185     │ 20.0617   │ 3.0      │ 0.000164815 │ 0.00078662 │
+│ 2210 │ contig_475   │ 0.3       │ 0.255     │ 0.622837  │ 1.0      │ 0.429995    │ 0.987085   │
+│ 2211 │ contig_19384 │ 0.0       │ 0.255     │ 20.0      │ 1.0      │ 7.74422e-6  │ 5.90346e-5 │
+│ 2212 │ contig_22368 │ 0.05      │ 0.22375   │ 20.0163   │ 3.0      │ 0.000168425 │ 0.00078662 │
+│ 2213 │ contig_2784  │ 0.05      │ 0.14125   │ 20.0146   │ 3.0      │ 0.000168563 │ 0.00078662 │, Florida Keys = 2213×7 DataFrame
+│ Row  │ locus        │ het_obs  │ het_exp  │ χ²        │ DF       │ P        │ Pcorr    │
+│      │ String       │ Float64⍰ │ Float64⍰ │ Float64⍰  │ Float64⍰ │ Float64⍰ │ Float64⍰ │
+├──────┼──────────────┼──────────┼──────────┼───────────┼──────────┼──────────┼──────────┤
+│ 1    │ contig_35208 │ 0.45     │ 0.41125  │ 0.519382  │ 3.0      │ 0.914613 │ 0.987085 │
+│ 2    │ contig_23109 │ 0.4      │ 0.42     │ 0.0453515 │ 1.0      │ 0.831359 │ 0.987085 │
+│ 3    │ contig_4493  │ 0.25     │ 0.28875  │ 0.360188  │ 1.0      │ 0.548402 │ 0.987085 │
+│ 4    │ contig_10742 │ 0.2      │ 0.18     │ 0.246914  │ 1.0      │ 0.619257 │ 0.987085 │
+│ 5    │ contig_14898 │ 0.25     │ 0.21875  │ 0.408163  │ 1.0      │ 0.522903 │ 0.987085 │
+│ 6    │ contig_8483  │ 0.05     │ 0.04875  │ 0.0131492 │ 1.0      │ 0.908707 │ 0.987085 │
+⋮
+│ 2207 │ contig_18959 │ 0.45     │ 0.39875  │ 0.330382  │ 1.0      │ 0.565434 │ 0.987085 │
+│ 2208 │ contig_43517 │ 0.05     │ 0.04875  │ 0.0131492 │ 1.0      │ 0.908707 │ 0.987085 │
+│ 2209 │ contig_27356 │ 0.0      │ 0.0      │ 0.0       │ 0.0      │ missing  │ missing  │
+│ 2210 │ contig_475   │ 0.4      │ 0.375    │ 0.0888889 │ 1.0      │ 0.765594 │ 0.987085 │
+│ 2211 │ contig_19384 │ 0.15     │ 0.13875  │ 0.131483  │ 1.0      │ 0.7169   │ 0.987085 │
+│ 2212 │ contig_22368 │ 0.15     │ 0.13875  │ 0.131483  │ 1.0      │ 0.7169   │ 0.987085 │
+│ 2213 │ contig_2784  │ 0.0      │ 0.0      │ 0.0       │ 0.0      │ missing  │ missing  │, Mideast Gulf = 2213×7 DataFrame
+│ Row  │ locus        │ het_obs   │ het_exp  │ χ²        │ DF       │ P           │ Pcorr      │
+│      │ String       │ Float64⍰  │ Float64⍰ │ Float64⍰  │ Float64⍰ │ Float64⍰    │ Float64⍰   │
+├──────┼──────────────┼───────────┼──────────┼───────────┼──────────┼─────────────┼────────────┤
+│ 1    │ contig_35208 │ 0.5       │ 0.436224 │ 0.598475  │ 1.0      │ 0.439161    │ 0.987085   │
+│ 2    │ contig_23109 │ 0.214286  │ 0.191327 │ 0.4032    │ 1.0      │ 0.525441    │ 0.987085   │
+│ 3    │ contig_4493  │ 0.178571  │ 0.21875  │ 0.944606  │ 1.0      │ 0.331096    │ 0.898252   │
+│ 4    │ contig_10742 │ 0.107143  │ 0.101403 │ 0.0897116 │ 1.0      │ 0.764544    │ 0.987085   │
+│ 5    │ contig_14898 │ 0.357143  │ 0.336735 │ 0.102847  │ 1.0      │ 0.74844     │ 0.987085   │
+│ 6    │ contig_8483  │ 0.0       │ 0.0      │ 0.0       │ 0.0      │ missing     │ missing    │
+⋮
+│ 2207 │ contig_18959 │ 0.535714  │ 0.484056 │ 0.318893  │ 1.0      │ 0.572274    │ 0.987085   │
+│ 2208 │ contig_43517 │ 0.178571  │ 0.162628 │ 0.269127  │ 1.0      │ 0.603918    │ 0.987085   │
+│ 2209 │ contig_27356 │ 0.0357143 │ 0.101403 │ 11.75     │ 1.0      │ 0.000608429 │ 0.00278639 │
+│ 2210 │ contig_475   │ 0.285714  │ 0.336735 │ 0.642792  │ 1.0      │ 0.422702    │ 0.987085   │
+│ 2211 │ contig_19384 │ 0.0       │ 0.0      │ 0.0       │ 0.0      │ missing     │ missing    │
+│ 2212 │ contig_22368 │ 0.107143  │ 0.101403 │ 0.0897116 │ 1.0      │ 0.764544    │ 0.987085   │
+│ 2213 │ contig_2784  │ 0.0714286 │ 0.135204 │ 28.0414   │ 3.0      │ 3.56005e-6  │ 3.64412e-5 │, Northeast Gulf = 2213×7 DataFrame
+│ Row  │ locus        │ het_obs   │ het_exp   │ χ²        │ DF       │ P          │ Pcorr      │
+│      │ String       │ Float64⍰  │ Float64⍰  │ Float64⍰  │ Float64⍰ │ Float64⍰   │ Float64⍰   │
+├──────┼──────────────┼───────────┼───────────┼───────────┼──────────┼────────────┼────────────┤
+│ 1    │ contig_35208 │ 0.428571  │ 0.375     │ 0.571429  │ 1.0      │ 0.449692   │ 0.987085   │
+│ 2    │ contig_23109 │ 0.321429  │ 0.392219  │ 0.912124  │ 1.0      │ 0.339552   │ 0.903179   │
+│ 3    │ contig_4493  │ 0.214286  │ 0.191327  │ 0.4032    │ 1.0      │ 0.525441   │ 0.987085   │
+│ 4    │ contig_10742 │ 0.0357143 │ 0.0350765 │ 0.0092562 │ 1.0      │ 0.923354   │ 0.987085   │
+│ 5    │ contig_14898 │ 0.25      │ 0.21875   │ 0.571429  │ 1.0      │ 0.449692   │ 0.987085   │
+│ 6    │ contig_8483  │ 0.0357143 │ 0.0350765 │ 0.0092562 │ 1.0      │ 0.923354   │ 0.987085   │
+⋮
+│ 2207 │ contig_18959 │ 0.285714  │ 0.336735  │ 0.642792  │ 1.0      │ 0.422702   │ 0.987085   │
+│ 2208 │ contig_43517 │ 0.107143  │ 0.101403  │ 0.0897116 │ 1.0      │ 0.764544   │ 0.987085   │
+│ 2209 │ contig_27356 │ 0.142857  │ 0.132653  │ 0.16568   │ 1.0      │ 0.68398    │ 0.987085   │
+│ 2210 │ contig_475   │ 0.464286  │ 0.448342  │ 0.0354101 │ 1.0      │ 0.850739   │ 0.987085   │
+│ 2211 │ contig_19384 │ 0.0357143 │ 0.0350765 │ 0.0092562 │ 1.0      │ 0.923354   │ 0.987085   │
+│ 2212 │ contig_22368 │ 0.0357143 │ 0.0350765 │ 0.0092562 │ 1.0      │ 0.923354   │ 0.987085   │
+│ 2213 │ contig_2784  │ 0.0       │ 0.0688776 │ 28.0      │ 1.0      │ 1.21315e-7 │ 1.87007e-6 │, Southeast Gulf = 2213×7 DataFrame
+│ Row  │ locus        │ het_obs   │ het_exp   │ χ²         │ DF       │ P          │ Pcorr      │
+│      │ String       │ Float64⍰  │ Float64⍰  │ Float64⍰   │ Float64⍰ │ Float64⍰   │ Float64⍰   │
+├──────┼──────────────┼───────────┼───────────┼────────────┼──────────┼────────────┼────────────┤
+│ 1    │ contig_35208 │ 0.433333  │ 0.375     │ 0.725926   │ 1.0      │ 0.394207   │ 0.980648   │
+│ 2    │ contig_23109 │ 0.2       │ 0.231111  │ 0.543639   │ 1.0      │ 0.460928   │ 0.987085   │
+│ 3    │ contig_4493  │ 0.133333  │ 0.18      │ 2.01646    │ 1.0      │ 0.155601   │ 0.540012   │
+│ 4    │ contig_10742 │ 0.0666667 │ 0.0644444 │ 0.0356718  │ 1.0      │ 0.850195   │ 0.987085   │
+│ 5    │ contig_14898 │ 0.2       │ 0.18      │ 0.37037    │ 1.0      │ 0.542802   │ 0.987085   │
+│ 6    │ contig_8483  │ 0.0333333 │ 0.0327778 │ 0.00861821 │ 1.0      │ 0.926035   │ 0.987085   │
+⋮
+│ 2207 │ contig_18959 │ 0.466667  │ 0.42      │ 0.37037    │ 1.0      │ 0.542802   │ 0.987085   │
+│ 2208 │ contig_43517 │ 0.1       │ 0.095     │ 0.0831025  │ 1.0      │ 0.773136   │ 0.987085   │
+│ 2209 │ contig_27356 │ 0.133333  │ 0.124444  │ 0.153061   │ 1.0      │ 0.695627   │ 0.987085   │
+│ 2210 │ contig_475   │ 0.433333  │ 0.375     │ 0.725926   │ 1.0      │ 0.394207   │ 0.980648   │
+│ 2211 │ contig_19384 │ 0.0666667 │ 0.0644444 │ 0.0356718  │ 1.0      │ 0.850195   │ 0.987085   │
+│ 2212 │ contig_22368 │ 0.133333  │ 0.124444  │ 0.153061   │ 1.0      │ 0.695627   │ 0.987085   │
+│ 2213 │ contig_2784  │ 0.0       │ 0.124444  │ 30.0       │ 1.0      │ 4.32046e-8 │ 7.21496e-7 │)
+</pre></div></div>
+</div>
+<h3 id="pro-tip">pro tip</h3>
+<p>If using <code>by_pop = true</code>, there may be a very long output which you may want to suppress by ending the command with a semicolon <code>;</code>.   The function returns a NamedTuple of DataFrames, meaning you can index it with a dot <code>.</code> operator. If you assign the command's output to a variable, such as <code>hardy = hwe_test(gulfsharks(), by_pop = true) ;</code>, then you can index the output with the population names, such as <code>hardy.CapeCanaveral</code> or <code>hardy.Georgia</code>.  And since those objects are DataFrames, you can continue using the dot <code>.</code> operator to index them further by column, such as <code>hardy.Georgia.Pcorr</code> to see only the corrected P values. Convenience!</p>
+<details class="tip"><summary>indexing the Chiq-sq column</summary><p><strong>The Fast(er) Way</strong>: you can just index the column using the DataFrames numerical index like so: <code>df[!, 4]</code></p>
+<p><strong>The Fun Way:</strong> to index the chi-squared column from the dataframe using the dot operator (i.e. <code>df.χ²</code>), you will need to use the unicode characters in Julia, b/c the column is literally named χ². To generate those characters, type in <code>\Chi</code> + press <code>TAB</code> + type in <code>\^2</code> + press <code>TAB</code> without spaces and it will magically appear (in the REPL and Juno, at least). Written out in more explicit English (we really want you to get it!), it's a backslash <code>\</code>, the word <code>Chi</code> with a capital C, the TAB key on your keyboard (and you'll notice it's already changed it to the letter χ), another backslash <code>\</code>, a caret <code>^</code>, the number <code>2</code>, then the TAB key again. </p>
+<p>All in all, you'll be doing this: </p>
+<p><code>\ChiTAB\^2TAB</code>. It's actually a lot easier than it looks.</p>
+</details>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../commands/" title="Manipulating a PopObj" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Manipulating a PopObj
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../relatedness/" title="Relatedness" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Relatedness
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019 Pavel Dimens and Jason Selwyn
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.8e03edeb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      
+    
+  </body>
+</html>
