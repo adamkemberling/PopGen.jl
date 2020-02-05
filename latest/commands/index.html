@@ -569,13 +569,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#plot-missing-data-under-construction" class="md-nav__link">
-    plot missing data (under construction)
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -613,13 +606,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#plot-location-data" class="md-nav__link">
-    plot location data
-  </a>
   
 </li>
         
@@ -942,13 +928,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#plot-missing-data-under-construction" class="md-nav__link">
-    plot missing data (under construction)
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -986,13 +965,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#plot-location-data" class="md-nav__link">
-    plot location data
-  </a>
   
 </li>
         
@@ -1188,13 +1160,17 @@ Just as you can view population ID's with <code>.population</code>, you can also
 <details class="tip"><summary>synonymous functions</summary><p>You can use the command <code>population</code> for the same functionality. We made the commands <code>population</code> and <code>populations</code> synonymous so you wouldn't have to memorize if the name was singular or plural-- it just works! This also applies to <code>populations!</code> and <code>population!</code></p>
 </details>
 <h3 id="rename-populations">rename populations</h3>
-<p><div class="codehilite"><pre><span></span><span class="n">populations!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">rename</span><span class="o">::</span><span class="kt">Dict</span><span class="p">,</span> <span class="n">replace</span><span class="o">::</span><span class="kt">Tuple</span><span class="p">)</span>
+<p><div class="codehilite"><pre><span></span><span class="n">populations!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">rename</span><span class="o">::</span><span class="kt">Union</span><span class="p">{</span><span class="kt">Dict</span><span class="p">,</span> <span class="kt">Vector</span><span class="p">}},</span> <span class="n">replace</span><span class="o">::</span><span class="kt">Tuple</span><span class="p">)</span>
 </pre></div>
-Use the <code>rename =</code> keyword to rename the population ID's of a <code>PopObj</code> (the <code>.population</code>). Uses a <code>Dict</code> of <code>[population_name] =&gt; replacement</code> to rename. It returns <code>population(::PopObj,listall=true)</code> of your renamed PopObj.</p>
+Use the <code>rename =</code> keyword to rename the population ID's of a <code>PopObj</code> (the <code>.population</code>). Uses a <code>Dict</code> of <code>[population_name] =&gt; replacement</code> to rename or a vector of names to replace the current ones. If using a vector, then the vector length must be the same as the number of unique population names in your PopObj. It returns <code>population(::PopObj,listall=true)</code> of your renamed PopObj.</p>
 <div class="superfences-tabs">
 <input name="__tabs_5" type="radio" id="__tab_5_0" checked="checked" />
 <label for="__tab_5_0">rename populations</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c"># create a dictionary of name conversions</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c"># create a vector of new population names</span>
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">new_popnames</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Atlantic&quot;</span><span class="p">,</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span><span class="s">&quot;Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span><span class="s">&quot;Gulf&quot;</span><span class="p">,</span><span class="s">&quot;Gulf&quot;</span><span class="p">];</span>
+
+
+<span class="c"># or create a dictionary of name conversions</span>
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">new_popnames</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">(</span>
             <span class="s">&quot;Cape Canaveral&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span>
             <span class="s">&quot;Georgia&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span>
@@ -1203,7 +1179,7 @@ Use the <code>rename =</code> keyword to rename the population ID's of a <code>P
             <span class="s">&quot;Mideast Gulf&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span>
             <span class="s">&quot;Northeast Gulf&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span>
             <span class="s">&quot;Southeast Gulf&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Gulf&quot;</span>
-        <span class="p">)</span>
+        <span class="p">);</span>  
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">rename</span> <span class="o">=</span> <span class="n">new_popnames</span><span class="p">)</span>
 </pre></div></div>
@@ -1229,12 +1205,16 @@ Use the <code>rename =</code> keyword to rename the population ID's of a <code>P
 </pre></div></div>
 </div>
 <h3 id="replace-population-names">replace population names</h3>
-<p>You may also use the <code>replace</code> keyword in <code>populations!</code> to outright replace all the population names or fill in new ones. This is particularly useful when importing from VCF format when population information is not provided. This method will completely replace the population names of a <code>PopObj</code> regardless of what they currently are. Internally, it will generate an vector of population names from a tuple of (counts, names) where <code>counts</code> is a vector of the number of samples per population and <code>names</code> is a vector of the names of the populations. You can also use a named tuple <code>(counts = , names = )</code> if you prefer. Since we know our number of samples per population from earlier, we can create a vector of those counts as so:</p>
-<div class="codehilite"><pre><span></span>counts = [18, 30, 28, 65, 28, 20, 20]
+<p>You may also use the <code>replace</code> keyword in <code>populations!</code> to outright replace all the population names or fill in new ones. This is particularly useful when importing from VCF format when population information is not provided. This method will completely replace the population names of a <code>PopObj</code> regardless of what they currently are. Internally, it will generate an vector of population names from a tuple of (names, counts) where <code>names</code> is a vector of the names of the populations and <code>counts</code> is a vector of the number of samples per population. You can also use a named tuple <code>(counts = , names = )</code> if you prefer. Since we know our number of samples per population from earlier, we can create a vector of those counts as so:</p>
+<div class="admonition warning">
+<p class="admonition-title">Double-check your population counts</p>
+<p>The population counts below are after we've removed some individuals earlier on this page. If you're playing along and getting errors that the lengths don't match, then get make sure you're using the right population counts. You can get those numbers with <code>populations(sharks)</code>.</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
 </pre></div>
 
 <p>and we can also create the vector of the names in the order in which they appeared:</p>
-<div class="codehilite"><pre><span></span>popnames = [&quot;Cape Canaveral&quot;, &quot;Georgia&quot;, &quot;S Carolina&quot;, &quot;FL Keys&quot;, &quot;Mideast Gulf&quot;, &quot;Northeast Gulf&quot;, &quot;Southeast Gulf&quot;]
+<div class="codehilite"><pre><span></span><span class="n">popnames</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Cape Canaveral&quot;</span><span class="p">,</span> <span class="s">&quot;Georgia&quot;</span><span class="p">,</span> <span class="s">&quot;S Carolina&quot;</span><span class="p">,</span> <span class="s">&quot;FL Keys&quot;</span><span class="p">,</span> <span class="s">&quot;Mideast Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Northeast Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Southeast Gulf&quot;</span><span class="p">]</span>
 </pre></div>
 
 <p>And now we can combine them with <code>populations!</code> to restore the population names to how they were originally:</p>
@@ -1267,7 +1247,7 @@ Use the <code>rename =</code> keyword to rename the population ID's of a <code>P
 <h2 id="display-specific-loci-andor-samples">Display Specific Loci and/or Samples</h2>
 <p>These are the "public" functions to retrieve sample genotype information in an easy-on-the-eyes format, whereas calculations in other parts of PopGen.jl use much more barebones functions <a href="../other/api/hidden_api/">under the hood</a> suitable for high-throughput programming.</p>
 <h3 id="get-loci-names">get loci names</h3>
-<div class="codehilite"><pre><span></span>loci(data::PopObj)
+<div class="codehilite"><pre><span></span><span class="n">loci</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">)</span>
 </pre></div>
 
 <p>Returns a vector of strings of the loci names in a <code>PopObj</code></p>
@@ -1534,34 +1514,12 @@ Use the <code>rename =</code> keyword to rename the population ID's of a <code>P
 </tr>
 </tbody>
 </table>
-<details class="tip"><summary>alternative names</summary><p>Each <code>mode</code> has an extra synonymous name just because we can and want you to have the option of more explicitly legible code. If you get the <code>mode</code> wrong, it will let you know with an error message and run the default <code>"sample"</code> mode anyway.
-| mode     | alt. name    |
-| -------- | ------------ |
-| "sample" | "individual" |
-| "pop"    | "population" |
-| "locus"  | "loci"       |
-| "full"   | "detailed"   |</p>
-</details>
-<h3 id="plot-missing-data-under-construction">plot missing data (under construction)</h3>
-<p><div class="codehilite"><pre><span></span><span class="n">plot_missing</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">color</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
-</pre></div>
-Return an interactive plot of the number of missing loci in individuals of a <code>PopObj</code>, along with the number of missing individuals per locus. Use <code>color = [color1, color2, ...]</code> to set a custom color palette for the boxplots. </p>
-<p>Example:</p>
-<p><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">plot_missing</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
-</pre></div>
-<img alt="" src="../img/missing_plot.png" /></p>
-<details class="info"><summary>saving interactive plots</summary><p>To save the interactive plots, you can use the <code>savehtml</code> function from the <code>PlotlyJS.jl</code> package:
-<div class="codehilite"><pre><span></span><span class="n">PlotlyJS</span><span class="o">.</span><span class="n">savehtml</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="s">&quot;filename.html&quot;</span><span class="p">)</span>
-</pre></div>
-If you don't specify a full path in the filename, it will save it in your current working directory.
-<div class="codehilite"><pre><span></span><span class="c">#example</span>
-<span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">PlotlyJS</span> <span class="p">;</span>
-</pre></div></p>
-<div class="codehilite"><pre><span></span>julia&gt; PlotlyJS.savehtml(plot_missing(sharks), &quot;/home/pdimens/missingness.html&quot;)
-</pre></div>
-
+<details class="tip"><summary>alternative names</summary><p>Each <code>mode</code> has an extra synonymous name just because we can and want you to have the option of more explicitly legible code. If you get the <code>mode</code> wrong, it will let you know with an error message and run the default <code>"sample"</code> mode anyway.</p>
 <ul>
-<li>use a third argument <code>:embed</code> to make the plots fully viewable offline. The output files are much larger (relatively) because it embeds the Plotly javeascript into the file. For context, the<code>gulfsharks</code> plot file is ~3.5mb when using <code>:embed</code></li>
+<li>"sample"  &lt;=&gt;   "individual"</li>
+<li>"pop"   &lt;=&gt;   "population"</li>
+<li>"locus"  &lt;=&gt;  "loci"</li>
+<li>"full"  &lt;=&gt;  "detailed" </li>
 </ul>
 </details>
 <h2 id="location-data">Location Data</h2>
@@ -1610,7 +1568,7 @@ View location data (<code>.longitude</code> and <code>.latitude</code>) in a <co
 <div class="codehilite"><pre><span></span><span class="n">locations!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">xloc</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">String</span><span class="p">},</span> <span class="n">yloc</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">String</span><span class="p">})</span>
 </pre></div>
 
-<p>Adds location data (longitude, latitude) to <code>PopObj</code>. Takes decimal degrees or decimal minutes format. <strong>Must</strong> use minus-sign instead of cardinal directions (i.e. 14 32.11W is <strong>not</strong> vaild). Location data must be in order of  individuals (<code>ind</code>). Replaces existing <code>PopObj</code> location data.</p>
+<p>Adds location data (longitude, latitude) to <code>PopObj</code>. Takes decimal degrees or decimal minutes format. <strong>Must</strong> use minus-sign instead of cardinal directions (i.e. 14 32.11W is <strong>not</strong> vaild). Location data must be in order of  individuals (<code>name</code>). Replaces existing <code>PopObj</code> location data.</p>
 <ul>
 <li>Decimal Degrees : <code>-11.431</code></li>
 <li>Decimal Minutes : <code>"-11 43.11"</code> (must use space and double-quotes)</li>
@@ -1622,15 +1580,6 @@ View location data (<code>.longitude</code> and <code>.latitude</code>) in a <co
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">locations!</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">long</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span> <span class="p">;</span>
 </pre></div>
-
-<h3 id="plot-location-data">plot location data</h3>
-<p><div class="codehilite"><pre><span></span><span class="n">plot_locations</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">region</span> <span class="o">=</span> <span class="s">&quot;world&quot;</span><span class="p">,</span> <span class="n">projection</span> <span class="o">=</span> <span class="s">&quot;orthogonal&quot;</span><span class="p">)</span>
-</pre></div>
-You're encouraged to plot locations how you see fit. For convenience and speed, we provide this command to make a decent, albeit simple interactive plot (Plotly) and save some time. There is a sizeable list of available map projections and regions if you look this function up in the <code>help?&gt;</code> REPL prompt. </p>
-<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">plot_locations</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
-</pre></div>
-
-<p><img alt="plot_locations" src="../img/locations_plot_world.png" /></p>
                 
                   
                 
