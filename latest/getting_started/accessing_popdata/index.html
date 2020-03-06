@@ -1,0 +1,1293 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Population genetics in Julia">
+      
+      
+      
+        <meta name="author" content="Pavel Dimens and Jason Selwyn">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
+    
+    
+      
+        <title>Accessing parts of PopData - PopGen.jl</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#loading-in-the-data" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="PopGen.jl" class="md-header-nav__button md-logo">
+          
+            <img src="../../img/logo_icon.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              PopGen.jl
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Accessing parts of PopData
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/pdimens/PopGen.jl/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    PopGen.jl
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="PopGen.jl" class="md-nav__button md-logo">
+      
+        <img src="../../img/logo_icon.png" width="48" height="48">
+      
+    </a>
+    PopGen.jl
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/pdimens/PopGen.jl/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    PopGen.jl
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Getting started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Getting started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../juliaprimer/" title="A Julia primer" class="md-nav__link">
+      A Julia primer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../install/" title="How to Install" class="md-nav__link">
+      How to Install
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
+    
+    <label class="md-nav__link" for="nav-2-3">
+      PopData and Types
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        PopData and Types
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../popobj_type/" title="PopData and PopObj" class="md-nav__link">
+      PopData and PopObj
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Accessing parts of PopData
+      </label>
+    
+    <a href="./" title="Accessing parts of PopData" class="md-nav__link md-nav__link--active">
+      Accessing parts of PopData
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#loading-in-the-data" class="md-nav__link">
+    Loading in the data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-metadata-table" class="md-nav__link">
+    The metadata table
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meta" class="md-nav__link">
+    .meta
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    .name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#population" class="md-nav__link">
+    .population
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ploidy" class="md-nav__link">
+    .ploidy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#latitude" class="md-nav__link">
+    .latitude
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#longitude" class="md-nav__link">
+    .longitude
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-genotype-table" class="md-nav__link">
+    The genotype table
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loci" class="md-nav__link">
+    .loci
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locus-names" class="md-nav__link">
+    locus names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-genotypes" class="md-nav__link">
+    view genotypes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../comparison/" title="Benchmarks" class="md-nav__link">
+      Benchmarks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Importing Data
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Importing Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/example_data/" title="Example Data" class="md-nav__link">
+      Example Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/file_import/" title="Reading in Data" class="md-nav__link">
+      Reading in Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/delimited/" title="Delimited" class="md-nav__link">
+      Delimited
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/genepop/" title="Genepop" class="md-nav__link">
+      Genepop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/variantcall/" title="Variant Call Format" class="md-nav__link">
+      Variant Call Format
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../commands/" title="Manipulating a PopObj" class="md-nav__link">
+      Manipulating a PopObj
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Types of Analyses
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Types of Analyses
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../analyses/hardyweinberg/" title="Hardy-Weinberg Equilibrium" class="md-nav__link">
+      Hardy-Weinberg Equilibrium
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../analyses/relatedness/" title="Relatedness" class="md-nav__link">
+      Relatedness
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../community/" title="Community" class="md-nav__link">
+      Community
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Other
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Other
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+    
+    <label class="md-nav__link" for="nav-7-1">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-1">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other/api/hidden_api/" title="Under the hood functions" class="md-nav__link">
+      Under the hood functions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other/logo_graveyard/" title="Logo Graveyard" class="md-nav__link">
+      Logo Graveyard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Misc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Misc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other/misc/genepopIBD/" title="Genepop IBD Conversion" class="md-nav__link">
+      Genepop IBD Conversion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#loading-in-the-data" class="md-nav__link">
+    Loading in the data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-metadata-table" class="md-nav__link">
+    The metadata table
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meta" class="md-nav__link">
+    .meta
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    .name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#population" class="md-nav__link">
+    .population
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ploidy" class="md-nav__link">
+    .ploidy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#latitude" class="md-nav__link">
+    .latitude
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#longitude" class="md-nav__link">
+    .longitude
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-genotype-table" class="md-nav__link">
+    The genotype table
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loci" class="md-nav__link">
+    .loci
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locus-names" class="md-nav__link">
+    locus names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-genotypes" class="md-nav__link">
+    view genotypes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/pdimens/PopGen.jl/edit/master/docs/getting_started/accessing_popdata.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Accessing parts of PopData</h1>
+                
+                <p>A little hands-on training will probably go a long way, so let's through some of the functions available in PopGen.jl with the included data. This tutorial will include both inputs and outputs so you can be confident what you're seeing in your Julia session is exactly what's supposed to happen. Sometimes the outputs can be a little lengthy, so they will be arranged in code "tabs", where the left-most tab is the input named after what it's accomplishing, and the right tab is the output of running the command. This guide is to show you how to directly access  <code>PopData</code> elements, but there are shortcut commands to view just about every element of the data within. </p>
+<div class="admonition failure">
+<p class="admonition-title"> What to avoid!</p>
+<p>There are specific relationships between the record entries in <code>PopData</code> objects, so <strong>do not use</strong> <code>sort</code>, <code>sort!</code>, or manually arrange/add/delete anything in PopData. There are included functions to remove samples or loci, rename things, add location data, etc. </p>
+</div>
+<h2 id="loading-in-the-data">Loading in the data</h2>
+<p>Let's keep things simple by loading in the nancycats data and calling it <code>ncats</code>.</p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">load nancycats</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">ncats</span> <span class="o">=</span> <span class="n">nancycats</span><span class="p">()</span> <span class="p">;</span> <span class="n">summary</span><span class="p">(</span><span class="n">ncats</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>PopData Object
+  Marker type: Microsatellite
+  Ploidy: 2
+  Number of individuals: 237
+  Number of loci: 9
+  Populations: 17
+  Longitude: absent
+  Latitude: absent
+</pre></div></div>
+</div>
+<p>Now that we have nancycats loaded in, we can use standard Julia accessor conventions to view the elements within our PopData. The IndexedTable format requires a little extra work, so we must use the convention <code>PopData.meta.columns.colname</code> to directly access the columns we want.</p>
+<h2 id="the-metadata-table">The metadata table</h2>
+<h3 id="meta">.meta</h3>
+<p>To view the entire <code>meta</code> table.</p>
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">.meta</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">ncats</span><span class="o">.</span><span class="n">meta</span>
+</pre></div></div>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">Table</span> <span class="n">with</span> <span class="mi">237</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">5</span> <span class="n">columns</span><span class="o">:</span>
+<span class="n">name</span>    <span class="n">population</span>  <span class="n">ploidy</span>  <span class="n">latitude</span>  <span class="n">longitude</span>
+<span class="n">───────────────────────────────────────────────</span>
+<span class="s">&quot;N1&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="mi">2</span>       <span class="n">missing</span>   <span class="n">missing</span>
+<span class="s">&quot;N2&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="mi">2</span>       <span class="n">missing</span>   <span class="n">missing</span>
+<span class="s">&quot;N3&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="mi">2</span>       <span class="n">missing</span>   <span class="n">missing</span>
+<span class="s">&quot;N4&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="mi">2</span>       <span class="n">missing</span>   <span class="n">missing</span>
+<span class="s">&quot;N5&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="mi">2</span>       <span class="n">missing</span>   <span class="n">missing</span>
+<span class="s">&quot;N6&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="mi">2</span>       <span class="n">missing</span>   <span class="n">missing</span>
+<span class="s">&quot;N7&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="mi">2</span>       <span class="n">missing</span>   <span class="n">missing</span>
+<span class="s">&quot;N8&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="mi">2</span>       <span class="n">missing</span>   <span class="n">missing</span>
+<span class="n">⋮</span>
+<span class="s">&quot;N231&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="mi">2</span>       <span class="n">missing</span>   <span class="n">missing</span>
+<span class="s">&quot;N232&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="mi">2</span>       <span class="n">missing</span>   <span class="n">missing</span>
+<span class="s">&quot;N233&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="mi">2</span>       <span class="n">missing</span>   <span class="n">missing</span>
+<span class="s">&quot;N234&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="mi">2</span>       <span class="n">missing</span>   <span class="n">missing</span>
+<span class="s">&quot;N235&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="mi">2</span>       <span class="n">missing</span>   <span class="n">missing</span>
+<span class="s">&quot;N236&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="mi">2</span>       <span class="n">missing</span>   <span class="n">missing</span>
+<span class="s">&quot;N237&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="mi">2</span>       <span class="n">missing</span>   <span class="n">missing</span>
+</pre></div></div>
+</div>
+<h3 id="name">.name</h3>
+<p>This will access the names of the samples.</p>
+<div class="superfences-tabs">
+<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
+<label for="__tab_3_0">.ind</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">ncats</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">name</span>
+</pre></div></div>
+<input name="__tabs_3" type="radio" id="__tab_3_1" />
+<label for="__tab_3_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>237-element Array{String,1}:
+ &quot;N1&quot;  
+ &quot;N2&quot;  
+ &quot;N3&quot;  
+ &quot;N4&quot;  
+ &quot;N5&quot;  
+ &quot;N6&quot;  
+ &quot;N7&quot;  
+ &quot;N8&quot;  
+ ⋮     
+ &quot;N230&quot;
+ &quot;N231&quot;
+ &quot;N232&quot;
+ &quot;N233&quot;
+ &quot;N234&quot;
+ &quot;N235&quot;
+ &quot;N236&quot;
+ &quot;N237&quot;
+</pre></div></div>
+</div>
+<h3 id="population">.population</h3>
+<p>This will access the names of the populations associated with each sample, in the same order as the  samples.</p>
+<div class="superfences-tabs">
+<input name="__tabs_4" type="radio" id="__tab_4_0" checked="checked" />
+<label for="__tab_4_0">.popid</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">ncats</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">population</span>
+</pre></div></div>
+<input name="__tabs_4" type="radio" id="__tab_4_1" />
+<label for="__tab_4_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>237-element Array{String,1}:
+ &quot;1&quot; 
+ &quot;1&quot; 
+ &quot;1&quot; 
+ &quot;1&quot; 
+ &quot;1&quot; 
+ &quot;1&quot; 
+ &quot;1&quot; 
+ &quot;1&quot; 
+ ⋮   
+ &quot;17&quot;
+ &quot;17&quot;
+ &quot;17&quot;
+ &quot;17&quot;
+ &quot;17&quot;
+ &quot;17&quot;
+ &quot;17&quot;
+ &quot;17&quot;
+</pre></div></div>
+</div>
+<p>These ID's aren't super informative. Later, we'll change them using the <code>popid!</code> command.</p>
+<h3 id="ploidy">.ploidy</h3>
+<p>This shows you the ploidy of the data per individual</p>
+<div class="superfences-tabs">
+<input name="__tabs_5" type="radio" id="__tab_5_0" checked="checked" />
+<label for="__tab_5_0">.ploidy</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">ncats</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">ploidy</span>
+</pre></div></div>
+<input name="__tabs_5" type="radio" id="__tab_5_1" />
+<label for="__tab_5_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>237-element Array{Int8,1}:
+ 2
+ 2
+ 2
+ 2
+ 2
+ 2
+ 2
+ 2
+ ⋮
+ 2
+ 2
+ 2
+ 2
+ 2
+ 2
+ 2
+ 2
+</pre></div></div>
+</div>
+<h3 id="latitude">.latitude</h3>
+<p>This accesses the latitude information of the PopObj. If there is none, like in the nancycats data, it returns a vector of <code>missing</code>.</p>
+<div class="superfences-tabs">
+<input name="__tabs_6" type="radio" id="__tab_6_0" checked="checked" />
+<label for="__tab_6_0">.latitude</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">ncats</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">latitude</span>
+</pre></div></div>
+<input name="__tabs_6" type="radio" id="__tab_6_1" />
+<label for="__tab_6_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>237-element Array{Union{Missing, Float32},1}:
+ missing
+ missing
+ missing
+ missing
+ missing
+ missing
+ missing
+ missing
+ ⋮      
+ missing
+ missing
+ missing
+ missing
+ missing
+ missing
+ missing
+ missing
+</pre></div></div>
+</div>
+<h3 id="longitude">.longitude</h3>
+<p>This accesses the longitude information of the PopObj. Like before, if there is none, like in the nancycats data, it returns an array of <code>missing</code>.</p>
+<div class="superfences-tabs">
+<input name="__tabs_7" type="radio" id="__tab_7_0" checked="checked" />
+<label for="__tab_7_0">.longitude</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">ncats</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">longitude</span>
+</pre></div></div>
+<input name="__tabs_7" type="radio" id="__tab_7_1" />
+<label for="__tab_7_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>237-element Array{Union{Missing, Float32},1}:
+ missing
+ missing
+ missing
+ missing
+ missing
+ missing
+ missing
+ missing
+ ⋮      
+ missing
+ missing
+ missing
+ missing
+ missing
+ missing
+ missing
+ missing
+</pre></div></div>
+</div>
+<details class="example"><summary>actually seeing some location info</summary><p>The nancycats data has some weird coordinate system for information, so those data were omitted. If you want a proof of concept for <code>.longitude</code> and <code>.latitude</code>, load in <code>gulfsharks</code> and try it out. We'll use <code>hcat</code> (horizontal concatination) to horizontally bind the individual names, their latitude, and longitude. Later, you'll see that the <code>locations</code> command does this.</p>
+<div class="superfences-tabs">
+<input name="__tabs_8" type="radio" id="__tab_8_0" checked="checked" />
+<label for="__tab_8_0">load gulfsharks</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">sharks</span> <span class="o">=</span> <span class="n">gulfsharks</span><span class="p">()</span> <span class="p">;</span>    <span class="c"># semicolon just supresses printing output</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">hcat</span><span class="p">(</span><span class="n">sharks</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">sharks</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">sharks</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">longitude</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_8" type="radio" id="__tab_8_1" />
+<label for="__tab_8_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>212×3 Array{Any,2}:
+&quot;cc_001&quot;   28.3062  -80.5993
+&quot;cc_002&quot;   28.3079  -80.5995
+&quot;cc_003&quot;   28.3023  -80.5996
+&quot;cc_005&quot;   28.6123  -80.4225
+&quot;cc_007&quot;   27.8666  -80.3578
+&quot;cc_008&quot;   27.8666  -80.3579
+&quot;cc_009&quot;   27.8682  -80.3482
+&quot;cc_010&quot;   27.8711  -80.3482
+&quot;cc_012&quot;   28.4815  -80.4303
+&quot;cc_013&quot;   28.2421  -80.2494
+⋮                           
+&quot;seg_021&quot;  29.9466  -86.0399
+&quot;seg_023&quot;  29.9969  -85.6494
+&quot;seg_024&quot;  29.6966  -87.4403
+&quot;seg_025&quot;  30.064   -86.5374
+&quot;seg_026&quot;  30.0696  -86.5376
+&quot;seg_027&quot;  29.9065  -86.0905
+&quot;seg_028&quot;  30.0532  -87.3661
+&quot;seg_029&quot;  30.0522  -87.3662
+&quot;seg_030&quot;  29.8234  -85.7143
+&quot;seg_031&quot;  29.8234  -85.7143
+</pre></div></div>
+</div>
+</details>
+<hr />
+<h2 id="the-genotype-table">The genotype table</h2>
+<h3 id="loci">.loci</h3>
+<p>This will show you the entire <code>loci</code> table.</p>
+<div class="superfences-tabs">
+<input name="__tabs_9" type="radio" id="__tab_9_0" checked="checked" />
+<label for="__tab_9_0">.loci</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">ncats</span><span class="o">.</span><span class="n">loci</span>
+</pre></div></div>
+<input name="__tabs_9" type="radio" id="__tab_9_1" />
+<label for="__tab_9_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>Table with 2133 rows, 4 columns:
+name    population  locus    genotype
+─────────────────────────────────────
+&quot;N1&quot;    &quot;1&quot;         &quot;fca8&quot;   missing
+&quot;N1&quot;    &quot;1&quot;         &quot;fca23&quot;  (4, 9)
+&quot;N1&quot;    &quot;1&quot;         &quot;fca43&quot;  (4, 4)
+&quot;N1&quot;    &quot;1&quot;         &quot;fca45&quot;  (1, 3)
+&quot;N1&quot;    &quot;1&quot;         &quot;fca77&quot;  (9, 9)
+&quot;N1&quot;    &quot;1&quot;         &quot;fca78&quot;  (3, 6)
+&quot;N1&quot;    &quot;1&quot;         &quot;fca90&quot;  (9, 9)
+&quot;N1&quot;    &quot;1&quot;         &quot;fca96&quot;  (8, 8)
+⋮
+&quot;N237&quot;  &quot;17&quot;        &quot;fca45&quot;  missing
+&quot;N237&quot;  &quot;17&quot;        &quot;fca77&quot;  (6, 9)
+&quot;N237&quot;  &quot;17&quot;        &quot;fca78&quot;  (3, 7)
+&quot;N237&quot;  &quot;17&quot;        &quot;fca90&quot;  (8, 8)
+&quot;N237&quot;  &quot;17&quot;        &quot;fca96&quot;  missing
+&quot;N237&quot;  &quot;17&quot;        &quot;fca37&quot;  (10, 10)
+</pre></div></div>
+</div>
+<h3 id="locus-names">locus names</h3>
+<p>This will access the names of the loci as they appear in the data.</p>
+<div class="superfences-tabs">
+<input name="__tabs_10" type="radio" id="__tab_10_0" checked="checked" />
+<label for="__tab_10_0">.loci</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">levels</span><span class="p">(</span><span class="n">ncats</span><span class="o">.</span><span class="n">loci</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">locus</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_10" type="radio" id="__tab_10_1" />
+<label for="__tab_10_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>9-element Array{String,1}:
+ &quot;fca8&quot; 
+ &quot;fca23&quot;
+ &quot;fca43&quot;
+ &quot;fca45&quot;
+ &quot;fca77&quot;
+ &quot;fca78&quot;
+ &quot;fca90&quot;
+ &quot;fca96&quot;
+ &quot;fca37&quot;
+</pre></div></div>
+</div>
+<div class="admonition info">
+<p>Since everything but the genotypes in <code>.loci</code> are coded as Categorical, we need to use <code>levels()</code> from CategoricalArrays.jl to pull out the unique loci, or use <code>unique()</code> from Base to accomplish the same. </p>
+</div>
+<h3 id="view-genotypes">view genotypes</h3>
+<p>Because the genotype data is in "tidy" format, accessing genotypes is not immediately obvious. We can use the JuliaDB or JuliaDBMeta interfaces to retrieve this information. Here is an example using <code>@where</code> from JuliaDBMeta:</p>
+<div class="superfences-tabs">
+<input name="__tabs_11" type="radio" id="__tab_11_0" checked="checked" />
+<label for="__tab_11_0">single locus</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="nd">@where</span> <span class="n">ncats</span><span class="o">.</span><span class="n">loci</span> <span class="o">:</span><span class="n">locus</span> <span class="o">==</span> <span class="s">&quot;fca8&quot;</span>
+<span class="n">Table</span> <span class="n">with</span> <span class="mi">237</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">4</span> <span class="n">columns</span><span class="o">:</span>
+<span class="n">name</span>    <span class="n">population</span>  <span class="n">locus</span>   <span class="n">genotype</span>
+<span class="n">────────────────────────────────────</span>
+<span class="s">&quot;N1&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="s">&quot;fca8&quot;</span>  <span class="n">missing</span>
+<span class="s">&quot;N2&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="s">&quot;fca8&quot;</span>  <span class="n">missing</span>
+<span class="s">&quot;N3&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="s">&quot;fca8&quot;</span>  <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="s">&quot;N4&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="s">&quot;fca8&quot;</span>  <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="s">&quot;N5&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="s">&quot;fca8&quot;</span>  <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="s">&quot;N6&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="s">&quot;fca8&quot;</span>  <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="s">&quot;N7&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="s">&quot;fca8&quot;</span>  <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="s">&quot;N8&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="s">&quot;fca8&quot;</span>  <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">⋮</span>
+<span class="s">&quot;N232&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="s">&quot;fca8&quot;</span>  <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="s">&quot;N233&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="s">&quot;fca8&quot;</span>  <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="s">&quot;N234&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="s">&quot;fca8&quot;</span>  <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="s">&quot;N235&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="s">&quot;fca8&quot;</span>  <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="s">&quot;N236&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="s">&quot;fca8&quot;</span>  <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="s">&quot;N237&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="s">&quot;fca8&quot;</span>  <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_11" type="radio" id="__tab_11_1" />
+<label for="__tab_11_1">multiple loci</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="nd">@where</span> <span class="n">ncats</span><span class="o">.</span><span class="n">loci</span> <span class="o">:</span><span class="n">locus</span> <span class="kp">in</span> <span class="p">[</span><span class="s">&quot;fca8&quot;</span><span class="p">,</span> <span class="s">&quot;fca23&quot;</span><span class="p">]</span>
+<span class="n">Table</span> <span class="n">with</span> <span class="mi">474</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">4</span> <span class="n">columns</span><span class="o">:</span>
+<span class="n">name</span>    <span class="n">population</span>  <span class="n">locus</span>    <span class="n">genotype</span>
+<span class="n">─────────────────────────────────────</span>
+<span class="s">&quot;N1&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="s">&quot;fca8&quot;</span>   <span class="n">missing</span>
+<span class="s">&quot;N1&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="s">&quot;fca23&quot;</span>  <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="s">&quot;N2&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="s">&quot;fca8&quot;</span>   <span class="n">missing</span>
+<span class="s">&quot;N2&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="s">&quot;fca23&quot;</span>  <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="s">&quot;N3&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="s">&quot;fca8&quot;</span>   <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="s">&quot;N3&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="s">&quot;fca23&quot;</span>  <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="s">&quot;N4&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="s">&quot;fca8&quot;</span>   <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="s">&quot;N4&quot;</span>    <span class="s">&quot;1&quot;</span>         <span class="s">&quot;fca23&quot;</span>  <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">⋮</span>
+<span class="s">&quot;N235&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="s">&quot;fca8&quot;</span>   <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="s">&quot;N235&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="s">&quot;fca23&quot;</span>  <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="s">&quot;N236&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="s">&quot;fca8&quot;</span>   <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="s">&quot;N236&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="s">&quot;fca23&quot;</span>  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="s">&quot;N237&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="s">&quot;fca8&quot;</span>   <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="s">&quot;N237&quot;</span>  <span class="s">&quot;17&quot;</span>        <span class="s">&quot;fca23&quot;</span>  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+</pre></div></div>
+</div>
+<p>Now that you're somewhat familiar with the parts of <code>PopData</code>, <a href="../../commands/">have a look at the commands</a> to view and manipulate <code>PopData</code> objects.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../popobj_type/" title="PopData and PopObj" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                PopData and PopObj
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../comparison/" title="Benchmarks" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Benchmarks
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019 Pavel Dimens and Jason Selwyn
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.8e03edeb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      
+    
+  </body>
+</html>

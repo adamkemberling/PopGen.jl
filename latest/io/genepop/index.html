@@ -285,11 +285,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
     
     <label class="md-nav__link" for="nav-2-3">
-      The PopGen 'PopObj'
+      PopData and Types
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-2-3">
-        The PopGen 'PopObj'
+        PopData and Types
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -300,8 +300,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../getting_started/popobj_type/" title="What's a PopObj" class="md-nav__link">
-      What's a PopObj
+    <a href="../../getting_started/popobj_type/" title="PopData and PopObj" class="md-nav__link">
+      PopData and PopObj
     </a>
   </li>
 
@@ -312,8 +312,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../getting_started/PopObj_accessing/" title="Accessing parts of a PopObj" class="md-nav__link">
-      Accessing parts of a PopObj
+    <a href="../../getting_started/accessing_popdata/" title="Accessing parts of PopData" class="md-nav__link">
+      Accessing parts of PopData
     </a>
   </li>
 
@@ -781,7 +781,7 @@
                   <h1>Genepop</h1>
                 
                 <h2 id="import-a-genepop-file-as-a-popobj">Import a genepop file as a <code>PopObj</code></h2>
-<div class="codehilite"><pre><span></span><span class="n">genepop</span><span class="p">(</span><span class="n">infile</span><span class="p">;</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">popsep</span> <span class="o">=</span> <span class="s">&quot;POP&quot;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s">&quot;snp&quot;</span><span class="p">,</span> <span class="n">diploid</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">genepop</span><span class="p">(</span><span class="n">infile</span><span class="p">;</span> <span class="n">kwargs</span><span class="o">...</span><span class="p">)</span>
 
 <span class="c"># Example</span>
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">genepop</span><span class="p">(</span><span class="s">&quot;/data/wasp_hive.gen&quot;</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">popsep</span> <span class="o">=</span> <span class="s">&quot;POP&quot;</span><span class="p">)</span>
@@ -795,10 +795,10 @@
 </ul>
 <h3 id="keyword-arguments">keyword Arguments</h3>
 <ul>
-<li><code class="codehilite">digits::Int64</code> : the number of digits used to denote an allele (default: <code>3</code>)</li>
-<li><code class="codehilite">popsep::String</code> : word that separates populations in <code>infile</code> (default: <code>"POP"</code>)</li>
-<li><code class="codehilite">marker::String</code> : "snp" (default) or "msat" for microsatellites</li>
-<li><code class="codehilite">diploid::Bool</code> :  uses memory-optimized parsing for diploid samples (default: <code>true</code>)</li>
+<li><code>digits::Integer</code>: number of digits denoting each allele (default: <code>3</code>)</li>
+<li><code>popsep::String</code> : word that separates populations in <code>infile</code> (default: "POP")</li>
+<li><code>diploid::Bool</code>  : whether samples are diploid for parsing optimizations (default: <code>true</code>)</li>
+<li><code>silent::Bool</code>   : whether to print file information during import (default: <code>true</code>)</li>
 </ul>
 <div class="admonition info">
 <p>By default, the file reader will assign numbers as population ID's (as Strings) in order of appearance in the genepop file. Use the <code>populations!</code> function to rename these with your own population ID's.</p>
@@ -808,9 +808,9 @@
 <ul>
 <li>First line is a comment (and skipped)</li>
 <li>Loci are listed after first line as one-per-line without commas or in single comma-separated row</li>
-<li>A line with a particular keyword must delimit populations</li>
+<li>A line with a particular and consistent keyword must delimit populations</li>
 <li><strong>Must</strong> be the same word each time and not a unique population name</li>
-<li>File is <strong>tab</strong> delimited</li>
+<li>File is <strong>tab</strong> delimited or <strong>space</strong> delimited, but not both</li>
 </ul>
 <h3 id="formatting-examples">formatting examples</h3>
 <div class="superfences-tabs">
@@ -845,8 +845,9 @@ Newcomb_03, 254230  000000  090100
 Newcomb_04, 254230  564000  090120
 </pre></div></div>
 </div>
+<hr />
 <h2 id="acknowledgements">Acknowledgements</h2>
-<p>The original implementations of this parser were written using only Base Julia, and while the speed was fantastic, the memory footprint involved seemed unusually high (~650mb RAM to parse <code>gulfsharks</code>, which is 3.2mb in size). However, thanks to the efforts of the <a href="https://github.com/JuliaData/CSV.jl">CSV.jl</a> and <a href="https://github.com/JuliaData/DataFrames.jl">DataFrames.jl</a> teams, we leverage those packages to do much of the heavy lifting, while preserving the speed and reducing the memory footprint by as much as 65% in diploid cases (~166mb RAM to process <code>gulfsharks</code>). </p>
+<p>The original implementations of this parser were written using only Base Julia, and while the speed was fantastic, the memory footprint involved seemed unusually high (~650mb RAM to parse <code>gulfsharks</code>, which is 3.2mb in size). However, thanks to the efforts of the <a href="https://github.com/JuliaData/CSV.jl">CSV.jl</a> team, we leverage that package to do much of the heavy lifting, in a multicore way, and all the while while preserving the speed and reducing the memory footprint quite a bit!</p>
                 
                   
                 

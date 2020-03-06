@@ -285,11 +285,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
     
     <label class="md-nav__link" for="nav-2-3">
-      The PopGen 'PopObj'
+      PopData and Types
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-2-3">
-        The PopGen 'PopObj'
+        PopData and Types
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -300,8 +300,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../getting_started/popobj_type/" title="What's a PopObj" class="md-nav__link">
-      What's a PopObj
+    <a href="../../getting_started/popobj_type/" title="PopData and PopObj" class="md-nav__link">
+      PopData and PopObj
     </a>
   </li>
 
@@ -312,8 +312,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../getting_started/PopObj_accessing/" title="Accessing parts of a PopObj" class="md-nav__link">
-      Accessing parts of a PopObj
+    <a href="../../getting_started/accessing_popdata/" title="Accessing parts of PopData" class="md-nav__link">
+      Accessing parts of PopData
     </a>
   </li>
 
@@ -404,13 +404,6 @@
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#specifying-marker-msat-and-overflowerror" class="md-nav__link">
-    Specifying marker = "msat" and OverflowError
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#supported-file-types" class="md-nav__link">
@@ -699,13 +692,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#specifying-marker-msat-and-overflowerror" class="md-nav__link">
-    Specifying marker = "msat" and OverflowError
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#supported-file-types" class="md-nav__link">
     Supported File Types
   </a>
@@ -771,10 +757,6 @@
 
 <p>where <code>infile</code> is a String of your filename (in quotes) and <code>kwargs</code> are the corresponding keyword arguments associated with your file type, which are found on their respective pages.</p>
 <p><code>PopGen.read()</code> infers the file type from the file extension, so for it to work properly your file must end with the extensions permitted below. If you're feeling particularly rebellious and your file does not conform to these extensions (such as a genepop file with a <code>.gen.final.v2.seriously</code> extension), then feel free to use the specific file importers, since they use the same exact syntax, there is zero difference in performance, and ignore file extensions. Ultimately, what crazy extensions you give your files is your business, and we love that about you. </p>
-<h3 id="specifying-marker-msat-and-overflowerror">Specifying <code>marker = "msat"</code> and <code>OverflowError</code></h3>
-<p>For genepop and delimited files, you <strong>must</strong> specify if your markers are microsatellites (<code>marker = "msat"</code>)  because the default is for snps.</p>
-<p><strong>Why this matters:</strong></p>
-<p>SNPs are Typed as 8-bit integers, whereas microsatellites are Typed as 16-bit integers. By the nature of those Types, <code>Int8</code> cannot exceed the value 127, while <code>Int16</code> is capped at 37767. Since SNP alleles will only ever be coded as values between <code>1</code> and <code>4</code>, we never have to worry about the genotype exceeding 127. Microsatellites can of course exceed 127, so we use the next-smallest Integer type for them, naively hoping no one will ever have a microsatellite allele exceeding 37767 repeats. If you have microsatellite data but don't specify <code>marker = "msat"</code>, you will receive an <code>OverflowError</code>  as soon as the file reader tries to parse an allele greater than 127 as an <code>Int8</code>.</p>
 <hr />
 <h2 id="supported-file-types">Supported File Types</h2>
 <h3 id="delimited-files"><a href="../delimited/">Delimited files</a></h3>

@@ -285,11 +285,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
     
     <label class="md-nav__link" for="nav-2-3">
-      The PopGen 'PopObj'
+      PopData and Types
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-2-3">
-        The PopGen 'PopObj'
+        PopData and Types
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -300,8 +300,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../getting_started/popobj_type/" title="What's a PopObj" class="md-nav__link">
-      What's a PopObj
+    <a href="../../getting_started/popobj_type/" title="PopData and PopObj" class="md-nav__link">
+      PopData and PopObj
     </a>
   </li>
 
@@ -312,8 +312,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../getting_started/PopObj_accessing/" title="Accessing parts of a PopObj" class="md-nav__link">
-      Accessing parts of a PopObj
+    <a href="../../getting_started/accessing_popdata/" title="Accessing parts of PopData" class="md-nav__link">
+      Accessing parts of PopData
     </a>
   </li>
 
@@ -866,6 +866,7 @@
 <h2 id="speed">Speed</h2>
 <p>Depending on the number samples and loci in your data, the maximum-likelihood approach to relatedness can be quite time consuming. We include a progress bar thanks to <a href="https://github.com/timholy/ProgressMeter.jl">ProgressMeter.jl</a> to provide some indication of how long it will take. As a point of reference, it takes approximately 13 hours to perform this relatedness calculation on the <code>gulfsharks</code> data (212 samples x 2213 loci).</p>
 <p>Currently, relatedness calculations run single-threaded, and we hope to parallelize it with the stable release of Julia 1.3  to make it even faster. Many hands make light work!</p>
+<hr />
 <h2 id="acknowledgements">Acknowledgements</h2>
 <p>Both <a href="https://github.com/JuliaOpt/Convex.jl">Convex.jl</a> and <a href="https://github.com/JuliaOpt/ECOS.jl">ECOS.jl</a> are pivotal for these calculations, and we thank the authors for their time developing and maintaining them, along with the members of the Julia Slack channel for pointing us towards those packages.</p>
                 

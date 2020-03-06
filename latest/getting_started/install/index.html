@@ -359,11 +359,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
     
     <label class="md-nav__link" for="nav-2-3">
-      The PopGen 'PopObj'
+      PopData and Types
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-2-3">
-        The PopGen 'PopObj'
+        PopData and Types
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -374,8 +374,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../popobj_type/" title="What's a PopObj" class="md-nav__link">
-      What's a PopObj
+    <a href="../popobj_type/" title="PopData and PopObj" class="md-nav__link">
+      PopData and PopObj
     </a>
   </li>
 
@@ -386,8 +386,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../PopObj_accessing/" title="Accessing parts of a PopObj" class="md-nav__link">
-      Accessing parts of a PopObj
+    <a href="../accessing_popdata/" title="Accessing parts of PopData" class="md-nav__link">
+      Accessing parts of PopData
     </a>
   </li>
 
@@ -769,7 +769,7 @@
 <p><img alt="install" src="../../img/install.gif" /></p>
 <h3 id="with-jupyter-notebooks-or-nteract">With Jupyter Notebooks or nteract</h3>
 <div class="codehilite"><pre><span></span><span class="k">using</span> <span class="n">Pkg</span>
-<span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;https://github.com/pdimens/PopGen.jl&quot;</span><span class="p">)</span> 
+<span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">PackageSpec</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">&quot;https://github.com/pdimens/PopGen.jl&quot;</span><span class="p">,</span> <span class="n">rev</span><span class="o">=</span><span class="s">&quot;master&quot;</span><span class="p">))</span> 
 </pre></div>
 
 <h2 id="using-popgen">Using PopGen</h2>
@@ -819,13 +819,13 @@
           </a>
         
         
-          <a href="../popobj_type/" title="What's a PopObj" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../popobj_type/" title="PopData and PopObj" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                What's a PopObj
+                PopData and PopObj
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
