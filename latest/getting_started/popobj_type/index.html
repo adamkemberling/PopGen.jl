@@ -888,7 +888,7 @@
 </pre></div>
 
 <p>As you can see, a <code>PopData</code> is made up of two IndexedTables (from <a href="https://github.com/JuliaComputing/JuliaDB.jl">JuliaDB.jl</a>), one called <code>meta</code> for sample information (metadata), and the other called <code>loci</code> which includes genotype information. This structure allows for easy and convenient access to the fields using dot <code>.</code> accessors.. The <code>meta</code> and <code>loci</code> tables are both specific in their structure, so here is an illustration to help you visualize a <code>PopData</code> object:</p>
-<p><img alt="PopData" src="/img/PopData.png" /></p>
+<p><img alt="PopData" src="img/PopData.png" /></p>
 <p><code>PopData</code> and other custom types introduced in PopGen.jl fall under an AbstractType we call <code>PopObj</code>, which is short for "PopGen Object".</p>
 <details class="info"><summary>pronouncing "PopObj" </summary><p>It's not super obvious, but we decided to pronounce PopObj as "pop ob" with a silent j because it sounds better than saying "pop obj", but writing it as PopOb looks weird. It's a silly little detail that Pavel seems to care a lot about.</p>
 </details>
