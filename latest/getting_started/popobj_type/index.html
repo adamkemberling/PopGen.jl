@@ -89,7 +89,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#samples" tabindex="1" class="md-skip">
+      <a href="#metadata" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -327,8 +327,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#samples" class="md-nav__link">
-    samples
+  <a href="#metadata" class="md-nav__link">
+    Metadata
   </a>
   
     <nav class="md-nav">
@@ -563,10 +563,70 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Manipulating PopData
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Manipulating PopData
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../../commands/" title="Manipulating a PopObj" class="md-nav__link">
-      Manipulating a PopObj
+    <a href="../../manipulate/manipulate/" title="Getting Started" class="md-nav__link">
+      Getting Started
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../manipulate/view_and_sort/" title="Viewing and Sorting" class="md-nav__link">
+      Viewing and Sorting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../manipulate/exclusion/" title="Remove Samples/Loci" class="md-nav__link">
+      Remove Samples/Loci
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../manipulate/location_and_pop/" title="Location and Population Data" class="md-nav__link">
+      Location and Population Data
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -757,8 +817,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#samples" class="md-nav__link">
-    samples
+  <a href="#metadata" class="md-nav__link">
+    Metadata
   </a>
   
     <nav class="md-nav">
@@ -896,8 +956,8 @@
 <p class="admonition-title">avoid manual creation</p>
 <p>While it may seem simple enough to create two IndexedTables and make a <code>PopData</code> out of them, the structure of <code>meta</code> and <code>loci</code> are specific, so small mistakes in creating them can create many errors and prevent PopGen from working correctly on your data. Please use the included <code>csv</code>, <code>genepop</code>, and <code>vcf</code> file importers instead.</p>
 </div>
-<h2 id="samples">samples</h2>
-<p>The <code>meta</code> table has 5 specific categories: name, population, ploidy, longitude, latitude. These can be directly accessed with <code>PopData.meta.columns.colname</code> where <code>PopData</code> is the name of your PopData object, and <code>colname</code> is one of the five column names below.</p>
+<h2 id="metadata">Metadata</h2>
+<p>The <code>meta</code> table has 5 specific categories/columns: name, population, ploidy, longitude, latitude. These can be directly accessed with <code>PopData.meta.columns.colname</code> where <code>PopData</code> is the name of your PopData object, and <code>colname</code> is one of the five column names below.</p>
 <h3 id="name">name</h3>
 <p><code>::Vector{String}</code></p>
 <p>The individual/sample names</p>

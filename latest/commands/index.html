@@ -40,7 +40,7 @@
     
     
       
-        <title>Manipulating a PopObj - PopGen.jl</title>
+        <title>Commands - PopGen.jl</title>
       
     
     
@@ -115,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Manipulating a PopObj
+                Commands
               
             </span>
           
@@ -428,267 +428,71 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
+  <li class="md-nav__item md-nav__item--nested">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Manipulating a PopObj
+    <label class="md-nav__link" for="nav-4">
+      Manipulating PopData
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Manipulating PopData
       </label>
-    
-    <a href="./" title="Manipulating a PopObj" class="md-nav__link md-nav__link--active">
-      Manipulating a PopObj
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../manipulate/manipulate/" title="Getting Started" class="md-nav__link">
+      Getting Started
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sorting" class="md-nav__link">
-    Sorting
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#individuals-samples" class="md-nav__link">
-    Individuals / Samples
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+  </li>
+
         
-          <li class="md-nav__item">
-  <a href="#view-individuals-names" class="md-nav__link">
-    view individuals' names
-  </a>
-  
-</li>
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../manipulate/view_and_sort/" title="Viewing and Sorting" class="md-nav__link">
+      Viewing and Sorting
+    </a>
+  </li>
+
         
-          <li class="md-nav__item">
-  <a href="#exclude-samples" class="md-nav__link">
-    exclude samples
-  </a>
-  
-</li>
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../manipulate/exclusion/" title="Remove Samples/Loci" class="md-nav__link">
+      Remove Samples/Loci
+    </a>
+  </li>
+
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#population-ids" class="md-nav__link">
-    Population ID's
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#view-population-names" class="md-nav__link">
-    view population names
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rename-populations" class="md-nav__link">
-    rename populations
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#replace-by-matching" class="md-nav__link">
-    replace by matching
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-a-dictionary" class="md-nav__link">
-    using a Dictionary
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-a-vector-of-names" class="md-nav__link">
-    using a Vector of names
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-a-vector-of-oldnames-and-new-names" class="md-nav__link">
-    using a Vector of oldnames and new names
-  </a>
-  
-</li>
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../manipulate/location_and_pop/" title="Location and Population Data" class="md-nav__link">
+      Location and Population Data
+    </a>
+  </li>
+
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generate-new-population-information" class="md-nav__link">
-    generate new population information
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-a-namedtuple" class="md-nav__link">
-    using a NamedTuple
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-a-vector-of-names-and-a-vector-of-counts" class="md-nav__link">
-    using a Vector of names and a Vector of counts
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#display-specific-loci-andor-samples" class="md-nav__link">
-    Display Specific Loci and/or Samples
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#get-loci-names" class="md-nav__link">
-    get loci names
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#view-genotypes-at-a-locus" class="md-nav__link">
-    view genotypes at a locus
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#view-samples" class="md-nav__link">
-    view samples
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#remove-loci" class="md-nav__link">
-    Remove Loci
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#missing-data" class="md-nav__link">
-    Missing Data
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#view-missing-data" class="md-nav__link">
-    view missing data
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#location-data" class="md-nav__link">
-    Location Data
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#view-location-data" class="md-nav__link">
-    view location data
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-location-data" class="md-nav__link">
-    add location data
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#decimal-minutes-data" class="md-nav__link">
-    decimal minutes data
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -900,13 +704,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#exclude-samples" class="md-nav__link">
-    exclude samples
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1029,21 +826,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#view-samples" class="md-nav__link">
-    view samples
+  <a href="#view-samples-or-anything" class="md-nav__link">
+    view samples (or anything)
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#remove-loci" class="md-nav__link">
-    Remove Loci
-  </a>
   
 </li>
       
@@ -1084,15 +874,22 @@
         
           <li class="md-nav__item">
   <a href="#add-location-data" class="md-nav__link">
-    add location data
+    Add location data
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#decimal-minutes-data" class="md-nav__link">
-    decimal minutes data
+  <a href="#if-already-in-decimal-degrees" class="md-nav__link">
+    If already in decimal degrees
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-in-decimal-minutes" class="md-nav__link">
+    If in decimal minutes
   </a>
   
 </li>
@@ -1126,9 +923,9 @@
                   <a href="https://github.com/pdimens/PopGen.jl/edit/master/docs/commands.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Manipulating a PopObj</h1>
+                  <h1>Commands</h1>
                 
-                <p>These are the included PopData inspecting and manipulating commands. Using standard Julia conventions, only commands ending with a bang <code>!</code> are mutable, meaning they alter the input data. So, commands like <code>populations</code> will show you population information, whereas <code>populations!</code> will change that information in your <code>PopData</code>. The mutable commands here alter the data in your <code>PopData</code>, but not the source data (i.e. the files used to create the <code>PopData</code>). Read over <a href="../getting_started/accessing_popdata/">Accessing parts of a PopObj</a> to become familiar with the components of a <code>PopObj</code>. </p>
+                <p>These are the included PopData inspecting and manipulating commands. Using standard Julia conventions, only commands ending with a bang <code>!</code> are mutable, meaning they alter the input data. So, commands like <code>populations</code> will show you population information, whereas <code>populations!</code> will change that information in your <code>PopData</code>. The mutable commands here alter the data in your <code>PopData</code>, but not the source data (i.e. the files used to create the <code>PopData</code>). Read over <a href="../getting_started/accessing_popdata/">Accessing parts of PopDataj</a> to become familiar with the components of <code>PopData</code>. </p>
 <p>To follow along like a tutorial,  use the <code>gulfsharks</code> data. Load the data in if you haven't already:</p>
 <div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">PopGen</span>
 
@@ -1181,54 +978,6 @@ View individual/sample names in a <code>PopObj</code>. This is equivalent to <co
  &quot;seg_031&quot;
 </pre></div></div>
 </div>
-<h3 id="exclude-samples">exclude samples</h3>
-<div class="codehilite"><pre><span></span><span class="n">exclude_samples</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">samp_id</span><span class="o">::</span><span class="kt">Union</span><span class="p">{</span><span class="n">String</span><span class="p">,</span> <span class="kt">Vector</span><span class="p">{</span><span class="n">String</span><span class="p">}})</span>
-</pre></div>
-
-<p>Returns a new <code>PopData</code> object without the sample or samples provided. Input can be a single sample, or an array of samples. Will output an entire <code>PopData</code>, so use a semicolon after the command to not have the entire object print to your screen. Use <code>summary</code>  if you want to confirm that the samples were removed. This command will inform you if samples were not found in the data. Removing samples does not alter the original <code>PopData</code>, which is why this function doesn't end with a bang <code>!</code>.</p>
-<div class="admonition tip">
-<p class="admonition-title">synonymous functions</p>
-<p><code>omit_samples</code> and <code>remove_samples</code> are synonymous with <code>exclude_samples</code>, meaning you can use them interchangeably and you wont'tneed to remember the specific name to perform this basic action.</p>
-</div>
-<p>Examples:</p>
-<div class="superfences-tabs">
-<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
-<label for="__tab_2_0">single individual</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">fewer_sharks</span> <span class="o">=</span> <span class="n">exclude_samples</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="s">&quot;cc_001&quot;</span><span class="p">)</span> <span class="p">;</span>
-
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">summary</span><span class="p">(</span><span class="n">fewer_sharks</span><span class="p">)</span>
-</pre></div></div>
-<input name="__tabs_2" type="radio" id="__tab_2_1" />
-<label for="__tab_2_1">single output</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>PopData Object
-  Marker type: SNP
-  Ploidy: 2
-  Number of individuals: 211
-  Number of loci: 2213
-  Populations: 7
-  Longitude: present with 0 missing
-  Latitude: present with 0 missing
-</pre></div></div>
-<input name="__tabs_2" type="radio" id="__tab_2_2" />
-<label for="__tab_2_2">multiple individuals</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">lots_fewer_sharks</span> <span class="o">=</span> <span class="n">remove_samples</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;cc_001&quot;</span><span class="p">,</span> <span class="s">&quot;cc_002&quot;</span><span class="p">,</span> <span class="s">&quot;cc_003&quot;</span><span class="p">])</span> <span class="p">;</span> 
-
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">summary</span><span class="p">(</span><span class="n">lots_fewer_sharks</span><span class="p">)</span>
-</pre></div></div>
-<input name="__tabs_2" type="radio" id="__tab_2_3" />
-<label for="__tab_2_3">multiple output</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>PopData Object
-  Marker type: SNP
-  Ploidy: 2
-  Number of individuals: 209
-  Number of loci: 2213
-  Populations: 7
-  Longitude: present with 0 missing
-  Latitude: present with 0 missing
-</pre></div></div>
-</div>
-<details class="question"><summary>sample not found!</summary><p>If removing a single sample and it is not found in the PopObj, an error will be returned. However, if removing multiple samples, you will receive a notice above the PopData output indicating which individuals were not found, while still removing the ones that were present.</p>
-</details>
 <hr />
 <h2 id="population-ids">Population ID's</h2>
 <h3 id="view-population-names">view population names</h3>
@@ -1236,12 +985,12 @@ View individual/sample names in a <code>PopObj</code>. This is equivalent to <co
 </pre></div>
 Just as you can view population ID's with <code>.population</code>, you can also view them with the <code>populations</code> command, which by default shows you a summary of the number of individuals in each population.  </p>
 <div class="superfences-tabs">
-<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
-<label for="__tab_3_0">populations</label>
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">populations</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_3" type="radio" id="__tab_3_1" />
-<label for="__tab_3_1">output</label>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">output</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>Table with 7 rows, 2 columns:
 population        count
 ───────────────────────
@@ -1256,12 +1005,12 @@ population        count
 </div>
 <p>You can use the keyword <code>listall=true</code> to display each individual and their associated population as a table. </p>
 <div class="superfences-tabs">
-<input name="__tabs_4" type="radio" id="__tab_4_0" checked="checked" />
-<label for="__tab_4_0">listall=true</label>
+<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
+<label for="__tab_3_0">listall=true</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">listall</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_4" type="radio" id="__tab_4_1" />
-<label for="__tab_4_1">output</label>
+<input name="__tabs_3" type="radio" id="__tab_3_1" />
+<label for="__tab_3_1">output</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>Table with 212 rows, 2 columns:
 name       population
 ───────────────────────────
@@ -1287,48 +1036,34 @@ name       population
 <p>You can use the command <code>population</code> for the same functionality. We made the commands <code>population</code> and <code>populations</code> synonymous so you wouldn't have to memorize if the name was singular or plural-- it just works! This also applies to <code>populations!</code> and <code>population!</code></p>
 </div>
 <h3 id="rename-populations">rename populations</h3>
-<p>There are a handful of methods to alter <code>PopData</code> population names depending on what you find most convenient. Each of these methods start with <code>populations!()</code> and vary in their inputs. It's for that reason this function has an obnoxiously long docstring. For simplicity, the methods will be separated into categories.</p>
+<p>There are a handful of methods to alter <code>PopData</code> population names depending on what you find most convenient. Each of these methods start with <code>populations!()</code> and vary in their inputs. It's for that reason this function has an obnoxiously long docstring. For simplicity, the methods will be separated into categories. However, all the methods for <code>populations!</code> are unified in that they edit <code>PopData</code> in place, and print (rather than return) a table of the new population names and counts courtesy of <code>populations()</code>.</p>
 <h4 id="replace-by-matching">replace by matching</h4>
-<h5 id="using-a-dictionary">using a <code>Dict</code>ionary</h5>
+<h5 id="using-a-dictionary">using a Dictionary</h5>
 <p><div class="codehilite"><pre><span></span><span class="n">populations!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopData</span><span class="p">,</span> <span class="n">rename</span><span class="o">::</span><span class="kt">Dict</span><span class="p">)</span>
 </pre></div>
 Rename existing population ID's of <code>PopData</code> using a <code>Dict</code> of
 <code>population_name =&gt; replacement</code>.</p>
 <div class="superfences-tabs">
-<input name="__tabs_5" type="radio" id="__tab_5_0" checked="checked" />
-<label for="__tab_5_0">rename populations</label>
+<input name="__tabs_4" type="radio" id="__tab_4_0" checked="checked" />
+<label for="__tab_4_0">rename populations</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c"># create a dictionary of name conversions</span>
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">new_popnames</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">(</span>
             <span class="s">&quot;Cape Canaveral&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span>
             <span class="s">&quot;Georgia&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span>
-            <span class="s">&quot;S Carolina&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span>
-            <span class="s">&quot;FL Keys&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span>
+            <span class="s">&quot;South Carolina&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span>
+            <span class="s">&quot;Florida Keys&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span>
             <span class="s">&quot;Mideast Gulf&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span>
             <span class="s">&quot;Northeast Gulf&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span>
             <span class="s">&quot;Southeast Gulf&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Gulf&quot;</span>
         <span class="p">);</span>  
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">new_popnames</span><span class="p">)</span>
-</pre></div></div>
-<input name="__tabs_5" type="radio" id="__tab_5_1" />
-<label for="__tab_5_1">output</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>│ Row │ name    │ population │
-│     │ String  │ Union…     │
-├─────┼─────────┼────────────┤
-│ 1   │ cc_005  │ Atlantic   │
-│ 2   │ cc_007  │ Atlantic   │
-│ 3   │ cc_008  │ Atlantic   │
-│ 4   │ cc_009  │ Atlantic   │
-│ 5   │ cc_010  │ Atlantic   │
-│ 6   │ cc_012  │ Atlantic   │
-⋮
-│ 203 │ seg_025 │ Gulf       │
-│ 204 │ seg_026 │ Gulf       │
-│ 205 │ seg_027 │ Gulf       │
-│ 206 │ seg_028 │ Gulf       │
-│ 207 │ seg_029 │ Gulf       │
-│ 208 │ seg_030 │ Gulf       │
-│ 209 │ seg_031 │ Gulf       │
+
+<span class="n">Table</span> <span class="n">with</span> <span class="mi">2</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">2</span> <span class="n">columns</span><span class="o">:</span>
+<span class="n">population</span>  <span class="n">count</span>
+<span class="n">─────────────────</span>
+<span class="s">&quot;Atlantic&quot;</span>  <span class="mi">79</span>
+<span class="s">&quot;Gulf&quot;</span>      <span class="mi">133</span>
 </pre></div></div>
 </div>
 <h5 id="using-a-vector-of-names">using a Vector of names</h5>
@@ -1336,12 +1071,30 @@ Rename existing population ID's of <code>PopData</code> using a <code>Dict</code
 <div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">new_popnames</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Atlantic&quot;</span><span class="p">,</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Gulf&quot;</span><span class="p">]</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">new_popnames</span><span class="p">)</span>
+
+<span class="n">Table</span> <span class="n">with</span> <span class="mi">2</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">2</span> <span class="n">columns</span><span class="o">:</span>
+<span class="n">population</span>  <span class="n">count</span>
+<span class="n">─────────────────</span>
+<span class="s">&quot;Atlantic&quot;</span>  <span class="mi">79</span>
+<span class="s">&quot;Gulf&quot;</span>      <span class="mi">133</span>
 </pre></div>
 
 <h5 id="using-a-vector-of-oldnames-and-new-names">using a Vector of oldnames and new names</h5>
-<p>Similar to the <code>Dict</code> method, except instead of creating a dictionary of "oldname" =&gt; "newname" you input a Vector{String} of <code>oldnames</code> followed by another of <code>newnames</code>. Logically, the new names will replace the old names in the same order as they appear in <code>PopData.meta</code> (e.g. the first newname replaces the first oldname, etc.).</p>
+<p>Similar to the <code>Dict</code> method, except instead of creating a dictionary of "oldname" =&gt; "newname", you input a Vector{String} of <code>oldnames</code> followed by another of <code>newnames</code>. Logically, the new names will replace the old names in the same order as they appear in <code>PopData.meta</code> (e.g. the first newname replaces the first oldname, etc.).</p>
+<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">old_pop</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Cape Canaveral&quot;</span><span class="p">,</span> <span class="s">&quot;Florida Keys&quot;</span><span class="p">,</span> <span class="s">&quot;Georgia&quot;</span><span class="p">,</span> <span class="s">&quot;Mideast Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Northeast Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;South Carolina&quot;</span><span class="p">,</span> <span class="s">&quot;Southeast Gulf&quot;</span><span class="p">]</span> <span class="p">;</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">new_pop</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Atlantic&quot;</span><span class="p">,</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span> <span class="s">&quot;Gulf&quot;</span><span class="p">]</span> <span class="p">;</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">old_pop</span><span class="p">,</span> <span class="n">new_pop</span><span class="p">)</span>
+<span class="n">Table</span> <span class="n">with</span> <span class="mi">2</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">2</span> <span class="n">columns</span><span class="o">:</span>
+<span class="n">population</span>  <span class="n">count</span>
+<span class="n">─────────────────</span>
+<span class="s">&quot;Atlantic&quot;</span>  <span class="mi">79</span>
+<span class="s">&quot;Gulf&quot;</span>      <span class="mi">133</span>
+</pre></div>
+
 <h4 id="generate-new-population-information">generate new population information</h4>
-<p>You may also want outright replace all the population names or fill in new ones. This is particularly useful when importing from VCF format when population information is not provided. This method will completely replace the population names of <code>PopData</code> regardless of what they currently are. </p>
+<p>You may want outright overwrite all current population information. This is particularly useful when importing from VCF format when population information is not provided. This method will completely replace the population names of <code>PopData</code> regardless of what they currently are. </p>
 <div class="admonition warning">
 <p class="admonition-title">Double-check your population counts</p>
 <p>If you're playing along and getting errors that the lengths don't match, then get make sure you're using the right population counts. You can get those numbers with <code>populations(sharks)</code>.</p>
@@ -1350,37 +1103,40 @@ Rename existing population ID's of <code>PopData</code> using a <code>Dict</code
 </pre></div>
 
 <p>and we then also create the vector of the names in the order in which they appear:</p>
-<div class="codehilite"><pre><span></span><span class="n">popnames</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Cape Canaveral&quot;</span><span class="p">,</span> <span class="s">&quot;Florida Keys&quot;</span><span class="p">,</span> <span class="s">&quot;Georgia&quot;</span><span class="p">,</span><span class="s">&quot;Mideast Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Northeast Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;South Carolina&quot;</span><span class="p">,</span> <span class="s">&quot;Southeast Gulf&quot;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">popnames</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Cape Canaveral&quot;</span><span class="p">,</span> <span class="s">&quot;Florida Keys&quot;</span><span class="p">,</span> <span class="s">&quot;Georgia&quot;</span><span class="p">,</span> <span class="s">&quot;Mideast Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Northeast Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;South Carolina&quot;</span><span class="p">,</span> <span class="s">&quot;Southeast Gulf&quot;</span><span class="p">]</span>
 </pre></div>
 
 <p>Now we can combine them with <code>populations!</code> to restore the population names to how they were originally:</p>
 <h5 id="using-a-namedtuple">using a NamedTuple</h5>
 <div class="superfences-tabs">
-<input name="__tabs_6" type="radio" id="__tab_6_0" checked="checked" />
-<label for="__tab_6_0">replace populations</label>
+<input name="__tabs_5" type="radio" id="__tab_5_0" checked="checked" />
+<label for="__tab_5_0">replace populations</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="p">(</span><span class="n">counts</span> <span class="o">=</span> <span class="n">counts</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">popnames</span><span class="p">))</span>
-</pre></div></div>
-<input name="__tabs_6" type="radio" id="__tab_6_1" />
-<label for="__tab_6_1">output</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>│ Row │ name    │ population     │
-│     │ String  │ String         │
-├─────┼─────────┼────────────────┤
-│ 1   │ cc_005  │ Cape Canaveral │
-│ 2   │ cc_007  │ Cape Canaveral │
-│ 3   │ cc_008  │ Cape Canaveral │
-│ 4   │ cc_009  │ Cape Canaveral │
-│ 5   │ cc_010  │ Cape Canaveral │
-│ 6   │ cc_012  │ Cape Canaveral │
-⋮
-│ 203 │ seg_025 │ Southeast Gulf │
-│ 204 │ seg_026 │ Southeast Gulf │
-│ 205 │ seg_027 │ Southeast Gulf │
-│ 206 │ seg_028 │ Southeast Gulf │
-│ 207 │ seg_029 │ Southeast Gulf │
+<span class="n">Table</span> <span class="n">with</span> <span class="mi">7</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">2</span> <span class="n">columns</span><span class="o">:</span>
+<span class="n">population</span>        <span class="n">count</span>
+<span class="n">───────────────────────</span>
+<span class="s">&quot;Cape Canaveral&quot;</span>  <span class="mi">21</span>
+<span class="s">&quot;Florida Keys&quot;</span>    <span class="mi">65</span>
+<span class="s">&quot;Georgia&quot;</span>         <span class="mi">30</span>
+<span class="s">&quot;Mideast Gulf&quot;</span>    <span class="mi">28</span>
+<span class="s">&quot;Northeast Gulf&quot;</span>  <span class="mi">20</span>
+<span class="s">&quot;South Carolina&quot;</span>  <span class="mi">28</span>
+<span class="s">&quot;Southeast Gulf&quot;</span>  <span class="mi">20</span>
 </pre></div></div>
 </div>
 <h5 id="using-a-vector-of-names-and-a-vector-of-counts">using a Vector of names and a Vector of counts</h5>
-<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">counts</span><span class="p">)</span>
+<p>This is just about the same as using the <code>NamedTuple</code>, but perhaps some users will prefer this format.</p>
+<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">popnames</span><span class="p">,</span> <span class="n">counts</span><span class="p">)</span>
+<span class="n">Table</span> <span class="n">with</span> <span class="mi">7</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">2</span> <span class="n">columns</span><span class="o">:</span>
+<span class="n">population</span>        <span class="n">count</span>
+<span class="n">───────────────────────</span>
+<span class="s">&quot;Cape Canaveral&quot;</span>  <span class="mi">21</span>
+<span class="s">&quot;Florida Keys&quot;</span>    <span class="mi">65</span>
+<span class="s">&quot;Georgia&quot;</span>         <span class="mi">30</span>
+<span class="s">&quot;Mideast Gulf&quot;</span>    <span class="mi">28</span>
+<span class="s">&quot;Northeast Gulf&quot;</span>  <span class="mi">20</span>
+<span class="s">&quot;South Carolina&quot;</span>  <span class="mi">28</span>
+<span class="s">&quot;Southeast Gulf&quot;</span>  <span class="mi">20</span>
 </pre></div>
 
 <hr />
@@ -1392,12 +1148,12 @@ Rename existing population ID's of <code>PopData</code> using a <code>Dict</code
 
 <p>Returns a vector of strings of the loci names in a <code>PopData</code></p>
 <div class="superfences-tabs">
-<input name="__tabs_7" type="radio" id="__tab_7_0" checked="checked" />
-<label for="__tab_7_0">example</label>
+<input name="__tabs_6" type="radio" id="__tab_6_0" checked="checked" />
+<label for="__tab_6_0">example</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">loci</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_7" type="radio" id="__tab_7_1" />
-<label for="__tab_7_1">output</label>
+<input name="__tabs_6" type="radio" id="__tab_6_1" />
+<label for="__tab_6_1">output</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>2213-element Array{String,1}:
  &quot;contig_35208&quot;
  &quot;contig_23109&quot;
@@ -1420,17 +1176,17 @@ Rename existing population ID's of <code>PopData</code> using a <code>Dict</code
 </pre></div></div>
 </div>
 <h3 id="view-genotypes-at-a-locus">view genotypes at a locus</h3>
-<div class="codehilite"><pre><span></span><span class="n">locus</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopData</span><span class="p">,</span> <span class="n">locus</span><span class="o">=</span> <span class="nb">nothing</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">locus</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopData</span><span class="p">,</span> <span class="n">locus</span><span class="o">::</span><span class="n">String</span><span class="p">)</span>
 </pre></div>
 
-<p>Default shows all genotypes for all individuals. Returns a DataFrame.</p>
+<p>Default shows all genotypes for all individuals. Returns a Vector.</p>
 <div class="superfences-tabs">
-<input name="__tabs_8" type="radio" id="__tab_8_0" checked="checked" />
-<label for="__tab_8_0">all loci</label>
+<input name="__tabs_7" type="radio" id="__tab_7_0" checked="checked" />
+<label for="__tab_7_0">all loci</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">locus</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="s">&quot;contig_2784&quot;</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_8" type="radio" id="__tab_8_1" />
-<label for="__tab_8_1">output</label>
+<input name="__tabs_7" type="radio" id="__tab_7_1" />
+<label for="__tab_7_1">output</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>212-element view(::Array{Union{Missing, Tuple{Int8,Int8}},1}, [2213, 4426, 6639, 8852, 11065, 13278, 15491, 17704, 19917, 22130  …  449239, 451452, 453665, 455878, 458091, 460304, 462517, 464730, 466943, 469156]) with eltype Union{Missing, Tuple{Int8,Int8}}:
  (1, 1) 
  (1, 1) 
@@ -1455,215 +1211,320 @@ Rename existing population ID's of <code>PopData</code> using a <code>Dict</code
 <p class="admonition-title">returning a <code>view</code></p>
 <p>The <code>locus</code> function gives a <code>view</code> into the genotype section of the <code>loci</code> table.. The text above the  output is isn't anything to be worried about-- it's indicating you are looking at a <code>view</code> of a column of the table and that it's not returning a new vector.</p>
 </div>
-<h3 id="view-samples">view samples</h3>
-<p>Add the argument  <code>samples=</code> specify a single sample (string) or multiple samples (array of strings) to display</p>
+<h3 id="view-samples-or-anything">view samples (or anything)</h3>
+<p>This can be done fairly easily using JuliaDBMeta macro <code>@where</code></p>
+<div class="superfences-tabs">
+<input name="__tabs_8" type="radio" id="__tab_8_0" checked="checked" />
+<label for="__tab_8_0">single sample</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>julia&gt; @where sharks.loci :name == &quot;cc_001&quot;
+Table with 2213 rows, 4 columns:
+name      population        locus           genotype
+────────────────────────────────────────────────────
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_35208&quot;  (1, 2)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_23109&quot;  (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_4493&quot;   (1, 2)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_10742&quot;  (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_14898&quot;  (1, 2)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_8483&quot;   (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_8065&quot;   (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_14708&quot;  (1, 1)
+⋮
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_43517&quot;  (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_27356&quot;  (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_475&quot;    (1, 2)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_19384&quot;  (2, 2)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_22368&quot;  (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_2784&quot;   (1, 1)
+</pre></div></div>
+<input name="__tabs_8" type="radio" id="__tab_8_1" />
+<label for="__tab_8_1">multiple samples</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>julia&gt; @where sharks.loci :name in [&quot;cc_001&quot;, &quot;cc_002&quot;]
+Table with 4426 rows, 4 columns:
+name      population        locus           genotype
+────────────────────────────────────────────────────
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_35208&quot;  (1, 2)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_23109&quot;  (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_4493&quot;   (1, 2)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_10742&quot;  (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_14898&quot;  (1, 2)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_8483&quot;   (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_8065&quot;   (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_14708&quot;  (1, 1)
+⋮
+&quot;cc_002&quot;  &quot;Cape Canaveral&quot;  &quot;contig_43517&quot;  (1, 1)
+&quot;cc_002&quot;  &quot;Cape Canaveral&quot;  &quot;contig_27356&quot;  (1, 1)
+&quot;cc_002&quot;  &quot;Cape Canaveral&quot;  &quot;contig_475&quot;    (1, 2)
+&quot;cc_002&quot;  &quot;Cape Canaveral&quot;  &quot;contig_19384&quot;  (2, 2)
+&quot;cc_002&quot;  &quot;Cape Canaveral&quot;  &quot;contig_22368&quot;  (1, 1)
+&quot;cc_002&quot;  &quot;Cape Canaveral&quot;  &quot;contig_2784&quot;   (1, 1)
+</pre></div></div>
+</div>
+<p>It also means that you can combine different queries with "and" <code>&amp;&amp;</code> and "or" <code>||</code></p>
 <div class="superfences-tabs">
 <input name="__tabs_9" type="radio" id="__tab_9_0" checked="checked" />
-<label for="__tab_9_0">single sample</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">view_genotypes</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">samples</span> <span class="o">=</span> <span class="s">&quot;cc_001&quot;</span><span class="p">)</span>
-</pre></div></div>
-<input name="__tabs_9" type="radio" id="__tab_9_1" />
-<label for="__tab_9_1">single output</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>1×2215 DataFrames.DataFrame. Omitted printing of 2209 columns
-│ Row │ name   │ population    │ contig_10001 │ contig_10013 │ contig_10028 │ contig_10035 │
-│     │ String │ String        │ Any          │ Any          │ Any          │ Any          │
-├─────┼────────┼───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-│ 1   │ cc_001 │ 1             │ (1, 1)       │ (1, 1)       │ (1, 1)       │ (1, 1)       │
-</pre></div></div>
-<input name="__tabs_9" type="radio" id="__tab_9_2" />
-<label for="__tab_9_2">multiple samples</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="mi">2</span><span class="n">×2215</span> <span class="n">DataFrames</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span> <span class="n">Omitted</span> <span class="n">printing</span> <span class="n">of</span> <span class="mi">2209</span> <span class="n">columns</span>
-<span class="n">│</span> <span class="n">Row</span> <span class="n">│</span> <span class="n">name</span>    <span class="n">│</span> <span class="n">population</span>    <span class="n">│</span> <span class="n">contig_10001</span> <span class="n">│</span> <span class="n">contig_10013</span> <span class="n">│</span> <span class="n">contig_10028</span> <span class="n">│</span> <span class="n">contig_10035</span> <span class="n">│</span>
-<span class="n">│</span>     <span class="n">│</span> <span class="n">String</span>  <span class="n">│</span> <span class="n">String</span>        <span class="n">│</span> <span class="kt">Any</span>          <span class="n">│</span> <span class="kt">Any</span>          <span class="n">│</span> <span class="kt">Any</span>          <span class="n">│</span> <span class="kt">Any</span>          <span class="n">│</span>
-<span class="n">├─────┼─────────┼───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤</span>
-<span class="n">│</span> <span class="mi">1</span>   <span class="n">│</span> <span class="n">cc_001</span>  <span class="n">│</span> <span class="mi">1</span>             <span class="n">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>       <span class="n">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>       <span class="n">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>       <span class="n">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>       <span class="n">│</span>
-<span class="n">│</span> <span class="mi">2</span>   <span class="n">│</span> <span class="n">seg_028</span> <span class="n">│</span> <span class="mi">7</span>             <span class="n">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>       <span class="n">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>       <span class="n">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>       <span class="n">│</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>       <span class="n">│</span>
-</pre></div></div>
-</div>
-<p>It also means that you can combine the keywords <code>samples=</code> and <code>loci=</code> to further specify your output:</p>
-<div class="superfences-tabs">
-<input name="__tabs_10" type="radio" id="__tab_10_0" checked="checked" />
-<label for="__tab_10_0">both keywords</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">view_genotypes</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">samples</span><span class="o">=</span> <span class="p">[</span><span class="s">&quot;cc_001&quot;</span><span class="p">,</span> <span class="s">&quot;seg_028&quot;</span><span class="p">],</span> <span class="n">loci</span> <span class="o">=</span> <span class="s">&quot;contig_10013&quot;</span><span class="p">)</span>
-</pre></div></div>
-<input name="__tabs_10" type="radio" id="__tab_10_1" />
-<label for="__tab_10_1">output</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>2×3 DataFrames.DataFrame
-│ Row │ name    │ population    │ contig_10013 │
-│     │ String  │ String        │ Any          │
-├─────┼─────────┼───────────────┼──────────────┤
-│ 1   │ cc_001  │ 1             │ (1, 1)       │
-│ 2   │ seg_028 │ 7             │ (1, 1)       │
-</pre></div></div>
-</div>
-<h2 id="remove-loci">Remove Loci</h2>
-<div class="codehilite"><pre><span></span><span class="n">remove_loci!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">loci</span><span class="o">::</span><span class="n">String</span><span class="p">)</span>
-</pre></div>
-
-<div class="codehilite"><pre><span></span><span class="n">remove_loci!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">loci</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">String</span><span class="p">})</span>
-</pre></div>
-
-<p>Removes selected loci from a <code>PopObj</code>. Input can be a single locus, or an array of loci.</p>
-<p>Examples:</p>
-<div class="superfences-tabs">
-<input name="__tabs_11" type="radio" id="__tab_11_0" checked="checked" />
-<label for="__tab_11_0">single locus</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">remove_loci!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="s">&quot;contig_35208&quot;</span><span class="p">)</span> <span class="p">;</span> <span class="n">summary</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
-</pre></div></div>
-<input name="__tabs_11" type="radio" id="__tab_11_1" />
-<label for="__tab_11_1">single output</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span> Object of type PopObj
- Marker type: SNP
- Ploidy: 2
-
- Number of individuals: 209
- Number of loci: 2212
- Longitude: present with 0 missing
- Latitude: present with 0 missing
-
- Population names and counts:
-7×2 DataFrame
-│ Row │ population     │ count │
-│     │ String         │ Int64 │
-├─────┼────────────────┼───────┤
-│ 1   │ Cape Canaveral │ 18    │
-│ 2   │ Georgia        │ 30    │
-│ 3   │ S Carolina     │ 28    │
-│ 4   │ FL Keys        │ 65    │
-│ 5   │ Mideast Gulf   │ 28    │
-│ 6   │ Northeast Gulf │ 20    │
-│ 7   │ Southeast Gulf │ 20    │
-</pre></div></div>
-<input name="__tabs_11" type="radio" id="__tab_11_2" />
-<label for="__tab_11_2">multiple loci</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">remove_loci!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;contig_35208&quot;</span><span class="p">,</span> <span class="s">&quot;contig_23109&quot;</span><span class="p">,</span> <span class="s">&quot;contig_4493&quot;</span><span class="p">])</span> <span class="p">;</span> <span class="n">summary</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
-</pre></div></div>
-<input name="__tabs_11" type="radio" id="__tab_11_3" />
-<label for="__tab_11_3">multiple output</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>NOTICE: locus &quot;contig_35208&quot; not found
-
- Object of type PopObj
- Marker type: SNP
- Ploidy: 2
-
- Number of individuals: 212
- Number of loci: 2210
- Longitude: present with 0 missing
- Latitude: present with 0 missing
-
- Population names and counts:
-7×2 DataFrame
-│ Row │ population     │ count │
-│     │ Union…         │ Int64 │
-├─────┼────────────────┼───────┤
-│ 1   │ Cape Canaveral │ 21    │
-│ 2   │ Georgia        │ 30    │
-│ 3   │ South Carolina │ 28    │
-│ 4   │ Florida Keys   │ 65    │
-│ 5   │ Mideast Gulf   │ 28    │
-│ 6   │ Northeast Gulf │ 20    │
-│ 7   │ Southeast Gulf │ 20    │
+<label for="__tab_9_0">both name and locus</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="nd">@where</span> <span class="n">sharks</span><span class="o">.</span><span class="n">loci</span> <span class="o">:</span><span class="n">name</span> <span class="kp">in</span> <span class="p">[</span><span class="s">&quot;cc_001&quot;</span><span class="p">,</span> <span class="s">&quot;cc_002&quot;</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="o">:</span><span class="n">locus</span> <span class="o">==</span> <span class="s">&quot;contig_2784&quot;</span>
+<span class="n">Table</span> <span class="n">with</span> <span class="mi">2</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">4</span> <span class="n">columns</span><span class="o">:</span>
+<span class="n">name</span>      <span class="n">population</span>        <span class="n">locus</span>          <span class="n">genotype</span>
+<span class="n">───────────────────────────────────────────────────</span>
+<span class="s">&quot;cc_001&quot;</span>  <span class="s">&quot;Cape Canaveral&quot;</span>  <span class="s">&quot;contig_2784&quot;</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="s">&quot;cc_002&quot;</span>  <span class="s">&quot;Cape Canaveral&quot;</span>  <span class="s">&quot;contig_2784&quot;</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div></div>
 </div>
 <details class="question"><summary>locus not found!</summary><p>If removing a single locus and it is not found in the PopObj, an error will be returned. However, if removing multiple loci, you will receive a notice above the PopObj summary indicating which loci were not found, while removing the ones that were. If none of the loci specified were found, it will return an error.</p>
 </details>
+<hr />
 <h2 id="missing-data">Missing Data</h2>
 <h3 id="view-missing-data">view missing data</h3>
-<div class="codehilite"><pre><span></span><span class="n">missing</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">mode</span><span class="o">::</span><span class="n">String</span> <span class="o">=</span> <span class="s">&quot;sample&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">missing</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopData</span><span class="p">;</span> <span class="n">mode</span><span class="o">::</span><span class="n">String</span> <span class="o">=</span> <span class="s">&quot;sample&quot;</span><span class="p">)</span>
 </pre></div>
 
-<p>Get missing genotype information in a <code>PopObj</code>. Specify a <code>mode</code> of operation to return a DataFrame corresponding with that missing information type.</p>
+<p>Get missing genotype information in a <code>PopData</code>. Specify a <code>mode</code> of operation to return a DataFrame corresponding with that missing information type.</p>
 <table>
 <thead>
 <tr>
 <th>mode</th>
+<th>alternative name</th>
 <th>what it does</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>"sample"</td>
+<td>"individual"</td>
 <td>returns a count and list of missing loci per individual (default)</td>
 </tr>
 <tr>
 <td>"pop"</td>
+<td>"population"</td>
 <td>returns a count of missing genotypes per population</td>
 </tr>
 <tr>
 <td>"locus"</td>
+<td>"loci"</td>
 <td>returns a count of missing genotypes per locus</td>
 </tr>
 <tr>
 <td>"full"</td>
+<td>"detailed"</td>
 <td>returns a count of missing genotypes per locus per population</td>
 </tr>
 </tbody>
 </table>
-<details class="tip"><summary>alternative names</summary><p>Each <code>mode</code> has an extra synonymous name just because we can and want you to have the option of more explicitly legible code. If you get the <code>mode</code> wrong, it will let you know with an error message and run the default <code>"sample"</code> mode anyway.</p>
-<ul>
-<li>"sample"  &lt;=&gt;   "individual"</li>
-<li>"pop"   &lt;=&gt;   "population"</li>
-<li>"locus"  &lt;=&gt;  "loci"</li>
-<li>"full"  &lt;=&gt;  "detailed" </li>
-</ul>
-</details>
-<h2 id="location-data">Location Data</h2>
-<h3 id="view-location-data">view location data</h3>
-<p><div class="codehilite"><pre><span></span><span class="n">locations</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">)</span>
-</pre></div>
-View location data (<code>.longitude</code> and <code>.latitude</code>) in a <code>PopObj</code>If you want to do your own plotting, or just to look at the spatial data of your PopObj, this function is handy. It takes no additional arguments and outputs a DataFrame of individual names, population ID's, and their latitude/longitude information. </p>
 <div class="superfences-tabs">
-<input name="__tabs_12" type="radio" id="__tab_12_0" checked="checked" />
-<label for="__tab_12_0">locations</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">locations</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
-</pre></div></div>
-<input name="__tabs_12" type="radio" id="__tab_12_1" />
-<label for="__tab_12_1">output</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>212×4 DataFrames.DataFrame
-│ Row │ ind     │ population │ longitude │ latitude │
-│     │ String  │ Union…     │ Union…    │ Union…   │
-├─────┼─────────┼────────────┼───────────┼──────────┤
-│ 1   │ cc_001  │ 1          │ -80.5993  │ 28.3062  │
-│ 2   │ cc_002  │ 1          │ -80.5995  │ 28.3079  │
-│ 3   │ cc_003  │ 1          │ -80.5996  │ 28.3023  │
-│ 4   │ cc_005  │ 1          │ -80.4225  │ 28.6123  │
-│ 5   │ cc_007  │ 1          │ -80.3578  │ 27.8666  │
-│ 6   │ cc_008  │ 1          │ -80.3579  │ 27.8666  │
-│ 7   │ cc_009  │ 1          │ -80.3482  │ 27.8682  │
+<input name="__tabs_10" type="radio" id="__tab_10_0" checked="checked" />
+<label for="__tab_10_0">sample</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>julia&gt; missing(sharks)
+Table with 212 rows, 2 columns:
+name       missing
+──────────────────
+&quot;cc_001&quot;   124
+&quot;cc_002&quot;   94
+&quot;cc_003&quot;   100
+&quot;cc_005&quot;   0
+&quot;cc_007&quot;   2
+&quot;cc_008&quot;   1
+&quot;cc_009&quot;   2
+&quot;cc_010&quot;   1
 ⋮
-│ 205 │ seg_024 │ 7          │ -87.4403  │ 29.6966  │
-│ 206 │ seg_025 │ 7          │ -86.5374  │ 30.064   │
-│ 207 │ seg_026 │ 7          │ -86.5376  │ 30.0696  │
-│ 208 │ seg_027 │ 7          │ -86.0905  │ 29.9065  │
-│ 209 │ seg_028 │ 7          │ -87.3661  │ 30.0532  │
-│ 210 │ seg_029 │ 7          │ -87.3662  │ 30.0522  │
-│ 211 │ seg_030 │ 7          │ -85.7143  │ 29.8234  │
-│ 212 │ seg_031 │ 7          │ -85.7143  │ 29.8234  │
+&quot;seg_026&quot;  0
+&quot;seg_027&quot;  2
+&quot;seg_028&quot;  25
+&quot;seg_029&quot;  0
+&quot;seg_030&quot;  1
+&quot;seg_031&quot;  1
+</pre></div></div>
+<input name="__tabs_10" type="radio" id="__tab_10_1" />
+<label for="__tab_10_1">pop</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>julia&gt; missing(sharks, mode = &quot;pop&quot;)
+Table with 7 rows, 2 columns:
+population        missing
+─────────────────────────
+&quot;Florida Keys&quot;    782
+&quot;Cape Canaveral&quot;  666
+&quot;Mideast Gulf&quot;    379
+&quot;Georgia&quot;         744
+&quot;Northeast Gulf&quot;  93
+&quot;Southeast Gulf&quot;  1504
+&quot;South Carolina&quot;  480
+</pre></div></div>
+<input name="__tabs_10" type="radio" id="__tab_10_2" />
+<label for="__tab_10_2">locus</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>julia&gt; missing(sharks, mode = &quot;locus&quot;)
+Table with 2213 rows, 2 columns:
+locus           missing
+───────────────────────
+&quot;contig_35208&quot;  0
+&quot;contig_23109&quot;  6
+&quot;contig_4493&quot;   3
+&quot;contig_10742&quot;  2
+&quot;contig_14898&quot;  0
+&quot;contig_8483&quot;   0
+&quot;contig_8065&quot;   0
+&quot;contig_14708&quot;  1
+⋮
+&quot;contig_43517&quot;  6
+&quot;contig_27356&quot;  2
+&quot;contig_475&quot;    0
+&quot;contig_19384&quot;  5
+&quot;contig_22368&quot;  3
+&quot;contig_2784&quot;   7
+</pre></div></div>
+<input name="__tabs_10" type="radio" id="__tab_10_3" />
+<label for="__tab_10_3">full</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>julia&gt; missing(sharks, mode = &quot;full&quot;)
+Table with 15491 rows, 3 columns:
+locus           population        missing
+─────────────────────────────────────────
+&quot;contig_35208&quot;  &quot;Florida Keys&quot;    0
+&quot;contig_35208&quot;  &quot;Cape Canaveral&quot;  0
+&quot;contig_35208&quot;  &quot;Mideast Gulf&quot;    0
+&quot;contig_35208&quot;  &quot;Georgia&quot;         0
+&quot;contig_35208&quot;  &quot;Northeast Gulf&quot;  0
+&quot;contig_35208&quot;  &quot;Southeast Gulf&quot;  0
+&quot;contig_35208&quot;  &quot;South Carolina&quot;  0
+&quot;contig_23109&quot;  &quot;Florida Keys&quot;    0
+⋮
+&quot;contig_2784&quot;   &quot;Cape Canaveral&quot;  0
+&quot;contig_2784&quot;   &quot;Mideast Gulf&quot;    1
+&quot;contig_2784&quot;   &quot;Georgia&quot;         1
+&quot;contig_2784&quot;   &quot;Northeast Gulf&quot;  1
+&quot;contig_2784&quot;   &quot;Southeast Gulf&quot;  1
+&quot;contig_2784&quot;   &quot;South Carolina&quot;  0
 </pre></div></div>
 </div>
-<h3 id="add-location-data">add location data</h3>
-<p>Location data can be added by directly accessing the fields <code>.longitude</code> and <code>.latitude</code> in your <code>PopObj</code>, such as this example:</p>
-<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">sharks</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">longitude</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">212</span><span class="p">)</span> <span class="p">;</span>   <span class="c"># creates 212 unique random numbers between 1 and 50</span>
-
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">sharks</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">latitdue</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="o">:</span><span class="mi">30</span><span class="p">,</span> <span class="mi">212</span><span class="p">)</span> <span class="p">;</span> <span class="c"># creates 212 unique random numbers between 20 and 30</span>
+<details class="tip"><summary>alternative names</summary><p>Each <code>mode</code> has an extra synonymous (alternative) name just because we can and want you to have the option of more explicitly legible code. If you get the <code>mode</code> wrong, it will let you know with an error message and run the default <code>"sample"</code> mode anyway.</p>
+</details>
+<hr />
+<h2 id="location-data">Location Data</h2>
+<h3 id="view-location-data">view location data</h3>
+<p><div class="codehilite"><pre><span></span><span class="n">locations</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopData</span><span class="p">)</span>
 </pre></div>
-
-<p>However, if your data is in decimal minutes rather than decimal degrees, use the <code>locations!</code> function to add it to the fields. This function will do a conversion from decimal minutes to decimal degrees for you. To import those data into Julia, you'll likely want to use the wonderful <code>CSV.jl</code> package first.  </p>
-<h4 id="decimal-minutes-data">decimal minutes data</h4>
-<div class="codehilite"><pre><span></span><span class="n">locations!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">;</span> <span class="n">xloc</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">String</span><span class="p">},</span> <span class="n">yloc</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">String</span><span class="p">})</span>
-</pre></div>
-
-<p>Adds location data (longitude, latitude) to <code>PopObj</code>. Takes decimal degrees or decimal minutes format. <strong>Must</strong> use minus-sign instead of cardinal directions (i.e. 14 32.11W is <strong>not</strong> vaild). Location data must be in order of  individuals (<code>name</code>). Replaces existing <code>PopObj</code> location data.</p>
+View location data (<code>.longitude</code> and <code>.latitude</code>) in a <code>PopData</code>,  returning a table the longitude and latitude information in <code>meta</code>. </p>
+<div class="superfences-tabs">
+<input name="__tabs_11" type="radio" id="__tab_11_0" checked="checked" />
+<label for="__tab_11_0">locations</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">locations</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_11" type="radio" id="__tab_11_1" />
+<label for="__tab_11_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>Table with 212 rows, 2 columns:
+longitude  latitude
+───────────────────
+28.3062    -80.5993
+28.3079    -80.5995
+28.3023    -80.5996
+28.6123    -80.4225
+27.8666    -80.3578
+27.8666    -80.3579
+27.8682    -80.3482
+27.8711    -80.3482
+⋮
+30.0696    -86.5376
+29.9065    -86.0905
+30.0532    -87.3661
+30.0522    -87.3662
+29.8234    -85.7143
+29.8234    -85.7143
+</pre></div></div>
+</div>
+<h3 id="add-location-data">Add location data</h3>
+<p>Location data can be added using one of the methods of <code>locations!</code>. As indicated by the bang <code>!</code>, your <code>PopData</code> will be edited in place, and there will be no return output. If your data is in Decimal Minutes format, this function will convert your long/lat into Decimal Degrees. To import those data into Julia, you'll likely want to use the wonderful <code>CSV.jl</code> package first. </p>
 <ul>
 <li>Decimal Degrees : <code>-11.431</code></li>
-<li>Decimal Minutes : <code>"-11 43.11"</code> (must use space and double-quotes)</li>
+<li>Decimal Minutes : <code>-11 43.11</code> (notice the space)</li>
 </ul>
-<p>If conversion is not necessary, can directly assign <code>PopObj.longitude</code> and <code>PopObj.latitude</code> as shown above. If you still wanted to use <code>locations!</code> but don't need a conversion, it still works:</p>
-<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">long</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">longitude</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">212</span><span class="p">)</span> <span class="p">;</span> 
+<div class="admonition warning">
+<p>Your data <strong>must</strong> use the minus sign <code>-</code> (if appropriate) instead of cardinal directions. <code>11 43.11W</code> is <strong>not</strong> valid.</p>
+</div>
+<p>There are three main ways of adding location data:</p>
+<h4 id="if-already-in-decimal-degrees">If already in decimal degrees</h4>
+<div class="codehilite"><pre><span></span><span class="n">locations!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">long</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">lat</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span><span class="o">&lt;:</span><span class="kt">AbstractFloat</span>
+</pre></div>
 
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">lat</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">latitdue</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="o">:</span><span class="mi">30</span><span class="p">,</span> <span class="mi">212</span><span class="p">)</span> <span class="p">;</span>
+<p>This method is pretty straightforward, and it tolerates vectors with <code>missing</code> data.</p>
+<div class="codehilite"><pre><span></span><span class="c"># generate some fake location data</span>
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">long</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span> <span class="o">.*</span> <span class="mi">10</span> <span class="p">;</span> <span class="n">lat</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span> <span class="o">.*</span> <span class="o">-</span><span class="mi">10</span>
 
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">locations!</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">long</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span> <span class="p">;</span>
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">locations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">long</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
+</pre></div>
+
+<h4 id="if-in-decimal-minutes">If in decimal minutes</h4>
+<p>There are two options here, the first is to input two vectors of strings, like:</p>
+<div class="codehilite"><pre><span></span><span class="n">lat</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;11 44.31&quot;</span><span class="p">,</span> <span class="s">&quot;-25 41.94&quot;</span><span class="p">]</span>
+<span class="n">long</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;-43 54.11&quot;</span><span class="p">,</span> <span class="s">&quot;22 23.11&quot;</span><span class="p">]</span>
+</pre></div>
+
+<p>For this, the method is</p>
+<p><div class="codehilite"><pre><span></span><span class="n">locations!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopData</span><span class="p">;</span> <span class="n">lat</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">String</span><span class="p">},</span> <span class="n">long</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">String</span><span class="p">})</span>
+</pre></div>
+which uses the <code>lat</code> and <code>long</code> keywords.</p>
+<div class="admonition warning">
+<p>This method tolerates <code>missing</code> values, but you will need to <code>replace!</code> the string <code>"missing"</code> with values of <code>missing</code>.</p>
+</div>
+<p>Or, you can input four vectors of numbers with the associated keyword arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Keyword Argument</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vector of longitude degrees</td>
+<td>Integer</td>
+<td><code>long_deg</code></td>
+</tr>
+<tr>
+<td>Vector of longitude minutes</td>
+<td>Float</td>
+<td><code>long_min</code></td>
+</tr>
+<tr>
+<td>Vector of latitude degrees</td>
+<td>Integer</td>
+<td><code>lat_deg</code></td>
+</tr>
+<tr>
+<td>Vector of latitude minutes</td>
+<td>Float</td>
+<td><code>lat_min</code></td>
+</tr>
+</tbody>
+</table>
+<p>This method is easier or more tedious depending on what you consider a more practical approach. For example, if you have decimal-minutes coordinates for two samples:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Longitude</th>
+<th>Latitude</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sample 1</td>
+<td>11 43.12</td>
+<td>15 36.53</td>
+</tr>
+<tr>
+<td>Sample 2</td>
+<td>-12 41.32</td>
+<td>11 22.41</td>
+</tr>
+</tbody>
+</table>
+<p>then your inputs would be:</p>
+<div class="codehilite"><pre><span></span>lo_deg = [11, -12]
+lo_min = [43.12, 41.32]
+la_deg  = [15, 11]
+la_min  = [36.53, 22.41]
+</pre></div>
+
+<p>and you would then use <code>locations!</code> like this:</p>
+<div class="codehilite"><pre><span></span><span class="n">locations!</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">long_deg</span> <span class="o">=</span> <span class="n">lo_deg</span><span class="p">,</span> <span class="n">long_min</span> <span class="o">=</span> <span class="n">lo_min</span><span class="p">,</span> <span class="n">lat_deg</span> <span class="o">=</span> <span class="n">la_deg</span><span class="p">,</span> <span class="n">lat_min</span> <span class="o">=</span> <span class="n">la_min</span><span class="p">)</span>
 </pre></div>
                 
                   
@@ -1681,41 +1542,6 @@ View location data (<code>.longitude</code> and <code>.latitude</code>) in a <co
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../io/variantcall/" title="Variant Call Format" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Variant Call Format
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="../analyses/hardyweinberg/" title="Hardy-Weinberg Equilibrium" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Hardy-Weinberg Equilibrium
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

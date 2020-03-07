@@ -40,7 +40,7 @@
     
     
       
-        <title>Genepop - PopGen.jl</title>
+        <title>Getting Started - PopGen.jl</title>
       
     
     
@@ -89,7 +89,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#import-a-genepop-file-as-a-popobj" tabindex="1" class="md-skip">
+      <a href="#manipulating-popdata" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -115,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Genepop
+                Getting Started
               
             </span>
           
@@ -344,12 +344,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Importing Data
@@ -367,7 +365,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../example_data/" title="Example Data" class="md-nav__link">
+    <a href="../../io/example_data/" title="Example Data" class="md-nav__link">
       Example Data
     </a>
   </li>
@@ -379,7 +377,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../file_import/" title="Reading in Data" class="md-nav__link">
+    <a href="../../io/file_import/" title="Reading in Data" class="md-nav__link">
       Reading in Data
     </a>
   </li>
@@ -391,11 +389,61 @@
 
 
   <li class="md-nav__item">
-    <a href="../delimited/" title="Delimited" class="md-nav__link">
+    <a href="../../io/delimited/" title="Delimited" class="md-nav__link">
       Delimited
     </a>
   </li>
 
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/genepop/" title="Genepop" class="md-nav__link">
+      Genepop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/variantcall/" title="Variant Call Format" class="md-nav__link">
+      Variant Call Format
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Manipulating PopData
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Manipulating PopData
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
         
           
           
@@ -408,73 +456,44 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Genepop
+        Getting Started
       </label>
     
-    <a href="./" title="Genepop" class="md-nav__link md-nav__link--active">
-      Genepop
+    <a href="./" title="Getting Started" class="md-nav__link md-nav__link--active">
+      Getting Started
     </a>
     
       
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#import-a-genepop-file-as-a-popobj" class="md-nav__link">
-    Import a genepop file as a PopObj
+  <a href="#viewing-and-sorting" class="md-nav__link">
+    Viewing and Sorting
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#arguments" class="md-nav__link">
-    arguments
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#keyword-arguments" class="md-nav__link">
-    keyword Arguments
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#format" class="md-nav__link">
-    Format
+  <a href="#sample-and-locus-exclusionremoval" class="md-nav__link">
+    Sample and Locus Exclusion/Removal
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#formatting-examples" class="md-nav__link">
-    formatting examples
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#acknowledgements" class="md-nav__link">
-    Acknowledgements
+  <a href="#location-and-population-information" class="md-nav__link">
+    Location and Population Information
   </a>
   
 </li>
@@ -496,55 +515,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../variantcall/" title="Variant Call Format" class="md-nav__link">
-      Variant Call Format
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
-    
-    <label class="md-nav__link" for="nav-4">
-      Manipulating PopData
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        Manipulating PopData
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../manipulate/manipulate/" title="Getting Started" class="md-nav__link">
-      Getting Started
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../manipulate/view_and_sort/" title="Viewing and Sorting" class="md-nav__link">
+    <a href="../view_and_sort/" title="Viewing and Sorting" class="md-nav__link">
       Viewing and Sorting
     </a>
   </li>
@@ -556,7 +527,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../manipulate/exclusion/" title="Remove Samples/Loci" class="md-nav__link">
+    <a href="../exclusion/" title="Remove Samples/Loci" class="md-nav__link">
       Remove Samples/Loci
     </a>
   </li>
@@ -568,7 +539,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../manipulate/location_and_pop/" title="Location and Population Data" class="md-nav__link">
+    <a href="../location_and_pop/" title="Location and Population Data" class="md-nav__link">
       Location and Population Data
     </a>
   </li>
@@ -761,60 +732,29 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#import-a-genepop-file-as-a-popobj" class="md-nav__link">
-    Import a genepop file as a PopObj
+  <a href="#viewing-and-sorting" class="md-nav__link">
+    Viewing and Sorting
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#arguments" class="md-nav__link">
-    arguments
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#keyword-arguments" class="md-nav__link">
-    keyword Arguments
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#format" class="md-nav__link">
-    Format
+  <a href="#sample-and-locus-exclusionremoval" class="md-nav__link">
+    Sample and Locus Exclusion/Removal
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#formatting-examples" class="md-nav__link">
-    formatting examples
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#acknowledgements" class="md-nav__link">
-    Acknowledgements
+  <a href="#location-and-population-information" class="md-nav__link">
+    Location and Population Information
   </a>
   
 </li>
@@ -835,79 +775,21 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/pdimens/PopGen.jl/edit/master/docs/io/genepop.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/pdimens/PopGen.jl/edit/master/docs/manipulate/manipulate.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Genepop</h1>
-                
-                <h2 id="import-a-genepop-file-as-a-popobj">Import a genepop file as a <code>PopObj</code></h2>
-<div class="codehilite"><pre><span></span><span class="n">genepop</span><span class="p">(</span><span class="n">infile</span><span class="p">;</span> <span class="n">kwargs</span><span class="o">...</span><span class="p">)</span>
+                <h1 id="manipulating-popdata">Manipulating PopData</h1>
+<p>PopGen.jl includes basic commands to provide obvious methods to inspect and alter <code>PopData</code>. Using standard Julia conventions, only commands ending with a bang <code>!</code> are mutable, meaning they alter the input data. So, commands like <code>populations</code> will show you population information, whereas <code>populations!</code> will change that information in your <code>PopData</code>. The mutable commands here alter the data in your <code>PopData</code>, but not the source data (i.e. the files used to create the <code>PopData</code>). Read over <a href="../../getting_started/accessing_popdata/">Accessing parts of PopData</a> to become familiar with the components of <code>PopData</code>. </p>
+<p>The "manipulation" commands were separated into three sections to make it less overwhelming, and using the <code>gulfsharks</code> data, you can explore each of the sections like a little tutorial. The sections don't follow any particular order, so feel free to jump around however you like. </p>
+<p>To follow along like a tutorial, load the <code>gulfsharks</code> data in if you haven't already:</p>
+<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">PopGen</span>
 
-<span class="c"># Example</span>
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">genepop</span><span class="p">(</span><span class="s">&quot;/data/wasp_hive.gen&quot;</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">popsep</span> <span class="o">=</span> <span class="s">&quot;POP&quot;</span><span class="p">)</span>
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">sharks</span> <span class="o">=</span> <span class="n">gulfsharks</span><span class="p">()</span> <span class="p">;</span>
 </pre></div>
 
-<details class="warning"><summary>Windows users</summary><p>make sure to change your backslashes "\" to forward slashes "/" </p>
-</details>
-<h3 id="arguments">arguments</h3>
-<ul>
-<li><code class="codehilite">infile::String</code> : path to genepop file, in quotes</li>
-</ul>
-<h3 id="keyword-arguments">keyword Arguments</h3>
-<ul>
-<li><code>digits::Integer</code>: number of digits denoting each allele (default: <code>3</code>)</li>
-<li><code>popsep::String</code> : word that separates populations in <code>infile</code> (default: "POP")</li>
-<li><code>diploid::Bool</code>  : whether samples are diploid for parsing optimizations (default: <code>true</code>)</li>
-<li><code>silent::Bool</code>   : whether to print file information during import (default: <code>true</code>)</li>
-</ul>
-<div class="admonition info">
-<p>By default, the file reader will assign numbers as population ID's (as Strings) in order of appearance in the genepop file. Use the <code>populations!</code> function to rename these with your own population ID's.</p>
-</div>
-<h2 id="format">Format</h2>
-<p>Files must follow standard Genepop formatting:</p>
-<ul>
-<li>First line is a comment (and skipped)</li>
-<li>Loci are listed after first line as one-per-line without commas or in single comma-separated row</li>
-<li>A line with a particular and consistent keyword must delimit populations</li>
-<li><strong>Must</strong> be the same word each time and not a unique population name</li>
-<li>File is <strong>tab</strong> delimited or <strong>space</strong> delimited, but not both</li>
-</ul>
-<h3 id="formatting-examples">formatting examples</h3>
-<div class="superfences-tabs">
-<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
-<label for="__tab_1_0">loci stacked vertically</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>Wasp populations in New York
-Locus1
-Locus2
-Locus3
-POP
-Oneida_01,  250230  564568  110100
-Oneida_02,  252238  568558  100120
-Oneida_03,  254230  564558  090100
-POP
-Newcomb_01, 254230  564558  080100
-Newcomb_02, 000230  564558  090080
-Newcomb_03, 254230  000000  090100
-Newcomb_04, 254230  564000  090120
-</pre></div></div>
-<input name="__tabs_1" type="radio" id="__tab_1_1" />
-<label for="__tab_1_1">loci stacked horizontally</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>Wasp populations in New York
-Locus1,Locus2,Locus3
-POP
-Oneida_01,  250230  564568  110100
-Oneida_02,  252238  568558  100120
-Oneida_03,  254230  564558  090100
-POP
-Newcomb_01, 254230  564558  080100
-Newcomb_02, 000230  564558  090080
-Newcomb_03, 254230  000000  090100
-Newcomb_04, 254230  564000  090120
-</pre></div></div>
-</div>
-<hr />
-<h2 id="acknowledgements">Acknowledgements</h2>
-<p>The original implementations of this parser were written using only Base Julia, and while the speed was fantastic, the memory footprint involved seemed unusually high (~650mb RAM to parse <code>gulfsharks</code>, which is 3.2mb in size). However, thanks to the efforts of the <a href="https://github.com/JuliaData/CSV.jl">CSV.jl</a> team, we leverage that package to do much of the heavy lifting, in a multicore way, and all the while while preserving the speed and reducing the memory footprint quite a bit!</p>
+<h2 id="viewing-and-sorting"><a href="../view_and_sort/">Viewing and Sorting</a></h2>
+<h2 id="sample-and-locus-exclusionremoval"><a href="../exclusion/">Sample and Locus Exclusion/Removal</a></h2>
+<h2 id="location-and-population-information"><a href="../location_and_pop/">Location and Population Information</a></h2>
                 
                   
                 
@@ -928,7 +810,7 @@ Newcomb_04, 254230  564000  090120
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../delimited/" title="Delimited" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../io/variantcall/" title="Variant Call Format" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -937,19 +819,19 @@ Newcomb_04, 254230  564000  090120
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Delimited
+                Variant Call Format
               </span>
             </div>
           </a>
         
         
-          <a href="../variantcall/" title="Variant Call Format" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../view_and_sort/" title="Viewing and Sorting" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Variant Call Format
+                Viewing and Sorting
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

@@ -1,0 +1,1395 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Population genetics in Julia">
+      
+      
+      
+        <meta name="author" content="Pavel Dimens and Jason Selwyn">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
+    
+    
+      
+        <title>Location and Population Data - PopGen.jl</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#location-data" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="PopGen.jl" class="md-header-nav__button md-logo">
+          
+            <img src="../../img/logo_icon.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              PopGen.jl
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Location and Population Data
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/pdimens/PopGen.jl/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    PopGen.jl
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="PopGen.jl" class="md-nav__button md-logo">
+      
+        <img src="../../img/logo_icon.png" width="48" height="48">
+      
+    </a>
+    PopGen.jl
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/pdimens/PopGen.jl/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    PopGen.jl
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Getting started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Getting started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/juliaprimer/" title="A Julia primer" class="md-nav__link">
+      A Julia primer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/install/" title="How to Install" class="md-nav__link">
+      How to Install
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      PopData and Types
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        PopData and Types
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/popobj_type/" title="PopData and PopObj" class="md-nav__link">
+      PopData and PopObj
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/accessing_popdata/" title="Accessing parts of PopData" class="md-nav__link">
+      Accessing parts of PopData
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/comparison/" title="Benchmarks" class="md-nav__link">
+      Benchmarks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Importing Data
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Importing Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/example_data/" title="Example Data" class="md-nav__link">
+      Example Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/file_import/" title="Reading in Data" class="md-nav__link">
+      Reading in Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/delimited/" title="Delimited" class="md-nav__link">
+      Delimited
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/genepop/" title="Genepop" class="md-nav__link">
+      Genepop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/variantcall/" title="Variant Call Format" class="md-nav__link">
+      Variant Call Format
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Manipulating PopData
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Manipulating PopData
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../manipulate/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../view_and_sort/" title="Viewing and Sorting" class="md-nav__link">
+      Viewing and Sorting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../exclusion/" title="Remove Samples/Loci" class="md-nav__link">
+      Remove Samples/Loci
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Location and Population Data
+      </label>
+    
+    <a href="./" title="Location and Population Data" class="md-nav__link md-nav__link--active">
+      Location and Population Data
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#location-data" class="md-nav__link">
+    Location Data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-location-data" class="md-nav__link">
+    View location data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-location-data" class="md-nav__link">
+    Add location data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-already-in-decimal-degrees" class="md-nav__link">
+    If already in decimal degrees
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-in-decimal-minutes" class="md-nav__link">
+    If in decimal minutes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#population-names" class="md-nav__link">
+    Population Names
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-population-names" class="md-nav__link">
+    View population names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-populations" class="md-nav__link">
+    Rename populations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#replace-by-matching" class="md-nav__link">
+    Replace by matching
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-a-dictionary" class="md-nav__link">
+    Using a Dictionary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-vector-of-names" class="md-nav__link">
+    Using a Vector of names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-vector-of-oldnames-and-new-names" class="md-nav__link">
+    Using a Vector of oldnames and new names
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-new-population-information" class="md-nav__link">
+    Generate new population information
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-a-namedtuple" class="md-nav__link">
+    Using a NamedTuple
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-vector-of-names-and-a-vector-of-counts" class="md-nav__link">
+    Using a Vector of names and a Vector of counts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Types of Analyses
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Types of Analyses
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../analyses/hardyweinberg/" title="Hardy-Weinberg Equilibrium" class="md-nav__link">
+      Hardy-Weinberg Equilibrium
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../analyses/relatedness/" title="Relatedness" class="md-nav__link">
+      Relatedness
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../community/" title="Community" class="md-nav__link">
+      Community
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Other
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Other
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+    
+    <label class="md-nav__link" for="nav-7-1">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-1">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other/api/hidden_api/" title="Under the hood functions" class="md-nav__link">
+      Under the hood functions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other/logo_graveyard/" title="Logo Graveyard" class="md-nav__link">
+      Logo Graveyard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Misc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Misc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other/misc/genepopIBD/" title="Genepop IBD Conversion" class="md-nav__link">
+      Genepop IBD Conversion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#location-data" class="md-nav__link">
+    Location Data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-location-data" class="md-nav__link">
+    View location data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-location-data" class="md-nav__link">
+    Add location data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-already-in-decimal-degrees" class="md-nav__link">
+    If already in decimal degrees
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-in-decimal-minutes" class="md-nav__link">
+    If in decimal minutes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#population-names" class="md-nav__link">
+    Population Names
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-population-names" class="md-nav__link">
+    View population names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-populations" class="md-nav__link">
+    Rename populations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#replace-by-matching" class="md-nav__link">
+    Replace by matching
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-a-dictionary" class="md-nav__link">
+    Using a Dictionary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-vector-of-names" class="md-nav__link">
+    Using a Vector of names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-vector-of-oldnames-and-new-names" class="md-nav__link">
+    Using a Vector of oldnames and new names
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-new-population-information" class="md-nav__link">
+    Generate new population information
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-a-namedtuple" class="md-nav__link">
+    Using a NamedTuple
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-vector-of-names-and-a-vector-of-counts" class="md-nav__link">
+    Using a Vector of names and a Vector of counts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/pdimens/PopGen.jl/edit/master/docs/manipulate/location_and_pop.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Location and Population Data</h1>
+                
+                <p>Population genetics involves a focus on... populations (gasp!). The commands below show you how to view and modify both population information (names), and location information (geographic coordinates). </p>
+<h2 id="location-data">Location Data</h2>
+<h3 id="view-location-data">View location data</h3>
+<div class="codehilite"><pre><span></span><span class="n">locations</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopData</span><span class="p">)</span>
+</pre></div>
+
+<p>View location data (<code>.longitude</code> and <code>.latitude</code>) in a <code>PopData</code>,  returning a table the longitude and latitude information in <code>meta</code>. </p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">locations</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">locations</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>Table with 212 rows, 2 columns:
+longitude  latitude
+───────────────────
+28.3062    -80.5993
+28.3079    -80.5995
+28.3023    -80.5996
+28.6123    -80.4225
+27.8666    -80.3578
+27.8666    -80.3579
+27.8682    -80.3482
+27.8711    -80.3482
+⋮
+30.0696    -86.5376
+29.9065    -86.0905
+30.0532    -87.3661
+30.0522    -87.3662
+29.8234    -85.7143
+29.8234    -85.7143
+</pre></div></div>
+</div>
+<h3 id="add-location-data">Add location data</h3>
+<p>Location data can be added using one of the methods of <code>locations!</code>. As indicated by the bang <code>!</code>, your <code>PopData</code> will be edited in place, and there will be no return output. If your data is in Decimal Minutes format, this function will convert your long/lat into Decimal Degrees. To import those data into Julia, you'll likely want to use the wonderful <code>CSV.jl</code> package first. </p>
+<ul>
+<li>Decimal Degrees : <code>-11.431</code></li>
+<li>Decimal Minutes : <code>-11 43.11</code> (notice the space)</li>
+</ul>
+<div class="admonition warning">
+<p>Your data <strong>must</strong> use the minus sign <code>-</code> (if appropriate) instead of cardinal directions. <code>11 43.11W</code> is <strong>not</strong> valid.</p>
+</div>
+<p>There are three main ways of adding location data:</p>
+<h4 id="if-already-in-decimal-degrees">If already in decimal degrees</h4>
+<div class="codehilite"><pre><span></span><span class="n">locations!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">,</span> <span class="n">long</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">lat</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span><span class="o">&lt;:</span><span class="kt">AbstractFloat</span>
+</pre></div>
+
+<p>This method is pretty straightforward, and it tolerates vectors with <code>missing</code> data.</p>
+<div class="codehilite"><pre><span></span><span class="c"># generate some fake location data</span>
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">long</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span> <span class="o">.*</span> <span class="mi">10</span> <span class="p">;</span> <span class="n">lat</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span> <span class="o">.*</span> <span class="o">-</span><span class="mi">10</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">locations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">long</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
+</pre></div>
+
+<h4 id="if-in-decimal-minutes">If in decimal minutes</h4>
+<p>There are two options here, the first is to input two vectors of strings, like:</p>
+<div class="codehilite"><pre><span></span><span class="n">lat</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;11 44.31&quot;</span><span class="p">,</span> <span class="s">&quot;-25 41.94&quot;</span><span class="p">]</span>
+<span class="n">long</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;-43 54.11&quot;</span><span class="p">,</span> <span class="s">&quot;22 23.11&quot;</span><span class="p">]</span>
+</pre></div>
+
+<p>For this, the method is</p>
+<div class="codehilite"><pre><span></span><span class="n">locations!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopData</span><span class="p">;</span> <span class="n">lat</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">String</span><span class="p">},</span> <span class="n">long</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">String</span><span class="p">})</span>
+</pre></div>
+
+<p>which uses the <code>lat</code> and <code>long</code> keywords.</p>
+<div class="admonition warning">
+<p>This method tolerates <code>missing</code> values, but you will need to <code>replace!</code> the string <code>"missing"</code> with values of <code>missing</code>.</p>
+</div>
+<p>Or, you can input four vectors of numbers with the associated keyword arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Keyword Argument</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vector of longitude degrees</td>
+<td>Integer</td>
+<td><code>long_deg</code></td>
+</tr>
+<tr>
+<td>Vector of longitude minutes</td>
+<td>Float</td>
+<td><code>long_min</code></td>
+</tr>
+<tr>
+<td>Vector of latitude degrees</td>
+<td>Integer</td>
+<td><code>lat_deg</code></td>
+</tr>
+<tr>
+<td>Vector of latitude minutes</td>
+<td>Float</td>
+<td><code>lat_min</code></td>
+</tr>
+</tbody>
+</table>
+<p>This method is easier or more tedious depending on what you consider a more practical approach. For example, if you have decimal-minutes coordinates for two samples:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Longitude</th>
+<th>Latitude</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sample 1</td>
+<td>11 43.12</td>
+<td>15 36.53</td>
+</tr>
+<tr>
+<td>Sample 2</td>
+<td>-12 41.32</td>
+<td>11 22.41</td>
+</tr>
+</tbody>
+</table>
+<p>then your inputs would be:</p>
+<div class="codehilite"><pre><span></span>lo_deg = [11, -12]
+lo_min = [43.12, 41.32]
+la_deg  = [15, 11]
+la_min  = [36.53, 22.41]
+</pre></div>
+
+<p>and you would then use <code>locations!</code> like this:</p>
+<div class="codehilite"><pre><span></span><span class="n">locations!</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">long_deg</span> <span class="o">=</span> <span class="n">lo_deg</span><span class="p">,</span> <span class="n">long_min</span> <span class="o">=</span> <span class="n">lo_min</span><span class="p">,</span> <span class="n">lat_deg</span> <span class="o">=</span> <span class="n">la_deg</span><span class="p">,</span> <span class="n">lat_min</span> <span class="o">=</span> <span class="n">la_min</span><span class="p">)</span>
+</pre></div>
+
+<h2 id="population-names">Population Names</h2>
+<h3 id="view-population-names">View population names</h3>
+<div class="codehilite"><pre><span></span><span class="n">populations</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopData</span><span class="p">;</span> <span class="n">listall</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
+</pre></div>
+
+<p>Just as you can view population names with <code>PopData.meta.columns.population</code>, you can also view them with the <code>populations</code> command, which by default shows you a summary of the number of individuals in each population.  </p>
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">populations</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>Table with 7 rows, 2 columns:
+population        count
+───────────────────────
+&quot;Cape Canaveral&quot;  21
+&quot;Florida Keys&quot;    65
+&quot;Georgia&quot;         30
+&quot;Mideast Gulf&quot;    28
+&quot;Northeast Gulf&quot;  20
+&quot;South Carolina&quot;  28
+&quot;Southeast Gulf&quot;  20
+</pre></div></div>
+</div>
+<p>You can use the keyword <code>listall=true</code> to display each individual and their associated population as a table. </p>
+<div class="superfences-tabs">
+<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
+<label for="__tab_3_0">listall=true</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">listall</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_3" type="radio" id="__tab_3_1" />
+<label for="__tab_3_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>Table with 212 rows, 2 columns:
+name       population
+───────────────────────────
+&quot;cc_001&quot;   &quot;Cape Canaveral&quot;
+&quot;cc_002&quot;   &quot;Cape Canaveral&quot;
+&quot;cc_003&quot;   &quot;Cape Canaveral&quot;
+&quot;cc_005&quot;   &quot;Cape Canaveral&quot;
+&quot;cc_007&quot;   &quot;Cape Canaveral&quot;
+&quot;cc_008&quot;   &quot;Cape Canaveral&quot;
+&quot;cc_009&quot;   &quot;Cape Canaveral&quot;
+&quot;cc_010&quot;   &quot;Cape Canaveral&quot;
+⋮
+&quot;seg_026&quot;  &quot;Southeast Gulf&quot;
+&quot;seg_027&quot;  &quot;Southeast Gulf&quot;
+&quot;seg_028&quot;  &quot;Southeast Gulf&quot;
+&quot;seg_029&quot;  &quot;Southeast Gulf&quot;
+&quot;seg_030&quot;  &quot;Southeast Gulf&quot;
+&quot;seg_031&quot;  &quot;Southeast Gulf&quot;
+</pre></div></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">synonymous functions</p>
+<p>You can use the command <code>population</code> for the same functionality. We made the commands <code>population</code> and <code>populations</code> synonymous so you wouldn't have to memorize if the name was singular or plural-- it just works! This also applies to <code>populations!</code> and <code>population!</code></p>
+</div>
+<h3 id="rename-populations">Rename populations</h3>
+<p>There are a handful of methods to alter <code>PopData</code> population names depending on what you find most convenient. Each of these methods start with <code>populations!()</code> and vary in their inputs. It's for that reason this function has an obnoxiously long docstring. For simplicity, the methods will be separated into categories. However, all the methods for <code>populations!</code> are unified in that they edit <code>PopData</code> in place, and print (rather than return) a table of the new population names and counts courtesy of <code>populations()</code>.</p>
+<h4 id="replace-by-matching">Replace by matching</h4>
+<h5 id="using-a-dictionary">Using a Dictionary</h5>
+<div class="codehilite"><pre><span></span><span class="n">populations!</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopData</span><span class="p">,</span> <span class="n">rename</span><span class="o">::</span><span class="kt">Dict</span><span class="p">)</span>
+</pre></div>
+
+<p>Rename existing population ID's of <code>PopData</code> using a <code>Dict</code> of
+<code>population_name =&gt; replacement</code>.</p>
+<div class="superfences-tabs">
+<input name="__tabs_4" type="radio" id="__tab_4_0" checked="checked" />
+<label for="__tab_4_0">rename populations</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c"># create a dictionary of name conversions</span>
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">new_popnames</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">(</span>
+            <span class="s">&quot;Cape Canaveral&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span>
+            <span class="s">&quot;Georgia&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span>
+            <span class="s">&quot;South Carolina&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span>
+            <span class="s">&quot;Florida Keys&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span>
+            <span class="s">&quot;Mideast Gulf&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span>
+            <span class="s">&quot;Northeast Gulf&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span>
+            <span class="s">&quot;Southeast Gulf&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;Gulf&quot;</span>
+        <span class="p">);</span>  
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">new_popnames</span><span class="p">)</span>
+
+<span class="n">Table</span> <span class="n">with</span> <span class="mi">2</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">2</span> <span class="n">columns</span><span class="o">:</span>
+<span class="n">population</span>  <span class="n">count</span>
+<span class="n">─────────────────</span>
+<span class="s">&quot;Atlantic&quot;</span>  <span class="mi">79</span>
+<span class="s">&quot;Gulf&quot;</span>      <span class="mi">133</span>
+</pre></div></div>
+</div>
+<h5 id="using-a-vector-of-names">Using a Vector of names</h5>
+<p><code>Vector</code> of new unique population names in the order that they appear in the <code>PopData.meta</code>.</p>
+<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">new_popnames</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Atlantic&quot;</span><span class="p">,</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Gulf&quot;</span><span class="p">]</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">new_popnames</span><span class="p">)</span>
+
+<span class="n">Table</span> <span class="n">with</span> <span class="mi">2</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">2</span> <span class="n">columns</span><span class="o">:</span>
+<span class="n">population</span>  <span class="n">count</span>
+<span class="n">─────────────────</span>
+<span class="s">&quot;Atlantic&quot;</span>  <span class="mi">79</span>
+<span class="s">&quot;Gulf&quot;</span>      <span class="mi">133</span>
+</pre></div>
+
+<h5 id="using-a-vector-of-oldnames-and-new-names">Using a Vector of oldnames and new names</h5>
+<p>Similar to the <code>Dict</code> method, except instead of creating a dictionary of "oldname" =&gt; "newname", you input a Vector{String} of <code>oldnames</code> followed by another of <code>newnames</code>. Logically, the new names will replace the old names in the same order as they appear in <code>PopData.meta</code> (e.g. the first newname replaces the first oldname, etc.).</p>
+<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">old_pop</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Cape Canaveral&quot;</span><span class="p">,</span> <span class="s">&quot;Florida Keys&quot;</span><span class="p">,</span> <span class="s">&quot;Georgia&quot;</span><span class="p">,</span> <span class="s">&quot;Mideast Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Northeast Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;South Carolina&quot;</span><span class="p">,</span> <span class="s">&quot;Southeast Gulf&quot;</span><span class="p">]</span> <span class="p">;</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">new_pop</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Atlantic&quot;</span><span class="p">,</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Atlantic&quot;</span><span class="p">,</span> <span class="s">&quot;Gulf&quot;</span><span class="p">]</span> <span class="p">;</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">old_pop</span><span class="p">,</span> <span class="n">new_pop</span><span class="p">)</span>
+<span class="n">Table</span> <span class="n">with</span> <span class="mi">2</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">2</span> <span class="n">columns</span><span class="o">:</span>
+<span class="n">population</span>  <span class="n">count</span>
+<span class="n">─────────────────</span>
+<span class="s">&quot;Atlantic&quot;</span>  <span class="mi">79</span>
+<span class="s">&quot;Gulf&quot;</span>      <span class="mi">133</span>
+</pre></div>
+
+<h4 id="generate-new-population-information">Generate new population information</h4>
+<p>You may want outright overwrite all current population information. This is particularly useful when importing from VCF format when population information is not provided. This method will completely replace the population names of <code>PopData</code> regardless of what they currently are. </p>
+<div class="admonition warning">
+<p class="admonition-title">Double-check your population counts</p>
+<p>If you're playing along and getting errors that the lengths don't match, then get make sure you're using the right population counts. You can get those numbers with <code>populations(sharks)</code>.</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+</pre></div>
+
+<p>and we then also create the vector of the names in the order in which they appear:</p>
+<div class="codehilite"><pre><span></span><span class="n">popnames</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Cape Canaveral&quot;</span><span class="p">,</span> <span class="s">&quot;Florida Keys&quot;</span><span class="p">,</span> <span class="s">&quot;Georgia&quot;</span><span class="p">,</span> <span class="s">&quot;Mideast Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;Northeast Gulf&quot;</span><span class="p">,</span> <span class="s">&quot;South Carolina&quot;</span><span class="p">,</span> <span class="s">&quot;Southeast Gulf&quot;</span><span class="p">]</span>
+</pre></div>
+
+<p>Now we can combine them with <code>populations!</code> to restore the population names to how they were originally:</p>
+<h5 id="using-a-namedtuple">Using a NamedTuple</h5>
+<div class="superfences-tabs">
+<input name="__tabs_5" type="radio" id="__tab_5_0" checked="checked" />
+<label for="__tab_5_0">replace populations</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="p">(</span><span class="n">counts</span> <span class="o">=</span> <span class="n">counts</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">popnames</span><span class="p">))</span>
+<span class="n">Table</span> <span class="n">with</span> <span class="mi">7</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">2</span> <span class="n">columns</span><span class="o">:</span>
+<span class="n">population</span>        <span class="n">count</span>
+<span class="n">───────────────────────</span>
+<span class="s">&quot;Cape Canaveral&quot;</span>  <span class="mi">21</span>
+<span class="s">&quot;Florida Keys&quot;</span>    <span class="mi">65</span>
+<span class="s">&quot;Georgia&quot;</span>         <span class="mi">30</span>
+<span class="s">&quot;Mideast Gulf&quot;</span>    <span class="mi">28</span>
+<span class="s">&quot;Northeast Gulf&quot;</span>  <span class="mi">20</span>
+<span class="s">&quot;South Carolina&quot;</span>  <span class="mi">28</span>
+<span class="s">&quot;Southeast Gulf&quot;</span>  <span class="mi">20</span>
+</pre></div></div>
+</div>
+<h5 id="using-a-vector-of-names-and-a-vector-of-counts">Using a Vector of names and a Vector of counts</h5>
+<p>This is just about the same as using the <code>NamedTuple</code>, but perhaps some users will prefer this format.</p>
+<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">populations!</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="n">popnames</span><span class="p">,</span> <span class="n">counts</span><span class="p">)</span>
+<span class="n">Table</span> <span class="n">with</span> <span class="mi">7</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">2</span> <span class="n">columns</span><span class="o">:</span>
+<span class="n">population</span>        <span class="n">count</span>
+<span class="n">───────────────────────</span>
+<span class="s">&quot;Cape Canaveral&quot;</span>  <span class="mi">21</span>
+<span class="s">&quot;Florida Keys&quot;</span>    <span class="mi">65</span>
+<span class="s">&quot;Georgia&quot;</span>         <span class="mi">30</span>
+<span class="s">&quot;Mideast Gulf&quot;</span>    <span class="mi">28</span>
+<span class="s">&quot;Northeast Gulf&quot;</span>  <span class="mi">20</span>
+<span class="s">&quot;South Carolina&quot;</span>  <span class="mi">28</span>
+<span class="s">&quot;Southeast Gulf&quot;</span>  <span class="mi">20</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../exclusion/" title="Remove Samples/Loci" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Remove Samples/Loci
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../analyses/hardyweinberg/" title="Hardy-Weinberg Equilibrium" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Hardy-Weinberg Equilibrium
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019 Pavel Dimens and Jason Selwyn
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.8e03edeb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      
+    
+  </body>
+</html>

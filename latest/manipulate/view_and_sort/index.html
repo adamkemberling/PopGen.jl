@@ -1,0 +1,1248 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Population genetics in Julia">
+      
+      
+      
+        <meta name="author" content="Pavel Dimens and Jason Selwyn">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
+    
+    
+      
+        <title>Viewing and Sorting - PopGen.jl</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#individuals-samples" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="PopGen.jl" class="md-header-nav__button md-logo">
+          
+            <img src="../../img/logo_icon.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              PopGen.jl
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Viewing and Sorting
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/pdimens/PopGen.jl/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    PopGen.jl
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="PopGen.jl" class="md-nav__button md-logo">
+      
+        <img src="../../img/logo_icon.png" width="48" height="48">
+      
+    </a>
+    PopGen.jl
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/pdimens/PopGen.jl/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    PopGen.jl
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Getting started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Getting started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/juliaprimer/" title="A Julia primer" class="md-nav__link">
+      A Julia primer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/install/" title="How to Install" class="md-nav__link">
+      How to Install
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      PopData and Types
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        PopData and Types
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/popobj_type/" title="PopData and PopObj" class="md-nav__link">
+      PopData and PopObj
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/accessing_popdata/" title="Accessing parts of PopData" class="md-nav__link">
+      Accessing parts of PopData
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/comparison/" title="Benchmarks" class="md-nav__link">
+      Benchmarks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Importing Data
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Importing Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/example_data/" title="Example Data" class="md-nav__link">
+      Example Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/file_import/" title="Reading in Data" class="md-nav__link">
+      Reading in Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/delimited/" title="Delimited" class="md-nav__link">
+      Delimited
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/genepop/" title="Genepop" class="md-nav__link">
+      Genepop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../io/variantcall/" title="Variant Call Format" class="md-nav__link">
+      Variant Call Format
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Manipulating PopData
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Manipulating PopData
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../manipulate/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Viewing and Sorting
+      </label>
+    
+    <a href="./" title="Viewing and Sorting" class="md-nav__link md-nav__link--active">
+      Viewing and Sorting
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#individuals-samples" class="md-nav__link">
+    Individuals / Samples
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-individuals-names" class="md-nav__link">
+    view individuals' names
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sorting" class="md-nav__link">
+    Sorting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#display-specific-loci-andor-samples" class="md-nav__link">
+    Display Specific Loci and/or Samples
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-loci-names" class="md-nav__link">
+    Get loci names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-genotypes-at-a-locus" class="md-nav__link">
+    View genotypes at a locus
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-genotypes-by-sample-or-anything" class="md-nav__link">
+    View genotypes by sample (or anything)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#missing-data" class="md-nav__link">
+    Missing Data
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../exclusion/" title="Remove Samples/Loci" class="md-nav__link">
+      Remove Samples/Loci
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../location_and_pop/" title="Location and Population Data" class="md-nav__link">
+      Location and Population Data
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Types of Analyses
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Types of Analyses
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../analyses/hardyweinberg/" title="Hardy-Weinberg Equilibrium" class="md-nav__link">
+      Hardy-Weinberg Equilibrium
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../analyses/relatedness/" title="Relatedness" class="md-nav__link">
+      Relatedness
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../community/" title="Community" class="md-nav__link">
+      Community
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Other
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Other
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+    
+    <label class="md-nav__link" for="nav-7-1">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-1">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other/api/hidden_api/" title="Under the hood functions" class="md-nav__link">
+      Under the hood functions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other/logo_graveyard/" title="Logo Graveyard" class="md-nav__link">
+      Logo Graveyard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Misc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Misc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other/misc/genepopIBD/" title="Genepop IBD Conversion" class="md-nav__link">
+      Genepop IBD Conversion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#individuals-samples" class="md-nav__link">
+    Individuals / Samples
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-individuals-names" class="md-nav__link">
+    view individuals' names
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sorting" class="md-nav__link">
+    Sorting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#display-specific-loci-andor-samples" class="md-nav__link">
+    Display Specific Loci and/or Samples
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-loci-names" class="md-nav__link">
+    Get loci names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-genotypes-at-a-locus" class="md-nav__link">
+    View genotypes at a locus
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-genotypes-by-sample-or-anything" class="md-nav__link">
+    View genotypes by sample (or anything)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#missing-data" class="md-nav__link">
+    Missing Data
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/pdimens/PopGen.jl/edit/master/docs/manipulate/view_and_sort.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Viewing and Sorting</h1>
+                
+                <p>The functions here help you inspect your <code>PopData</code> and pull information from it easily.</p>
+<h2 id="individuals-samples">Individuals / Samples</h2>
+<h3 id="view-individuals-names">view individuals' names</h3>
+<div class="codehilite"><pre><span></span><span class="n">samples</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopObj</span><span class="p">)</span>
+</pre></div>
+
+<p>View individual/sample names in a <code>PopData</code>. </p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">samples</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">samples</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
+<span class="mi">212</span><span class="o">-</span><span class="n">element</span> <span class="kt">Array</span><span class="p">{</span><span class="n">String</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+ <span class="s">&quot;cc_001&quot;</span> 
+ <span class="s">&quot;cc_002&quot;</span> 
+ <span class="s">&quot;cc_003&quot;</span> 
+ <span class="s">&quot;cc_005&quot;</span> 
+ <span class="s">&quot;cc_007&quot;</span> 
+ <span class="s">&quot;cc_008&quot;</span> 
+ <span class="s">&quot;cc_009&quot;</span> 
+ <span class="s">&quot;cc_010&quot;</span> 
+ <span class="s">&quot;cc_012&quot;</span> 
+ <span class="s">&quot;cc_013&quot;</span> 
+ <span class="n">⋮</span>        
+ <span class="s">&quot;seg_023&quot;</span>
+ <span class="s">&quot;seg_024&quot;</span>
+ <span class="s">&quot;seg_025&quot;</span>
+ <span class="s">&quot;seg_026&quot;</span>
+ <span class="s">&quot;seg_027&quot;</span>
+ <span class="s">&quot;seg_028&quot;</span>
+ <span class="s">&quot;seg_029&quot;</span>
+ <span class="s">&quot;seg_030&quot;</span>
+ <span class="s">&quot;seg_031&quot;</span>
+</pre></div></div>
+</div>
+<h2 id="sorting">Sorting</h2>
+<div class="codehilite"><pre><span></span><span class="n">reindex</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopData</span><span class="p">,</span> <span class="n">col</span><span class="o">::</span><span class="kt">Union</span><span class="p">{</span><span class="n">String</span><span class="p">,</span> <span class="kt">Symbol</span><span class="p">})</span>
+</pre></div>
+
+<p>By default, the <code>loci</code> table of <code>PopData</code> is sorted by the <code>name</code> column. For performance or convenience reasons, you can sort it using any column you want. This will sort the <code>loci</code> table of a <code>PopData</code> object by column <code>col</code> and return new <code>PopData</code> object, keeping the original intact. The column names can be Strings or Symbols.</p>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span><span class="n">sorted_sharks</span> <span class="o">=</span> <span class="n">reindex</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="o">:</span><span class="n">population</span><span class="p">)</span>
+</pre></div>
+
+<h2 id="display-specific-loci-andor-samples">Display Specific Loci and/or Samples</h2>
+<p>These are the "public" functions to retrieve sample genotype information in an easy-on-the-eyes format, whereas calculations in other parts of PopGen.jl use much more barebones functions <a href="other/api/hidden_api.md">under the hood</a> suitable for high-throughput programming.</p>
+<h3 id="get-loci-names">Get loci names</h3>
+<div class="codehilite"><pre><span></span><span class="n">loci</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopData</span><span class="p">)</span>
+</pre></div>
+
+<p>Returns a vector of strings of the loci names in a <code>PopData</code></p>
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">example</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">loci</span><span class="p">(</span><span class="n">sharks</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>2213-element Array{String,1}:
+ &quot;contig_35208&quot;
+ &quot;contig_23109&quot;
+ &quot;contig_4493&quot; 
+ &quot;contig_10742&quot;
+ &quot;contig_14898&quot;
+ &quot;contig_8483&quot; 
+ &quot;contig_8065&quot; 
+ &quot;contig_14708&quot;
+ &quot;contig_2307&quot; 
+ ⋮             
+ &quot;contig_24711&quot;
+ &quot;contig_18959&quot;
+ &quot;contig_43517&quot;
+ &quot;contig_27356&quot;
+ &quot;contig_475&quot;  
+ &quot;contig_19384&quot;
+ &quot;contig_22368&quot;
+ &quot;contig_2784&quot; 
+</pre></div></div>
+</div>
+<h3 id="view-genotypes-at-a-locus">View genotypes at a locus</h3>
+<div class="codehilite"><pre><span></span><span class="n">locus</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopData</span><span class="p">,</span> <span class="n">locus</span><span class="o">::</span><span class="n">String</span><span class="p">)</span>
+</pre></div>
+
+<p>Default shows all genotypes for all individuals. Returns a Vector.</p>
+<div class="superfences-tabs">
+<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
+<label for="__tab_3_0">all loci</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">locus</span><span class="p">(</span><span class="n">sharks</span><span class="p">,</span> <span class="s">&quot;contig_2784&quot;</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_3" type="radio" id="__tab_3_1" />
+<label for="__tab_3_1">output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>212-element view(::Array{Union{Missing, Tuple{Int8,Int8}},1}, [2213, 4426, 6639, 8852, 11065, 13278, 15491, 17704, 19917, 22130  …  449239, 451452, 453665, 455878, 458091, 460304, 462517, 464730, 466943, 469156]) with eltype Union{Missing, Tuple{Int8,Int8}}:
+ (1, 1) 
+ (1, 1) 
+ (1, 1) 
+ (1, 1) 
+ (1, 1) 
+ (1, 1) 
+ (1, 1) 
+ (1, 1) 
+ ⋮      
+ (1, 1) 
+ (1, 1) 
+ (1, 1) 
+ (1, 1) 
+ missing
+ (1, 1) 
+ (1, 1) 
+ (1, 1) 
+</pre></div></div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">returning a <code>view</code></p>
+<p>The <code>locus</code> function gives a <code>view</code> into the genotype section of the <code>loci</code> table.. The text above the  output is isn't anything to be worried about-- it's indicating you are looking at a <code>view</code> of a column of the table and that it's not returning a new vector.</p>
+</div>
+<h2 id="view-genotypes-by-sample-or-anything">View genotypes by sample (or anything)</h2>
+<p>This can be done fairly easily using JuliaDBMeta macro <code>@where</code></p>
+<div class="superfences-tabs">
+<input name="__tabs_4" type="radio" id="__tab_4_0" checked="checked" />
+<label for="__tab_4_0">single sample</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>julia&gt; @where sharks.loci :name == &quot;cc_001&quot;
+Table with 2213 rows, 4 columns:
+name      population        locus           genotype
+────────────────────────────────────────────────────
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_35208&quot;  (1, 2)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_23109&quot;  (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_4493&quot;   (1, 2)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_10742&quot;  (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_14898&quot;  (1, 2)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_8483&quot;   (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_8065&quot;   (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_14708&quot;  (1, 1)
+⋮
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_43517&quot;  (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_27356&quot;  (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_475&quot;    (1, 2)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_19384&quot;  (2, 2)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_22368&quot;  (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_2784&quot;   (1, 1)
+</pre></div></div>
+<input name="__tabs_4" type="radio" id="__tab_4_1" />
+<label for="__tab_4_1">multiple samples</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>julia&gt; @where sharks.loci :name in [&quot;cc_001&quot;, &quot;cc_002&quot;]
+Table with 4426 rows, 4 columns:
+name      population        locus           genotype
+────────────────────────────────────────────────────
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_35208&quot;  (1, 2)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_23109&quot;  (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_4493&quot;   (1, 2)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_10742&quot;  (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_14898&quot;  (1, 2)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_8483&quot;   (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_8065&quot;   (1, 1)
+&quot;cc_001&quot;  &quot;Cape Canaveral&quot;  &quot;contig_14708&quot;  (1, 1)
+⋮
+&quot;cc_002&quot;  &quot;Cape Canaveral&quot;  &quot;contig_43517&quot;  (1, 1)
+&quot;cc_002&quot;  &quot;Cape Canaveral&quot;  &quot;contig_27356&quot;  (1, 1)
+&quot;cc_002&quot;  &quot;Cape Canaveral&quot;  &quot;contig_475&quot;    (1, 2)
+&quot;cc_002&quot;  &quot;Cape Canaveral&quot;  &quot;contig_19384&quot;  (2, 2)
+&quot;cc_002&quot;  &quot;Cape Canaveral&quot;  &quot;contig_22368&quot;  (1, 1)
+&quot;cc_002&quot;  &quot;Cape Canaveral&quot;  &quot;contig_2784&quot;   (1, 1)
+</pre></div></div>
+</div>
+<p>It also means that you can combine different queries with "and" <code>&amp;&amp;</code> and "or" <code>||</code></p>
+<div class="superfences-tabs">
+<input name="__tabs_5" type="radio" id="__tab_5_0" checked="checked" />
+<label for="__tab_5_0">both name and locus</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="nd">@where</span> <span class="n">sharks</span><span class="o">.</span><span class="n">loci</span> <span class="o">:</span><span class="n">name</span> <span class="kp">in</span> <span class="p">[</span><span class="s">&quot;cc_001&quot;</span><span class="p">,</span> <span class="s">&quot;cc_002&quot;</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="o">:</span><span class="n">locus</span> <span class="o">==</span> <span class="s">&quot;contig_2784&quot;</span>
+<span class="n">Table</span> <span class="n">with</span> <span class="mi">2</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">4</span> <span class="n">columns</span><span class="o">:</span>
+<span class="n">name</span>      <span class="n">population</span>        <span class="n">locus</span>          <span class="n">genotype</span>
+<span class="n">───────────────────────────────────────────────────</span>
+<span class="s">&quot;cc_001&quot;</span>  <span class="s">&quot;Cape Canaveral&quot;</span>  <span class="s">&quot;contig_2784&quot;</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="s">&quot;cc_002&quot;</span>  <span class="s">&quot;Cape Canaveral&quot;</span>  <span class="s">&quot;contig_2784&quot;</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div></div>
+</div>
+<h2 id="missing-data">Missing Data</h2>
+<div class="codehilite"><pre><span></span><span class="n">missing</span><span class="p">(</span><span class="n">data</span><span class="o">::</span><span class="n">PopData</span><span class="p">;</span> <span class="n">mode</span><span class="o">::</span><span class="n">String</span> <span class="o">=</span> <span class="s">&quot;sample&quot;</span><span class="p">)</span>
+</pre></div>
+
+<p>Get missing genotype information in a <code>PopData</code>. Specify a <code>mode</code> of operation to return a DataFrame corresponding with that missing information type.</p>
+<table>
+<thead>
+<tr>
+<th>mode</th>
+<th>alternative name</th>
+<th>what it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"sample"</td>
+<td>"individual"</td>
+<td>returns a count and list of missing loci per individual (default)</td>
+</tr>
+<tr>
+<td>"pop"</td>
+<td>"population"</td>
+<td>returns a count of missing genotypes per population</td>
+</tr>
+<tr>
+<td>"locus"</td>
+<td>"loci"</td>
+<td>returns a count of missing genotypes per locus</td>
+</tr>
+<tr>
+<td>"full"</td>
+<td>"detailed"</td>
+<td>returns a count of missing genotypes per locus per population</td>
+</tr>
+</tbody>
+</table>
+<div class="superfences-tabs">
+<input name="__tabs_6" type="radio" id="__tab_6_0" checked="checked" />
+<label for="__tab_6_0">sample</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>julia&gt; missing(sharks)
+Table with 212 rows, 2 columns:
+name       missing
+──────────────────
+&quot;cc_001&quot;   124
+&quot;cc_002&quot;   94
+&quot;cc_003&quot;   100
+&quot;cc_005&quot;   0
+&quot;cc_007&quot;   2
+&quot;cc_008&quot;   1
+&quot;cc_009&quot;   2
+&quot;cc_010&quot;   1
+⋮
+&quot;seg_026&quot;  0
+&quot;seg_027&quot;  2
+&quot;seg_028&quot;  25
+&quot;seg_029&quot;  0
+&quot;seg_030&quot;  1
+&quot;seg_031&quot;  1
+</pre></div></div>
+<input name="__tabs_6" type="radio" id="__tab_6_1" />
+<label for="__tab_6_1">pop</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>julia&gt; missing(sharks, mode = &quot;pop&quot;)
+Table with 7 rows, 2 columns:
+population        missing
+─────────────────────────
+&quot;Florida Keys&quot;    782
+&quot;Cape Canaveral&quot;  666
+&quot;Mideast Gulf&quot;    379
+&quot;Georgia&quot;         744
+&quot;Northeast Gulf&quot;  93
+&quot;Southeast Gulf&quot;  1504
+&quot;South Carolina&quot;  480
+</pre></div></div>
+<input name="__tabs_6" type="radio" id="__tab_6_2" />
+<label for="__tab_6_2">locus</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>julia&gt; missing(sharks, mode = &quot;locus&quot;)
+Table with 2213 rows, 2 columns:
+locus           missing
+───────────────────────
+&quot;contig_35208&quot;  0
+&quot;contig_23109&quot;  6
+&quot;contig_4493&quot;   3
+&quot;contig_10742&quot;  2
+&quot;contig_14898&quot;  0
+&quot;contig_8483&quot;   0
+&quot;contig_8065&quot;   0
+&quot;contig_14708&quot;  1
+⋮
+&quot;contig_43517&quot;  6
+&quot;contig_27356&quot;  2
+&quot;contig_475&quot;    0
+&quot;contig_19384&quot;  5
+&quot;contig_22368&quot;  3
+&quot;contig_2784&quot;   7
+</pre></div></div>
+<input name="__tabs_6" type="radio" id="__tab_6_3" />
+<label for="__tab_6_3">full</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>julia&gt; missing(sharks, mode = &quot;full&quot;)
+Table with 15491 rows, 3 columns:
+locus           population        missing
+─────────────────────────────────────────
+&quot;contig_35208&quot;  &quot;Florida Keys&quot;    0
+&quot;contig_35208&quot;  &quot;Cape Canaveral&quot;  0
+&quot;contig_35208&quot;  &quot;Mideast Gulf&quot;    0
+&quot;contig_35208&quot;  &quot;Georgia&quot;         0
+&quot;contig_35208&quot;  &quot;Northeast Gulf&quot;  0
+&quot;contig_35208&quot;  &quot;Southeast Gulf&quot;  0
+&quot;contig_35208&quot;  &quot;South Carolina&quot;  0
+&quot;contig_23109&quot;  &quot;Florida Keys&quot;    0
+⋮
+&quot;contig_2784&quot;   &quot;Cape Canaveral&quot;  0
+&quot;contig_2784&quot;   &quot;Mideast Gulf&quot;    1
+&quot;contig_2784&quot;   &quot;Georgia&quot;         1
+&quot;contig_2784&quot;   &quot;Northeast Gulf&quot;  1
+&quot;contig_2784&quot;   &quot;Southeast Gulf&quot;  1
+&quot;contig_2784&quot;   &quot;South Carolina&quot;  0
+</pre></div></div>
+</div>
+<details class="tip"><summary>alternative names</summary><p>Each <code>mode</code> has an extra synonymous (alternative) name just because we can and want you to have the option of more explicitly legible code. If you get the <code>mode</code> wrong, it will let you know with an error message and run the default <code>"sample"</code> mode anyway.</p>
+</details>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../manipulate/" title="Getting Started" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Getting Started
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../exclusion/" title="Remove Samples/Loci" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Remove Samples/Loci
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019 Pavel Dimens and Jason Selwyn
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.8e03edeb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      
+    
+  </body>
+</html>
