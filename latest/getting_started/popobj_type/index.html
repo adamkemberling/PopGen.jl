@@ -375,8 +375,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#loci" class="md-nav__link">
-    loci
+  <a href="#genotype-information" class="md-nav__link">
+    Genotype Information
   </a>
   
     <nav class="md-nav">
@@ -417,7 +417,7 @@
       
         <li class="md-nav__item">
   <a href="#viewing-popdata" class="md-nav__link">
-    viewing PopData
+    Viewing PopData
   </a>
   
 </li>
@@ -865,8 +865,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#loci" class="md-nav__link">
-    loci
+  <a href="#genotype-information" class="md-nav__link">
+    Genotype Information
   </a>
   
     <nav class="md-nav">
@@ -907,7 +907,7 @@
       
         <li class="md-nav__item">
   <a href="#viewing-popdata" class="md-nav__link">
-    viewing PopData
+    Viewing PopData
   </a>
   
 </li>
@@ -988,8 +988,8 @@
 <div class="codehilite"><pre><span></span>[-11.12, 15.32, 11.02, -4]
 </pre></div>
 
-<h2 id="loci">loci</h2>
-<p>The genotype information is stored in a separate table called <code>loci</code>. This table is rather special in that it is stored in "tidy" format, i.e. one record per row. Storing data this way makes it a lot easier to interrogate the data and write new functions, along with leveraging <a href="https://github.com/piever/JuliaDBMeta.jl">JuliaDBMeta.jl</a>. It also means the table will have as many rows as loci x samples, which can become a lot. To reduce redundant objects inflating object size, the columns name, population, and locus are <code>CategoricalStrings</code>  from <a href="https://github.com/JuliaData/CategoricalArrays.jl">CategoricalArrays.jl</a>, which is a memory-saving data structure for long repetitive categorical data. Without using this format, <code>gulfsharks</code> would occupy about 27mb in your RAM! The classes of <code>.loci</code> can be directly accessed with <code>PopData.loci.columns.colname</code> where <code>PopData</code> is the name of your PopData object, and <code>colname</code> is one of the four column names below.</p>
+<h2 id="genotype-information">Genotype Information</h2>
+<p>The genotype information is stored in a separate table called <code>loci</code>. This table is rather special in that it is stored in "tidy" format, i.e. one record per row. Storing data this way makes it a lot easier to interrogate the data and write new functions, along with leveraging <a href="https://github.com/piever/JuliaDBMeta.jl">JuliaDBMeta.jl</a>. It also means the table will have as many rows as loci x samples, which can become a lot. To reduce redundant objects inflating object size, the columns name, population, and locus are <code>CategoricalStrings</code>  from <a href="https://github.com/JuliaData/CategoricalArrays.jl">CategoricalArrays.jl</a>, which is a memory-saving data structure for long repetitive categorical data. Without using this format, <code>gulfsharks</code>, whose source file is 3.2mb, would occupy about 27mb in your RAM! The classes of <code>.loci</code> can be directly accessed with <code>PopData.loci.columns.colname</code> where <code>PopData</code> is the name of your PopData object, and <code>colname</code> is one of the four column names below.</p>
 <h3 id="name_1">name</h3>
 <p><code>::Vector{CategoricalString}</code></p>
 <p>The sample name, stored as a <code>CategoricalString</code>. Fundamentally, this acts like the <code>name</code> column of the <code>meta</code> table, except when deleting entries and a few uncommon edge cases.</p>
@@ -1006,9 +1006,9 @@
 </pre></div>
 
 <div class="admonition important">
-<p>We use the tuple type for genotypes of individuals because they are <strong>immutable</strong> (cannot be changed). By the time you're using <code>PopGen.jl</code>, your data should already be filtered and screened. Hand-editing of genotype values is <strong>strongly</strong> discouraged, so we outlawed it outright.</p>
+<p>We use the tuple type for genotypes of individuals because they are <strong>immutable</strong> (cannot be changed). By the time you're using <code>PopGen.jl</code>, your data should already be filtered and screened. Hand-editing of genotype values is <strong>strongly</strong> discouraged, so we outlawed it.</p>
 </div>
-<h2 id="viewing-popdata">viewing PopData</h2>
+<h2 id="viewing-popdata">Viewing PopData</h2>
 <p>Given the volume of information that can be present in a <code>PopData</code>, we recommend <code>summary()</code> to summarize/overview the data rather than regurgitate everything on the screen. </p>
 <div class="codehilite"><pre><span></span>julia&gt; a = gulfsharks() ;
 
@@ -1024,7 +1024,7 @@ PopData Object
 </pre></div>
 
 <h2 id="location-data">location data</h2>
-<p>Location data is optional for a <code>PopObj</code>. There are functions that use location information (e.g. <code>locations</code>), but most don't, so it's not a dealbreaker.</p>
+<p>Location data is optional for a <code>PopData</code>. There are functions that use location information (e.g. <code>locations</code>), but most don't, so it's not a dealbreaker. At present, there are no analyses that utilize location information. </p>
                 
                   
                 
